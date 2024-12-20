@@ -4,24 +4,30 @@ import { Picture } from 'astro:assets'
 import winterVillage from '../assets/images/bg.png'
 
 import PageTitle from '../components/ui/page-title'
+import Meteors from '@/components/ui/meteors'
 ---
 
 <Layout>
-    <div class="relative">
+    <div class="relative overflow-hidden">
         <Picture
             src={winterVillage}
             alt=""
             aria-hidden
             formats={['avif', 'webp']}
             class="h-screen w-full object-cover object-bottom"
+            height={720}
+            width={1280}
         />
-        <div class="absolute inset-0 bg-black opacity-50">
+        <div
+            class="flex items-center justify-center absolute inset-0 bg-black/25"
+        >
             <PageTitle
                 id="page-title"
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-8xl text-white"
+                className="font-bold text-8xl text-white"
                 client:only="react">Hello World!</PageTitle
             >
         </div>
+        <Meteors client:only="react" number={10} />
     </div>
 </Layout>
 
