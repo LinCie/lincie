@@ -7,5 +7,13 @@ export default {
     tabWidth: 4,
     semi: false,
     singleQuote: true,
-    plugins: ['prettier-plugin-tailwindcss'],
+    plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
+    overrides: [
+        {
+            files: '*.astro',
+            options: {
+                parser: 'astro',
+            },
+        },
+    ],
 }
