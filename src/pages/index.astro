@@ -1,38 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { Picture } from 'astro:assets'
-import winterVillage from '../assets/images/bg.png'
-
-import PageTitle from '../components/ui/page-title'
-import Meteors from '@/components/ui/meteors'
+import Hero from '../components/Hero.astro'
 ---
 
 <Layout>
-    <div class="relative overflow-hidden">
-        <Picture
-            src={winterVillage}
-            alt=""
-            aria-hidden
-            formats={['avif', 'webp']}
-            class="h-screen w-full object-cover object-bottom"
-            height={720}
-            width={1280}
-        />
-        <div
-            class="flex items-center justify-center absolute inset-0 bg-black/25"
-        >
-            <PageTitle
-                id="page-title"
-                className="font-bold text-8xl text-white"
-                client:only="react">Stay Tuned!</PageTitle
-            >
-        </div>
-        <Meteors client:only="react" number={10} />
-    </div>
+    <Hero />
 </Layout>
-
-<style>
-    #page-title {
-        font-family: 'Mountains of Christmas', system-ui;
-    }
-</style>
