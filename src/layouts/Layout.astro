@@ -1,6 +1,10 @@
 ---
 import '@/styles/globals.css'
 import '@fontsource/mountains-of-christmas'
+
+const { title }: { title?: string } = Astro.props
+
+import { SEO } from 'astro-seo'
 ---
 
 <!doctype html>
@@ -8,9 +12,38 @@ import '@fontsource/mountains-of-christmas'
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
-        <title>Astro Basics</title>
+        <SEO
+            title={title ?? 'LinCie'}
+            description="LinCie's personal website"
+            openGraph={{
+                basic: {
+                    title: title ?? 'LinCie',
+                    type: 'portfolio',
+                    image: '/nagusa.webp',
+                },
+            }}
+            twitter={{
+                creator: '@linciethesecond',
+            }}
+            extend={{
+                link: [{ rel: 'icon', href: '/favicon.webp' }],
+                meta: [
+                    {
+                        name: 'twitter:image',
+                        content: '/nagusa.webp',
+                    },
+                    {
+                        name: 'twitter:title',
+                        content: title ?? 'LinCie',
+                    },
+                    {
+                        name: 'twitter:description',
+                        content: "LinCie's personal website",
+                    },
+                ],
+            }}
+        />
     </head>
     <body>
         <slot />
