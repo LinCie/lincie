@@ -1,11 +1,32 @@
 ---
-import Landing from '../components/Landing.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro'
+import { Picture } from 'astro:assets'
+import winterVillage from '../assets/images/bg.png'
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import PageTitle from '../components/ui/page-title'
 ---
 
 <Layout>
-	<Landing />
+    <div class="relative">
+        <Picture
+            src={winterVillage}
+            alt=""
+            aria-hidden
+            formats={['avif', 'webp']}
+            class="h-screen w-full object-cover object-bottom"
+        />
+        <div class="absolute inset-0 bg-black opacity-50">
+            <PageTitle
+                id="page-title"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-8xl text-white"
+                client:only="react">Hello World!</PageTitle
+            >
+        </div>
+    </div>
 </Layout>
+
+<style>
+    #page-title {
+        font-family: 'Mountains of Christmas', system-ui;
+    }
+</style>
