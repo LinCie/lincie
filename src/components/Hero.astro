@@ -8,8 +8,9 @@ import Meteors from '@/components/ui/meteors'
 <script>
     import { gsap } from 'gsap'
 
-    const enterAnim = gsap.timeline({ delay: 1 })
+    const enterAnim = gsap.timeline({ delay: 2 })
     enterAnim
+        .fromTo('#overlay', { opacity: 1 }, { opacity: 0, duration: 0.5 })
         .fromTo(
             '#hero-title',
             {
@@ -18,6 +19,7 @@ import Meteors from '@/components/ui/meteors'
             {
                 duration: 1,
                 opacity: 1,
+                delay: 1,
                 ease: 'power2.out',
             }
         )
@@ -51,14 +53,22 @@ import Meteors from '@/components/ui/meteors'
             >
                 Hello World!
             </h1>
-            <div id="hero-subtitle" class="text-center text-2xl text-white">
-                I'm a marketing student with dreams of becoming a developer one day!
+            <div
+                id="hero-subtitle"
+                class="max-w-screen-md text-center text-2xl text-white"
+            >
+                I'm a marketing student, self-taught web developer, and
+                passionate language learner from Indonesia
             </div>
         </div>
     </div>
     <Meteors client:only="react" number={10} />
+    <div
+        class="absolute bottom-0 left-0 h-8 w-full bg-gradient-to-b from-transparent to-[#130f0f]"
+    >
+    </div>
+    <div id="overlay" class="absolute inset-0 bg-black"></div>
 </div>
-
 <style>
     #hero-title,
     #hero-subtitle {
