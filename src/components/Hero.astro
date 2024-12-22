@@ -2,7 +2,7 @@
 import { Picture } from 'astro:assets'
 import winterVillage from '@/assets/images/bg.webp'
 
-import Meteors from '@/components/ui/meteors'
+import Meteors from '@/components/ui/meteors.svelte'
 ---
 
 <script>
@@ -62,7 +62,7 @@ import Meteors from '@/components/ui/meteors'
             </div>
         </div>
     </div>
-    <Meteors client:only="react" number={10} />
+    <Meteors client:idle number={15} />
     <div
         class="absolute bottom-0 left-0 h-8 w-full bg-gradient-to-b from-transparent to-[#130f0f]"
     >
