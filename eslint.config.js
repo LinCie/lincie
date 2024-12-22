@@ -2,6 +2,7 @@ import globals from 'globals'
 import pluginJs from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import eslintPluginAstro from 'eslint-plugin-astro'
+import eslintPluginSvelte from 'eslint-plugin-svelte';
 import jsxA11y from 'eslint-plugin-jsx-a11y'
 import { includeIgnoreFile } from '@eslint/compat'
 
@@ -19,6 +20,7 @@ export default [
     { languageOptions: { globals: globals.node } },
     pluginJs.configs.recommended,
     ...tseslint.configs.recommended,
+    ...eslintPluginSvelte.configs['flat/recommended'],
     ...eslintPluginAstro.configs.recommended,
     jsxA11y.flatConfigs.recommended,
     includeIgnoreFile(gitignorePath),
