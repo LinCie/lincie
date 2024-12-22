@@ -7,8 +7,13 @@ export default {
     tabWidth: 4,
     semi: false,
     singleQuote: true,
-    plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
+    plugins: [
+        'prettier-plugin-astro',
+        'prettier-plugin-svelte',
+        'prettier-plugin-tailwindcss',
+    ],
     overrides: [
+        { files: '*.svelte', options: { parser: 'svelte' } },
         {
             files: '*.astro',
             options: {
