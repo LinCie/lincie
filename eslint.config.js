@@ -16,7 +16,7 @@ const prettierignorePath = path.resolve(__dirname, '.prettierignore')
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-    { files: ['**/*.{js,mjs,cjs,ts,astro}'] },
+    { files: ['**/*.{js,mjs,cjs,ts,astro,svelte}'] },
     { languageOptions: { globals: globals.node } },
     pluginJs.configs.recommended,
     ...tseslint.configs.recommended,
