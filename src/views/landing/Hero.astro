@@ -10,7 +10,7 @@ import Meteors from '@/components/ui/meteors.svelte'
 
     const enterAnim = gsap.timeline({ delay: 2 })
     enterAnim
-        .fromTo('#overlay', { opacity: 1 }, { opacity: 0, duration: 0.5 })
+        .fromTo('#hero-overlay', { opacity: 1 }, { opacity: 0, duration: 0.5 })
         .fromTo(
             '#hero-title',
             {
@@ -63,7 +63,7 @@ import Meteors from '@/components/ui/meteors.svelte'
         </div>
     </div>
     <Meteors client:idle number={15} />
-    <div id="overlay" class="absolute inset-0 bg-black"></div>
+    <div id="hero-overlay" class="absolute inset-0 bg-black"></div>
 </section>
 
 <style>
