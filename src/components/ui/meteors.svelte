@@ -1,6 +1,5 @@
 <script lang="ts">
     import { cn } from '@/lib/utils'
-    import { onMount } from 'svelte'
 
     const { number = 10 }: { number: number } = $props()
 
@@ -11,7 +10,7 @@
         animationDuration: string
     }[] = $state([])
 
-    onMount(() => {
+    $effect(() => {
         const generateStyles = () => {
             return Array.from({ length: number }, () => ({
                 top: '-5px',
@@ -22,10 +21,14 @@
         }
 
         meteorStyles = generateStyles()
+
+        return () => {
+            meteorStyles = []
+        }
     })
 </script>
 
-{#each meteorStyles as style, idx}
+{#each meteorStyles as style, idx ('meteor-' + idx)}
     <span
         class={cn(
             'pointer-events-none absolute left-1/2 top-1/2 size-0.5 rotate-[215deg] animate-meteor rounded-full bg-slate-500 shadow-[0_0_0_1px_#ffffff10]'
