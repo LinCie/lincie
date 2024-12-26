@@ -64,10 +64,10 @@ const buttons: IButtons[] = [
             '#about-button',
             {
                 opacity: 0,
-                x: -100,
+                x: -15,
             },
             {
-                duration: 0.5,
+                duration: 0.75,
                 opacity: 1,
                 x: 0,
                 ease: 'back.out',
@@ -77,43 +77,43 @@ const buttons: IButtons[] = [
             '#portfolio-button',
             {
                 opacity: 0,
-                y: -100,
+                y: -15,
             },
             {
-                duration: 0.5,
+                duration: 0.75,
                 opacity: 1,
                 y: 0,
                 ease: 'back.out',
             },
-            '-=0.3'
+            '-=50%'
         )
         .fromTo(
             '#blog-button',
             {
                 opacity: 0,
-                x: 100,
+                x: 15,
             },
             {
-                duration: 0.5,
+                duration: 0.75,
                 opacity: 1,
                 x: 0,
                 ease: 'back.out',
             },
-            '-=0.3'
+            '-=50%'
         )
         .fromTo(
             '#fun-button',
             {
                 opacity: 0,
-                y: 100,
+                y: 15,
             },
             {
-                duration: 0.5,
+                duration: 0.75,
                 opacity: 1,
                 y: 0,
                 ease: 'back.out',
             },
-            '-=0.3'
+            '-=50%'
         )
 </script>
 
@@ -131,7 +131,7 @@ const buttons: IButtons[] = [
     <div id="hero-overlay" class="absolute inset-0 bg-polar-0"></div>
     <div
         id="hero-content"
-        class="absolute inset-0 flex select-none justify-center bg-polar-0/60 font-winter text-snow-2"
+        class="absolute inset-0 flex select-none justify-center bg-black/60 font-winter text-snow-2"
     >
         <div
             class="flex max-w-screen-xl flex-col items-center justify-center p-8"
