@@ -22,6 +22,9 @@ export default {
                     },
                 },
             },
+            fontFamily: {
+                'winter': ['Mountains of Christmas', 'system-ui'],
+            }
         },
     },
 }

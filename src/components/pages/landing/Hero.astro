@@ -3,6 +3,35 @@ import { Picture } from 'astro:assets'
 import winterVillage from '@/assets/images/bg.webp'
 
 import Meteors from '@/components/ui/meteors.svelte'
+import { cn } from '@/lib/utils'
+
+interface IButtons {
+    id: string
+    text: string
+    href: string
+}
+const buttons: IButtons[] = [
+    {
+        id: 'about-button',
+        text: 'About',
+        href: '/about',
+    },
+    {
+        id: 'portfolio-button',
+        text: 'Portfolio',
+        href: '/portfolio',
+    },
+    {
+        id: 'blog-button',
+        text: 'Blog',
+        href: '/blog',
+    },
+    {
+        id: 'fun-button',
+        text: 'Fun',
+        href: '/fun',
+    },
+]
 ---
 
 <script>
@@ -28,8 +57,63 @@ import Meteors from '@/components/ui/meteors.svelte'
             {
                 opacity: 0,
             },
-            { duration: 1, opacity: 1, ease: 'power2.out' },
+            { duration: 0.75, opacity: 1, ease: 'power2.out' },
             '-=0.5'
+        )
+        .fromTo(
+            '#about-button',
+            {
+                opacity: 0,
+                x: -50,
+            },
+            {
+                duration: 0.5,
+                opacity: 1,
+                x: 0,
+                ease: 'power2.out',
+            }
+        )
+        .fromTo(
+            '#portfolio-button',
+            {
+                opacity: 0,
+                y: -50,
+            },
+            {
+                duration: 0.5,
+                opacity: 1,
+                y: 0,
+                ease: 'power2.out',
+            },
+            '-=0.3'
+        )
+        .fromTo(
+            '#blog-button',
+            {
+                opacity: 0,
+                x: 50,
+            },
+            {
+                duration: 0.5,
+                opacity: 1,
+                x: 0,
+                ease: 'power2.out',
+            },
+            '-=0.3'
+        )
+        .fromTo(
+            '#fun-button',
+            {
+                opacity: 0,
+                y: 50,
+            },
+            {
+                duration: 0.5,
+                opacity: 1,
+                y: 0,
+                ease: 'power2.out',
+            },
+            '-=0.3'
         )
 </script>
 
@@ -43,32 +127,45 @@ import Meteors from '@/components/ui/meteors.svelte'
         height={720}
         width={1280}
     />
-    <div class="absolute inset-0 flex justify-center bg-black/25">
+    <Meteors client:idle number={15} />
+    <div id="hero-overlay" class="absolute inset-0 bg-black"></div>
+    <div
+        id="hero-content"
+        class="absolute inset-0 flex select-none justify-center bg-black/55 font-winter"
+    >
         <div
             class="flex max-w-screen-xl flex-col items-center justify-center p-8"
         >
             <h1
                 id="hero-title"
-                class="text-center text-8xl font-bold text-white"
+                class="mb-2 text-center text-6xl font-bold text-white lg:mb-3 lg:text-8xl"
             >
                 Hi! I'm LinCie
             </h1>
             <div
                 id="hero-subtitle"
-                class="max-w-screen-md text-center text-2xl text-white"
+                class="mb-4 max-w-screen-md text-center text-lg text-white lg:mb-6 lg:text-2xl"
             >
                 A marketing student, self-taught web developer, and a passionate
                 language learner from Indonesia
             </div>
+            <div class="flex gap-4 lg:gap-5">
+                {
+                    buttons.map((button) => {
+                        return (
+                            <a href={button.href} id={button.id}>
+                                <button
+                                    class={cn(
+                                        'rounded-md px-3 py-2 text-sm font-bold text-white outline outline-2 outline-white lg:px-4 lg:py-2 lg:text-base',
+                                        'transition hover:bg-white hover:text-black'
+                                    )}
+                                    set:text={button.text}
+                                />
+                            </a>
+                        )
+                    })
+                }
+            </div>
         </div>
     </div>
-    <Meteors client:idle number={15} />
-    <div id="hero-overlay" class="absolute inset-0 bg-black"></div>
 </section>
-
-<style>
-    #hero-title,
-    #hero-subtitle {
-        font-family: 'Mountains of Christmas', system-ui;
-    }
-</style>
