@@ -128,23 +128,23 @@ const buttons: IButtons[] = [
         width={1280}
     />
     <Meteors client:idle number={15} />
-    <div id="hero-overlay" class="absolute inset-0 bg-black"></div>
+    <div id="hero-overlay" class="absolute inset-0 bg-polar-0"></div>
     <div
         id="hero-content"
-        class="absolute inset-0 flex select-none justify-center bg-black/55 font-winter"
+        class="absolute inset-0 flex select-none justify-center bg-polar-0/60 font-winter text-snow-2"
     >
         <div
             class="flex max-w-screen-xl flex-col items-center justify-center p-8"
         >
             <h1
                 id="hero-title"
-                class="mb-2 text-center text-6xl font-bold text-white lg:mb-3 lg:text-8xl"
+                class="mb-2 text-center text-6xl font-bold lg:mb-3 lg:text-8xl"
             >
                 Hi! I'm LinCie
             </h1>
             <div
                 id="hero-subtitle"
-                class="mb-4 max-w-screen-md text-center text-lg text-white lg:mb-6 lg:text-2xl"
+                class="mb-4 max-w-screen-md text-center text-lg lg:mb-6 lg:text-2xl"
             >
                 A marketing student, self-taught web developer, and a passionate
                 language learner from Indonesia
@@ -156,8 +156,8 @@ const buttons: IButtons[] = [
                             <a href={button.href} id={button.id}>
                                 <button
                                     class={cn(
-                                        'rounded-md px-3 py-2 text-sm font-bold text-white outline outline-2 outline-white lg:px-4 lg:py-2 lg:text-base',
-                                        'transition hover:bg-white hover:text-black'
+                                        'rounded-md px-3 py-2 text-sm font-bold outline outline-2 outline-snow-2 lg:px-4 lg:py-2 lg:text-base',
+                                        'transition hover:bg-snow-2 hover:text-polar-0'
                                     )}
                                     set:text={button.text}
                                 />
