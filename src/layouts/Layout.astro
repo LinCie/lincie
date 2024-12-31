@@ -1,6 +1,7 @@
 ---
 import '@/styles/globals.css'
 import '@fontsource/mountains-of-christmas'
+import '@fontsource-variable/fira-code'
 
 const { title }: { title?: string } = Astro.props
 
@@ -46,7 +47,9 @@ import { SEO } from 'astro-seo'
         />
     </head>
     <body>
-        <slot />
+        <div class="min-h-screen bg-polar-0 text-snow-2">
+            <slot />
+        </div>
     </body>
 </html>
 

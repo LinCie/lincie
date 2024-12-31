@@ -1,0 +1,171 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import Header from '@/components/layout/header.svelte'
+
+import { Icon } from 'astro-icon/components'
+import { Picture } from 'astro:assets'
+import me from '@/assets/images/nagusa.webp'
+
+import Paragraph from '@/components/ui/paragraph.svelte'
+
+interface ISocial {
+    icon: string
+    href: string
+}
+
+const socials: ISocial[] = [
+    {
+        icon: 'github',
+        href: 'https://github.com/LinCie/',
+    },
+    {
+        icon: 'linkedin',
+        href: 'https://www.linkedin.com/in/aldio-fernanda-4828802b5/',
+    },
+    {
+        icon: 'email',
+        href: 'mailto:me@lincie.me',
+    },
+]
+---
+
+<script>
+    import { gsap } from 'gsap'
+
+    const enterAnim = gsap.timeline({ delay: 2 })
+    enterAnim
+        .fromTo(
+            '#about-title',
+            { x: 25, opacity: 0 },
+            { x: 0, opacity: 1, duration: 1, ease: 'power2.out' }
+        )
+        .fromTo(
+            '#about-picture, #about-picture-bg',
+            { y: 25, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            '-=75%'
+        )
+        .fromTo(
+            '#about-picture-bg',
+            { rotate: 0 },
+            { rotate: -3, duration: 0.5, ease: 'power2.out' }
+        )
+        .fromTo(
+            '#about-picture',
+            { rotate: 0 },
+            { rotate: 3, duration: 0.5, ease: 'power2.out' },
+            '<'
+        )
+        .fromTo(
+            '.social-icon',
+            { y: 10, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1, ease: 'back.out', stagger: 0.25 }
+        )
+        .fromTo(
+            '.about-paragraph',
+            { x: 10, opacity: 0 },
+            {
+                x: 0,
+                opacity: 1,
+                duration: 1,
+                ease: 'power2.out',
+                stagger: 0.25,
+            },
+            '<'
+        )
+</script>
+
+<Layout>
+    <Header client:load />
+    <main class="mx-auto w-full max-w-screen-lg p-6 md:p-9 lg:p-12">
+        <h1
+            id="about-title"
+            class="mb-6 text-center text-3xl font-bold md:text-left"
+        >
+            Who am I?
+        </h1>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-16">
+            <div class="col-span-1 flex flex-col items-center">
+                <div class="relative mb-6 size-fit">
+                    <div
+                        id="about-picture-bg"
+                        aria-hidden="true"
+                        class="absolute inset-0 h-auto w-full place-self-center rounded-md bg-polar-1"
+                    >
+                    </div>
+                    <Picture
+                        id="about-picture"
+                        alt="LinCie"
+                        src={me}
+                        formats={['avif', 'webp']}
+                        height={500}
+                        width={500}
+                        class="h-auto w-full max-w-96 rounded-md object-cover"
+                    />
+                </div>
+                <div class="flex flex-wrap justify-center gap-2">
+                    {
+                        socials.map((social) => {
+                            return (
+                                <a
+                                    id={`social-${social.icon}`}
+                                    target="_blank"
+                                    class="social-icon rounded-full p-2 hover:bg-polar-1"
+                                    href={social.href}
+                                >
+                                    <Icon
+                                        name={social.icon}
+                                        aria-label={social.icon}
+                                        class="size-8"
+                                    />
+                                </a>
+                            )
+                        })
+                    }
+                </div>
+            </div>
+            <div class="col-span-1 md:col-span-2">
+                <Paragraph className="about-paragraph">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Morbi ullamcorper tempor erat, sed egestas nisl. Donec at
+                    nisi maximus ante sagittis varius. Ut ac faucibus lectus.
+                    Morbi scelerisque gravida erat. Etiam consectetur ex nec leo
+                    dignissim, eu volutpat elit aliquet. Nulla sit amet dolor
+                    sodales.
+                </Paragraph>
+                <Paragraph className="about-paragraph">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Phasellus sodales ullamcorper leo et consequat. Integer
+                    aliquam dui ac nibh aliquam eleifend. In hac habitasse
+                    platea dictumst. Proin id varius dolor, vitae porta enim.
+                    Aliquam feugiat sodales tempus. Nunc ac laoreet felis, a
+                    congue leo. Duis.
+                </Paragraph>
+                <Paragraph className="about-paragraph">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Vivamus sit amet ligula a massa sollicitudin suscipit nec et
+                    elit. Nullam sagittis nisl odio, id egestas sapien congue
+                    sit amet. Vivamus sit amet justo vitae libero semper
+                    finibus. Vestibulum non vestibulum ipsum, nec posuere mi.
+                    Nulla.
+                </Paragraph>
+                <Paragraph className="about-paragraph">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Curabitur vitae cursus ex, a malesuada magna. Aenean id
+                    lectus blandit, tempus tortor in, pharetra risus. Fusce
+                    vitae massa nunc. Pellentesque in sollicitudin massa. In hac
+                    habitasse platea dictumst. Curabitur vestibulum gravida
+                    velit et posuere. Maecenas vehicula.
+                </Paragraph>
+                <Paragraph className="about-paragraph">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Curabitur vitae cursus ex, a malesuada magna. Aenean id
+                    lectus blandit, tempus tortor in, pharetra risus. Fusce
+                    vitae massa nunc. Pellentesque in sollicitudin massa. In hac
+                    habitasse platea dictumst. Curabitur vestibulum gravida
+                    velit et posuere. Maecenas vehicula.
+                </Paragraph>
+            </div>
+        </div>
+    </main>
+</Layout>
