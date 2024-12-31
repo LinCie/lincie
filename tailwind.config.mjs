@@ -23,6 +23,7 @@ export default {
                 },
             },
             fontFamily: {
+                sans: ['Fira Code Variable', 'monospace'],
                 winter: ['Mountains of Christmas', 'system-ui'],
             },
             colors: {
