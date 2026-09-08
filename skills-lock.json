@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "skills": {
+    "bmad": {
+      "source": "bmad-code-org/BMAD-METHOD",
+      "sourceType": "github",
+      "skillPath": "skills/bmad/SKILL.md",
+      "computedHash": "997a3949bfe0676eac1a05f9abcfb30a9a914e6a87eeef3c0d2607da3000410d"
+    },
+    "bmad-agent-ux-designer": {
+      "source": "bmad-code-org/BMAD-METHOD",
+      "sourceType": "github",
+      "skillPath": "skills/bmad-agent-ux-designer/SKILL.md",
+      "computedHash": "0b65febc2e093b65f3a1b36ffdb06067fef092c066f86a0ccc485907e477f40a"
+    },
+    "bmad-brainstorming": {
+      "source": "bmad-code-org/BMAD-METHOD",
+      "sourceType": "github",
+      "skillPath": "skills/bmad-brainstorming/SKILL.md",
+      "computedHash": "b4b1730c75cd9443cbe5b03849a667143fbfee0351ff5adcce6960a1c378f81f"
+    },
+    "bmad-ux": {
+      "source": "bmad-code-org/BMAD-METHOD",
+      "sourceType": "github",
+      "skillPath": "skills/bmad-ux/SKILL.md",
+      "computedHash": "430c2d61fff9a22d849339c392d97c8a750ed1b7c1cb63835f778327e1649724"
+    }
+  }
+}
