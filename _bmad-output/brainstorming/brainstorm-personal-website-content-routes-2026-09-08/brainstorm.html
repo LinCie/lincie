@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A station-house keepsake for LinCie's personal-world-first website architecture.">
+  <title>Take Your Time — LinCie's Station World</title>
+  <style>
+    :root {
+      --ink: #23333a;
+      --muted: #62747a;
+      --paper: #fbf5e8;
+      --paper-deep: #f2e5cd;
+      --cream: #fffaf0;
+      --red: #b64e3e;
+      --red-dark: #85392f;
+      --ochre: #d69d3d;
+      --green: #668461;
+      --green-dark: #3e5d4a;
+      --blue: #6d9ca4;
+      --line: #d9c7aa;
+      --shadow: 0 1rem 2.8rem rgba(77, 57, 35, .12);
+      --radius: 1.2rem;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font: 1rem/1.65 Georgia, 'Times New Roman', serif;
+    }
+    a { color: var(--red-dark); text-underline-offset: .18em; }
+    a:hover { color: var(--red); }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    :focus-visible { outline: 3px solid var(--ochre); outline-offset: 4px; }
+    .skip { position: absolute; left: 1rem; top: -4rem; background: var(--ink); color: white; padding: .6rem 1rem; z-index: 20; }
+    .skip:focus { top: 1rem; }
+    .masthead {
+      min-height: 52rem; position: relative; overflow: hidden; padding: 1rem clamp(1rem, 5vw, 5rem) 5rem;
+      background: linear-gradient(#b6d8d3 0%, #d9e3ce 48%, #e8c88a 48.2%, #d6a864 61%, #819b71 61.2%, #668461 100%);
+    }
+    .sun { position: absolute; width: 10rem; height: 10rem; border-radius: 50%; background: #f7d47b; right: 14%; top: 5rem; box-shadow: 0 0 0 1rem rgba(247,212,123,.16), 0 0 0 2rem rgba(247,212,123,.09); }
+    .ridge { position: absolute; bottom: 38%; left: -5%; width: 110%; height: 13rem; background: #789279; clip-path: polygon(0 75%, 18% 42%, 33% 68%, 52% 17%, 71% 67%, 90% 35%, 100% 64%, 100% 100%, 0 100%); opacity: .9; }
+    .ridge.back { bottom: 39%; background: #9ab09a; opacity: .7; transform: scaleX(-1); }
+    .field { position: absolute; inset: auto -4% 0; height: 42%; background: repeating-linear-gradient(168deg, transparent 0 1.6rem, rgba(57,101,66,.28) 1.7rem 1.9rem), linear-gradient(#78916a, #527158); }
+    .field:after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(95deg, transparent 0 7rem, rgba(242,213,147,.28) 7.1rem 7.25rem); }
+    .headerbar { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; gap: 1rem; max-width: 75rem; margin: auto; }
+    .brand { color: var(--ink); text-decoration: none; font-weight: bold; letter-spacing: .08em; }
+    .date-stamp { color: #53685f; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; }
+    .platform {
+      position: relative; z-index: 2; max-width: 75rem; margin: 8rem auto 0; display: grid; grid-template-columns: 1fr minmax(18rem, 30rem); align-items: end; gap: clamp(2rem, 8vw, 9rem);
+    }
+    .welcome { color: var(--cream); text-shadow: 0 2px 1px rgba(35,51,58,.2); }
+    .eyebrow { text-transform: uppercase; letter-spacing: .19em; font: .75rem/1.3 Arial, sans-serif; font-weight: bold; }
+    h1, h2, h3 { line-height: 1.12; margin: 0 0 1rem; }
+    h1 { font-size: clamp(3rem, 8vw, 6.8rem); max-width: 9ch; font-weight: normal; }
+    h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: normal; }
+    h3 { font-size: 1.4rem; }
+    .welcome p { font-size: clamp(1.1rem, 2vw, 1.5rem); max-width: 31rem; }
+    .board { background: rgba(255,250,240,.96); border: .45rem solid #80523a; border-radius: .35rem; padding: 1.5rem; box-shadow: var(--shadow); transform: rotate(1deg); }
+    .board-title { display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: .7rem; margin-bottom: .7rem; font: .76rem/1.2 Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+    .board ul { list-style: none; padding: 0; margin: 0; }
+    .board li { border-bottom: 1px dashed var(--line); padding: .55rem 0; }
+    .board a { display: flex; justify-content: space-between; gap: .5rem; color: var(--ink); text-decoration: none; }
+    .board a span:last-child { color: var(--muted); font-size: .82rem; text-align: right; }
+    .board a:hover span:first-child { color: var(--red); }
+    .you-are-here { display: inline-block; color: var(--red-dark); font: bold .72rem Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; margin: 1rem 0 0; }
+    .bell { position: absolute; left: 7%; top: 47%; width: 4rem; height: 4rem; border-radius: 50%; border: .3rem solid #7b523d; background: #e0b75d; z-index: 1; box-shadow: inset 0 0 0 .4rem #f3d78f; }
+    .section { padding: 6rem clamp(1rem, 5vw, 5rem); }
+    .inner { max-width: 75rem; margin: auto; }
+    .paper { background: var(--cream); border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .section-intro { max-width: 45rem; margin-bottom: 2.5rem; }
+    .label { color: var(--red-dark); font: bold .72rem Arial, sans-serif; text-transform: uppercase; letter-spacing: .14em; }
+    .preamble { background: var(--paper-deep); }
+    .pill { display: inline-block; padding: .25rem .65rem; border-radius: 99px; font: bold .7rem Arial, sans-serif; letter-spacing: .05em; text-transform: uppercase; }
+    .established { background: #d8e4d3; color: var(--green-dark); }
+    .suggestion { background: #f4dfb3; color: #755525; }
+    .legend { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0 2rem; }
+    .mind-map { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; align-items: center; }
+    .mind-map:before { content: ''; position: absolute; left: 16%; right: 16%; top: 50%; border-top: 2px dashed #b7a477; z-index: 0; }
+    .mind-center, .branch { position: relative; z-index: 1; border: 2px solid #b7a477; background: #fff9e9; border-radius: 50%; padding: 1.4rem; text-align: center; min-height: 9rem; display: flex; flex-direction: column; justify-content: center; }
+    .mind-center { grid-column: 2; grid-row: 1 / span 2; border-color: var(--red); background: #f4d8bd; border-radius: 1rem; transform: rotate(-2deg); }
+    .branch:nth-child(2) { grid-column: 1; grid-row: 1; }
+    .branch:nth-child(3) { grid-column: 3; grid-row: 1; }
+    .branch:nth-child(4) { grid-column: 1; grid-row: 2; }
+    .branch:nth-child(5) { grid-column: 3; grid-row: 2; }
+    .branch:nth-child(6) { grid-column: 2; grid-row: 3; }
+    .mind-map .branch { border-radius: 1rem; min-height: 7rem; }
+    .ritual { background: #e7f0ed; }
+    .threshold { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; counter-reset: ritual; }
+    .threshold article { counter-increment: ritual; background: var(--cream); border-top: .4rem solid var(--blue); padding: 1.5rem; min-height: 14rem; box-shadow: 0 .4rem 0 rgba(64,104,104,.12); }
+    .threshold article:before { content: '0' counter(ritual); display: block; color: var(--blue); font: bold .8rem Arial, sans-serif; letter-spacing: .1em; margin-bottom: 2.5rem; }
+    .threshold h3 { color: var(--green-dark); }
+    .tree { background: #f4e8cf; }
+    .tree-layout { display: grid; grid-template-columns: minmax(15rem, 1fr) minmax(20rem, 1.4fr); gap: 2rem; align-items: start; }
+    .tree-controls { display: grid; gap: .65rem; }
+    .tree-controls button { text-align: left; border: 1px solid #bba77e; background: #fff9ed; color: var(--ink); border-radius: .5rem; padding: .8rem 1rem; }
+    .tree-controls button[aria-selected="true"] { background: var(--green-dark); color: white; border-color: var(--green-dark); }
+    .tree-result { min-height: 16rem; background: var(--cream); border: 1px solid var(--line); padding: 1.7rem; border-radius: 2rem 0 2rem 0; }
+    .tree-result strong { color: var(--red-dark); }
+    .climax { background: #2f4a44; color: var(--cream); padding-top: 7rem; padding-bottom: 7rem; }
+    .climax a { color: #f2cc77; }
+    .climax .label { color: #f2cc77; }
+    .route-map { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0; }
+    .route { position: relative; min-height: 12rem; padding: 1.3rem; background: #f8efda; color: var(--ink); border: 1px solid #b8c5a7; border-radius: .4rem; }
+    .route:after { content: '→'; position: absolute; right: -1rem; top: 45%; color: #e1b55a; font-size: 1.8rem; }
+    .route:nth-child(3n):after, .route:last-child:after { content: ''; }
+    .route h3 { color: var(--red-dark); font-size: 1.25rem; }
+    .route code { color: var(--green-dark); font: .76rem Consolas, monospace; }
+    .route-map-note { border-left: 3px solid #e1b55a; padding-left: 1rem; max-width: 54rem; }
+    .architecture { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.5rem; }
+    .arch-card { padding: 1.4rem; background: rgba(255,250,240,.09); border: 1px solid rgba(255,250,240,.3); }
+    .arch-card h3 { color: #f2cc77; }
+    .depth { background: var(--paper-deep); }
+    .depth-grid, .safeguards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .depth-card, .safeguard { padding: 1.4rem; background: var(--cream); border: 1px solid var(--line); }
+    .depth-card { border-top: .4rem solid var(--red); }
+    .depth-card:nth-child(2) { border-color: var(--ochre); }
+    .depth-card:nth-child(3) { border-color: var(--green); }
+    .depth-card h3 { color: var(--red-dark); }
+    .safeguards { grid-template-columns: repeat(2, 1fr); }
+    .safeguard h3 { font-size: 1.1rem; color: var(--green-dark); }
+    .quote { max-width: 42rem; margin: 4rem auto 0; text-align: center; font-size: clamp(1.4rem, 3vw, 2.3rem); color: var(--red-dark); }
+    footer { background: #23333a; color: #f6ecd9; padding: 3rem clamp(1rem, 5vw, 5rem); }
+    footer .inner { display: flex; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    footer a { color: #f2cc77; }
+    .small { font-size: .88rem; color: var(--muted); }
+    .climax .small { color: #c6d4c8; }
+    @media (max-width: 760px) {
+      .masthead { min-height: 58rem; }
+      .platform, .tree-layout, .architecture { grid-template-columns: 1fr; }
+      .platform { margin-top: 7rem; gap: 4rem; }
+      .board { transform: none; }
+      .mind-map { grid-template-columns: 1fr 1fr; }
+      .mind-map:before { display: none; }
+      .mind-center { grid-column: 1 / span 2; grid-row: auto; }
+      .branch:nth-child(n) { grid-column: auto; grid-row: auto; }
+      .threshold, .depth-grid, .route-map { grid-template-columns: 1fr; }
+      .route:after { content: ''; }
+      .safeguards { grid-template-columns: 1fr; }
+      .sun { right: 5%; }
+      .bell { top: 44%; left: 4%; transform: scale(.7); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *:before, *:after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#keepsake">Skip to the route map</a>
+  <header class="masthead" id="station">
+    <div class="sun" aria-hidden="true"></div><div class="ridge" aria-hidden="true"></div><div class="ridge back" aria-hidden="true"></div><div class="field" aria-hidden="true"></div><div class="bell" aria-hidden="true"></div>
+    <div class="headerbar"><a class="brand" href="#station">LINCIE / SMALL STATION</a><span class="date-stamp">A completed imagining · 08 September 2026</span></div>
+    <div class="platform">
+      <div class="welcome"><div class="eyebrow">Platform 01 · Arrival</div><h1>Welcome.<br>You made it here.</h1><p>Take your time. This is a personal world first: a warm Japanese rural station and station house, with precise engineering underneath its cozy surface.</p><p class="small" style="color:#f6ecd9">Three equally valid gestures: look at the board, sit on the bench, or step into the house.</p></div>
+      <nav class="board" aria-label="Station board">
+        <div class="board-title"><span>Station board</span><span>Living index</span></div>
+        <ul>
+          <li><a href="#architecture"><span>Platform &amp; Board</span><span>station / welcome</span></a></li>
+          <li><a href="#about"><span>Station House</span><span>about me</span></a></li>
+          <li><a href="#architecture"><span>Rice Fields</span><span>projects</span></a></li>
+          <li><a href="#architecture"><span>Workshop</span><span>things LinCie offers</span></a></li>
+          <li><a href="#architecture"><span>Waiting Room</span><span>personal thoughts</span></a></li>
+          <li><a href="#architecture"><span>Letterbox</span><span>ways to connect</span></a></li>
+        </ul>
+        <span class="you-are-here">● You are here · station platform</span>
+      </nav>
+    </div>
+  </header>
+
+  <main id="keepsake">
+    <section class="section preamble" aria-labelledby="premise-title">
+      <div class="inner section-intro"><span class="label">The premise</span><h2 id="premise-title">A place to visit, not a portfolio to scan.</h2><p>The station is home. The board is the index. The train and tracks are the journey; rice fields are projects; the forest holds curiosity; the mountain keeps the horizon open.</p><div class="legend"><span class="pill established">Established decision</span><span class="pill suggestion">New suggestion</span></div></div>
+      <div class="inner mind-map" aria-label="Mind map of the station world">
+        <article class="branch"><span class="label">Landscape</span><strong>Rice fields</strong><span class="small">One plot per project</span></article>
+        <article class="branch"><span class="label">Welcome</span><strong>Safe wandering</strong><span class="small">Curious, playful, free</span></article>
+        <article class="mind-center"><span class="label">Central world</span><strong>Warm rural station<br>&amp; station house</strong><span class="small">Personal first · intentional beneath</span></article>
+        <article class="branch"><span class="label">Horizon</span><strong>Mountain</strong><span class="small">Future growth</span></article>
+        <article class="branch"><span class="label">Wonder</span><strong>Forest paths</strong><span class="small">Experiments &amp; questions</span></article>
+        <article class="branch"><span class="label">Movement</span><strong>Train &amp; tracks</strong><span class="small">A route between layers</span></article>
+      </div>
+      <p class="quote">“Curiosity works best as noticing rather than solving.”</p>
+    </section>
+
+    <section class="section ritual" aria-labelledby="ritual-title">
+      <div class="inner section-intro"><span class="label">Ritual innovation</span><h2 id="ritual-title">Arrival is a gentle threshold.</h2><p>A visitor chooses where they feel drawn, not which category they must consume. Motion, sound, hover surprises, and an imaginary ticket remain optional; every ritual has a direct text equivalent.</p></div>
+      <div class="inner threshold">
+        <article><h3>Look at the board</h3><p>Scan a destination name, its plain-language meaning, a current notice, and one invitation to step closer.</p><span class="pill suggestion">Suggested gesture</span></article>
+        <article><h3>Sit on the bench</h3><p>Read only the welcome and a few notices. The station clock marks pace softly—never a countdown.</p><span class="pill suggestion">Suggested gesture</span></article>
+        <article><h3>Step into the house</h3><p>Meet the pet, enter a safe personal room, and follow a bedside object only when curiosity naturally occurs.</p><span class="pill established">Core welcome</span></article>
+      </div>
+    </section>
+
+    <section class="section tree" aria-labelledby="tree-title">
+      <div class="inner section-intro"><span class="label">Decision tree mapping</span><h2 id="tree-title">No wrong platform.</h2><p>Direct links, ordinary browser history, and a visible route back keep the world legible. Choose a starting impulse to see its outcome.</p></div>
+      <div class="inner tree-layout">
+        <div class="tree-controls" role="tablist" aria-label="Visitor impulses">
+          <button role="tab" aria-selected="true" data-tree="home">I arrive at the homepage</button>
+          <button role="tab" aria-selected="false" data-tree="deep">I arrive through a deep link</button>
+          <button role="tab" aria-selected="false" data-tree="project">I open a project</button>
+          <button role="tab" aria-selected="false" data-tree="curious">I want a playful detour</button>
+          <button role="tab" aria-selected="false" data-tree="lost">I follow an unknown route</button>
+        </div>
+        <div class="tree-result" role="tabpanel" id="tree-result" tabindex="0"><span class="label">Outcome</span><h3>Platform, board, and three equal gestures</h3><p><strong>Then:</strong> the visitor can choose a destination by mood, curiosity, or literal label—without a quiz or forced tour.</p><p class="small">The board is a hub, not a gate.</p></div>
+      </div>
+    </section>
+
+    <section class="section climax" id="architecture" aria-labelledby="architecture-title">
+      <div class="inner section-intro"><span class="label">The synthesis · route map</span><h2 id="architecture-title">One coherent world. Predictable routes.</h2><p>The climax of the session: poetic places at the presentation layer, semantic URLs underneath. Every primary branch is directly reachable, text-first, and designed with a fast path plus optional depth.</p></div>
+      <div class="inner route-map" aria-label="Primary and secondary route map">
+        <article class="route"><code>/station</code><h3>Platform &amp; Board</h3><p>Arrival, welcome, living index, notices, all-destinations view.</p><span class="pill established">Primary</span></article>
+        <article class="route" id="about"><code>/about</code><h3>Station House</h3><p>Identity, favorites, interests, everyday comforts, pet, bedroom nook.</p><span class="pill established">Primary</span></article>
+        <article class="route"><code>/projects</code><h3>Rice Fields</h3><p>Current, all, and harvested fields; one field-side sign per project.</p><span class="pill established">Primary</span></article>
+        <article class="route"><code>/offers</code><h3>Workshop</h3><p>Situations first, then fit, capabilities, boundaries, and collaboration.</p><span class="pill established">Primary</span></article>
+        <article class="route"><code>/thoughts</code><h3>Waiting Room</h3><p>Notes shaped by sensory context, weather, season, and literal topic.</p><span class="pill established">Primary</span></article>
+        <article class="route"><code>/connect</code><h3>Letterbox</h3><p>Hello, project conversation, collaboration, or another clearly named reason.</p><span class="pill established">Primary</span></article>
+        <article class="route"><code>/forest</code><h3>Forest Paths</h3><p>Experiments, curiosities, half-formed questions, honest unfinished trails.</p><span class="pill established">Secondary</span></article>
+        <article class="route"><code>/mountain</code><h3>Mountain Overlook</h3><p>Learning, future directions, and things currently being grown.</p><span class="pill established">Secondary</span></article>
+        <article class="route"><code>/map</code><h3>All Routes</h3><p>A complete public destination list, including optional discoveries.</p><span class="pill suggestion">Safety net</span></article>
+        <article class="route"><code>/lost-platform</code><h3>Lost Platform</h3><p>A warm unknown-URL page linking to the board and five essential branches.</p><span class="pill suggestion">Safety net</span></article>
+      </div>
+      <div class="inner architecture">
+        <article class="arch-card"><h3>Place + content + depth</h3><p>Route names tell visitors whether they changed rooms, opened a note, or inspected a layer. Poetic names always sit beside literal descriptors and stable URLs.</p></article>
+        <article class="arch-card"><h3>Three exits, everywhere</h3><p>Station board · branch index · immediate parent or context. No scene traps navigation; every destination can be left without pressure.</p></article>
+      </div>
+    </section>
+
+    <section class="section depth" aria-labelledby="depth-title">
+      <div class="inner section-intro"><span class="label">Project depth model</span><h2 id="depth-title">At the field gate, story comes first.</h2><p>Visitors choose how deeply to explore. No completion meter suggests that every layer must be taken.</p></div>
+      <div class="inner depth-grid">
+        <article class="depth-card"><span class="label">Fast path · required entrance</span><h3>01 · Story</h3><p>Every project begins with <strong>What is this?</strong> and <strong>Why did it need to exist?</strong> Context arrives in the order a human would understand it.</p></article>
+        <article class="depth-card"><span class="label">Optional path</span><h3>02 · Atmosphere</h3><p>Stand inside the project's weather: visual language, feeling, references, choices, and lived experience.</p></article>
+        <article class="depth-card"><span class="label">Optional path</span><h3>03 · Craft</h3><p>Enter the work shed: constraints, architecture, decisions, implementation, engineering details, and lessons in that order.</p></article>
+      </div>
+      <div class="inner paper" style="margin-top:2rem;padding:1.5rem"><strong>Reusable project pattern:</strong> <a href="#architecture">/projects/[slug]</a> → Field Gate → story → atmosphere and/or craft → field note → fields, related project, station board. If the deeper shed is quiet, say so honestly; never present an empty shell.</div>
+    </section>
+
+    <section class="section" aria-labelledby="discoveries-title">
+      <div class="inner section-intro"><span class="label">Discoveries</span><h2 id="discoveries-title">Noticing, not collecting.</h2><p>Favorites may be hidden, but essential information never is. A visible shelf exists alongside optional objects; each discovery explains why it matters.</p></div>
+      <div class="inner architecture" style="margin-top:0">
+        <article class="paper" style="padding:1.5rem"><span class="label">Station House · optional object</span><h3>Seed packet: Stardew Valley</h3><p>Open when curiosity occurs. The note beside it says why it matters: <strong>freedom to build, style, and play creatively.</strong></p><span class="pill established">First hidden favorite</span></article>
+        <article class="paper" style="padding:1.5rem"><span class="label">House invitations</span><h3>Bed · bedside table · kitchen · pet</h3><p>Identity, meaningful details, routines, current comforts, and interests appear as invitations into home—not a biography-first résumé.</p><span class="pill suggestion">Atmospheric treatment</span></article>
+      </div>
+    </section>
+
+    <section class="section preamble" aria-labelledby="safeguards-title">
+      <div class="inner section-intro"><span class="label">Navigation safeguards</span><h2 id="safeguards-title">Comfort is a system requirement.</h2><p>Warmth never substitutes for practical trust. The engineering is intentional even when the surface feels playful.</p></div>
+      <div class="inner safeguards">
+        <article class="safeguard"><h3>Readable wandering</h3><p>Small <strong>You are here</strong> markers, literal labels, stable URLs, accessible breadcrumbs, search as “Find a place or note,” and a complete all-routes page.</p></article>
+        <article class="safeguard"><h3>No hidden gates</h3><p>Curiosity rewards are nonessential; visible alternatives reach the same information. Pet, ticket, surprise, and quiet pace are optional.</p></article>
+        <article class="safeguard"><h3>Every screen belongs</h3><p>Small screens prioritize board, current location, route title, and return links. Keyboard and assistive technology receive the same tree through headings, landmarks, links, and text.</p></article>
+        <article class="safeguard"><h3>Honest quiet</h3><p>Sparse sections explain what may arrive without invented filler. Unfinished trails name their state. Reduced motion removes movement, sound, and decorative timing while preserving all routes.</p></article>
+        <article class="safeguard"><h3>Three stable exits</h3><p>From any route: board, home/platform, and immediate parent place. Leaving feels like stepping back onto the platform.</p></article>
+        <article class="safeguard"><h3>Trust at the letterbox</h3><p>Contact begins with intent and ends with what happens next and when. A no-pressure exit remains available before any message is sent.</p></article>
+      </div>
+      <p class="quote">“You may return whenever you like.”</p>
+    </section>
+  </main>
+  <footer><div class="inner"><div><strong>LinCie's station world</strong><br><span class="small">A keepsake of the completed autonomous brainstorming session.</span></div><div><a href="#station">Back to the platform</a> · <a href="#architecture">Read the route map</a></div></div></footer>
+  <script>
+    const outcomes = {
+      home: ['Platform, board, and three equal gestures', 'the visitor can choose a destination by mood, curiosity, or literal label—without a quiz or forced tour.', 'The board is a hub, not a gate.'],
+      deep: ['Requested content first, route back second', 'the destination is self-explanatory, with a small You are here route to the board and ordinary browser history still working.', 'A shared link never requires starting at the homepage.'],
+      project: ['Field Gate before every deeper layer', 'What is this? and Why did it need to exist? appear before a choice of atmosphere, craft, both, or return.', 'Story first; depth is an invitation, never a completion meter.'],
+      curious: ['A meaningful short walk', 'Surprise me lands on a meaningful page, not an empty easter egg. Forest paths can explain whether a trail is quiet, unfinished, or growing.', 'Playfulness never blocks essential information.'],
+      lost: ['Lost Platform, not a dead end', 'the visitor receives links to the board and the five essential branches: About Me, Projects, Things LinCie offers, Personal thoughts, and Ways to connect.', 'Errors remain part of the world without pretending the route exists.']
+    };
+    const result = document.querySelector('#tree-result');
+    document.querySelectorAll('[data-tree]').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('[data-tree]').forEach(item => item.setAttribute('aria-selected', String(item === button)));
+        const [title, body, note] = outcomes[button.dataset.tree];
+        result.innerHTML = '<span class="label">Outcome</span><h3>' + title + '</h3><p><strong>Then:</strong> ' + body + '</p><p class="small">' + note + '</p>';
+        result.focus();
+      });
+    });
+  </script>
+</body>
+</html>
