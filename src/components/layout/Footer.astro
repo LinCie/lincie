@@ -10,6 +10,10 @@ const isAbout = pathname === "/about";
 const isProjects =
   pathname === "/projects" || pathname.startsWith("/projects/");
 const isWorkshop = pathname === "/workshop" || pathname === "/offers";
+const isThoughts =
+  pathname === "/thoughts" ||
+  pathname.startsWith("/thoughts/") ||
+  pathname === "/waiting-room";
 
 const siteContainer =
   "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
@@ -88,6 +92,14 @@ const currentYear = new Date().getFullYear();
           >
             <span>The Workshop (Offers)</span>
             {isWorkshop && <span class="text-xs text-[#dce7c9]">(Here)</span>}
+          </a>
+
+          <a
+            class="inline-flex min-h-11 items-center gap-2 text-sm text-[#f7f2e8]/85 underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#fffdf8] hover:decoration-[#fffdf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+            href={isThoughts ? "#main-content" : "/thoughts"}
+          >
+            <span>The Waiting Room (Thoughts)</span>
+            {isThoughts && <span class="text-xs text-[#dce7c9]">(Here)</span>}
           </a>
 
           <a

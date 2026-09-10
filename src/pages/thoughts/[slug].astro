@@ -1,0 +1,157 @@
+---
+import MainLayout from "../../components/layout/MainLayout.astro";
+import { thoughts, type Thought } from "../../data/thoughts";
+
+export function getStaticPaths() {
+  return thoughts
+    .filter((t) => t.status === "published")
+    .map((thought) => ({
+      params: { slug: thought.slug },
+      props: { thought },
+    }));
+}
+
+interface Props {
+  thought: Thought;
+}
+
+const { thought } = Astro.props;
+
+// Calculate adjacent published thoughts for navigation
+const published = thoughts.filter((t) => t.status === "published");
+const currentIndex = published.findIndex((t) => t.slug === thought.slug);
+const nextThought = published[(currentIndex + 1) % published.length];
+
+const siteContainer =
+  "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
+---
+
+<MainLayout
+  title={`${thought.title} — The Waiting Room · LinCie`}
+  description={thought.summary}
+  currentRoute={`/thoughts/${thought.slug}`}
+>
+  <!-- Route Sign & Return Breadcrumb -->
+  <section class="border-b border-[#c4b49d] bg-[#f7f2e8] pt-10 pb-8 md:pt-14">
+    <div class={siteContainer}>
+      <nav
+        aria-label="Route wayfinding"
+        class="flex flex-wrap items-center gap-2 font-sans text-xs font-semibold tracking-[0.03em] text-[#5f665c]"
+      >
+        <a
+          href="/"
+          class="inline-flex min-h-11 items-center text-[#5f665c] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#b8614b] hover:decoration-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+        >
+          Station Platform
+        </a>
+        <span aria-hidden="true" class="text-[#c4b49d]">/</span>
+        <a
+          href="/thoughts"
+          class="inline-flex min-h-11 items-center text-[#5f665c] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#b8614b] hover:decoration-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+        >
+          The Waiting Room
+        </a>
+        <span aria-hidden="true" class="text-[#c4b49d]">/</span>
+        <span class="text-[#2d332b]" aria-current="page">{thought.title}</span>
+      </nav>
+
+      <!-- Note Header -->
+      <div class="mt-6 max-w-[54rem]">
+        <div class="flex flex-wrap items-center gap-3 pb-3 text-xs">
+          <span
+            class="inline-flex items-center gap-1.5 rounded-full border border-[#c4b49d] bg-[#fffdf8] px-3 py-1 font-sans font-semibold text-[#2d332b]"
+          >
+            <span class="size-2 rounded-full bg-[#6c895f]" aria-hidden="true"
+            ></span>
+            <span>{thought.statusLabel}</span>
+          </span>
+
+          <span
+            class="inline-flex items-center gap-1.5 font-sans font-semibold text-[#6c895f]"
+          >
+            <span>{thought.poeticContext}</span>
+          </span>
+
+          <span class="font-sans text-[#5f665c]">
+            {thought.date} · {thought.topic}
+          </span>
+        </div>
+
+        <h1
+          class="font-serif text-[clamp(2.2rem,4.5vw,3.8rem)] leading-[1.08] font-normal tracking-[-0.025em] text-[#2d332b]"
+        >
+          {thought.title}
+        </h1>
+
+        <!-- Sensory Atmosphere Sub-note -->
+        <p class="mt-4 font-sans text-xs text-[#5f665c] italic sm:text-sm">
+          Atmosphere: {thought.sensoryWeather}
+        </p>
+
+        <!-- Summary Lead -->
+        <p
+          class="mt-6 max-w-[65ch] border-l-2 border-[#b8614b] pl-4 font-serif text-[clamp(1.1rem,2vw,1.35rem)] leading-[1.55] text-[#5f665c]"
+        >
+          {thought.summary}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reading Surface -->
+  <article class="bg-[#fffdf8] py-14 md:py-20">
+    <div class={siteContainer}>
+      <div class="mx-auto max-w-[68ch]">
+        <!-- Paragraphs Stream -->
+        <div
+          class="space-y-6 text-base leading-[1.78] text-[#2d332b] sm:text-lg"
+        >
+          {thought.paragraphs.map((para) => <p>{para}</p>)}
+        </div>
+
+        <!-- Station Closing Note -->
+        {
+          thought.stationNote && (
+            <div class="mt-14 rounded-xl border border-[#c4b49d]/80 bg-[#f7f2e8] p-6 text-sm text-[#5f665c]">
+              <div class="flex items-center gap-2 font-sans text-xs font-bold tracking-[0.04em] text-[#2d332b] uppercase">
+                <span
+                  class="size-2 rounded-full bg-[#b8614b]"
+                  aria-hidden="true"
+                />
+                <span>Station Note</span>
+              </div>
+              <p class="mt-2 font-serif text-[#2d332b] italic">
+                {thought.stationNote}
+              </p>
+            </div>
+          )
+        }
+
+        <!-- Passenger Signpost & Return Paths -->
+        <div
+          class="mt-16 flex flex-col gap-6 border-t border-[#c4b49d] pt-8 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <a
+            href="/thoughts"
+            class="inline-flex min-h-11 items-center gap-2 font-sans text-sm font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#843d2f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+          >
+            <span aria-hidden="true">&larr;</span>
+            <span>Return to The Waiting Room</span>
+          </a>
+
+          {
+            nextThought && nextThought.slug !== thought.slug && (
+              <a
+                href={`/thoughts/${nextThought.slug}`}
+                class="inline-flex min-h-11 items-center gap-2 font-sans text-sm font-bold text-[#2d332b] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#b8614b] hover:decoration-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+              >
+                <span>Next note: {nextThought.title}</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </article>
+</MainLayout>
