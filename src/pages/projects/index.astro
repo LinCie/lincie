@@ -1,0 +1,323 @@
+---
+import MainLayout from "../../components/layout/MainLayout.astro";
+import { tendedProjects, harvestedProjects } from "../../data/projects";
+
+const siteContainer =
+  "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
+---
+
+<MainLayout
+  title="Rice Fields — LinCie (Projects)"
+  description="Cultivated software projects by LinCie. Systems engineered for speed, resilience, and human workflows in Go and TypeScript."
+  currentRoute="/projects"
+>
+  <!-- Threshold & Wayfinding Banner -->
+  <section
+    class="border-b border-[#c4b49d] bg-[#f7f2e8] pt-10 pb-12 md:pt-16 md:pb-16"
+  >
+    <div class={siteContainer}>
+      <nav
+        aria-label="Route wayfinding"
+        class="flex items-center gap-2 font-sans text-xs font-semibold tracking-[0.03em] text-[#5f665c]"
+      >
+        <a
+          href="/"
+          class="inline-flex min-h-11 items-center text-[#5f665c] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#b8614b] hover:decoration-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+        >
+          Station Platform
+        </a>
+        <span aria-hidden="true" class="text-[#c4b49d]">/</span>
+        <span class="text-[#2d332b]" aria-current="page">Rice Fields</span>
+      </nav>
+
+      <div class="mt-6 max-w-[72ch]">
+        <h1
+          class="font-serif text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.05] font-normal tracking-[-0.03em] text-[#2d332b]"
+        >
+          The Rice Fields
+        </h1>
+        <p
+          class="mt-4 font-serif text-[clamp(1.15rem,2.2vw,1.4rem)] leading-[1.45] text-[#5f665c]"
+        >
+          Work cultivated with care. Each project is a plot planted for real
+          people—engineered for speed, resilience, and unhurried clarity.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Landscape Sections -->
+  <div class="divide-y divide-[#c4b49d]">
+    <!-- Section 1: Currently Tended Plots -->
+    <section class="bg-[#fffdf8] py-14 md:py-20" aria-labelledby="tended-title">
+      <div class={siteContainer}>
+        <div class="mb-10 max-w-[48rem]">
+          <h2
+            id="tended-title"
+            class="font-serif text-[clamp(2rem,3.8vw,3rem)] leading-[1.1] font-normal tracking-[-0.025em] text-[#2d332b]"
+          >
+            Currently Tended
+          </h2>
+          <p class="mt-2.5 text-base leading-relaxed text-[#5f665c]">
+            Active backend services, fellowship milestones, and production tools
+            presently receiving care.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
+          {
+            tendedProjects.map((project) => (
+              <article class="flex flex-col justify-between rounded-2xl border border-[#c4b49d] bg-[#f7f2e8] p-6 transition-[border-color,box-shadow] duration-200 hover:border-[#b8614b] hover:shadow-[0_8px_24px_rgba(57,52,38,0.08)] sm:p-8">
+                <div>
+                  <div class="flex flex-wrap items-center justify-between gap-2 pb-3">
+                    <span class="inline-flex items-center gap-1.5 rounded-full border border-[#c4b49d]/80 bg-[#fffdf8] px-2.5 py-0.5 font-sans text-xs font-semibold text-[#2d332b]">
+                      <span
+                        class="size-2 rounded-full bg-[#6c895f]"
+                        aria-hidden="true"
+                      />
+                      <span>{project.statusLabel}</span>
+                    </span>
+                    <span class="font-sans text-xs text-[#5f665c]">
+                      {project.timeline}
+                    </span>
+                  </div>
+
+                  <h3 class="font-serif text-2xl font-normal tracking-[-0.02em] text-[#2d332b] sm:text-3xl">
+                    <a
+                      href={`/projects/${project.slug}`}
+                      class="text-[#2d332b] no-underline transition-colors hover:text-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+                    >
+                      {project.title}
+                    </a>
+                  </h3>
+
+                  <p class="mt-2 font-sans text-xs font-semibold tracking-[0.03em] text-[#5f665c]">
+                    {project.role}
+                  </p>
+
+                  <p class="mt-4 text-base leading-relaxed text-[#2d332b]">
+                    {project.summary}
+                  </p>
+
+                  <div class="mt-5 rounded-lg border border-[#c4b49d]/60 bg-[#fffdf8] p-3 text-xs leading-relaxed text-[#5f665c]">
+                    <strong class="font-semibold text-[#2d332b]">
+                      Field Evidence:
+                    </strong>{" "}
+                    {project.metricsSummary}
+                  </div>
+
+                  <div class="mt-5 flex flex-wrap gap-1.5">
+                    {project.technologies.map((tech) => (
+                      <span class="rounded-md border border-[#c4b49d]/60 bg-[#fffdf8] px-2 py-0.5 font-sans text-xs text-[#5f665c]">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[#c4b49d]/50 pt-5">
+                  <a
+                    href={`/projects/${project.slug}`}
+                    class="inline-flex min-h-11 items-center gap-1.5 font-sans text-xs font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#843d2f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+                  >
+                    <span>Read field story</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </a>
+
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex min-h-11 items-center gap-1.5 text-xs text-[#5f665c] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#2d332b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+                    >
+                      <span>Live Deployment</span>
+                      <svg
+                        class="size-3 fill-none [stroke:currentColor] [stroke-width:2]"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                      </svg>
+                    </a>
+                  )}
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Harvested Plots -->
+    <section
+      class="bg-[#f7f2e8] py-14 md:py-20"
+      aria-labelledby="harvested-title"
+    >
+      <div class={siteContainer}>
+        <div class="mb-10 max-w-[48rem]">
+          <h2
+            id="harvested-title"
+            class="font-serif text-[clamp(2rem,3.8vw,3rem)] leading-[1.1] font-normal tracking-[-0.025em] text-[#2d332b]"
+          >
+            Harvested &amp; Field-Proven
+          </h2>
+          <p class="mt-2.5 text-base leading-relaxed text-[#5f665c]">
+            Rewritten enterprise architectures and long-running production tools
+            serving teams and communities daily.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
+          {
+            harvestedProjects.map((project) => (
+              <article class="flex flex-col justify-between rounded-2xl border border-[#c4b49d] bg-[#fffdf8] p-6 transition-[border-color,box-shadow] duration-200 hover:border-[#b8614b] hover:shadow-[0_8px_24px_rgba(57,52,38,0.08)] sm:p-8">
+                <div>
+                  <div class="flex flex-wrap items-center justify-between gap-2 pb-3">
+                    <span class="inline-flex items-center gap-1.5 rounded-full border border-[#c4b49d]/80 bg-[#f7f2e8] px-2.5 py-0.5 font-sans text-xs font-semibold text-[#2d332b]">
+                      <span
+                        class="size-2 rounded-full bg-[#d49a48]"
+                        aria-hidden="true"
+                      />
+                      <span>{project.statusLabel}</span>
+                    </span>
+                    <span class="font-sans text-xs text-[#5f665c]">
+                      {project.timeline}
+                    </span>
+                  </div>
+
+                  <h3 class="font-serif text-2xl font-normal tracking-[-0.02em] text-[#2d332b] sm:text-3xl">
+                    <a
+                      href={`/projects/${project.slug}`}
+                      class="text-[#2d332b] no-underline transition-colors hover:text-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+                    >
+                      {project.title}
+                    </a>
+                  </h3>
+
+                  <p class="mt-2 font-sans text-xs font-semibold tracking-[0.03em] text-[#5f665c]">
+                    {project.role}
+                  </p>
+
+                  <p class="mt-4 text-base leading-relaxed text-[#2d332b]">
+                    {project.summary}
+                  </p>
+
+                  <div class="mt-5 rounded-lg border border-[#c4b49d]/60 bg-[#f7f2e8] p-3 text-xs leading-relaxed text-[#5f665c]">
+                    <strong class="font-semibold text-[#2d332b]">
+                      Field Evidence:
+                    </strong>{" "}
+                    {project.metricsSummary}
+                  </div>
+
+                  <div class="mt-5 flex flex-wrap gap-1.5">
+                    {project.technologies.map((tech) => (
+                      <span class="rounded-md border border-[#c4b49d]/60 bg-[#f7f2e8] px-2 py-0.5 font-sans text-xs text-[#5f665c]">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[#c4b49d]/50 pt-5">
+                  <a
+                    href={`/projects/${project.slug}`}
+                    class="inline-flex min-h-11 items-center gap-1.5 font-sans text-xs font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#843d2f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+                  >
+                    <span>Read field story</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </a>
+
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex min-h-11 items-center gap-1.5 text-xs text-[#5f665c] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#2d332b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+                    >
+                      <span>Live Deployment</span>
+                      <svg
+                        class="size-3 fill-none [stroke:currentColor] [stroke-width:2]"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                      </svg>
+                    </a>
+                  )}
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Field Philosophy -->
+    <section
+      class="bg-[#fffdf8] py-14 md:py-20"
+      aria-labelledby="philosophy-title"
+    >
+      <div class={siteContainer}>
+        <div class="mx-auto max-w-[48rem] text-center">
+          <span
+            class="inline-block size-3 rounded-full bg-[#6c895f]"
+            aria-hidden="true"></span>
+          <h2
+            id="philosophy-title"
+            class="mt-4 font-serif text-[clamp(2rem,4vw,3rem)] leading-[1.1] font-normal tracking-[-0.025em] text-[#2d332b]"
+          >
+            Why Rice Fields?
+          </h2>
+          <p
+            class="mx-auto mt-4 max-w-[65ch] text-base leading-[1.7] text-[#5f665c]"
+          >
+            Because reliable backend engineering isn&rsquo;t a race to produce
+            noise—it is the patience to tend database query plans, eliminate
+            sluggish query paths, and ensure the systems feed the people who
+            rely on them every day.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Wayfinding Return Bar -->
+  <section class="border-t border-[#c4b49d] bg-[#f7f2e8] py-12">
+    <div
+      class={`${siteContainer} flex flex-wrap items-center justify-between gap-6`}
+    >
+      <div class="flex items-center gap-3">
+        <span class="size-2.5 rounded-full bg-[#b8614b]" aria-hidden="true"
+        ></span>
+        <span class="font-sans text-xs font-semibold text-[#5f665c]">
+          Looking for other destinations?
+        </span>
+      </div>
+
+      <nav
+        class="flex flex-wrap items-center gap-6 text-xs font-bold"
+        aria-label="Nearby station destinations"
+      >
+        <a
+          href="/"
+          class="inline-flex min-h-11 items-center text-[#2d332b] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#b8614b] hover:decoration-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+        >
+          Station Platform
+        </a>
+        <a
+          href="/about"
+          class="inline-flex min-h-11 items-center text-[#2d332b] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#b8614b] hover:decoration-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+        >
+          Station House (About Me)
+        </a>
+        <a
+          href="/#board"
+          class="inline-flex min-h-11 items-center text-[#2d332b] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#b8614b] hover:decoration-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+        >
+          Station Board
+        </a>
+      </nav>
+    </div>
+  </section>
+</MainLayout>

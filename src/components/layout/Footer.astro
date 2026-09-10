@@ -7,6 +7,8 @@ const { currentRoute } = Astro.props;
 const pathname = (currentRoute ?? Astro.url.pathname).replace(/\/$/, "") || "/";
 const isHome = pathname === "/";
 const isAbout = pathname === "/about";
+const isProjects =
+  pathname === "/projects" || pathname.startsWith("/projects/");
 
 const siteContainer =
   "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
@@ -69,6 +71,14 @@ const currentYear = new Date().getFullYear();
           >
             <span>Station House (About Me)</span>
             {isAbout && <span class="text-xs text-[#dce7c9]">(Here)</span>}
+          </a>
+
+          <a
+            class="inline-flex min-h-11 items-center gap-2 text-sm text-[#f7f2e8]/85 underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#fffdf8] hover:decoration-[#fffdf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+            href={isProjects ? "#main-content" : "/projects"}
+          >
+            <span>Rice Fields (Projects)</span>
+            {isProjects && <span class="text-xs text-[#dce7c9]">(Here)</span>}
           </a>
 
           <a

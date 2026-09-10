@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../components/layout/MainLayout.astro";
+import { projects } from "../data/projects";
 
 type Destination = {
   id: string;
@@ -26,7 +27,7 @@ const destinations: Destination[] = [
     label: "Projects",
     invitation: "See what is being tended.",
     roomNote:
-      "The fields are quiet for now. Project stories will begin with what they are and why they needed to exist.",
+      "I cultivate systems the way one tends land: planted with human purpose, rooted in clean database schemas, and cared for until they run quietly and reliably.",
     tone: "field",
   },
   {
@@ -472,8 +473,8 @@ const siteContainer =
         <p
           class="max-w-[31rem] text-base leading-[1.6] text-[#5f665c] max-[760px]:mt-5"
         >
-          The places are named now. Their real stories will arrive when there is
-          something confirmed to share.
+          The station house and fields are open. Explore the stories below,
+          while other rooms quietly wait for their time.
         </p>
       </div>
 
@@ -546,11 +547,15 @@ const siteContainer =
                   <h3 class="font-serif text-[clamp(2rem,4vw,3.2rem)] leading-none font-normal tracking-[-0.03em]">
                     {destination.label}
                   </h3>
-                  {destination.id !== "about-me" && (
-                    <span class="font-sans text-[.72rem] font-bold tracking-[.04em] text-[#843d2f] uppercase">
+                  {destination.id === "projects" ? (
+                    <span class="font-sans text-xs font-bold tracking-[.04em] text-[#6c895f] uppercase">
+                      Field Gate · 1 Tended, 3 Harvested
+                    </span>
+                  ) : destination.id !== "about-me" ? (
+                    <span class="font-sans text-xs font-bold tracking-[.04em] text-[#843d2f] uppercase">
                       Quiet for now
                     </span>
-                  )}
+                  ) : null}
                 </div>
                 <p class="mt-[.65rem] font-sans text-[.82rem] font-bold tracking-[.03em] text-[#5f665c]">
                   {destination.place}
@@ -570,6 +575,53 @@ const siteContainer =
                       <span aria-hidden="true">&rarr;</span>
                     </a>
                   </p>
+                )}
+                {destination.id === "projects" && (
+                  <div class="mt-6 space-y-4">
+                    <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                      {projects.slice(0, 2).map((proj) => (
+                        <div class="rounded-xl border border-[#c4b49d]/80 bg-[#fffdf8] p-4 transition-colors hover:border-[#b8614b]">
+                          <div class="flex items-center justify-between gap-1 text-xs text-[#5f665c]">
+                            <span class="font-semibold text-[#2d332b]">
+                              {proj.statusLabel}
+                            </span>
+                            <span>{proj.timeline}</span>
+                          </div>
+                          <h4 class="mt-1 font-serif text-lg font-normal text-[#2d332b]">
+                            <a
+                              href={`/projects/${proj.slug}`}
+                              class="text-[#2d332b] no-underline hover:text-[#b8614b] hover:underline"
+                            >
+                              {proj.title}
+                            </a>
+                          </h4>
+                          <p class="mt-1.5 text-xs leading-relaxed text-[#5f665c]">
+                            {proj.metricsSummary}
+                          </p>
+                          <a
+                            href={`/projects/${proj.slug}`}
+                            class="mt-3 inline-flex min-h-9 items-center gap-1 text-xs font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-2 hover:text-[#843d2f]"
+                          >
+                            <span>Read field story</span>
+                            <span aria-hidden="true">&rarr;</span>
+                          </a>
+                        </div>
+                      ))}
+                    </div>
+
+                    <p class="pt-2 text-[.9rem] leading-[1.6] text-[#5f665c]">
+                      <a
+                        class="inline-flex min-h-11 items-center gap-2 font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#843d2f]"
+                        href="/projects"
+                      >
+                        <span>
+                          Step into the Rice Fields to view all 4 cultivated
+                          projects
+                        </span>
+                        <span aria-hidden="true">&rarr;</span>
+                      </a>
+                    </p>
+                  </div>
                 )}
                 <a
                   class="mt-7 inline-flex min-h-11 items-center gap-[.45rem] font-sans text-[.83rem] font-bold text-[#2d332b] underline decoration-[#b8614b] decoration-1 underline-offset-[.3rem] transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] hover:text-[#843d2f] motion-reduce:transition-none"
