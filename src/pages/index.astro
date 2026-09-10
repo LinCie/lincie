@@ -103,52 +103,120 @@ const siteContainer =
       <section
         class="relative isolate min-h-[47rem] overflow-hidden bg-[#c9e0e2] max-[760px]:min-h-0"
         aria-labelledby="arrival-title"
+        data-arrival
       >
         <div
-          class="pointer-events-none absolute inset-0 -z-10"
+          class="pointer-events-none absolute inset-0 z-0 overflow-hidden"
           aria-hidden="true"
         >
-          <span
-            class="absolute top-[13%] right-[18%] aspect-square w-[clamp(5rem,10vw,9rem)] rounded-full border border-[#d49a48]/65 bg-[#d49a48]/65 shadow-[0_0_0_1.25rem_rgba(212,154,72,0.15)] max-[760px]:top-[8%] max-[760px]:right-[12%]"
-          ></span>
-          <span
-            class="absolute right-[-8%] bottom-[27%] h-[31%] w-[70%] rotate-[-3deg] rounded-t-[55%] bg-[#6c895f]/35 max-[760px]:bottom-[18%] max-[760px]:h-[19%] max-[760px]:w-[95%]"
-          ></span>
-          <span
-            class="absolute inset-x-[-10%] bottom-[-18%] h-[48%] rotate-[1.5deg] rounded-t-[50%] bg-[#dce7c9] max-[760px]:bottom-[-6%] max-[760px]:h-[31%]"
-          ></span>
-          <span
-            class="absolute right-[5%] bottom-[25%] h-[13rem] w-[min(35vw,27rem)] max-[760px]:right-[-8%] max-[760px]:bottom-[3.5%] max-[760px]:w-72 max-[760px]:origin-bottom-right max-[760px]:scale-75 max-[760px]:opacity-70"
+          <img
+            class="absolute inset-0 size-full object-cover object-center opacity-[.98] will-change-transform max-[760px]:object-[70%_center] max-[760px]:opacity-[.42]"
+            src="/images/lincie-countryside-arrival.webp"
+            alt=""
+            width="1376"
+            height="768"
+            decoding="async"
+            fetchpriority="high"
+            data-arrival-image
+          />
+          <div
+            class="absolute inset-0 bg-[linear-gradient(90deg,rgba(201,224,226,.86)_0%,rgba(201,224,226,.58)_34%,rgba(201,224,226,.16)_70%,rgba(201,224,226,.02)_100%)] max-[760px]:bg-[linear-gradient(180deg,rgba(201,224,226,.92)_0%,rgba(201,224,226,.72)_48%,rgba(220,231,201,.48)_100%)]"
           >
-            <span
-              class="absolute inset-x-[-4%] top-0 h-9 border border-[#2d332b]/35 bg-[#e9ddc9] [clip-path:polygon(5%_100%,50%_0,95%_100%)]"
-            ></span>
-            <span
-              class="absolute inset-x-[5%] bottom-0 h-[11.5rem] border border-[#c4b49d] bg-[#f5ecdf]"
+          </div>
+          <div
+            class="absolute inset-x-0 bottom-0 h-[43%] bg-[linear-gradient(180deg,rgba(220,231,201,.02)_0%,rgba(220,231,201,.38)_100%)] max-[760px]:h-[32%]"
+          >
+          </div>
+
+          <svg
+            class="absolute inset-0 size-full"
+            viewBox="0 0 1440 760"
+            preserveAspectRatio="none"
+            focusable="false"
+          >
+            <defs>
+              <radialGradient id="arrival-sun-halo" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#f8d78d" stop-opacity=".62"
+                ></stop>
+                <stop offset="100%" stop-color="#f8d78d" stop-opacity="0"
+                ></stop>
+              </radialGradient>
+            </defs>
+
+            <g class="max-[760px]:hidden" data-arrival-sun>
+              <circle cx="1170" cy="122" r="96" fill="url(#arrival-sun-halo)"
+              ></circle>
+              <circle
+                cx="1170"
+                cy="122"
+                r="39"
+                fill="#d49a48"
+                fill-opacity=".64"></circle>
+              <g
+                fill="none"
+                stroke="#d49a48"
+                stroke-linecap="round"
+                stroke-width="2.5"
+                opacity=".72"
+              >
+                <path data-arrival-draw d="M1170 59V40"></path>
+                <path data-arrival-draw d="M1170 185v19"></path>
+                <path data-arrival-draw d="M1107 122h-19"></path>
+                <path data-arrival-draw d="M1233 122h19"></path>
+                <path data-arrival-draw d="m1125 77-14-14"></path>
+                <path data-arrival-draw d="m1215 167 14 14"></path>
+                <path data-arrival-draw d="m1215 77 14-14"></path>
+                <path data-arrival-draw d="m1125 167-14 14"></path>
+              </g>
+            </g>
+
+            <g
+              fill="none"
+              stroke="#f7f2e8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              opacity=".52"
+              vector-effect="non-scaling-stroke"
             >
-              <span
-                class="absolute bottom-5 left-[13%] block h-[5.5rem] w-[22%] border border-[#c4b49d] bg-[#c9e0e2] shadow-[inset_1.5rem_0_rgba(255,253,248,0.12),inset_-1.5rem_0_rgba(255,253,248,0.12)]"
-              ></span>
-              <span
-                class="absolute bottom-5 left-[39%] block h-[5.5rem] w-[22%] border border-[#c4b49d] bg-[#c9e0e2] shadow-[inset_1.5rem_0_rgba(255,253,248,0.12),inset_-1.5rem_0_rgba(255,253,248,0.12)]"
-              ></span>
-              <span
-                class="absolute right-[12%] bottom-5 block h-28 w-[20%] bg-[#6c895f]"
-              ></span>
-            </span>
-            <span
-              class="absolute top-14 right-[43%] size-3 rounded-full bg-[#d49a48] shadow-[0_0_0_.6rem_rgba(212,154,72,0.24)] motion-safe:animate-pulse motion-reduce:animate-none"
-            ></span>
-          </span>
-          <span
-            class="absolute inset-x-[-6%] bottom-[17%] h-16 rotate-[-1deg] border-y-2 border-[#2d332b]/70 opacity-70 before:absolute before:inset-x-0 before:top-[1.15rem] before:block before:h-[.35rem] before:border-y before:border-[#c4b49d] before:content-[''] after:absolute after:inset-x-0 after:top-[2.5rem] after:block after:h-[.35rem] after:border-y after:border-[#2d332b]/35 after:content-[''] max-[760px]:bottom-[14%]"
-          ></span>
-          <span
-            class="absolute bottom-[19%] left-[7%] h-12 w-8 rotate-[25deg] rounded-[100%_0_0_0] border-l border-[#6c895f] before:absolute before:bottom-0 before:left-2 before:block before:h-[2.65rem] before:w-[1.4rem] before:rounded-[100%_0_0_0] before:border-l before:border-[#6c895f] before:content-[''] after:absolute after:bottom-0 after:left-[.9rem] after:block after:h-[2.65rem] after:w-[1.4rem] after:rounded-[100%_0_0_0] after:border-l after:border-[#6c895f] after:content-['']"
-          ></span>
-          <span
-            class="absolute right-[43%] bottom-[19%] h-12 w-8 scale-[.8] rotate-[25deg] rounded-[100%_0_0_0] border-l border-[#6c895f] before:absolute before:bottom-0 before:left-2 before:block before:h-[2.65rem] before:w-[1.4rem] before:rounded-[100%_0_0_0] before:border-l before:border-[#6c895f] before:content-[''] after:absolute after:bottom-0 after:left-[.9rem] after:block after:h-[2.65rem] after:w-[1.4rem] after:rounded-[100%_0_0_0] after:border-l after:border-[#6c895f] after:content-['']"
-          ></span>
+              <path
+                data-arrival-draw
+                d="M640 338c126-43 198-10 300-69 94-54 167-6 261-45 91-38 172 39 275-9 112-52 184 23 288-38 99-57 221-8 356-69"
+              ></path>
+              <path
+                data-arrival-draw
+                d="M-20 576c270-35 493-8 720-29 259-24 483 8 760-30"></path>
+              <path
+                data-arrival-draw
+                d="M-20 632c272-29 500-10 780-31 255-20 477 11 700-28"></path>
+              <path
+                data-arrival-draw
+                d="M-20 687c312-27 566-13 841-37 242-21 453 10 639-22"></path>
+              <path
+                data-arrival-draw
+                d="M-20 706c291-30 568-14 852-35 236-17 431 5 628-21"></path>
+              <path
+                data-arrival-draw
+                d="M-20 728c306-26 577-13 873-37 235-19 422 6 607-16"></path>
+            </g>
+
+            <g
+              data-arrival-stop
+              fill="none"
+              stroke="#b8614b"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2.5"
+              opacity=".78"
+              vector-effect="non-scaling-stroke"
+            >
+              <path data-arrival-draw d="M746 548V395"></path>
+              <path data-arrival-draw d="M746 409h-27"></path>
+              <path data-arrival-draw d="M714 548h64"></path>
+              <circle cx="746" cy="386" r="14" fill="#b8614b"></circle>
+              <path d="M738 386h16" stroke="#fffdf8" stroke-width="2"></path>
+            </g>
+          </svg>
         </div>
 
         <div
@@ -160,6 +228,7 @@ const siteContainer =
             <div
               class="mb-6 flex w-fit flex-wrap items-center gap-x-3 gap-y-2 border-b border-[#2d332b]/40 pb-[.7rem] font-sans text-[.78rem] tracking-[.02em] text-[#50594d] max-[480px]:gap-x-[.6rem] max-[480px]:text-[.72rem]"
               aria-label="Current location"
+              data-arrival-location
             >
               <span
                 class="size-[.55rem] shrink-0 rounded-full bg-[#b8614b]"
@@ -173,6 +242,7 @@ const siteContainer =
             <h1
               id="arrival-title"
               class="max-w-[10ch] font-serif text-[clamp(3.75rem,7.2vw,6rem)] leading-[.99] font-normal tracking-[-0.035em] max-[760px]:max-w-[9ch] max-[760px]:text-[clamp(3.45rem,16vw,5.3rem)]"
+              data-arrival-title
             >
               Welcome.<br />You made it <em
                 class="font-normal text-[#b8614b] not-italic">here.</em
@@ -181,6 +251,7 @@ const siteContainer =
 
             <p
               class="mt-7 max-w-[38rem] text-[clamp(1.05rem,1.5vw,1.25rem)] leading-[1.55]"
+              data-arrival-copy
             >
               LinCie is a software engineering trainee making room for
               thoughtful work, curious ideas, and a life around them.
@@ -188,6 +259,7 @@ const siteContainer =
 
             <p
               class="mt-[1.35rem] flex max-w-[32rem] items-start gap-[.85rem] text-[.9rem] leading-[1.55] text-[#50594d]"
+              data-arrival-note
             >
               <span
                 class="mt-[.7rem] w-9 shrink-0 border-t border-[#b8614b]"
@@ -200,6 +272,7 @@ const siteContainer =
             <aside
               class="mt-8 grid max-w-[31rem] grid-cols-[minmax(7rem,0.3fr)_1fr] gap-x-5 gap-y-[.35rem] border-y border-[#2d332b]/30 py-4 max-[480px]:grid-cols-1 max-[480px]:gap-y-[.45rem]"
               aria-labelledby="current-signal-title"
+              data-arrival-notice
             >
               <div
                 class="flex items-center gap-2 font-sans text-xs font-bold tracking-[.03em] text-[#50594d]"
@@ -228,6 +301,7 @@ const siteContainer =
             class="relative z-[1] col-start-2 row-span-2 row-start-1 rotate-[.7deg] self-center rounded-[1.25rem] border border-[#c4b49d] bg-[#e9ddc9] p-[clamp(1.25rem,3vw,2rem)] shadow-[0_16px_34px_rgba(57,52,38,0.14)] max-[760px]:col-auto max-[760px]:row-auto max-[760px]:rotate-0"
             id="board"
             aria-labelledby="board-title"
+            data-arrival-board
           >
             <span
               class="absolute top-4 left-4 size-[.6rem] rounded-full border border-[#2d332b]/35 bg-[#fffdf8] shadow-[inset_0_1px_2px_rgba(45,51,43,0.14)]"
@@ -255,7 +329,7 @@ const siteContainer =
             <ul class="m-0 list-none divide-y divide-[#2d332b]/20 p-0">
               {
                 destinations.map((destination) => (
-                  <li>
+                  <li data-arrival-route>
                     <a
                       class="group grid min-h-20 grid-cols-[1fr_auto] items-center gap-4 px-[.6rem] py-[.85rem] text-[#2d332b] no-underline transition-[background-color,padding-inline] duration-200 ease-out hover:bg-[#fffdf8]/55 hover:px-[.95rem] motion-reduce:transition-none max-[480px]:min-h-[5.4rem] max-[480px]:px-0 max-[480px]:hover:px-[.35rem]"
                       href={`#${destination.id}`}
@@ -305,6 +379,7 @@ const siteContainer =
             <a
               class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8]/55 p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:bg-[#fffdf8] motion-reduce:transition-none max-[1050px]:min-h-14"
               href="#board"
+              data-arrival-gesture
             >
               <span
                 class="grid size-7 place-items-center rounded-md border border-[#c4b49d] bg-[#fffdf8] text-[#b8614b]"
@@ -344,6 +419,7 @@ const siteContainer =
             <a
               class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8]/55 p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:bg-[#fffdf8] motion-reduce:transition-none max-[1050px]:min-h-14"
               href="#pause"
+              data-arrival-gesture
             >
               <span
                 class="grid size-7 place-items-center rounded-md border border-[#c4b49d] bg-[#fffdf8] text-[#b8614b]"
@@ -385,6 +461,7 @@ const siteContainer =
             <a
               class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8]/55 p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:bg-[#fffdf8] motion-reduce:transition-none max-[1050px]:min-h-14"
               href="#about-me"
+              data-arrival-gesture
             >
               <span
                 class="grid size-7 place-items-center rounded-md border border-[#c4b49d] bg-[#fffdf8] text-[#b8614b]"
@@ -633,3 +710,183 @@ const siteContainer =
     </footer>
   </div>
 </MainLayout>
+
+<script>
+  import gsap from "gsap";
+  import DrawSVGPlugin from "gsap/DrawSVGPlugin";
+
+  gsap.registerPlugin(DrawSVGPlugin);
+
+  const arrival = document.querySelector<HTMLElement>("[data-arrival]");
+
+  if (arrival) {
+    const motion = gsap.matchMedia();
+
+    motion.add(
+      {
+        reduceMotion: "(prefers-reduced-motion: reduce)",
+        isMobile: "(max-width: 760px)",
+        isDesktop: "(min-width: 761px)",
+      },
+      (context) => {
+        const conditions = context.conditions as
+          { isMobile?: boolean; reduceMotion?: boolean } | undefined;
+        const isMobile = conditions?.isMobile ?? false;
+        const reduceMotion = conditions?.reduceMotion ?? false;
+        const sceneImage = arrival.querySelector<HTMLImageElement>(
+          "[data-arrival-image]",
+        );
+        const sun = arrival.querySelector<SVGGElement>("[data-arrival-sun]");
+        const stop = arrival.querySelector<SVGGElement>("[data-arrival-stop]");
+        const drawPaths = arrival.querySelectorAll<SVGElement>(
+          "[data-arrival-draw]",
+        );
+        const location = arrival.querySelector<HTMLElement>(
+          "[data-arrival-location]",
+        );
+        const title = arrival.querySelector<HTMLElement>(
+          "[data-arrival-title]",
+        );
+        const copy = arrival.querySelector<HTMLElement>("[data-arrival-copy]");
+        const note = arrival.querySelector<HTMLElement>("[data-arrival-note]");
+        const notice = arrival.querySelector<HTMLElement>(
+          "[data-arrival-notice]",
+        );
+        const board = arrival.querySelector<HTMLElement>(
+          "[data-arrival-board]",
+        );
+        const routes = arrival.querySelectorAll<HTMLElement>(
+          "[data-arrival-route]",
+        );
+        const gestures = arrival.querySelectorAll<HTMLElement>(
+          "[data-arrival-gesture]",
+        );
+
+        const visibleElements = [
+          sceneImage,
+          sun,
+          stop,
+          location,
+          title,
+          copy,
+          note,
+          notice,
+          board,
+          ...routes,
+          ...gestures,
+        ].filter(
+          (element): element is HTMLElement | SVGGElement => element !== null,
+        );
+
+        if (!sceneImage || !sun || !stop || !title || !board) {
+          return;
+        }
+
+        if (reduceMotion) {
+          gsap.set(drawPaths, { drawSVG: "0% 100%" });
+          gsap.set(visibleElements, {
+            autoAlpha: 1,
+            clearProps: "transform,opacity,filter",
+          });
+          return;
+        }
+
+        const sequence = gsap.timeline({
+          defaults: {
+            ease: "power3.out",
+          },
+        });
+
+        sequence
+          .addLabel("arrival")
+          .fromTo(
+            sceneImage,
+            { scale: 1.035, autoAlpha: 0 },
+            {
+              scale: 1,
+              autoAlpha: isMobile ? 0.42 : 0.98,
+              duration: 2.2,
+              ease: "power1.out",
+            },
+            "arrival",
+          )
+          .fromTo(
+            sun,
+            { autoAlpha: 0 },
+            { autoAlpha: 1, duration: 0.8, ease: "power2.out" },
+            "arrival",
+          )
+          .fromTo(
+            drawPaths,
+            { drawSVG: 0, autoAlpha: 0 },
+            {
+              drawSVG: "0% 100%",
+              autoAlpha: 1,
+              duration: 1.5,
+              ease: "power1.inOut",
+            },
+            "arrival",
+          )
+          .fromTo(
+            stop,
+            { y: 14, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 1.1 },
+            "arrival",
+          )
+          .fromTo(
+            location,
+            { x: -16, autoAlpha: 0 },
+            { x: 0, autoAlpha: 1, duration: 0.7 },
+            "arrival",
+          )
+          .fromTo(
+            title,
+            { y: 24, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 0.95 },
+            "arrival",
+          )
+          .fromTo(
+            copy,
+            { y: 14, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 1.2 },
+            "arrival",
+          )
+          .fromTo(
+            note,
+            { y: 10, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 1.35 },
+            "arrival",
+          )
+          .fromTo(
+            notice,
+            { y: 10, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 1.5 },
+            "arrival",
+          )
+          .fromTo(
+            board,
+            {
+              y: isMobile ? 16 : 26,
+              scale: 0.985,
+              autoAlpha: 0,
+            },
+            { y: 0, scale: 1, autoAlpha: 1, duration: 1.7 },
+            "arrival",
+          )
+          .fromTo(
+            routes,
+            { y: 8, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 1.9 },
+            "arrival",
+          )
+          .fromTo(
+            gestures,
+            { y: 10, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 2.1 },
+            "arrival",
+          );
+      },
+      arrival,
+    );
+  }
+</script>

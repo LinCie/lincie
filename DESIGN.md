@@ -287,3 +287,7 @@ Forest paths use layered greens, trail marks, and open space for experiments and
 - **Don't** copy recognizable rural-anime characters, scenes, or assets; keep references atmospheric only.
 - **Don't** invent personal details, project outcomes, services, or visual states merely to make a quiet route look full.
 - **Don't** let motion, audio, pointer response, or a tiny hotspot become necessary for understanding or access.
+
+## Asset provenance
+
+- `public/images/lincie-countryside-arrival.webp` — original countryside arrival scene generated for LinCie with Gemini 3 Pro Image, then converted to WebP with `ffmpeg`; no external source imagery or text assets are included.
