@@ -1,0 +1,809 @@
+---
+import MainLayout from "../components/layout/MainLayout.astro";
+
+const siteContainer =
+  "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
+---
+
+<MainLayout title="Station House — LinCie (About Me)">
+  <!-- Threshold & Intro Banner -->
+  <section
+    class="border-b border-[#c4b49d] bg-[#f7f2e8] pt-12 pb-14 md:pt-16 md:pb-20"
+  >
+    <div class={siteContainer}>
+      <div class="max-w-[72ch]">
+        <h1
+          class="font-serif text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.05] font-normal tracking-[-0.03em] text-[#2d332b]"
+        >
+          The Station House
+        </h1>
+        <p
+          class="mt-5 font-serif text-[clamp(1.15rem,2.2vw,1.4rem)] leading-[1.5] text-[#5f665c]"
+        >
+          A sunlit room between train tracks and rice fields. Step inside, shake
+          off the morning air, meet the sleeping cat, and stay as long as you
+          like.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Hearth & Living Nook (LinCie's Narrative + Bedroom Anchor) -->
+  <section class="border-b border-[#c4b49d] bg-[#fffdf8] py-14 md:py-20">
+    <div class={siteContainer}>
+      <div
+        class="grid grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-16"
+      >
+        <!-- Left: Personal Story & Engineering Background -->
+        <article class="space-y-6 text-[#2d332b]">
+          <h2
+            class="font-serif text-[clamp(1.8rem,3vw,2.6rem)] leading-[1.15] font-normal tracking-[-0.02em] text-[#2d332b]"
+          >
+            Meet the person behind the work
+          </h2>
+
+          <div
+            class="max-w-[65ch] space-y-5 text-base leading-[1.68] text-[#2d332b]"
+          >
+            <p>
+              Hello, I’m <strong>LinCie</strong>. I’m a backend software
+              engineer and trainee based in Indonesia, building and learning
+              with care.
+            </p>
+
+            <p>
+              Right now, I am a <strong
+                >Software Engineering Trainee at Sea Labs Indonesia</strong
+              > (Shopee), selected as one of 24 trainees out of more than a thousand
+              applicants. My days are spent designing, optimizing, and building backend
+              services in Go and TypeScript, refining database queries, and exploring
+              distributed architecture.
+            </p>
+
+            <p>
+              My route into software engineering was not a conventional computer
+              science degree. I graduated with a degree in Marketing Management
+              and Business Administration (GPA 3.71 / 4.00). That foundation
+              fundamentally shaped how I view technology: code does not exist in
+              a vacuum. It lives to support real people, streamline business
+              operations, and eliminate hours of manual frustration.
+            </p>
+
+            <p>
+              Before Sea Labs, I was a Full Stack Engineer at <strong
+                >PT Haebot Teknologi Indonesia</strong
+              >, where I spearheaded the complete rewrite of a core enterprise
+              ERP system. I replaced sluggish legacy query paths with explicit
+              Kysely queries, cutting production latency from 2.5 seconds down
+              to under 400 milliseconds, and automated deployment pipelines
+              using Docker Compose to reduce environment setup from an hour to
+              less than five minutes.
+            </p>
+
+            <p>
+              Whether working on high-volume transactional checkout systems or
+              personal tools, I stand for quiet craft: software that is fast,
+              resilient, well-documented, and designed with genuine care.
+            </p>
+          </div>
+
+          <!-- Quick Facts Badges -->
+          <div class="pt-2">
+            <dl
+              class="grid grid-cols-1 gap-4 border-t border-[#c4b49d]/60 pt-6 sm:grid-cols-3"
+            >
+              <div
+                class="rounded-lg border border-[#c4b49d]/60 bg-[#f7f2e8] p-4"
+              >
+                <dt
+                  class="font-sans text-xs font-semibold tracking-[0.05em] text-[#5f665c] uppercase"
+                >
+                  Current Role
+                </dt>
+                <dd class="mt-1 font-serif text-lg text-[#2d332b]">
+                  Software Engineering Trainee
+                </dd>
+                <dd class="mt-0.5 text-xs text-[#5f665c]">
+                  Sea Labs Indonesia (Shopee)
+                </dd>
+              </div>
+
+              <div
+                class="rounded-lg border border-[#c4b49d]/60 bg-[#f7f2e8] p-4"
+              >
+                <dt
+                  class="font-sans text-xs font-semibold tracking-[0.05em] text-[#5f665c] uppercase"
+                >
+                  Location
+                </dt>
+                <dd class="mt-1 font-serif text-lg text-[#2d332b]">
+                  Indonesia
+                </dd>
+                <dd class="mt-0.5 text-xs text-[#5f665c]">UTC+7 (WIB)</dd>
+              </div>
+
+              <div
+                class="rounded-lg border border-[#c4b49d]/60 bg-[#f7f2e8] p-4"
+              >
+                <dt
+                  class="font-sans text-xs font-semibold tracking-[0.05em] text-[#5f665c] uppercase"
+                >
+                  Primary Toolkit
+                </dt>
+                <dd class="mt-1 font-serif text-lg text-[#2d332b]">
+                  Go &amp; TypeScript
+                </dd>
+                <dd class="mt-0.5 text-xs text-[#5f665c]">
+                  SQL, Docker, Kysely
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- Right: The Bedroom Nook & The Sleeping Cat (The Emotional Anchor) -->
+        <aside
+          aria-label="The Bedroom Nook and Sleeping Cat"
+          class="relative rounded-2xl border border-[#c4b49d] bg-[#f7f2e8] p-6 sm:p-8"
+        >
+          <div
+            class="flex items-center justify-between border-b border-[#c4b49d]/70 pb-4"
+          >
+            <span class="font-serif text-xl font-normal text-[#2d332b]"
+              >The Bedroom Nook</span
+            >
+            <span
+              class="inline-flex items-center gap-1.5 rounded-full bg-[#e9ddc9] px-2.5 py-0.5 text-xs font-medium text-[#2d332b]"
+            >
+              <span
+                class="size-1.5 rounded-full bg-[#6c895f]"
+                aria-hidden="true"></span>
+              Quiet morning
+            </span>
+          </div>
+
+          <!-- SVG Sleeping Cat Illustration -->
+          <div class="my-6 flex flex-col items-center justify-center">
+            <div class="relative w-full max-w-[280px]">
+              <svg
+                viewBox="0 0 240 180"
+                class="h-auto w-full select-none"
+                aria-labelledby="cat-scene-title"
+                role="img"
+              >
+                <title id="cat-scene-title">
+                  Mikan, the station house cat, curled up asleep on a woven
+                  morning mat
+                </title>
+                <defs>
+                  <radialGradient id="mat-shadow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#c4b49d" stop-opacity=".45"
+                    ></stop>
+                    <stop offset="100%" stop-color="#c4b49d" stop-opacity="0"
+                    ></stop>
+                  </radialGradient>
+                </defs>
+
+                <!-- Mat / Tatami Platform -->
+                <ellipse
+                  cx="120"
+                  cy="148"
+                  rx="98"
+                  ry="24"
+                  fill="url(#mat-shadow)"></ellipse>
+                <ellipse
+                  cx="120"
+                  cy="144"
+                  rx="92"
+                  ry="22"
+                  fill="#e9ddc9"
+                  stroke="#c4b49d"
+                  stroke-width="1.5"></ellipse>
+                <ellipse
+                  cx="120"
+                  cy="144"
+                  rx="78"
+                  ry="16"
+                  fill="#dce7c9"
+                  opacity=".4"></ellipse>
+                <!-- Woven texture lines on the mat -->
+                <path
+                  d="M60 144h120 M75 138h90 M75 150h90"
+                  stroke="#c4b49d"
+                  stroke-width="1"
+                  stroke-dasharray="2 3"
+                  opacity=".6"></path>
+
+                <!-- The Sleeping Cat Group -->
+                <g class="cat-breathing origin-[120px_120px]">
+                  <!-- Tail curled around -->
+                  <path
+                    d="M56 130 C40 114 46 90 66 85 C74 83 76 91 70 97 C56 109 60 125 80 134"
+                    fill="none"
+                    stroke="#d49a48"
+                    stroke-width="10"
+                    stroke-linecap="round"></path>
+                  <path
+                    d="M56 130 C40 114 46 90 66 85 C74 83 76 91 70 97 C56 109 60 125 80 134"
+                    fill="none"
+                    stroke="#b8614b"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-dasharray="3 5"
+                    opacity=".8"></path>
+
+                  <!-- Curled Body -->
+                  <ellipse cx="120" cy="120" rx="58" ry="38" fill="#d49a48"
+                  ></ellipse>
+                  <!-- Body Terracotta Patches -->
+                  <path
+                    d="M88 98 C108 88 142 90 162 104 C148 96 118 94 88 98 Z"
+                    fill="#b8614b"
+                    opacity=".75"></path>
+                  <path
+                    d="M98 110 C118 102 146 104 165 118 C148 110 122 108 98 110 Z"
+                    fill="#b8614b"
+                    opacity=".5"></path>
+
+                  <!-- Tucked Paws -->
+                  <ellipse
+                    cx="158"
+                    cy="134"
+                    rx="14"
+                    ry="9"
+                    fill="#fffdf8"
+                    stroke="#d49a48"
+                    stroke-width="1.5"></ellipse>
+                  <ellipse
+                    cx="144"
+                    cy="138"
+                    rx="12"
+                    ry="8"
+                    fill="#fffdf8"
+                    stroke="#d49a48"
+                    stroke-width="1.5"></ellipse>
+
+                  <!-- Cat Head -->
+                  <circle cx="160" cy="104" r="26" fill="#d49a48"></circle>
+                  <!-- Cheeks & Muzzle (Cream patch) -->
+                  <ellipse
+                    cx="166"
+                    cy="112"
+                    rx="15"
+                    ry="11"
+                    fill="#fffdf8"
+                    opacity=".9"></ellipse>
+
+                  <!-- Left Ear -->
+                  <polygon points="142,90 150,68 160,86" fill="#d49a48"
+                  ></polygon>
+                  <polygon points="145,88 150,73 158,86" fill="#f5c7b8"
+                  ></polygon>
+
+                  <!-- Right Ear -->
+                  <polygon points="164,86 176,70 182,92" fill="#d49a48"
+                  ></polygon>
+                  <polygon points="167,87 175,74 180,91" fill="#f5c7b8"
+                  ></polygon>
+
+                  <!-- Sleeping Closed Eyes (Gentle peaceful arcs) -->
+                  <path
+                    d="M156 108 Q161 113 166 108"
+                    fill="none"
+                    stroke="#2d332b"
+                    stroke-width="1.8"
+                    stroke-linecap="round"></path>
+                  <path
+                    d="M171 108 Q176 113 181 108"
+                    fill="none"
+                    stroke="#2d332b"
+                    stroke-width="1.8"
+                    stroke-linecap="round"></path>
+
+                  <!-- Nose & Mouth -->
+                  <polygon points="169,114 173,114 171,117" fill="#b8614b"
+                  ></polygon>
+                  <path
+                    d="M171 117 Q169 121 165 120 M171 117 Q173 121 177 120"
+                    fill="none"
+                    stroke="#2d332b"
+                    stroke-width="1.2"
+                    stroke-linecap="round"></path>
+
+                  <!-- Whiskers -->
+                  <path
+                    d="M176 114 L192 112 M176 117 L193 118 M176 120 L191 124"
+                    fill="none"
+                    stroke="#fffdf8"
+                    stroke-width="1.2"
+                    stroke-linecap="round"
+                    opacity=".95"></path>
+                  <path
+                    d="M160 114 L146 112 M160 117 L144 118 M160 120 L145 124"
+                    fill="none"
+                    stroke="#fffdf8"
+                    stroke-width="1.2"
+                    stroke-linecap="round"
+                    opacity=".95"></path>
+                </g>
+
+                <!-- Floating Soft Z's -->
+                <g
+                  class="cat-z font-serif font-bold text-[#b8614b] select-none"
+                  fill="#b8614b"
+                >
+                  <text x="186" y="74" font-size="11" opacity=".7">z</text>
+                  <text x="196" y="60" font-size="13" opacity=".6">z</text>
+                  <text x="208" y="44" font-size="16" opacity=".5">Z</text>
+                </g>
+              </svg>
+            </div>
+
+            <p class="mt-2 text-center text-xs font-medium text-[#5f665c]">
+              Mikan (みかん), the station house cat, enjoying the morning sun.
+            </p>
+          </div>
+
+          <!-- Everyday Comforts List -->
+          <div class="border-t border-[#c4b49d]/70 pt-5">
+            <h3 class="font-serif text-lg font-normal text-[#2d332b]">
+              Everyday Room Comforts
+            </h3>
+            <ul class="mt-3 space-y-3 text-sm text-[#5f665c]">
+              <li class="flex items-start gap-3">
+                <span
+                  class="grid size-6 shrink-0 place-items-center rounded-full bg-[#e9ddc9] text-[#b8614b]"
+                  aria-hidden="true"
+                >
+                  <svg
+                    class="size-3.5 fill-none [stroke:currentColor] [stroke-width:2]"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z M6 1v3M10 1v3M14 1v3"
+                    ></path>
+                  </svg>
+                </span>
+                <span>
+                  <strong class="text-[#2d332b]"
+                    >Hot tea &amp; pour-over coffee:</strong
+                  > Always within reach at the bedside desk before the first line
+                  of code.
+                </span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span
+                  class="grid size-6 shrink-0 place-items-center rounded-full bg-[#e9ddc9] text-[#b8614b]"
+                  aria-hidden="true"
+                >
+                  <svg
+                    class="size-3.5 fill-none [stroke:currentColor] [stroke-width:2]"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"
+                    ></path>
+                  </svg>
+                </span>
+                <span>
+                  <strong class="text-[#2d332b]">The bedside notebook:</strong> Filled
+                  with Go interface sketches, database foreign keys, and notes on
+                  distributed locks.
+                </span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span
+                  class="grid size-6 shrink-0 place-items-center rounded-full bg-[#e9ddc9] text-[#b8614b]"
+                  aria-hidden="true"
+                >
+                  <svg
+                    class="size-3.5 fill-none [stroke:currentColor] [stroke-width:2]"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                    ></path>
+                  </svg>
+                </span>
+                <span>
+                  <strong class="text-[#2d332b]">Morning daylight:</strong> Slanted
+                  through wooden station blinds, keeping the room grounded and unhurried.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bedside Discoveries & Tactile Records -->
+  <section class="border-b border-[#c4b49d] bg-[#f7f2e8] py-14 md:py-20">
+    <div class={siteContainer}>
+      <div class="max-w-[70ch]">
+        <h2
+          class="font-serif text-[clamp(1.8rem,3vw,2.6rem)] leading-[1.15] font-normal tracking-[-0.02em] text-[#2d332b]"
+        >
+          Bedside Records &amp; Discoveries
+        </h2>
+        <p class="mt-3 text-base leading-[1.65] text-[#5f665c]">
+          These are the records, sounds, and stories resting on the wooden
+          shelves around the nook. You are free to open any shelf that catches
+          your eye, or wander past without hurry.
+        </p>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <!-- Discovery 1: The Sound Shelf -->
+        <article
+          class="flex flex-col justify-between rounded-xl border border-[#c4b49d] bg-[#fffdf8] p-6"
+        >
+          <div>
+            <div
+              class="flex items-center justify-between border-b border-[#c4b49d]/60 pb-3"
+            >
+              <span
+                class="grid size-9 place-items-center rounded-lg bg-[#e9ddc9] text-[#b8614b]"
+                aria-hidden="true"
+              >
+                <svg
+                  class="size-5 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M12 2a10 10 0 0 1 10 10"></path>
+                </svg>
+              </span>
+              <span class="font-sans text-xs font-semibold text-[#5f665c]"
+                >The Sound Shelf · 音</span
+              >
+            </div>
+
+            <h3 class="mt-4 font-serif text-xl font-normal text-[#2d332b]">
+              Japanese Contemporary Classical
+            </h3>
+            <p class="mt-2 text-sm leading-[1.6] text-[#5f665c]">
+              haruka nakamura · Akira Kosemura
+            </p>
+
+            <p class="mt-4 text-sm leading-[1.65] text-[#2d332b]">
+              Gentle piano chords, natural tape hiss, and morning field
+              recordings. There is a quiet stillness in Haruka Nakamura’s
+              melodies and Akira Kosemura’s chamber pieces where you can hear
+              felt hammers touching strings and wooden pedals creaking.
+            </p>
+          </div>
+
+          <div class="mt-6 border-t border-[#c4b49d]/50 pt-4">
+            <details class="group cursor-pointer">
+              <summary
+                class="flex min-h-[44px] list-none items-center justify-between text-xs font-bold text-[#b8614b] select-none hover:text-[#843d2f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+              >
+                <span>Read record note</span>
+                <span
+                  class="transition-transform duration-200 group-open:rotate-180"
+                  aria-hidden="true"
+                >
+                  <svg
+                    class="size-4 fill-none [stroke:currentColor] [stroke-width:2]"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <div
+                class="mt-3 rounded-md bg-[#f7f2e8] p-3 text-xs leading-[1.6] text-[#5f665c]"
+              >
+                "This music feels like rain against the window or the first
+                morning train arriving in the fog. It provides the calm
+                headspace I need when debugging tricky concurrency bugs or
+                designing database schemas."
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- Discovery 2: The Game Desk -->
+        <article
+          class="flex flex-col justify-between rounded-xl border border-[#c4b49d] bg-[#fffdf8] p-6"
+        >
+          <div>
+            <div
+              class="flex items-center justify-between border-b border-[#c4b49d]/60 pb-3"
+            >
+              <span
+                class="grid size-9 place-items-center rounded-lg bg-[#e9ddc9] text-[#b8614b]"
+                aria-hidden="true"
+              >
+                <svg
+                  class="size-5 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+                  viewBox="0 0 24 24"
+                >
+                  <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+                  <path d="M6 12h4m-2-2v4m7-2h.01m3-2h.01"></path>
+                </svg>
+              </span>
+              <span class="font-sans text-xs font-semibold text-[#5f665c]"
+                >The Game Desk · 遊び</span
+              >
+            </div>
+
+            <h3 class="mt-4 font-serif text-xl font-normal text-[#2d332b]">
+              Living Worlds &amp; Systems
+            </h3>
+            <p class="mt-2 text-sm leading-[1.6] text-[#5f665c]">
+              Stardew Valley · osu! · Roblox · EU4
+            </p>
+
+            <p class="mt-4 text-sm leading-[1.65] text-[#2d332b]">
+              From the relaxing freedom of <em>Stardew Valley</em> to the precision
+              rhythm of
+              <em>osu!</em>, the social sandboxes of <em>Roblox</em>, and the
+              grand geopolitical chessboard of <em>Europa Universalis IV</em>.
+            </p>
+          </div>
+
+          <div class="mt-6 border-t border-[#c4b49d]/50 pt-4">
+            <details class="group cursor-pointer">
+              <summary
+                class="flex min-h-[44px] list-none items-center justify-between text-xs font-bold text-[#b8614b] select-none hover:text-[#843d2f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+              >
+                <span>Read discovery note</span>
+                <span
+                  class="transition-transform duration-200 group-open:rotate-180"
+                  aria-hidden="true"
+                >
+                  <svg
+                    class="size-4 fill-none [stroke:currentColor] [stroke-width:2]"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <div
+                class="mt-3 rounded-md bg-[#f7f2e8] p-3 text-xs leading-[1.6] text-[#5f665c]"
+              >
+                "Stardew Valley matters because of autonomy: the quiet joy of
+                clearing land, tending crops, and styling a farm at your own
+                pace without competition. Meanwhile, EU4 feeds my love for
+                complex multi-variable systems, trade networks, and patient
+                strategy."
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- Discovery 3: The Window View -->
+        <article
+          class="flex flex-col justify-between rounded-xl border border-[#c4b49d] bg-[#fffdf8] p-6"
+        >
+          <div>
+            <div
+              class="flex items-center justify-between border-b border-[#c4b49d]/60 pb-3"
+            >
+              <span
+                class="grid size-9 place-items-center rounded-lg bg-[#e9ddc9] text-[#b8614b]"
+                aria-hidden="true"
+              >
+                <svg
+                  class="size-5 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M3 3h18v18H3zM3 12h18M12 3v18"></path>
+                </svg>
+              </span>
+              <span class="font-sans text-xs font-semibold text-[#5f665c]"
+                >The Window · 景色</span
+              >
+            </div>
+
+            <h3 class="mt-4 font-serif text-xl font-normal text-[#2d332b]">
+              Iyashikei &amp; Rural Calm
+            </h3>
+            <p class="mt-2 text-sm leading-[1.6] text-[#5f665c]">
+              Non Non Biyori · Yuru Camp
+            </p>
+
+            <p class="mt-4 text-sm leading-[1.65] text-[#2d332b]">
+              Stories celebrating the unhurried texture of everyday countryside
+              life: empty rural train platforms, cicadas buzzing in afternoon
+              heat, and warm soup over a winter campfire.
+            </p>
+          </div>
+
+          <div class="mt-6 border-t border-[#c4b49d]/50 pt-4">
+            <details class="group cursor-pointer">
+              <summary
+                class="flex min-h-[44px] list-none items-center justify-between text-xs font-bold text-[#b8614b] select-none hover:text-[#843d2f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+              >
+                <span>Read reflection note</span>
+                <span
+                  class="transition-transform duration-200 group-open:rotate-180"
+                  aria-hidden="true"
+                >
+                  <svg
+                    class="size-4 fill-none [stroke:currentColor] [stroke-width:2]"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <div
+                class="mt-3 rounded-md bg-[#f7f2e8] p-3 text-xs leading-[1.6] text-[#5f665c]"
+              >
+                "This is the direct spiritual inspiration for LinCie Station.
+                It's a reminder that we don't always need to build breathless,
+                high-pressure software. We can create quiet, welcoming digital
+                spaces that feel like home."
+              </div>
+            </details>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engineering Principles & Craft Standards -->
+  <section class="border-b border-[#c4b49d] bg-[#fffdf8] py-14 md:py-20">
+    <div class={siteContainer}>
+      <div class="max-w-[70ch]">
+        <h2
+          class="font-serif text-[clamp(1.8rem,3vw,2.6rem)] leading-[1.15] font-normal tracking-[-0.02em] text-[#2d332b]"
+        >
+          Engineering Values at the Station
+        </h2>
+        <p class="mt-3 text-base leading-[1.65] text-[#5f665c]">
+          How I approach software engineering every day—whether building
+          high-concurrency backend services or refining personal experiments.
+        </p>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div class="border-t-2 border-[#b8614b] pt-5">
+          <h3 class="font-serif text-xl font-normal text-[#2d332b]">
+            Measure before optimizing
+          </h3>
+          <p class="mt-3 text-sm leading-[1.68] text-[#5f665c]">
+            Never optimize based on intuition alone. Cutting query latency by
+            84% at Haebot came from real database execution plans, slow query
+            profiling, and targeted indexing rather than reckless refactoring.
+          </p>
+        </div>
+
+        <div class="border-t-2 border-[#6c895f] pt-5">
+          <h3 class="font-serif text-xl font-normal text-[#2d332b]">
+            Predictable over clever
+          </h3>
+          <p class="mt-3 text-sm leading-[1.68] text-[#5f665c]">
+            Clever code creates technical debt for tomorrow’s maintainers. I
+            prefer boring, readable Go interfaces, explicit SQL queries with
+            type safety, and clean separation of concerns that anyone on the
+            team can inspect with confidence.
+          </p>
+        </div>
+
+        <div class="border-t-2 border-[#d49a48] pt-5">
+          <h3 class="font-serif text-xl font-normal text-[#2d332b]">
+            Rooted in real business needs
+          </h3>
+          <p class="mt-3 text-sm leading-[1.68] text-[#5f665c]">
+            Having studied business administration and marketing, I bridge the
+            gap between domain logic and engineering. Systems must solve real
+            organizational pain points, prevent accounting mistakes, and free
+            human beings from manual spreadsheets.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exit Gate & Next Destinations -->
+  <section class="bg-[#f7f2e8] py-16 md:py-24" aria-labelledby="exit-title">
+    <div class={siteContainer}>
+      <div class="rounded-2xl border border-[#c4b49d] bg-[#fffdf8] p-8 md:p-12">
+        <div class="max-w-[65ch]">
+          <h2
+            id="exit-title"
+            class="font-serif text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.12] font-normal tracking-[-0.02em] text-[#2d332b]"
+          >
+            Where would you like to wander next?
+          </h2>
+          <p class="mt-3 text-base leading-[1.65] text-[#5f665c]">
+            There is no set path and no deadline. Step back out onto the open
+            platform, check on the rice fields, or leave a message at the
+            letterbox.
+          </p>
+        </div>
+
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a
+            href="/"
+            class="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[#2d332b] bg-[#2d332b] px-6 py-3 font-sans text-sm font-semibold text-[#fffdf8] transition-[background-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:bg-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] motion-reduce:transition-none"
+          >
+            <svg
+              class="size-4 fill-none [stroke:currentColor] [stroke-width:2] [stroke-linecap:round] [stroke-linejoin:round]"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7"></path>
+            </svg>
+            <span>Return to Station Platform</span>
+          </a>
+
+          <a
+            href="/#projects"
+            class="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[#c4b49d] bg-[#fffdf8] px-6 py-3 font-sans text-sm font-semibold text-[#2d332b] transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:text-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] motion-reduce:transition-none"
+          >
+            <span>Wander to Rice Fields (Projects)</span>
+            <svg
+              class="size-4 fill-none [stroke:currentColor] [stroke-width:2] [stroke-linecap:round] [stroke-linejoin:round]"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+
+          <a
+            href="/#connect"
+            class="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[#c4b49d] bg-[#fffdf8] px-6 py-3 font-sans text-sm font-semibold text-[#2d332b] transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:text-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] motion-reduce:transition-none"
+          >
+            <span>Drop a note at Letterbox</span>
+            <svg
+              class="size-4 fill-none [stroke:currentColor] [stroke-width:2] [stroke-linecap:round] [stroke-linejoin:round]"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  @keyframes cat-breathing {
+    0%,
+    100% {
+      transform: scale(1) translateY(0);
+    }
+    50% {
+      transform: scale(1.02, 1.012) translateY(-0.8px);
+    }
+  }
+
+  @keyframes cat-z-float {
+    0%,
+    100% {
+      opacity: 0.35;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 0.85;
+      transform: translateY(-3px);
+    }
+  }
+
+  .cat-breathing {
+    animation: cat-breathing 4.5s ease-in-out infinite;
+  }
+
+  .cat-z {
+    animation: cat-z-float 3.5s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cat-breathing,
+    .cat-z {
+      animation: none !important;
+    }
+  }
+</style>

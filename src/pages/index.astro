@@ -17,7 +17,7 @@ const destinations: Destination[] = [
     label: "About Me",
     invitation: "Meet the person behind the work.",
     roomNote:
-      "This room is quiet for now. A plain introduction will live here when there is something true to say.",
+      "I’m currently a software engineering trainee at one of Southeast Asia’s biggest e-commerce companies.",
     tone: "house",
   },
   {
@@ -63,497 +63,460 @@ const siteContainer =
 ---
 
 <MainLayout title="LinCie — Welcome. You made it here.">
-  <a
-    class="fixed top-4 left-4 z-20 -translate-y-[160%] rounded-md border border-[#b8614b] bg-[#fffdf8] px-4 py-3 text-sm font-bold text-[#2d332b] transition-transform duration-200 ease-out focus:translate-y-0 motion-reduce:transition-none"
-    href="#main-content">Skip to main content</a
+  <section
+    class="relative isolate min-h-[47rem] overflow-hidden bg-[#c9e0e2] max-[760px]:min-h-0"
+    aria-labelledby="arrival-title"
+    data-arrival
   >
-
-  <div class="min-h-screen overflow-clip bg-[#f7f2e8] text-[#2d332b]">
-    <header class="relative z-10 border-b border-[#c4b49d] bg-[#f7f2e8]/95">
+    <div
+      class="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+      aria-hidden="true"
+    >
+      <img
+        class="absolute inset-0 size-full object-cover object-center opacity-[.98] will-change-transform max-[760px]:object-[70%_center] max-[760px]:opacity-[.42]"
+        src="/images/lincie-countryside-arrival.webp"
+        alt=""
+        width="1376"
+        height="768"
+        decoding="async"
+        fetchpriority="high"
+        data-arrival-image
+      />
       <div
-        class={`${siteContainer} flex min-h-[4.5rem] items-center justify-between gap-4 max-[480px]:min-h-16`}
+        class="absolute inset-0 bg-[linear-gradient(90deg,rgba(201,224,226,.86)_0%,rgba(201,224,226,.58)_34%,rgba(201,224,226,.16)_70%,rgba(201,224,226,.02)_100%)] max-[760px]:bg-[linear-gradient(180deg,rgba(201,224,226,.92)_0%,rgba(201,224,226,.72)_48%,rgba(220,231,201,.48)_100%)]"
       >
-        <a
-          class="inline-flex min-h-11 items-center gap-3 text-[#2d332b] no-underline"
-          href="/"
-          aria-current="page"
-          aria-label="LinCie station home"
-        >
-          <span
-            class="relative grid size-8 place-items-center rounded-full border-[1.5px] border-[#b8614b] before:absolute before:block before:h-0 before:w-[1.15rem] before:border-t-[1.5px] before:border-[#b8614b] before:content-[''] after:absolute after:block after:h-[1.15rem] after:w-0 after:border-l-[1.5px] after:border-[#b8614b] after:content-['']"
-            aria-hidden="true"
-          >
-            <span class="size-[.35rem] rounded-full bg-[#b8614b]"></span>
-          </span>
-          <span class="font-serif text-2xl tracking-[-0.02em]">LinCie</span>
-        </a>
+      </div>
+      <div
+        class="absolute inset-x-0 bottom-0 h-[43%] bg-[linear-gradient(180deg,rgba(220,231,201,.02)_0%,rgba(220,231,201,.38)_100%)] max-[760px]:h-[32%]"
+      >
+      </div>
 
-        <p
-          class="inline-flex items-center gap-2 font-sans text-xs font-bold tracking-[0.04em] text-[#5f665c] max-[480px]:text-[.68rem]"
+      <svg
+        class="absolute inset-0 size-full"
+        viewBox="0 0 1440 760"
+        preserveAspectRatio="none"
+        focusable="false"
+      >
+        <defs>
+          <radialGradient id="arrival-sun-halo" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#f8d78d" stop-opacity=".62"></stop>
+            <stop offset="100%" stop-color="#f8d78d" stop-opacity="0"></stop>
+          </radialGradient>
+        </defs>
+
+        <g class="max-[760px]:hidden" data-arrival-sun>
+          <circle cx="1170" cy="122" r="96" fill="url(#arrival-sun-halo)"
+          ></circle>
+          <circle cx="1170" cy="122" r="39" fill="#d49a48" fill-opacity=".64"
+          ></circle>
+          <g
+            fill="none"
+            stroke="#d49a48"
+            stroke-linecap="round"
+            stroke-width="2.5"
+            opacity=".72"
+          >
+            <path data-arrival-draw d="M1170 59V40"></path>
+            <path data-arrival-draw d="M1170 185v19"></path>
+            <path data-arrival-draw d="M1107 122h-19"></path>
+            <path data-arrival-draw d="M1233 122h19"></path>
+            <path data-arrival-draw d="m1125 77-14-14"></path>
+            <path data-arrival-draw d="m1215 167 14 14"></path>
+            <path data-arrival-draw d="m1215 77 14-14"></path>
+            <path data-arrival-draw d="m1125 167-14 14"></path>
+          </g>
+        </g>
+
+        <g
+          fill="none"
+          stroke="#f7f2e8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          opacity=".52"
+          vector-effect="non-scaling-stroke"
+        >
+          <path
+            data-arrival-draw
+            d="M640 338c126-43 198-10 300-69 94-54 167-6 261-45 91-38 172 39 275-9 112-52 184 23 288-38 99-57 221-8 356-69"
+          ></path>
+          <path
+            data-arrival-draw
+            d="M-20 576c270-35 493-8 720-29 259-24 483 8 760-30"></path>
+          <path
+            data-arrival-draw
+            d="M-20 632c272-29 500-10 780-31 255-20 477 11 700-28"></path>
+          <path
+            data-arrival-draw
+            d="M-20 687c312-27 566-13 841-37 242-21 453 10 639-22"></path>
+          <path
+            data-arrival-draw
+            d="M-20 706c291-30 568-14 852-35 236-17 431 5 628-21"></path>
+          <path
+            data-arrival-draw
+            d="M-20 728c306-26 577-13 873-37 235-19 422 6 607-16"></path>
+        </g>
+
+        <g
+          data-arrival-stop
+          fill="none"
+          stroke="#b8614b"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2.5"
+          opacity=".78"
+          vector-effect="non-scaling-stroke"
+        >
+          <path data-arrival-draw d="M746 548V395"></path>
+          <path data-arrival-draw d="M746 409h-27"></path>
+          <path data-arrival-draw d="M714 548h64"></path>
+          <circle cx="746" cy="386" r="14" fill="#b8614b"></circle>
+          <path d="M738 386h16" stroke="#fffdf8" stroke-width="2"></path>
+        </g>
+      </svg>
+    </div>
+
+    <div
+      class={`${siteContainer} relative grid min-h-[47rem] grid-cols-[minmax(0,0.95fr)_minmax(25rem,0.8fr)] grid-rows-[auto_auto] items-center gap-[clamp(2.5rem,7vw,7.5rem)] py-[clamp(3rem,5vw,4rem)] max-[1050px]:grid-cols-[minmax(0,0.9fr)_minmax(22rem,0.8fr)] max-[1050px]:gap-10 max-[760px]:flex max-[760px]:min-h-0 max-[760px]:flex-col max-[760px]:items-stretch max-[760px]:gap-12 max-[760px]:pb-16 max-[760px]:pt-14`}
+    >
+      <div
+        class="relative z-[1] col-start-1 row-start-1 max-w-[38rem] self-start max-[760px]:col-auto max-[760px]:row-auto max-[760px]:max-w-none"
+      >
+        <div
+          class="mb-6 flex w-fit flex-wrap items-center gap-x-3 gap-y-2 border-b border-[#2d332b]/40 pb-[.7rem] font-sans text-[.78rem] tracking-[.02em] text-[#50594d] max-[480px]:gap-x-[.6rem] max-[480px]:text-[.72rem]"
+          aria-label="Current location"
+          data-arrival-location
         >
           <span
             class="size-[.55rem] shrink-0 rounded-full bg-[#b8614b]"
             aria-hidden="true"></span>
-          Station arrival
+          <span>You are here</span>
+          <strong class="font-bold text-[#2d332b]"
+            >Platform / Station arrival</strong
+          >
+        </div>
+
+        <h1
+          id="arrival-title"
+          class="max-w-[10ch] font-serif text-[clamp(3.75rem,7.2vw,6rem)] leading-[.99] font-normal tracking-[-0.035em] max-[760px]:max-w-[9ch] max-[760px]:text-[clamp(3.45rem,16vw,5.3rem)]"
+          data-arrival-title
+        >
+          Welcome.<br />You made it <em
+            class="font-normal text-[#b8614b] not-italic">here.</em
+          >
+        </h1>
+
+        <p
+          class="mt-7 max-w-[38rem] text-[clamp(1.05rem,1.5vw,1.25rem)] leading-[1.55]"
+          data-arrival-copy
+        >
+          LinCie is a software engineering trainee making room for thoughtful
+          work, curious ideas, and a life around them.
         </p>
+
+        <p
+          class="mt-[1.35rem] flex max-w-[32rem] items-start gap-[.85rem] text-[.9rem] leading-[1.55] text-[#50594d]"
+          data-arrival-note
+        >
+          <span
+            class="mt-[.7rem] w-9 shrink-0 border-t border-[#b8614b]"
+            aria-hidden="true"></span>
+          <span
+            >Take your time. There is no right route through this place.</span
+          >
+        </p>
+
+        <aside
+          class="mt-8 grid max-w-[31rem] grid-cols-[minmax(7rem,0.3fr)_1fr] gap-x-5 gap-y-[.35rem] border-y border-[#2d332b]/30 py-4 max-[480px]:grid-cols-1 max-[480px]:gap-y-[.45rem]"
+          aria-labelledby="current-signal-title"
+          data-arrival-notice
+        >
+          <div
+            class="flex items-center gap-2 font-sans text-xs font-bold tracking-[.03em] text-[#50594d]"
+          >
+            <span
+              class="size-[.55rem] rounded-full bg-[#b8614b]"
+              aria-hidden="true"></span>
+            <span>Current notice</span>
+          </div>
+          <h2
+            id="current-signal-title"
+            class="font-serif text-[clamp(1.35rem,2vw,1.75rem)] leading-[1.1] font-normal tracking-[-0.025em]"
+          >
+            Still making room.
+          </h2>
+          <p
+            class="col-start-2 text-[.9rem] leading-[1.5] text-[#50594d] max-[480px]:col-start-1"
+          >
+            The rooms below are quiet for now. Their doors are still easy to
+            find.
+          </p>
+        </aside>
       </div>
-    </header>
 
-    <main id="main-content" tabindex="-1">
-      <section
-        class="relative isolate min-h-[47rem] overflow-hidden bg-[#c9e0e2] max-[760px]:min-h-0"
-        aria-labelledby="arrival-title"
-        data-arrival
+      <nav
+        class="relative z-[1] col-start-2 row-span-2 row-start-1 rotate-[.7deg] self-center rounded-[1.25rem] border border-[#c4b49d] bg-[#e9ddc9] p-[clamp(1.25rem,3vw,2rem)] shadow-[0_16px_34px_rgba(57,52,38,0.14)] max-[760px]:col-auto max-[760px]:row-auto max-[760px]:rotate-0"
+        id="board"
+        aria-labelledby="board-title"
+        data-arrival-board
       >
-        <div
-          class="pointer-events-none absolute inset-0 z-0 overflow-hidden"
-          aria-hidden="true"
-        >
-          <img
-            class="absolute inset-0 size-full object-cover object-center opacity-[.98] will-change-transform max-[760px]:object-[70%_center] max-[760px]:opacity-[.42]"
-            src="/images/lincie-countryside-arrival.webp"
-            alt=""
-            width="1376"
-            height="768"
-            decoding="async"
-            fetchpriority="high"
-            data-arrival-image
-          />
-          <div
-            class="absolute inset-0 bg-[linear-gradient(90deg,rgba(201,224,226,.86)_0%,rgba(201,224,226,.58)_34%,rgba(201,224,226,.16)_70%,rgba(201,224,226,.02)_100%)] max-[760px]:bg-[linear-gradient(180deg,rgba(201,224,226,.92)_0%,rgba(201,224,226,.72)_48%,rgba(220,231,201,.48)_100%)]"
-          >
-          </div>
-          <div
-            class="absolute inset-x-0 bottom-0 h-[43%] bg-[linear-gradient(180deg,rgba(220,231,201,.02)_0%,rgba(220,231,201,.38)_100%)] max-[760px]:h-[32%]"
-          >
-          </div>
-
-          <svg
-            class="absolute inset-0 size-full"
-            viewBox="0 0 1440 760"
-            preserveAspectRatio="none"
-            focusable="false"
-          >
-            <defs>
-              <radialGradient id="arrival-sun-halo" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#f8d78d" stop-opacity=".62"
-                ></stop>
-                <stop offset="100%" stop-color="#f8d78d" stop-opacity="0"
-                ></stop>
-              </radialGradient>
-            </defs>
-
-            <g class="max-[760px]:hidden" data-arrival-sun>
-              <circle cx="1170" cy="122" r="96" fill="url(#arrival-sun-halo)"
-              ></circle>
-              <circle
-                cx="1170"
-                cy="122"
-                r="39"
-                fill="#d49a48"
-                fill-opacity=".64"></circle>
-              <g
-                fill="none"
-                stroke="#d49a48"
-                stroke-linecap="round"
-                stroke-width="2.5"
-                opacity=".72"
-              >
-                <path data-arrival-draw d="M1170 59V40"></path>
-                <path data-arrival-draw d="M1170 185v19"></path>
-                <path data-arrival-draw d="M1107 122h-19"></path>
-                <path data-arrival-draw d="M1233 122h19"></path>
-                <path data-arrival-draw d="m1125 77-14-14"></path>
-                <path data-arrival-draw d="m1215 167 14 14"></path>
-                <path data-arrival-draw d="m1215 77 14-14"></path>
-                <path data-arrival-draw d="m1125 167-14 14"></path>
-              </g>
-            </g>
-
-            <g
-              fill="none"
-              stroke="#f7f2e8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              opacity=".52"
-              vector-effect="non-scaling-stroke"
-            >
-              <path
-                data-arrival-draw
-                d="M640 338c126-43 198-10 300-69 94-54 167-6 261-45 91-38 172 39 275-9 112-52 184 23 288-38 99-57 221-8 356-69"
-              ></path>
-              <path
-                data-arrival-draw
-                d="M-20 576c270-35 493-8 720-29 259-24 483 8 760-30"></path>
-              <path
-                data-arrival-draw
-                d="M-20 632c272-29 500-10 780-31 255-20 477 11 700-28"></path>
-              <path
-                data-arrival-draw
-                d="M-20 687c312-27 566-13 841-37 242-21 453 10 639-22"></path>
-              <path
-                data-arrival-draw
-                d="M-20 706c291-30 568-14 852-35 236-17 431 5 628-21"></path>
-              <path
-                data-arrival-draw
-                d="M-20 728c306-26 577-13 873-37 235-19 422 6 607-16"></path>
-            </g>
-
-            <g
-              data-arrival-stop
-              fill="none"
-              stroke="#b8614b"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2.5"
-              opacity=".78"
-              vector-effect="non-scaling-stroke"
-            >
-              <path data-arrival-draw d="M746 548V395"></path>
-              <path data-arrival-draw d="M746 409h-27"></path>
-              <path data-arrival-draw d="M714 548h64"></path>
-              <circle cx="746" cy="386" r="14" fill="#b8614b"></circle>
-              <path d="M738 386h16" stroke="#fffdf8" stroke-width="2"></path>
-            </g>
-          </svg>
-        </div>
+        <span
+          class="absolute top-4 left-4 size-[.6rem] rounded-full border border-[#2d332b]/35 bg-[#fffdf8] shadow-[inset_0_1px_2px_rgba(45,51,43,0.14)]"
+          aria-hidden="true"></span>
+        <span
+          class="absolute top-4 right-4 size-[.6rem] rounded-full border border-[#2d332b]/35 bg-[#fffdf8] shadow-[inset_0_1px_2px_rgba(45,51,43,0.14)]"
+          aria-hidden="true"></span>
 
         <div
-          class={`${siteContainer} relative grid min-h-[47rem] grid-cols-[minmax(0,0.95fr)_minmax(25rem,0.8fr)] grid-rows-[auto_auto] items-center gap-[clamp(2.5rem,7vw,7.5rem)] py-[clamp(3rem,5vw,4rem)] max-[1050px]:grid-cols-[minmax(0,0.9fr)_minmax(22rem,0.8fr)] max-[1050px]:gap-10 max-[760px]:flex max-[760px]:min-h-0 max-[760px]:flex-col max-[760px]:items-stretch max-[760px]:gap-12 max-[760px]:pb-16 max-[760px]:pt-14`}
+          class="flex items-end justify-between gap-4 border-b border-[#2d332b]/25 px-[.6rem] pt-[.6rem] pb-5 max-[760px]:flex-col max-[760px]:items-start"
         >
-          <div
-            class="relative z-[1] col-start-1 row-start-1 max-w-[38rem] self-start max-[760px]:col-auto max-[760px]:row-auto max-[760px]:max-w-none"
+          <h2
+            id="board-title"
+            class="max-w-[15ch] font-serif text-[clamp(1.65rem,3vw,2.35rem)] leading-[1.05] font-normal tracking-[-0.03em]"
           >
-            <div
-              class="mb-6 flex w-fit flex-wrap items-center gap-x-3 gap-y-2 border-b border-[#2d332b]/40 pb-[.7rem] font-sans text-[.78rem] tracking-[.02em] text-[#50594d] max-[480px]:gap-x-[.6rem] max-[480px]:text-[.72rem]"
-              aria-label="Current location"
-              data-arrival-location
-            >
-              <span
-                class="size-[.55rem] shrink-0 rounded-full bg-[#b8614b]"
-                aria-hidden="true"></span>
-              <span>You are here</span>
-              <strong class="font-bold text-[#2d332b]"
-                >Platform / Station arrival</strong
-              >
-            </div>
-
-            <h1
-              id="arrival-title"
-              class="max-w-[10ch] font-serif text-[clamp(3.75rem,7.2vw,6rem)] leading-[.99] font-normal tracking-[-0.035em] max-[760px]:max-w-[9ch] max-[760px]:text-[clamp(3.45rem,16vw,5.3rem)]"
-              data-arrival-title
-            >
-              Welcome.<br />You made it <em
-                class="font-normal text-[#b8614b] not-italic">here.</em
-              >
-            </h1>
-
-            <p
-              class="mt-7 max-w-[38rem] text-[clamp(1.05rem,1.5vw,1.25rem)] leading-[1.55]"
-              data-arrival-copy
-            >
-              LinCie is a software engineering trainee making room for
-              thoughtful work, curious ideas, and a life around them.
-            </p>
-
-            <p
-              class="mt-[1.35rem] flex max-w-[32rem] items-start gap-[.85rem] text-[.9rem] leading-[1.55] text-[#50594d]"
-              data-arrival-note
-            >
-              <span
-                class="mt-[.7rem] w-9 shrink-0 border-t border-[#b8614b]"
-                aria-hidden="true"></span>
-              <span
-                >Take your time. There is no right route through this place.</span
-              >
-            </p>
-
-            <aside
-              class="mt-8 grid max-w-[31rem] grid-cols-[minmax(7rem,0.3fr)_1fr] gap-x-5 gap-y-[.35rem] border-y border-[#2d332b]/30 py-4 max-[480px]:grid-cols-1 max-[480px]:gap-y-[.45rem]"
-              aria-labelledby="current-signal-title"
-              data-arrival-notice
-            >
-              <div
-                class="flex items-center gap-2 font-sans text-xs font-bold tracking-[.03em] text-[#50594d]"
-              >
-                <span
-                  class="size-[.55rem] rounded-full bg-[#b8614b]"
-                  aria-hidden="true"></span>
-                <span>Current notice</span>
-              </div>
-              <h2
-                id="current-signal-title"
-                class="font-serif text-[clamp(1.35rem,2vw,1.75rem)] leading-[1.1] font-normal tracking-[-0.025em]"
-              >
-                Still making room.
-              </h2>
-              <p
-                class="col-start-2 text-[.9rem] leading-[1.5] text-[#50594d] max-[480px]:col-start-1"
-              >
-                The rooms below are quiet for now. Their doors are still easy to
-                find.
-              </p>
-            </aside>
-          </div>
-
-          <nav
-            class="relative z-[1] col-start-2 row-span-2 row-start-1 rotate-[.7deg] self-center rounded-[1.25rem] border border-[#c4b49d] bg-[#e9ddc9] p-[clamp(1.25rem,3vw,2rem)] shadow-[0_16px_34px_rgba(57,52,38,0.14)] max-[760px]:col-auto max-[760px]:row-auto max-[760px]:rotate-0"
-            id="board"
-            aria-labelledby="board-title"
-            data-arrival-board
+            Where would you like to wander?
+          </h2>
+          <p
+            class="max-w-40 text-right text-xs leading-[1.35] text-[#50594d] max-[760px]:max-w-none max-[760px]:text-left"
           >
-            <span
-              class="absolute top-4 left-4 size-[.6rem] rounded-full border border-[#2d332b]/35 bg-[#fffdf8] shadow-[inset_0_1px_2px_rgba(45,51,43,0.14)]"
-              aria-hidden="true"></span>
-            <span
-              class="absolute top-4 right-4 size-[.6rem] rounded-full border border-[#2d332b]/35 bg-[#fffdf8] shadow-[inset_0_1px_2px_rgba(45,51,43,0.14)]"
-              aria-hidden="true"></span>
-
-            <div
-              class="flex items-end justify-between gap-4 border-b border-[#2d332b]/25 px-[.6rem] pt-[.6rem] pb-5 max-[760px]:flex-col max-[760px]:items-start"
-            >
-              <h2
-                id="board-title"
-                class="max-w-[15ch] font-serif text-[clamp(1.65rem,3vw,2.35rem)] leading-[1.05] font-normal tracking-[-0.03em]"
-              >
-                Where would you like to wander?
-              </h2>
-              <p
-                class="max-w-40 text-right text-xs leading-[1.35] text-[#50594d] max-[760px]:max-w-none max-[760px]:text-left"
-              >
-                Five rooms, all on this page.
-              </p>
-            </div>
-
-            <ul class="m-0 list-none divide-y divide-[#2d332b]/20 p-0">
-              {
-                destinations.map((destination) => (
-                  <li data-arrival-route>
-                    <a
-                      class="group grid min-h-20 grid-cols-[1fr_auto] items-center gap-4 px-[.6rem] py-[.85rem] text-[#2d332b] no-underline transition-[background-color,padding-inline] duration-200 ease-out hover:bg-[#fffdf8]/55 hover:px-[.95rem] motion-reduce:transition-none max-[480px]:min-h-[5.4rem] max-[480px]:px-0 max-[480px]:hover:px-[.35rem]"
-                      href={`#${destination.id}`}
-                    >
-                      <span class="grid min-w-0 gap-[.14rem]">
-                        <span class="font-serif text-[clamp(1.35rem,2.2vw,1.7rem)] leading-[1.08] tracking-[-0.025em]">
-                          {destination.place}
-                        </span>
-                        <span class="font-sans text-[.76rem] font-bold tracking-[.03em]">
-                          {destination.label}
-                        </span>
-                        <span class="text-[.8rem] leading-[1.35] text-[#50594d] max-[480px]:text-[.75rem]">
-                          {destination.invitation}
-                        </span>
-                      </span>
-                      <span
-                        class="grid size-8 shrink-0 place-items-center rounded-full border border-[#2d332b]/30 text-[#b8614b]"
-                        aria-hidden="true"
-                      >
-                        <svg
-                          class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
-                          viewBox="0 0 20 20"
-                          role="img"
-                        >
-                          <path d="M3 10h13M10 4l6 6-6 6" />
-                        </svg>
-                      </span>
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-
-            <div
-              class="flex items-center gap-[.6rem] px-[.6rem] pt-4 pb-[.2rem] text-xs text-[#50594d]"
-            >
-              <span class="w-8 border-t border-[#b8614b]" aria-hidden="true"
-              ></span>
-              <span>Choose a door, or simply stay a while.</span>
-            </div>
-          </nav>
-
-          <div
-            class="col-start-1 row-start-2 mt-5 grid max-w-[36rem] grid-cols-3 gap-3 max-[1050px]:max-w-[31rem] max-[1050px]:grid-cols-1 max-[760px]:col-auto max-[760px]:row-auto max-[760px]:max-w-none"
-            aria-label="Ways to begin"
-          >
-            <a
-              class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8]/55 p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:bg-[#fffdf8] motion-reduce:transition-none max-[1050px]:min-h-14"
-              href="#board"
-              data-arrival-gesture
-            >
-              <span
-                class="grid size-7 place-items-center rounded-md border border-[#c4b49d] bg-[#fffdf8] text-[#b8614b]"
-                aria-hidden="true"
-              >
-                <svg
-                  class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
-                  viewBox="0 0 24 24"
-                  role="img"
-                >
-                  <rect x="4" y="3.5" width="16" height="17" rx="1.5"></rect>
-                  <path d="M7.5 8h9M7.5 12h9M7.5 16h5"></path>
-                </svg>
-              </span>
-              <span class="grid min-w-0 gap-[.15rem]">
-                <strong class="text-[.8125rem] leading-[1.2]"
-                  >Look at the board</strong
-                >
-                <small class="text-xs leading-[1.25] text-[#50594d]"
-                  >See every room on this page.</small
-                >
-              </span>
-              <span
-                class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
-                aria-hidden="true"
-              >
-                <svg
-                  class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
-                  viewBox="0 0 20 20"
-                  role="img"
-                >
-                  <path d="M3 10h13M10 4l6 6-6 6"></path>
-                </svg>
-              </span>
-            </a>
-
-            <a
-              class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8]/55 p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:bg-[#fffdf8] motion-reduce:transition-none max-[1050px]:min-h-14"
-              href="#pause"
-              data-arrival-gesture
-            >
-              <span
-                class="grid size-7 place-items-center rounded-md border border-[#c4b49d] bg-[#fffdf8] text-[#b8614b]"
-                aria-hidden="true"
-              >
-                <svg
-                  class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
-                  viewBox="0 0 24 24"
-                  role="img"
-                >
-                  <path
-                    d="M4 16.5h16M6.5 16.5v2M17.5 16.5v2M7 13h10M9 13V8.5h6V13"
-                  ></path>
-                  <path d="M8 8.5 12 5l4 3.5"></path>
-                </svg>
-              </span>
-              <span class="grid min-w-0 gap-[.15rem]">
-                <strong class="text-[.8125rem] leading-[1.2]"
-                  >Sit for a moment</strong
-                >
-                <small class="text-xs leading-[1.25] text-[#50594d]"
-                  >Stay with the welcome.</small
-                >
-              </span>
-              <span
-                class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
-                aria-hidden="true"
-              >
-                <svg
-                  class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
-                  viewBox="0 0 20 20"
-                  role="img"
-                >
-                  <path d="M3 10h13M10 4l6 6-6 6"></path>
-                </svg>
-              </span>
-            </a>
-
-            <a
-              class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8]/55 p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:bg-[#fffdf8] motion-reduce:transition-none max-[1050px]:min-h-14"
-              href="#about-me"
-              data-arrival-gesture
-            >
-              <span
-                class="grid size-7 place-items-center rounded-md border border-[#c4b49d] bg-[#fffdf8] text-[#b8614b]"
-                aria-hidden="true"
-              >
-                <svg
-                  class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
-                  viewBox="0 0 24 24"
-                  role="img"
-                >
-                  <path
-                    d="M3.5 10.5 12 4l8.5 6.5M5.5 9.5v10h13v-10M9 19.5v-6h6v6"
-                  ></path>
-                </svg>
-              </span>
-              <span class="grid min-w-0 gap-[.15rem]">
-                <strong class="text-[.8125rem] leading-[1.2]"
-                  >Step inside</strong
-                >
-                <small class="text-xs leading-[1.25] text-[#50594d]"
-                  >Visit the Station House.</small
-                >
-              </span>
-              <span
-                class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
-                aria-hidden="true"
-              >
-                <svg
-                  class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
-                  viewBox="0 0 20 20"
-                  role="img"
-                >
-                  <path d="M3 10h13M10 4l6 6-6 6"></path>
-                </svg>
-              </span>
-            </a>
-          </div>
+            Five rooms, all on this page.
+          </p>
         </div>
-      </section>
 
-      <section
-        class="bg-[#f7f2e8] pt-[clamp(5rem,10vw,9rem)] pb-[clamp(5rem,9vw,8rem)]"
-        id="rooms"
-        aria-labelledby="rooms-title"
-      >
-        <div class={siteContainer}>
-          <div
-            class="flex items-end justify-between gap-12 border-b border-[#c4b49d] pb-6 max-[760px]:block"
-          >
-            <h2
-              id="rooms-title"
-              class="max-w-[13ch] font-serif text-[clamp(2.4rem,5vw,4.2rem)] leading-none font-normal tracking-[-0.035em]"
-            >
-              A small world, still becoming.
-            </h2>
-            <p
-              class="max-w-[31rem] text-base leading-[1.6] text-[#5f665c] max-[760px]:mt-5"
-            >
-              The places are named now. Their real stories will arrive when
-              there is something confirmed to share.
-            </p>
-          </div>
-
-          <div class="mt-4 max-[760px]:mt-0">
-            {
-              destinations.map((destination, index) => (
-                <article
-                  class:list={[
-                    "grid scroll-mt-6 grid-cols-[minmax(15rem,0.62fr)_minmax(0,1fr)] items-center gap-[clamp(2rem,6vw,6rem)] border-b border-[#c4b49d] py-[clamp(2.5rem,6vw,5rem)] max-[760px]:grid-cols-1 max-[760px]:gap-8 max-[760px]:py-12",
-                    index % 2 === 1 &&
-                      "min-[761px]:grid-cols-[minmax(0,1fr)_minmax(15rem,0.62fr)]",
-                  ]}
-                  id={destination.id}
+        <ul class="m-0 list-none divide-y divide-[#2d332b]/20 p-0">
+          {
+            destinations.map((destination) => (
+              <li data-arrival-route>
+                <a
+                  class="group grid min-h-20 grid-cols-[1fr_auto] items-center gap-4 px-[.6rem] py-[.85rem] text-[#2d332b] no-underline transition-[background-color,padding-inline] duration-200 ease-out hover:bg-[#fffdf8]/55 hover:px-[.95rem] motion-reduce:transition-none max-[480px]:min-h-[5.4rem] max-[480px]:px-0 max-[480px]:hover:px-[.35rem]"
+                  href={`#${destination.id}`}
                 >
-                  <div
-                    class:list={[
-                      "relative min-h-[clamp(12rem,24vw,18rem)] overflow-hidden rounded-[1.25rem] border border-[#c4b49d] bg-[#dce7c9] max-[760px]:min-h-[13rem]",
-                      destination.tone === "house" && "bg-[#e9ddc9]",
-                      destination.tone === "workshop" && "bg-[#c9e0e2]",
-                      destination.tone === "thoughts" && "bg-[#fffdf8]",
-                      destination.tone === "letterbox" && "bg-[#e2e2c9]",
-                      index % 2 === 1 &&
-                        "max-[760px]:order-0 min-[761px]:order-2",
-                    ]}
+                  <span class="grid min-w-0 gap-[.14rem]">
+                    <span class="font-serif text-[clamp(1.35rem,2.2vw,1.7rem)] leading-[1.08] tracking-[-0.025em]">
+                      {destination.place}
+                    </span>
+                    <span class="font-sans text-[.76rem] font-bold tracking-[.03em]">
+                      {destination.label}
+                    </span>
+                    <span class="text-[.8rem] leading-[1.35] text-[#50594d] max-[480px]:text-[.75rem]">
+                      {destination.invitation}
+                    </span>
+                  </span>
+                  <span
+                    class="grid size-8 shrink-0 place-items-center rounded-full border border-[#2d332b]/30 text-[#b8614b]"
                     aria-hidden="true"
                   >
-                    <span class="absolute top-[14%] right-[14%] size-14 rounded-full bg-[#d49a48]/75" />
+                    <svg
+                      class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+                      viewBox="0 0 20 20"
+                      role="img"
+                    >
+                      <path d="M3 10h13M10 4l6 6-6 6" />
+                    </svg>
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div
+          class="flex items-center gap-[.6rem] px-[.6rem] pt-4 pb-[.2rem] text-xs text-[#50594d]"
+        >
+          <span class="w-8 border-t border-[#b8614b]" aria-hidden="true"></span>
+          <span>Choose a door, or simply stay a while.</span>
+        </div>
+      </nav>
+
+      <div
+        class="col-start-1 row-start-2 mt-5 grid max-w-[36rem] grid-cols-3 gap-3 max-[1050px]:max-w-[31rem] max-[1050px]:grid-cols-1 max-[760px]:col-auto max-[760px]:row-auto max-[760px]:max-w-none"
+        aria-label="Ways to begin"
+      >
+        <a
+          class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8]/55 p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:bg-[#fffdf8] motion-reduce:transition-none max-[1050px]:min-h-14"
+          href="#board"
+          data-arrival-gesture
+        >
+          <span
+            class="grid size-7 place-items-center rounded-md border border-[#c4b49d] bg-[#fffdf8] text-[#b8614b]"
+            aria-hidden="true"
+          >
+            <svg
+              class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+              viewBox="0 0 24 24"
+              role="img"
+            >
+              <rect x="4" y="3.5" width="16" height="17" rx="1.5"></rect>
+              <path d="M7.5 8h9M7.5 12h9M7.5 16h5"></path>
+            </svg>
+          </span>
+          <span class="grid min-w-0 gap-[.15rem]">
+            <strong class="text-[.8125rem] leading-[1.2]"
+              >Look at the board</strong
+            >
+            <small class="text-xs leading-[1.25] text-[#50594d]"
+              >See every room on this page.</small
+            >
+          </span>
+          <span
+            class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
+            aria-hidden="true"
+          >
+            <svg
+              class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+              viewBox="0 0 20 20"
+              role="img"
+            >
+              <path d="M3 10h13M10 4l6 6-6 6"></path>
+            </svg>
+          </span>
+        </a>
+
+        <a
+          class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8]/55 p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:bg-[#fffdf8] motion-reduce:transition-none max-[1050px]:min-h-14"
+          href="#pause"
+          data-arrival-gesture
+        >
+          <span
+            class="grid size-7 place-items-center rounded-md border border-[#c4b49d] bg-[#fffdf8] text-[#b8614b]"
+            aria-hidden="true"
+          >
+            <svg
+              class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+              viewBox="0 0 24 24"
+              role="img"
+            >
+              <path d="M4 16.5h16M6.5 16.5v2M17.5 16.5v2M7 13h10M9 13V8.5h6V13"
+              ></path>
+              <path d="M8 8.5 12 5l4 3.5"></path>
+            </svg>
+          </span>
+          <span class="grid min-w-0 gap-[.15rem]">
+            <strong class="text-[.8125rem] leading-[1.2]"
+              >Sit for a moment</strong
+            >
+            <small class="text-xs leading-[1.25] text-[#50594d]"
+              >Stay with the welcome.</small
+            >
+          </span>
+          <span
+            class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
+            aria-hidden="true"
+          >
+            <svg
+              class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+              viewBox="0 0 20 20"
+              role="img"
+            >
+              <path d="M3 10h13M10 4l6 6-6 6"></path>
+            </svg>
+          </span>
+        </a>
+
+        <a
+          class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8]/55 p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:bg-[#fffdf8] motion-reduce:transition-none max-[1050px]:min-h-14"
+          href="/about"
+          data-arrival-gesture
+        >
+          <span
+            class="grid size-7 place-items-center rounded-md border border-[#c4b49d] bg-[#fffdf8] text-[#b8614b]"
+            aria-hidden="true"
+          >
+            <svg
+              class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+              viewBox="0 0 24 24"
+              role="img"
+            >
+              <path d="M3.5 10.5 12 4l8.5 6.5M5.5 9.5v10h13v-10M9 19.5v-6h6v6"
+              ></path>
+            </svg>
+          </span>
+          <span class="grid min-w-0 gap-[.15rem]">
+            <strong class="text-[.8125rem] leading-[1.2]">Step inside</strong>
+            <small class="text-xs leading-[1.25] text-[#50594d]"
+              >Visit the Station House.</small
+            >
+          </span>
+          <span
+            class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
+            aria-hidden="true"
+          >
+            <svg
+              class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+              viewBox="0 0 20 20"
+              role="img"
+            >
+              <path d="M3 10h13M10 4l6 6-6 6"></path>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="bg-[#f7f2e8] pt-[clamp(5rem,10vw,9rem)] pb-[clamp(5rem,9vw,8rem)]"
+    id="rooms"
+    aria-labelledby="rooms-title"
+  >
+    <div class={siteContainer}>
+      <div
+        class="flex items-end justify-between gap-12 border-b border-[#c4b49d] pb-6 max-[760px]:block"
+      >
+        <h2
+          id="rooms-title"
+          class="max-w-[13ch] font-serif text-[clamp(2.4rem,5vw,4.2rem)] leading-none font-normal tracking-[-0.035em]"
+        >
+          A small world, still becoming.
+        </h2>
+        <p
+          class="max-w-[31rem] text-base leading-[1.6] text-[#5f665c] max-[760px]:mt-5"
+        >
+          The places are named now. Their real stories will arrive when there is
+          something confirmed to share.
+        </p>
+      </div>
+
+      <div class="mt-4 max-[760px]:mt-0">
+        {
+          destinations.map((destination, index) => (
+            <article
+              class:list={[
+                "grid scroll-mt-6 grid-cols-[minmax(15rem,0.62fr)_minmax(0,1fr)] items-center gap-[clamp(2rem,6vw,6rem)] border-b border-[#c4b49d] py-[clamp(2.5rem,6vw,5rem)] max-[760px]:grid-cols-1 max-[760px]:gap-8 max-[760px]:py-12",
+                index % 2 === 1 &&
+                  "min-[761px]:grid-cols-[minmax(0,1fr)_minmax(15rem,0.62fr)]",
+              ]}
+              id={destination.id}
+            >
+              <div
+                class:list={[
+                  "relative min-h-[clamp(12rem,24vw,18rem)] overflow-hidden rounded-[1.25rem] border border-[#c4b49d] bg-[#dce7c9] max-[760px]:min-h-[13rem]",
+                  destination.tone === "house" && "bg-[#e9ddc9]",
+                  destination.tone === "workshop" && "bg-[#c9e0e2]",
+                  destination.tone === "thoughts" && "bg-[#fffdf8]",
+                  destination.tone === "letterbox" && "bg-[#e2e2c9]",
+                  index % 2 === 1 && "max-[760px]:order-0 min-[761px]:order-2",
+                ]}
+                aria-hidden="true"
+              >
+                <span class="absolute top-[14%] right-[14%] size-14 rounded-full bg-[#d49a48]/75" />
+                {destination.tone === "house" ? (
+                  <>
+                    <span class="absolute top-[18%] left-[14%] h-[31%] w-[30%] rounded-[.35rem] border border-[#c4b49d] bg-[#c9e0e2]/65 shadow-[inset_0_-0.65rem_0_rgba(247,242,232,0.36)]">
+                      <span class="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-[#c4b49d]" />
+                      <span class="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-[#c4b49d]" />
+                    </span>
+                    <span class="absolute right-[17%] bottom-[24%] h-[18%] w-[34%] rounded-t-[.85rem] border border-[#b8614b]/45 bg-[#fffdf8]/75">
+                      <span class="absolute top-[22%] left-[12%] h-[42%] w-[29%] rounded-[.3rem] bg-[#d49a48]/60" />
+                      <span class="absolute right-[12%] bottom-0 h-[55%] w-[.3rem] bg-[#c4b49d]" />
+                    </span>
+                    <span class="absolute bottom-[24%] left-[16%] h-[10%] w-[22%] rounded-t-[.25rem] border border-[#c4b49d] bg-[#f5ecdf]" />
+                  </>
+                ) : (
+                  <>
                     <span
                       class:list={[
                         "absolute bottom-[-13%] left-[-15%] h-[54%] w-[72%] rounded-t-[50%] bg-[#6c895f]/70",
-                        destination.tone === "house" &&
-                          "bottom-0 h-[52%] w-[52%] rounded-none bg-[#f5ecdf] [clip-path:polygon(0_28%,50%_0,100%_28%,100%_100%,0_100%)]",
                         destination.tone === "workshop" &&
                           "h-[40%] w-[42%] rounded-t-xl bg-[#fffdf8]/80",
                         destination.tone === "thoughts" &&
@@ -565,150 +528,121 @@ const siteContainer =
                     <span
                       class:list={[
                         "absolute right-[-18%] bottom-[-13%] h-[54%] w-[60%] rounded-t-[50%] bg-[#6c895f]/42",
-                        destination.tone === "house" &&
-                          "bottom-0 h-[52%] w-[52%] rounded-none bg-[#f5ecdf] [clip-path:polygon(0_28%,50%_0,100%_28%,100%_100%,0_100%)]",
                         destination.tone === "thoughts" &&
                           "right-[7%] h-[70%] w-px rounded-none bg-[#c4b49d]",
                         destination.tone === "letterbox" &&
                           "right-[12%] bottom-[18%] h-[58%] w-[24%] rounded-none bg-[#f5ecdf]",
                       ]}
                     />
-                    <span class="absolute inset-x-[13%] bottom-[13%] grid min-h-11 place-items-center border border-[#c4b49d] bg-[#fffdf8] p-2 text-center font-serif text-[clamp(1rem,2vw,1.35rem)] text-[#2d332b] shadow-[0_8px_18px_rgba(57,52,38,0.11)]">
-                      {destination.place}
+                  </>
+                )}
+                <span class="absolute inset-x-[13%] bottom-[13%] grid min-h-11 place-items-center border border-[#c4b49d] bg-[#fffdf8] p-2 text-center font-serif text-[clamp(1rem,2vw,1.35rem)] text-[#2d332b] shadow-[0_8px_18px_rgba(57,52,38,0.11)]">
+                  {destination.place}
+                </span>
+              </div>
+
+              <div class="max-w-[38rem]">
+                <div class="flex flex-wrap items-baseline gap-x-4 gap-y-[.9rem]">
+                  <h3 class="font-serif text-[clamp(2rem,4vw,3.2rem)] leading-none font-normal tracking-[-0.03em]">
+                    {destination.label}
+                  </h3>
+                  {destination.id !== "about-me" && (
+                    <span class="font-sans text-[.72rem] font-bold tracking-[.04em] text-[#843d2f] uppercase">
+                      Quiet for now
                     </span>
-                  </div>
-
-                  <div class="max-w-[38rem]">
-                    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-[.9rem]">
-                      <h3 class="font-serif text-[clamp(2rem,4vw,3.2rem)] leading-none font-normal tracking-[-0.03em]">
-                        {destination.label}
-                      </h3>
-                      <span class="font-sans text-[.72rem] font-bold tracking-[.04em] text-[#843d2f] uppercase">
-                        Quiet for now
-                      </span>
-                    </div>
-                    <p class="mt-[.65rem] font-sans text-[.82rem] font-bold tracking-[.03em] text-[#5f665c]">
-                      {destination.place}
-                    </p>
-                    <p class="mt-[1.35rem] max-w-[36rem] text-[1.05rem] leading-[1.65] text-[#5f665c]">
-                      {destination.roomNote}
-                    </p>
+                  )}
+                </div>
+                <p class="mt-[.65rem] font-sans text-[.82rem] font-bold tracking-[.03em] text-[#5f665c]">
+                  {destination.place}
+                </p>
+                <p class="mt-[1.35rem] max-w-[36rem] text-[1.05rem] leading-[1.65] text-[#5f665c]">
+                  {destination.roomNote}
+                </p>
+                {destination.id === "about-me" && (
+                  <p class="mt-5 max-w-[34rem] text-[.9rem] leading-[1.6] text-[#5f665c]">
                     <a
-                      class="mt-7 inline-flex min-h-11 items-center gap-[.45rem] font-sans text-[.83rem] font-bold text-[#2d332b] underline decoration-[#b8614b] decoration-1 underline-offset-[.3rem] transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] hover:text-[#843d2f] motion-reduce:transition-none"
-                      href="#board"
+                      class="inline-flex min-h-11 items-center gap-2 font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#843d2f]"
+                      href="/about"
                     >
-                      <span>Return to the station board</span>
-                      <span
-                        class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
-                        aria-hidden="true"
-                      >
-                        <svg
-                          class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
-                          viewBox="0 0 20 20"
-                          role="img"
-                        >
-                          <path d="M3 10h13M10 4l6 6-6 6" />
-                        </svg>
+                      <span>
+                        Step inside the Station House for the full story
                       </span>
+                      <span aria-hidden="true">&rarr;</span>
                     </a>
-                  </div>
-                </article>
-              ))
-            }
-          </div>
-        </div>
-      </section>
+                  </p>
+                )}
+                <a
+                  class="mt-7 inline-flex min-h-11 items-center gap-[.45rem] font-sans text-[.83rem] font-bold text-[#2d332b] underline decoration-[#b8614b] decoration-1 underline-offset-[.3rem] transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] hover:text-[#843d2f] motion-reduce:transition-none"
+                  href="#board"
+                >
+                  <span>Return to the station board</span>
+                  <span
+                    class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+                      viewBox="0 0 20 20"
+                      role="img"
+                    >
+                      <path d="M3 10h13M10 4l6 6-6 6" />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 
-      <section
-        class="border-t border-[#c4b49d] bg-[#fffdf8]"
-        id="pause"
-        aria-labelledby="pause-title"
-      >
-        <div
-          class={`${siteContainer} grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-6 py-[clamp(3rem,7vw,5.5rem)] max-[760px]:grid-cols-[auto_minmax(0,1fr)] max-[480px]:grid-cols-1`}
-        >
-          <div
-            class="grid size-14 place-items-center rounded-full border border-[#c4b49d] bg-[#e9ddc9] max-[480px]:size-12"
-            aria-hidden="true"
-          >
-            <span class="size-[1.1rem] rounded-full border border-[#b8614b]"
-            ></span>
-          </div>
-          <div>
-            <h2
-              id="pause-title"
-              class="font-serif text-[clamp(2rem,4vw,3.4rem)] leading-none font-normal tracking-[-0.03em]"
-            >
-              You can pause here.
-            </h2>
-            <p
-              class="mt-3 max-w-[40rem] text-base leading-[1.6] text-[#5f665c]"
-            >
-              There is no tour to finish and nothing to keep up with. Come back
-              when you feel like wandering again.
-            </p>
-          </div>
-          <a
-            class="inline-flex min-h-11 items-center gap-[.45rem] font-sans text-[.83rem] font-bold text-[#2d332b] underline decoration-[#b8614b] decoration-1 underline-offset-[.3rem] transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] hover:text-[#843d2f] motion-reduce:transition-none max-[760px]:col-start-2 max-[760px]:justify-self-start max-[480px]:col-start-1"
-            href="#main-content"
-          >
-            <span>Back to the platform</span>
-            <span
-              class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
-              aria-hidden="true"
-            >
-              <svg
-                class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
-                viewBox="0 0 20 20"
-                role="img"
-              >
-                <path d="M3 10h13M10 4l6 6-6 6"></path>
-              </svg>
-            </span>
-          </a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="bg-[#384637] text-[#f7f2e8]">
+  <section
+    class="border-t border-[#c4b49d] bg-[#fffdf8]"
+    id="pause"
+    aria-labelledby="pause-title"
+  >
+    <div
+      class={`${siteContainer} grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-6 py-[clamp(3rem,7vw,5.5rem)] max-[760px]:grid-cols-[auto_minmax(0,1fr)] max-[480px]:grid-cols-1`}
+    >
       <div
-        class={`${siteContainer} grid grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-8 py-10 max-[760px]:grid-cols-1 max-[760px]:gap-6`}
+        class="grid size-14 place-items-center rounded-full border border-[#c4b49d] bg-[#e9ddc9] max-[480px]:size-12"
+        aria-hidden="true"
       >
-        <div>
-          <p class="font-serif text-[1.55rem] tracking-[-0.02em]">
-            LinCie Station
-          </p>
-          <p class="mt-[.35rem] text-[.8rem] text-[#f7f2e8]/72">
-            A personal world first. A portfolio second.
-          </p>
-        </div>
-
-        <nav
-          class="flex flex-wrap justify-end gap-[1.1rem] max-[760px]:justify-start"
-          aria-label="Return navigation"
+        <span class="size-[1.1rem] rounded-full border border-[#b8614b]"></span>
+      </div>
+      <div>
+        <h2
+          id="pause-title"
+          class="font-serif text-[clamp(2rem,4vw,3.4rem)] leading-none font-normal tracking-[-0.03em]"
         >
-          <a
-            class="inline-flex min-h-11 items-center font-sans text-xs font-bold text-[#f7f2e8] underline decoration-[#b8614b] decoration-1 underline-offset-1 transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] hover:text-[#f7f2e8] motion-reduce:transition-none"
-            href="#board">Station board</a
-          >
-          <a
-            class="inline-flex min-h-11 items-center font-sans text-xs font-bold text-[#f7f2e8] underline decoration-[#b8614b] decoration-1 underline-offset-1 transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] hover:text-[#f7f2e8] motion-reduce:transition-none"
-            href="#rooms">Quiet rooms</a
-          >
-          <a
-            class="inline-flex min-h-11 items-center font-sans text-xs font-bold text-[#f7f2e8] underline decoration-[#b8614b] decoration-1 underline-offset-1 transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] hover:text-[#f7f2e8] motion-reduce:transition-none"
-            href="#main-content">Top of page</a
-          >
-        </nav>
-
-        <p
-          class="text-[.8rem] whitespace-nowrap text-[#f7f2e8]/72 max-[480px]:whitespace-normal"
-        >
-          No route to complete.
+          You can pause here.
+        </h2>
+        <p class="mt-3 max-w-[40rem] text-base leading-[1.6] text-[#5f665c]">
+          There is no tour to finish and nothing to keep up with. Come back when
+          you feel like wandering again.
         </p>
       </div>
-    </footer>
-  </div>
+      <a
+        class="inline-flex min-h-11 items-center gap-[.45rem] font-sans text-[.83rem] font-bold text-[#2d332b] underline decoration-[#b8614b] decoration-1 underline-offset-[.3rem] transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] hover:text-[#843d2f] motion-reduce:transition-none max-[760px]:col-start-2 max-[760px]:justify-self-start max-[480px]:col-start-1"
+        href="#main-content"
+      >
+        <span>Back to the platform</span>
+        <span
+          class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
+          aria-hidden="true"
+        >
+          <svg
+            class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+            viewBox="0 0 20 20"
+            role="img"
+          >
+            <path d="M3 10h13M10 4l6 6-6 6"></path>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </section>
 </MainLayout>
 
 <script>

@@ -1,0 +1,136 @@
+---
+interface Props {
+  currentRoute?: string;
+}
+
+const { currentRoute } = Astro.props;
+const pathname = (currentRoute ?? Astro.url.pathname).replace(/\/$/, "") || "/";
+const isHome = pathname === "/";
+const isAbout = pathname === "/about";
+
+const siteContainer =
+  "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-[#c4b49d]/40 bg-[#384637] text-[#f7f2e8]">
+  <div class={`${siteContainer} py-12 md:py-16`}>
+    <div
+      class="grid grid-cols-1 gap-10 md:grid-cols-[1.3fr_1fr_1fr] md:gap-8 lg:gap-12"
+    >
+      <!-- Zone 1: Station Identity -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <span
+            class="relative grid size-7 place-items-center rounded-full border border-[#f7f2e8]/40 bg-[#f7f2e8]/10"
+            aria-hidden="true"
+          >
+            <span class="size-2 rounded-full bg-[#b8614b]"></span>
+          </span>
+          <p class="font-serif text-2xl tracking-[-0.02em] text-[#f7f2e8]">
+            LinCie Station
+          </p>
+        </div>
+
+        <p class="max-w-[38ch] text-sm leading-relaxed text-[#f7f2e8]/80">
+          A personal world first. A portfolio second. LinCie is a software
+          engineering trainee making room for thoughtful work and curious ideas.
+        </p>
+
+        <div
+          class="flex items-center gap-2 pt-1 font-sans text-xs text-[#dce7c9]"
+        >
+          <span class="size-1.5 rounded-full bg-[#d49a48]" aria-hidden="true"
+          ></span>
+          <span>Sea Labs Indonesia · Go &amp; TypeScript</span>
+        </div>
+      </div>
+
+      <!-- Zone 2: Wayfinding & Tracks -->
+      <div>
+        <h2
+          class="font-sans text-xs font-bold tracking-[0.06em] text-[#dce7c9] uppercase"
+        >
+          Wayfinding &amp; Tracks
+        </h2>
+        <nav class="mt-4 flex flex-col gap-1" aria-label="Footer wayfinding">
+          <a
+            class="inline-flex min-h-11 items-center gap-2 text-sm text-[#f7f2e8]/85 underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#fffdf8] hover:decoration-[#fffdf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+            href={isHome ? "#main-content" : "/"}
+          >
+            <span>Platform Arrival</span>
+            {isHome && <span class="text-xs text-[#dce7c9]">(Here)</span>}
+          </a>
+
+          <a
+            class="inline-flex min-h-11 items-center gap-2 text-sm text-[#f7f2e8]/85 underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#fffdf8] hover:decoration-[#fffdf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+            href={isAbout ? "#main-content" : "/about"}
+          >
+            <span>Station House (About Me)</span>
+            {isAbout && <span class="text-xs text-[#dce7c9]">(Here)</span>}
+          </a>
+
+          <a
+            class="inline-flex min-h-11 items-center gap-2 text-sm text-[#f7f2e8]/85 underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#fffdf8] hover:decoration-[#fffdf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+            href={isHome ? "#board" : "/#board"}
+          >
+            <span>Station Board</span>
+          </a>
+
+          <a
+            class="inline-flex min-h-11 items-center gap-2 text-sm text-[#f7f2e8]/85 underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#fffdf8] hover:decoration-[#fffdf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+            href={isHome ? "#rooms" : "/#rooms"}
+          >
+            <span>Quiet Rooms</span>
+          </a>
+
+          <a
+            class="group/top inline-flex min-h-11 items-center gap-2 text-sm text-[#f7f2e8]/85 underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#fffdf8] hover:decoration-[#fffdf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+            href="#main-content"
+          >
+            <span>Top of page</span>
+            <svg
+              class="size-3.5 fill-none [stroke:currentColor] [stroke-width:2] transition-transform group-hover/top:-translate-y-0.5 motion-reduce:transform-none"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M12 19V5M5 12l7-7 7 7"></path>
+            </svg>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Zone 3: Station Atmosphere -->
+      <div>
+        <h2
+          class="font-sans text-xs font-bold tracking-[0.06em] text-[#dce7c9] uppercase"
+        >
+          Station Atmosphere
+        </h2>
+        <div class="mt-4 space-y-3 text-sm leading-relaxed text-[#f7f2e8]/80">
+          <p>
+            Take your time. There is no route to complete and no tour to finish.
+            Come back when you feel like wandering again.
+          </p>
+          <p class="text-xs text-[#f7f2e8]/65">
+            Inspired by iyashikei calm, rural train platforms, and morning light
+            across quiet fields.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Colophon -->
+    <div
+      class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[#f7f2e8]/15 pt-6 text-xs text-[#f7f2e8]/70 sm:flex-row"
+    >
+      <p>
+        LinCie Station · &copy; {currentYear} · Built with care
+      </p>
+      <p class="text-center sm:text-right">
+        No algorithms, no tracking, no hurry.
+      </p>
+    </div>
+  </div>
+</footer>

@@ -1,23 +1,52 @@
 ---
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
 import "../../styles/global.css";
 
 interface Props {
   title?: string;
+  description?: string;
+  currentRoute?: string;
 }
 
-const { title = "Astro" } = Astro.props;
+const {
+  title = "LinCie — Welcome. You made it here.",
+  description = "A personal world first and a portfolio second. LinCie is a software engineering trainee making room for thoughtful work.",
+  currentRoute,
+} = Astro.props;
+
+const pathname = currentRoute ?? Astro.url.pathname;
 ---
 
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
     <title>{title}</title>
   </head>
-  <body>
-    <slot />
+  <body
+    class="bg-[#f7f2e8] text-[#2d332b] antialiased selection:bg-[#d49a48] selection:text-[#2d332b]"
+  >
+    <!-- Accessible Skip to Content Link -->
+    <a
+      class="fixed top-4 left-4 z-50 -translate-y-[160%] rounded-md border border-[#b8614b] bg-[#fffdf8] px-4 py-3 text-sm font-bold text-[#2d332b] shadow-md transition-transform duration-200 ease-out focus:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] motion-reduce:transition-none"
+      href="#main-content"
+    >
+      Skip to main content
+    </a>
+
+    <div class="flex min-h-screen flex-col overflow-x-clip bg-[#f7f2e8]">
+      <Header currentRoute={pathname} />
+
+      <main id="main-content" tabindex="-1" class="flex-1 focus:outline-none">
+        <slot />
+      </main>
+
+      <Footer currentRoute={pathname} />
+    </div>
   </body>
 </html>
