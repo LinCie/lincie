@@ -1,0 +1,149 @@
+{
+  "title": "Choose the homepage structure",
+  "question": "The visual world is already LinCie's Station House. Choose how the single homepage lets a visitor arrive, orient, and wander.",
+  "options": [
+    {
+      "id": "assigned-open-platform",
+      "label": "The Open Platform",
+      "kicker": "THE ROLL",
+      "lineage": "rural station arrival and maintained departure board",
+      "thesis": "The homepage behaves like a real station arrival: welcome and identity sit on the platform, while the complete board is the first thing visitors can use.",
+      "palette": ["#C9E0E2", "#F7F2E8", "#E9DDC9", "#2D332B", "#B8614B"],
+      "materials": ["painted station fascia", "sunlit paper notices", "quiet track lines"],
+      "viewport": "A wide morning-sky opening places the welcome and software-engineering identity on the left, a large wood-toned board on the right, and a restrained station-house silhouette behind. Five equal departures pair poetic place names with literal on-page anchors; one small notice says the room is quiet for now. On phones, welcome comes first, then the board and three equal invitations to look, pause, or step inside.",
+      "topology": "Arrival → complete board → same-page rooms → return platform footer; no route depends on motion or a hidden hotspot.",
+      "signatureInteraction": "The board is a tactile-looking list of full anchor links. A current notice can open its honest detail in place, but the page remains fully useful without JavaScript.",
+      "responsive": "The landscape simplifies into a stacked platform and board; route order and literal labels stay unchanged.",
+      "contentContract": "Unavailable About, Projects, Offers, Thoughts, and Connect content appears as clearly labeled quiet rooms with useful next anchors, never invented filler.",
+      "risk": "If the landscape dominates, the page becomes an illustration; the board must remain the highest-contrast, most useful object.",
+      "raised": [
+        {
+          "from": "challenger-cloud-edge",
+          "raise": "A single slim current-signal band beneath the welcome makes change visible without urgency, while the rest of the page stays achromatic and calm."
+        },
+        {
+          "from": "challenger-character-sheet",
+          "raise": "Every destination exposes the same named anatomy—place, literal label, state, and anchor—so the complete world can be scanned without decoding the scene."
+        }
+      ],
+      "wireframe": {
+        "cols": 12,
+        "rows": 10,
+        "regions": [
+          {"label": "morning landscape", "x": 0, "y": 0, "w": 12, "h": 10},
+          {"label": "welcome and identity", "x": 1, "y": 1, "w": 5, "h": 4, "accent": true},
+          {"label": "current signal band", "x": 1, "y": 6, "w": 5, "h": 1},
+          {"label": "station board", "x": 7, "y": 1, "w": 4, "h": 8, "accent": true},
+          {"label": "station house silhouette", "x": 0, "y": 7, "w": 6, "h": 3},
+          {"label": "track and three gestures", "x": 6, "y": 9, "w": 6, "h": 1}
+        ]
+      }
+    },
+    {
+      "id": "house-window-diptych",
+      "label": "The House Window",
+      "lineage": "lived-in station house and threshold window",
+      "thesis": "A visitor meets LinCie through a small lived-in room before choosing where to wander next.",
+      "palette": ["#FFFDF8", "#E9DDC9", "#DCE7C9", "#2D332B", "#6C895F"],
+      "materials": ["station-house paper", "window light", "field-edge dividers"],
+      "viewport": "A calm split opening pairs a concise identity note and one honest quiet-room signal with a station-house window scene. A continuous board rail sits beside and below it, giving all five on-page destinations equal weight without turning the page into a profile template.",
+      "topology": "Person → visible board rail → same-page rooms → return to the station sign at the bottom.",
+      "signatureInteraction": "The house window frames a nonessential current thought or comfort when supplied; when unavailable, it stays a labeled quiet notice rather than a fake detail.",
+      "responsive": "The room and board become a single vertical reading order; the board moves before optional scene details.",
+      "contentContract": "Personal facts remain limited to confirmed identity and trainee role; every missing room is explicit about being quiet for now.",
+      "risk": "With little personal content available, the house can read like an empty profile card unless the board remains the dominant navigation object.",
+      "wireframe": {
+        "cols": 12,
+        "rows": 10,
+        "regions": [
+          {"label": "station-house scene", "x": 0, "y": 0, "w": 7, "h": 8, "accent": true},
+          {"label": "identity note", "x": 3, "y": 2, "w": 3, "h": 3},
+          {"label": "quiet-room notice", "x": 2, "y": 7, "w": 4, "h": 1},
+          {"label": "route rail", "x": 8, "y": 0, "w": 4, "h": 10, "accent": true},
+          {"label": "return sign", "x": 0, "y": 9, "w": 7, "h": 1}
+        ]
+      }
+    },
+    {
+      "id": "endpaper-route-map",
+      "label": "The Endpaper Map",
+      "lineage": "picture-book endpaper and complete route index",
+      "thesis": "The whole homepage is a gentle map: the station sits at the center, every destination is named, and wandering begins with certainty.",
+      "palette": ["#F7F2E8", "#DCE7C9", "#C9E0E2", "#2D332B", "#D49A48"],
+      "materials": ["folded paper map", "field washes", "thin route ribbons"],
+      "viewport": "A large illustrated route map fills the opening with a clear station center, five labeled branch markers, and smaller forest, mountain, map, and lost-platform references kept subordinate. The welcome and trainee identity sit in a quiet paper panel beside the map; the current signal is a small posted note, not a badge.",
+      "topology": "Station center → named same-page anchors → literal room sections → a footer map key and return-to-top control.",
+      "signatureInteraction": "Selecting a labeled map marker moves to the corresponding on-page room and gives it a visible current-location cue; the full text list remains adjacent and works without the map.",
+      "responsive": "The map becomes a compact stacked index above the rooms; no route depends on tracing a ribbon or reading a tiny marker.",
+      "contentContract": "Every marker has a plain label and an honest state. Secondary destinations can be marked unavailable without pretending they are separate pages.",
+      "risk": "A map can turn metaphor into decoding; literal labels and ordered text links must be co-equal with the illustration.",
+      "wireframe": {
+        "cols": 12,
+        "rows": 10,
+        "regions": [
+          {"label": "endpaper route map", "x": 0, "y": 0, "w": 8, "h": 10, "accent": true},
+          {"label": "station center", "x": 3, "y": 4, "w": 2, "h": 2},
+          {"label": "five route markers", "x": 1, "y": 1, "w": 6, "h": 7},
+          {"label": "welcome panel", "x": 9, "y": 1, "w": 3, "h": 3, "accent": true},
+          {"label": "literal route index", "x": 9, "y": 5, "w": 3, "h": 4}
+        ]
+      }
+    },
+    {
+      "id": "challenger-tending-shelf",
+      "label": "The Tending Shelf",
+      "verdict": "competitive",
+      "lineage": "kiln shelf with visible material stages",
+      "thesis": "The homepage presents each destination as a tended object whose honest state is visible before anyone opens it.",
+      "palette": ["#E9DDC9", "#FFFDF8", "#6C895F", "#B8614B", "#2D332B"],
+      "materials": ["station wood shelf", "paper tags", "small field-state marks"],
+      "viewport": "The welcome sits above a long station shelf holding five labeled destinations. Each tag shows a plain label and one state—open, quiet, or growing—before the visitor reaches an on-page room; a single current note rests at the center rather than a ranking.",
+      "topology": "Shelf tag → same-page room → visible state note → return to the shelf.",
+      "signatureInteraction": "A tag can be selected to bring its room into focus, with the same state stated in text and never represented by color alone.",
+      "responsive": "The shelf becomes a vertical list with full-width tags and no horizontal scroll.",
+      "case": "Fuses cleanly with the Station House: it makes unavailable content and honest states legible, but it is less immediately personal than the open platform.",
+      "risk": "State labels can drift into a project dashboard if the page treats every room as a status object.",
+      "wireframe": {
+        "cols": 12,
+        "rows": 10,
+        "regions": [
+          {"label": "welcome and identity", "x": 1, "y": 1, "w": 6, "h": 2, "accent": true},
+          {"label": "current paper notice", "x": 8, "y": 1, "w": 3, "h": 2},
+          {"label": "tending shelf", "x": 1, "y": 4, "w": 10, "h": 4, "accent": true},
+          {"label": "five state tags", "x": 1, "y": 5, "w": 10, "h": 2},
+          {"label": "return platform", "x": 3, "y": 9, "w": 6, "h": 1}
+        ]
+      },
+      "hero": "https://impeccable.style/worlds/cards/clay-ceramics-fracture-glaze-river-shelf-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/clay-ceramics-fracture-glaze-river-shelf.webp"
+    }
+  ],
+  "reroll": {
+    "registers": ["safer", "bolder"]
+  },
+  "buildPath": {
+    "value": "code",
+    "toggle": false
+  },
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "A conventional personal portfolio homepage leads with a hero, a featured project, and a polished work grid.",
+    "palette": ["#F7F2E8", "#FFFDF8", "#2D332B", "#B8614B"],
+    "materials": ["clean hero panel", "project cards", "utility navigation"],
+    "viewport": "A large personal-brand headline and primary contact or explore action sit above one featured project, followed by a standard grid of work and a contact prompt.",
+    "risk": "It asks visitors to scan credentials before meeting the person or understanding the place.",
+    "wireframe": {
+      "cols": 12,
+      "rows": 10,
+      "regions": [
+        {"label": "utility navigation", "x": 0, "y": 0, "w": 12, "h": 1},
+        {"label": "portfolio hero", "x": 1, "y": 2, "w": 10, "h": 3, "accent": true},
+        {"label": "featured project", "x": 1, "y": 6, "w": 6, "h": 3},
+        {"label": "contact action", "x": 8, "y": 6, "w": 3, "h": 1},
+        {"label": "project card grid", "x": 8, "y": 7, "w": 3, "h": 2}
+      ]
+    }
+  },
+  "steer": true
+}
