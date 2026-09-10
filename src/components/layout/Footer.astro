@@ -1,4 +1,6 @@
 ---
+import { siteContainer } from "./container";
+import { stationRoutes } from "../../data/routes";
 interface Props {
   currentRoute?: string;
 }
@@ -16,8 +18,22 @@ const isThoughts =
   pathname === "/waiting-room";
 const isConnect = pathname === "/connect" || pathname === "/letterbox";
 
-const siteContainer =
-  "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
+const activeById: Record<string, boolean> = {
+  platform: isHome,
+  "about-me": isAbout,
+  projects: isProjects,
+  offers: isWorkshop,
+  thoughts: isThoughts,
+  connect: isConnect,
+};
+
+const routes = stationRoutes.map((route) => ({
+  ...route,
+  active: activeById[route.id] ?? false,
+}));
+
+const routeLinkClass =
+  "inline-flex min-h-11 items-center gap-2 text-sm text-[#f7f2e8]/85 underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#fffdf8] hover:decoration-[#fffdf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]";
 
 const currentYear = new Date().getFullYear();
 ---
@@ -63,72 +79,29 @@ const currentYear = new Date().getFullYear();
           Wayfinding &amp; Tracks
         </h2>
         <nav class="mt-4 flex flex-col gap-1" aria-label="Footer wayfinding">
-          <a
-            class="inline-flex min-h-11 items-center gap-2 text-sm text-[#f7f2e8]/85 underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#fffdf8] hover:decoration-[#fffdf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-            href={isHome ? "#main-content" : "/"}
-          >
-            <span>Platform Arrival</span>
-            {isHome && <span class="text-xs text-[#dce7c9]">(Here)</span>}
-          </a>
+          {
+            routes.map((route) => (
+              <a
+                class={routeLinkClass}
+                href={route.active ? "#main-content" : route.href}
+              >
+                <span>{route.footerLabel}</span>
+                {route.active && (
+                  <span class="text-xs text-[#dce7c9]">(Here)</span>
+                )}
+              </a>
+            ))
+          }
 
-          <a
-            class="inline-flex min-h-11 items-center gap-2 text-sm text-[#f7f2e8]/85 underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#fffdf8] hover:decoration-[#fffdf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-            href={isAbout ? "#main-content" : "/about"}
-          >
-            <span>Station House (About Me)</span>
-            {isAbout && <span class="text-xs text-[#dce7c9]">(Here)</span>}
-          </a>
-
-          <a
-            class="inline-flex min-h-11 items-center gap-2 text-sm text-[#f7f2e8]/85 underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#fffdf8] hover:decoration-[#fffdf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-            href={isProjects ? "#main-content" : "/projects"}
-          >
-            <span>Rice Fields (Projects)</span>
-            {isProjects && <span class="text-xs text-[#dce7c9]">(Here)</span>}
-          </a>
-
-          <a
-            class="inline-flex min-h-11 items-center gap-2 text-sm text-[#f7f2e8]/85 underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#fffdf8] hover:decoration-[#fffdf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-            href={isWorkshop ? "#main-content" : "/workshop"}
-          >
-            <span>The Workshop (Offers)</span>
-            {isWorkshop && <span class="text-xs text-[#dce7c9]">(Here)</span>}
-          </a>
-
-          <a
-            class="inline-flex min-h-11 items-center gap-2 text-sm text-[#f7f2e8]/85 underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#fffdf8] hover:decoration-[#fffdf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-            href={isThoughts ? "#main-content" : "/thoughts"}
-          >
-            <span>The Waiting Room (Thoughts)</span>
-            {isThoughts && <span class="text-xs text-[#dce7c9]">(Here)</span>}
-          </a>
-
-          <a
-            class="inline-flex min-h-11 items-center gap-2 text-sm text-[#f7f2e8]/85 underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#fffdf8] hover:decoration-[#fffdf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-            href={isConnect ? "#main-content" : "/connect"}
-          >
-            <span>The Letterbox (Ways to connect)</span>
-            {isConnect && <span class="text-xs text-[#dce7c9]">(Here)</span>}
-          </a>
-
-          <a
-            class="inline-flex min-h-11 items-center gap-2 text-sm text-[#f7f2e8]/85 underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#fffdf8] hover:decoration-[#fffdf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-            href={isHome ? "#board" : "/#board"}
-          >
+          <a class={routeLinkClass} href={isHome ? "#board" : "/#board"}>
             <span>Station Board</span>
           </a>
 
-          <a
-            class="inline-flex min-h-11 items-center gap-2 text-sm text-[#f7f2e8]/85 underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#fffdf8] hover:decoration-[#fffdf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-            href={isHome ? "#rooms" : "/#rooms"}
-          >
+          <a class={routeLinkClass} href={isHome ? "#rooms" : "/#rooms"}>
             <span>Quiet Rooms</span>
           </a>
 
-          <a
-            class="group/top inline-flex min-h-11 items-center gap-2 text-sm text-[#f7f2e8]/85 underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#fffdf8] hover:decoration-[#fffdf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-            href="#main-content"
-          >
+          <a class={`group/top ${routeLinkClass}`} href="#main-content">
             <span>Top of page</span>
             <svg
               class="size-3.5 fill-none [stroke:currentColor] [stroke-width:2] transition-transform group-hover/top:-translate-y-0.5 motion-reduce:transform-none"

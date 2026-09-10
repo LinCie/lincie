@@ -1,4 +1,5 @@
 ---
+import { siteContainer } from "../../components/layout/container";
 import MainLayout from "../../components/layout/MainLayout.astro";
 import { projects, type Project } from "../../data/projects";
 import { site, canonicalUrl } from "../../data/site";
@@ -19,9 +20,6 @@ const { project } = Astro.props;
 // Calculate next project in order
 const currentIndex = projects.findIndex((p) => p.slug === project.slug);
 const nextProject = projects[(currentIndex + 1) % projects.length];
-
-const siteContainer =
-  "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
 
 const pageUrl = canonicalUrl(`/projects/${project.slug}`);
 

@@ -1,4 +1,5 @@
 ---
+import { siteContainer } from "../../components/layout/container";
 import MainLayout from "../../components/layout/MainLayout.astro";
 import { thoughts, type Thought } from "../../data/thoughts";
 import { site, absoluteUrl, canonicalUrl } from "../../data/site";
@@ -22,9 +23,6 @@ const { thought } = Astro.props;
 const published = thoughts.filter((t) => t.status === "published");
 const currentIndex = published.findIndex((t) => t.slug === thought.slug);
 const nextThought = published[(currentIndex + 1) % published.length];
-
-const siteContainer =
-  "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
 
 const pageUrl = canonicalUrl(`/thoughts/${thought.slug}`);
 

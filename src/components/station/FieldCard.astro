@@ -1,0 +1,42 @@
+---
+interface Props {
+  /** Quiet context on the left: status, place, or category. */
+  meta: string;
+  /** Quiet context on the right: date, timeline, or approach. */
+  metaEnd: string;
+  title: string;
+  href: string;
+  body: string;
+  /** Label for the card's own onward link. */
+  cta: string;
+}
+
+const { meta, metaEnd, title, href, body, cta } = Astro.props;
+---
+
+<article
+  class="rounded-xl border border-[#c4b49d]/80 bg-[#fffdf8] p-4 transition-colors hover:border-[#b8614b]"
+>
+  <div
+    class="flex items-center justify-between gap-2 text-[.8125rem] text-[#5f665c]"
+  >
+    <span class="font-semibold text-[#2d332b]">{meta}</span>
+    <span class="text-right">{metaEnd}</span>
+  </div>
+  <h4 class="mt-1.5 font-serif text-lg font-normal text-[#2d332b]">
+    <a
+      href={href}
+      class="text-[#2d332b] no-underline hover:text-[#843d2f] hover:underline"
+    >
+      {title}
+    </a>
+  </h4>
+  <p class="mt-1.5 text-[.875rem] leading-relaxed text-[#5f665c]">{body}</p>
+  <a
+    href={href}
+    class="mt-3 inline-flex min-h-11 items-center gap-1 text-[.8125rem] font-bold text-[#843d2f] underline decoration-[#b8614b] decoration-1 underline-offset-2 transition-colors hover:text-[#2d332b]"
+  >
+    <span>{cta}</span>
+    <span aria-hidden="true">&rarr;</span>
+  </a>
+</article>

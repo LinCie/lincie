@@ -1,10 +1,8 @@
 ---
+import { siteContainer } from "../../components/layout/container";
 import MainLayout from "../../components/layout/MainLayout.astro";
 import { tendedProjects, harvestedProjects } from "../../data/projects";
 import { canonicalUrl } from "../../data/site";
-
-const siteContainer =
-  "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
 
 const projectsJsonLd = {
   "@type": "ItemList",

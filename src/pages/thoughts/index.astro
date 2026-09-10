@@ -1,10 +1,8 @@
 ---
+import { siteContainer } from "../../components/layout/container";
 import MainLayout from "../../components/layout/MainLayout.astro";
 import { thoughts } from "../../data/thoughts";
 import { site, canonicalUrl } from "../../data/site";
-
-const siteContainer =
-  "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
 
 const publishedThoughts = thoughts.filter((t) => t.status === "published");
 const inPrepThoughts = thoughts.filter((t) => t.status === "in-preparation");

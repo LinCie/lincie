@@ -193,7 +193,11 @@ const robotsContent = noindex
     <div class="flex min-h-screen flex-col overflow-x-clip bg-[#f7f2e8]">
       <Header currentRoute={pathname} />
 
-      <main id="main-content" tabindex="-1" class="flex-1 focus:outline-none">
+      <main
+        id="main-content"
+        tabindex="-1"
+        class="flex-1 scroll-mt-[5.5rem] focus:outline-none"
+      >
         <slot />
       </main>
 

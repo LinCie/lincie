@@ -13,6 +13,7 @@ colors:
   field-green: "#6C895F"
   signal-terracotta: "#B8614B"
   signal-gold: "#D49A48"
+  signal-terracotta-ink: "#843D2F"
 typography:
   display-xl:
     fontFamily: 'Georgia, "Noto Serif", serif'
@@ -137,6 +138,7 @@ The palette is a quiet rural morning: low-saturation surfaces create air and war
 
 - **Morning Sky** (`{colors.sky-morning}`): An open-landscape and atmospheric-panel color, not general-purpose interface chrome.
 - **Warm Glint** (`{colors.signal-gold}`): A small point of sunlight, bell, or celebration. Keep it out of body text and dense decoration.
+- **Signal Ink** (`{colors.signal-terracotta-ink}`): The station signal when it must carry *text*. `signal-terracotta` fills, borders, rules, and glyphs; `signal-terracotta-ink` writes words, because it clears 4.5:1 on every paper, wood, field, and sky surface while the brighter signal does not.
 
 ### Neutral
 
@@ -144,7 +146,7 @@ The palette is a quiet rural morning: low-saturation surfaces create air and war
 - **Clean Paper** (`{colors.surface-paper}`): Readable content interiors, the station house, route notes, and text-first surfaces.
 - **Station Wood** (`{colors.surface-station}`): Boards, small architectural surfaces, and tactile objects as a tonal layer.
 - **Field Wash** (`{colors.surface-field}`): Project terrain and cultivated work; never the sole project-status signal.
-- **Quiet Ink** (`{colors.ink-secondary}`): Metadata and secondary explanations only when contrast remains legible.
+- **Quiet Ink** (`{colors.ink-secondary}`): Metadata and secondary explanations only when contrast remains legible. On Station Wood it does not clear 4.5:1, so quiet copy there uses Deep Moss Ink.
 - **Soft Boundary** (`{colors.border-soft}`): Hairline dividers, tracks, board edges, and quiet control boundaries.
 
 **The Rare Signal Rule.** Accent colors are most welcoming when they remain scarce. Use them to point, focus, or acknowledge—not to fill every card, label, and surface.

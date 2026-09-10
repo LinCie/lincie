@@ -1,68 +1,78 @@
 ---
+import { siteContainer } from "../components/layout/container";
 import MainLayout from "../components/layout/MainLayout.astro";
+import FieldCard from "../components/station/FieldCard.astro";
+import StepLink from "../components/station/StepLink.astro";
+import { offers } from "../data/offers";
 import { projects } from "../data/projects";
+import { stationRoutes } from "../data/routes";
 import { thoughts } from "../data/thoughts";
 import { site } from "../data/site";
 
-type Destination = {
-  id: string;
-  place: string;
+type Tone = "house" | "field" | "workshop" | "thoughts" | "letterbox";
+
+type HomeDetail = {
   label: string;
   invitation: string;
   roomNote: string;
-  tone: "house" | "field" | "workshop" | "thoughts" | "letterbox";
+  tone: Tone;
+  /** Status line beside the room heading. Omitted for rooms that carry none. */
+  badge?: string;
 };
 
-const destinations: Destination[] = [
-  {
-    id: "about-me",
-    place: "Station House",
+const tendedCount = projects.filter(
+  (project) => project.status === "tended",
+).length;
+const harvestedCount = projects.filter(
+  (project) => project.status === "harvested",
+).length;
+
+/** Homepage-only wording per place: the board's literal label, its invitation, room note, and tone. */
+const homeDetails: Record<string, HomeDetail> = {
+  "about-me": {
     label: "About Me",
     invitation: "Meet the person behind the work.",
     roomNote:
       "I’m currently a software engineering trainee at one of Southeast Asia’s biggest e-commerce companies.",
     tone: "house",
   },
-  {
-    id: "projects",
-    place: "Rice Fields",
+  projects: {
     label: "Projects",
     invitation: "See what is being tended.",
+    badge: `Field Gate · ${tendedCount} Tended, ${harvestedCount} Harvested`,
     roomNote:
       "I cultivate systems the way one tends land: planted with human purpose, rooted in clean database schemas, and cared for until they run quietly and reliably.",
     tone: "field",
   },
-  {
-    id: "offers",
-    place: "Workshop",
+  offers: {
     label: "Things LinCie offers",
     invitation: "Find the situations that may fit.",
+    badge: "Active Benches · Open for Collaboration",
     roomNote:
       "A sunlit bench where tools rest in their grooves. I build reliable backend services in Go and TypeScript, and carefully craft bespoke, anti-AI-slop websites with deep human care.",
     tone: "workshop",
   },
-  {
-    id: "thoughts",
-    place: "Waiting Room",
+  thoughts: {
     label: "Personal thoughts",
     invitation: "Read a note when one is ready.",
+    badge: "Passenger Desk · Notes on the Table",
     roomNote:
       "A sunlit timber bench where thoughts rest on the table. Human-sized reflections on backend engineering, databases, and the unhurried craft of software.",
     tone: "thoughts",
   },
-  {
-    id: "connect",
-    place: "Letterbox",
+  connect: {
     label: "Ways to connect",
     invitation: "Find a practical way to say hello.",
+    badge: "Active Desk · Open for Notes",
     roomNote:
       "A quiet desk at the edge of the platform where notes are received and sent. Whether to say hello, discuss backend systems or handcrafted websites, or ask an open question—there is always room for a thoughtful note.",
     tone: "letterbox",
   },
-];
+};
 
-const siteContainer =
-  "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
+const destinations = stationRoutes
+  .filter((route) => route.id !== "platform")
+  .map((route) => ({ ...route, ...homeDetails[route.id] }));
 ---
 
 <MainLayout
@@ -81,7 +91,7 @@ const siteContainer =
       aria-hidden="true"
     >
       <img
-        class="absolute inset-0 size-full object-cover object-center opacity-[.98] will-change-transform max-[760px]:object-[70%_center] max-[760px]:opacity-[.42]"
+        class="absolute inset-0 size-full object-cover object-center opacity-[.98] max-[760px]:object-[70%_center] max-[760px]:opacity-[.42]"
         src="/images/lincie-countryside-arrival.webp"
         alt=""
         width="1376"
@@ -98,6 +108,11 @@ const siteContainer =
         class="absolute inset-x-0 bottom-0 h-[43%] bg-[linear-gradient(180deg,rgba(220,231,201,.02)_0%,rgba(220,231,201,.38)_100%)] max-[760px]:h-[32%]"
       >
       </div>
+      <!-- Warm paper haze under the arrival column: keeps every word legible without dimming the scene. -->
+      <div
+        class="absolute inset-y-0 left-0 w-[62%] bg-[linear-gradient(90deg,rgba(247,242,232,.58)_0%,rgba(247,242,232,.46)_46%,rgba(247,242,232,0)_100%)] max-[760px]:hidden"
+      >
+      </div>
 
       <svg
         class="absolute inset-0 size-full"
@@ -107,8 +122,8 @@ const siteContainer =
       >
         <defs>
           <radialGradient id="arrival-sun-halo" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#f8d78d" stop-opacity=".62"></stop>
-            <stop offset="100%" stop-color="#f8d78d" stop-opacity="0"></stop>
+            <stop offset="0%" stop-color="#d49a48" stop-opacity=".46"></stop>
+            <stop offset="100%" stop-color="#d49a48" stop-opacity="0"></stop>
           </radialGradient>
         </defs>
 
@@ -191,8 +206,7 @@ const siteContainer =
         class="relative z-[1] col-start-1 row-start-1 max-w-[38rem] self-start max-[760px]:col-auto max-[760px]:row-auto max-[760px]:max-w-none"
       >
         <div
-          class="mb-6 flex w-fit flex-wrap items-center gap-x-3 gap-y-2 border-b border-[#2d332b]/40 pb-[.7rem] font-sans text-[.78rem] tracking-[.02em] text-[#50594d] max-[480px]:gap-x-[.6rem] max-[480px]:text-[.72rem]"
-          aria-label="Current location"
+          class="mb-6 flex w-fit flex-wrap items-center gap-x-3 gap-y-2 border-b border-[#2d332b]/40 pb-[.7rem] font-sans text-[.8125rem] tracking-[.02em] text-[#2d332b]"
           data-arrival-location
         >
           <span
@@ -210,7 +224,7 @@ const siteContainer =
           data-arrival-title
         >
           Welcome.<br />You made it <em
-            class="font-normal text-[#b8614b] not-italic">here.</em
+            class="font-normal text-[#843d2f] not-italic">here.</em
           >
         </h1>
 
@@ -223,7 +237,7 @@ const siteContainer =
         </p>
 
         <p
-          class="mt-[1.35rem] flex max-w-[32rem] items-start gap-[.85rem] text-[.9rem] leading-[1.55] text-[#50594d]"
+          class="mt-[1.35rem] flex max-w-[32rem] items-start gap-[.85rem] text-[.9rem] leading-[1.55] text-[#2d332b]"
           data-arrival-note
         >
           <span
@@ -235,12 +249,12 @@ const siteContainer =
         </p>
 
         <aside
-          class="mt-8 grid max-w-[31rem] grid-cols-[minmax(7rem,0.3fr)_1fr] gap-x-5 gap-y-[.35rem] border-y border-[#2d332b]/30 py-4 max-[480px]:grid-cols-1 max-[480px]:gap-y-[.45rem]"
+          class="mt-8 grid max-w-[31rem] grid-cols-[minmax(7rem,0.3fr)_1fr] gap-x-5 gap-y-[.35rem] border-y border-[#2d332b]/30 py-4 max-[900px]:grid-cols-1 max-[900px]:gap-y-[.45rem]"
           aria-labelledby="current-signal-title"
           data-arrival-notice
         >
           <div
-            class="flex items-center gap-2 font-sans text-xs font-bold tracking-[.03em] text-[#50594d]"
+            class="flex items-center gap-2 font-sans text-[.8125rem] font-bold tracking-[.03em] whitespace-nowrap text-[#2d332b]"
           >
             <span
               class="size-[.55rem] rounded-full bg-[#b8614b]"
@@ -254,7 +268,7 @@ const siteContainer =
             All rooms open.
           </h2>
           <p
-            class="col-start-2 text-[.9rem] leading-[1.5] text-[#50594d] max-[480px]:col-start-1"
+            class="col-start-2 text-[.9rem] leading-[1.5] text-[#2d332b] max-[900px]:col-start-1"
           >
             The doors below are unlocked and tended. Take your time wandering
             through each space.
@@ -263,7 +277,7 @@ const siteContainer =
       </div>
 
       <nav
-        class="relative z-[1] col-start-2 row-span-2 row-start-1 rotate-[.7deg] self-center rounded-[1.25rem] border border-[#c4b49d] bg-[#e9ddc9] p-[clamp(1.25rem,3vw,2rem)] shadow-[0_16px_34px_rgba(57,52,38,0.14)] max-[760px]:col-auto max-[760px]:row-auto max-[760px]:rotate-0"
+        class="relative z-[1] col-start-2 row-span-2 row-start-1 rotate-[.7deg] scroll-mt-[5.5rem] self-center rounded-[1.25rem] border border-[#c4b49d] bg-[#e9ddc9] p-[clamp(1.25rem,3vw,2rem)] shadow-[0_16px_34px_rgba(57,52,38,0.14)] max-[760px]:col-auto max-[760px]:row-auto max-[760px]:rotate-0"
         id="board"
         aria-labelledby="board-title"
         data-arrival-board
@@ -285,9 +299,9 @@ const siteContainer =
             Where would you like to wander?
           </h2>
           <p
-            class="max-w-40 text-right text-xs leading-[1.35] text-[#50594d] max-[760px]:max-w-none max-[760px]:text-left"
+            class="max-w-40 text-right text-[.8125rem] leading-[1.35] text-[#2d332b] max-[760px]:max-w-none max-[760px]:text-left"
           >
-            Five rooms, all on this page.
+            {destinations.length} rooms, all on this page.
           </p>
         </div>
 
@@ -303,10 +317,10 @@ const siteContainer =
                     <span class="font-serif text-[clamp(1.35rem,2.2vw,1.7rem)] leading-[1.08] tracking-[-0.025em]">
                       {destination.place}
                     </span>
-                    <span class="font-sans text-[.76rem] font-bold tracking-[.03em]">
+                    <span class="font-sans text-[.8125rem] font-bold tracking-[.03em]">
                       {destination.label}
                     </span>
-                    <span class="text-[.8rem] leading-[1.35] text-[#50594d] max-[480px]:text-[.75rem]">
+                    <span class="text-[.8125rem] leading-[1.35] text-[#2d332b]">
                       {destination.invitation}
                     </span>
                   </span>
@@ -317,7 +331,6 @@ const siteContainer =
                     <svg
                       class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
                       viewBox="0 0 20 20"
-                      role="img"
                     >
                       <path d="M3 10h13M10 4l6 6-6 6" />
                     </svg>
@@ -329,7 +342,7 @@ const siteContainer =
         </ul>
 
         <div
-          class="flex items-center gap-[.6rem] px-[.6rem] pt-4 pb-[.2rem] text-xs text-[#50594d]"
+          class="flex items-center gap-[.6rem] px-[.6rem] pt-4 pb-[.2rem] text-[.8125rem] text-[#2d332b]"
         >
           <span class="w-8 border-t border-[#b8614b]" aria-hidden="true"></span>
           <span>Choose a door, or simply stay a while.</span>
@@ -338,10 +351,11 @@ const siteContainer =
 
       <div
         class="col-start-1 row-start-2 mt-5 grid max-w-[36rem] grid-cols-3 gap-3 max-[1050px]:max-w-[31rem] max-[1050px]:grid-cols-1 max-[760px]:col-auto max-[760px]:row-auto max-[760px]:max-w-none"
+        role="group"
         aria-label="Ways to begin"
       >
         <a
-          class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8]/55 p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:bg-[#fffdf8] motion-reduce:transition-none max-[1050px]:min-h-14"
+          class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8] p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] motion-reduce:transition-none max-[1050px]:min-h-14"
           href="#board"
           data-arrival-gesture
         >
@@ -352,7 +366,6 @@ const siteContainer =
             <svg
               class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
               viewBox="0 0 24 24"
-              role="img"
             >
               <rect x="4" y="3.5" width="16" height="17" rx="1.5"></rect>
               <path d="M7.5 8h9M7.5 12h9M7.5 16h5"></path>
@@ -362,7 +375,7 @@ const siteContainer =
             <strong class="text-[.8125rem] leading-[1.2]"
               >Look at the board</strong
             >
-            <small class="text-xs leading-[1.25] text-[#50594d]"
+            <small class="text-[.8125rem] leading-[1.25] text-[#5f665c]"
               >See every room on this page.</small
             >
           </span>
@@ -373,7 +386,6 @@ const siteContainer =
             <svg
               class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
               viewBox="0 0 20 20"
-              role="img"
             >
               <path d="M3 10h13M10 4l6 6-6 6"></path>
             </svg>
@@ -381,7 +393,7 @@ const siteContainer =
         </a>
 
         <a
-          class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8]/55 p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:bg-[#fffdf8] motion-reduce:transition-none max-[1050px]:min-h-14"
+          class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8] p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] motion-reduce:transition-none max-[1050px]:min-h-14"
           href="#pause"
           data-arrival-gesture
         >
@@ -392,7 +404,6 @@ const siteContainer =
             <svg
               class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
               viewBox="0 0 24 24"
-              role="img"
             >
               <path d="M4 16.5h16M6.5 16.5v2M17.5 16.5v2M7 13h10M9 13V8.5h6V13"
               ></path>
@@ -403,7 +414,7 @@ const siteContainer =
             <strong class="text-[.8125rem] leading-[1.2]"
               >Sit for a moment</strong
             >
-            <small class="text-xs leading-[1.25] text-[#50594d]"
+            <small class="text-[.8125rem] leading-[1.25] text-[#5f665c]"
               >Stay with the welcome.</small
             >
           </span>
@@ -414,7 +425,6 @@ const siteContainer =
             <svg
               class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
               viewBox="0 0 20 20"
-              role="img"
             >
               <path d="M3 10h13M10 4l6 6-6 6"></path>
             </svg>
@@ -422,7 +432,7 @@ const siteContainer =
         </a>
 
         <a
-          class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8]/55 p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:bg-[#fffdf8] motion-reduce:transition-none max-[1050px]:min-h-14"
+          class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8] p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] motion-reduce:transition-none max-[1050px]:min-h-14"
           href="/about"
           data-arrival-gesture
         >
@@ -433,7 +443,6 @@ const siteContainer =
             <svg
               class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
               viewBox="0 0 24 24"
-              role="img"
             >
               <path d="M3.5 10.5 12 4l8.5 6.5M5.5 9.5v10h13v-10M9 19.5v-6h6v6"
               ></path>
@@ -441,7 +450,7 @@ const siteContainer =
           </span>
           <span class="grid min-w-0 gap-[.15rem]">
             <strong class="text-[.8125rem] leading-[1.2]">Step inside</strong>
-            <small class="text-xs leading-[1.25] text-[#50594d]"
+            <small class="text-[.8125rem] leading-[1.25] text-[#5f665c]"
               >Visit the Station House.</small
             >
           </span>
@@ -452,7 +461,6 @@ const siteContainer =
             <svg
               class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
               viewBox="0 0 20 20"
-              role="img"
             >
               <path d="M3 10h13M10 4l6 6-6 6"></path>
             </svg>
@@ -463,7 +471,7 @@ const siteContainer =
   </section>
 
   <section
-    class="bg-[#f7f2e8] pt-[clamp(5rem,10vw,9rem)] pb-[clamp(5rem,9vw,8rem)]"
+    class="scroll-mt-[5.5rem] bg-[#f7f2e8] pt-[clamp(5rem,10vw,9rem)] pb-[clamp(5rem,9vw,8rem)]"
     id="rooms"
     aria-labelledby="rooms-title"
   >
@@ -490,7 +498,7 @@ const siteContainer =
           destinations.map((destination, index) => (
             <article
               class:list={[
-                "grid scroll-mt-6 grid-cols-[minmax(15rem,0.62fr)_minmax(0,1fr)] items-center gap-[clamp(2rem,6vw,6rem)] border-b border-[#c4b49d] py-[clamp(2.5rem,6vw,5rem)] max-[760px]:grid-cols-1 max-[760px]:gap-8 max-[760px]:py-12",
+                "grid scroll-mt-[5.5rem] grid-cols-[minmax(15rem,0.62fr)_minmax(0,1fr)] items-center gap-[clamp(2rem,6vw,6rem)] border-b border-[#c4b49d] py-[clamp(2.5rem,6vw,5rem)] max-[760px]:grid-cols-1 max-[760px]:gap-8 max-[760px]:py-12",
                 index % 2 === 1 &&
                   "min-[761px]:grid-cols-[minmax(0,1fr)_minmax(15rem,0.62fr)]",
               ]}
@@ -502,7 +510,7 @@ const siteContainer =
                   destination.tone === "house" && "bg-[#e9ddc9]",
                   destination.tone === "workshop" && "bg-[#c9e0e2]",
                   destination.tone === "thoughts" && "bg-[#fffdf8]",
-                  destination.tone === "letterbox" && "bg-[#e2e2c9]",
+                  destination.tone === "letterbox" && "bg-[#dce7c9]",
                   index % 2 === 1 && "max-[760px]:order-0 min-[761px]:order-2",
                 ]}
                 aria-hidden="true"
@@ -518,7 +526,7 @@ const siteContainer =
                       <span class="absolute top-[22%] left-[12%] h-[42%] w-[29%] rounded-[.3rem] bg-[#d49a48]/60" />
                       <span class="absolute right-[12%] bottom-0 h-[55%] w-[.3rem] bg-[#c4b49d]" />
                     </span>
-                    <span class="absolute bottom-[24%] left-[16%] h-[10%] w-[22%] rounded-t-[.25rem] border border-[#c4b49d] bg-[#f5ecdf]" />
+                    <span class="absolute bottom-[24%] left-[16%] h-[10%] w-[22%] rounded-t-[.25rem] border border-[#c4b49d] bg-[#f7f2e8]" />
                   </>
                 ) : (
                   <>
@@ -560,263 +568,130 @@ const siteContainer =
                   <h3 class="font-serif text-[clamp(2rem,4vw,3.2rem)] leading-none font-normal tracking-[-0.03em]">
                     {destination.label}
                   </h3>
-                  {destination.id === "projects" ? (
-                    <span class="font-sans text-xs font-bold tracking-[.04em] text-[#6c895f] uppercase">
-                      Field Gate · 1 Tended, 3 Harvested
-                    </span>
-                  ) : destination.id === "offers" ? (
-                    <span class="font-sans text-xs font-bold tracking-[.04em] text-[#6c895f] uppercase">
-                      Active Benches · Open for Collaboration
-                    </span>
-                  ) : destination.id === "thoughts" ? (
-                    <span class="font-sans text-xs font-bold tracking-[.04em] text-[#6c895f] uppercase">
-                      Passenger Desk · Notes on the Table
-                    </span>
-                  ) : destination.id === "connect" ? (
-                    <span class="font-sans text-xs font-bold tracking-[.04em] text-[#6c895f] uppercase">
-                      Active Desk · Open for Notes
-                    </span>
-                  ) : destination.id !== "about-me" ? (
-                    <span class="font-sans text-xs font-bold tracking-[.04em] text-[#843d2f] uppercase">
-                      Quiet for now
+                  {destination.badge ? (
+                    <span class="inline-flex items-center gap-1.5 font-sans text-[.8125rem] font-bold tracking-[.04em] text-[#2d332b] uppercase">
+                      <span
+                        class="size-1.5 shrink-0 rounded-full bg-[#6c895f]"
+                        aria-hidden="true"
+                      />
+                      {destination.badge}
                     </span>
                   ) : null}
                 </div>
-                <p class="mt-[.65rem] font-sans text-[.82rem] font-bold tracking-[.03em] text-[#5f665c]">
+                <p class="mt-[.65rem] font-sans text-[.8125rem] font-bold tracking-[.03em] text-[#5f665c]">
                   {destination.place}
                 </p>
-                <p class="mt-[1.35rem] max-w-[36rem] text-[1.05rem] leading-[1.65] text-[#5f665c]">
+                <p class="mt-[1.35rem] max-w-[36rem] text-lg leading-[1.65] text-[#5f665c]">
                   {destination.roomNote}
                 </p>
                 {destination.id === "about-me" && (
-                  <p class="mt-5 max-w-[34rem] text-[.9rem] leading-[1.6] text-[#5f665c]">
-                    <a
-                      class="inline-flex min-h-11 items-center gap-2 font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#843d2f]"
-                      href="/about"
-                    >
-                      <span>
-                        Step inside the Station House for the full story
-                      </span>
-                      <span aria-hidden="true">&rarr;</span>
-                    </a>
-                  </p>
+                  <div class="mt-5 max-w-[34rem]">
+                    <StepLink href="/about">
+                      Step inside the Station House for the full story
+                    </StepLink>
+                  </div>
                 )}
                 {destination.id === "projects" && (
                   <div class="mt-6 space-y-4">
                     <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                      {projects.slice(0, 2).map((proj) => (
-                        <div class="rounded-xl border border-[#c4b49d]/80 bg-[#fffdf8] p-4 transition-colors hover:border-[#b8614b]">
-                          <div class="flex items-center justify-between gap-1 text-xs text-[#5f665c]">
-                            <span class="font-semibold text-[#2d332b]">
-                              {proj.statusLabel}
-                            </span>
-                            <span>{proj.timeline}</span>
-                          </div>
-                          <h4 class="mt-1 font-serif text-lg font-normal text-[#2d332b]">
-                            <a
-                              href={`/projects/${proj.slug}`}
-                              class="text-[#2d332b] no-underline hover:text-[#b8614b] hover:underline"
-                            >
-                              {proj.title}
-                            </a>
-                          </h4>
-                          <p class="mt-1.5 text-xs leading-relaxed text-[#5f665c]">
-                            {proj.metricsSummary}
-                          </p>
-                          <a
-                            href={`/projects/${proj.slug}`}
-                            class="mt-3 inline-flex min-h-9 items-center gap-1 text-xs font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-2 hover:text-[#843d2f]"
-                          >
-                            <span>Read field story</span>
-                            <span aria-hidden="true">&rarr;</span>
-                          </a>
-                        </div>
+                      {projects.slice(0, 2).map((project) => (
+                        <FieldCard
+                          meta={project.statusLabel}
+                          metaEnd={project.timeline}
+                          title={project.title}
+                          href={`/projects/${project.slug}`}
+                          body={project.metricsSummary}
+                          cta="Read field story"
+                        />
                       ))}
                     </div>
 
-                    <p class="pt-2 text-[.9rem] leading-[1.6] text-[#5f665c]">
-                      <a
-                        class="inline-flex min-h-11 items-center gap-2 font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#843d2f]"
-                        href="/projects"
-                      >
-                        <span>
-                          Step into the Rice Fields to view all 4 cultivated
-                          projects
-                        </span>
-                        <span aria-hidden="true">&rarr;</span>
-                      </a>
-                    </p>
+                    <StepLink href="/projects">
+                      Step into the Rice Fields to view all {projects.length}{" "}
+                      cultivated projects
+                    </StepLink>
                   </div>
                 )}
                 {destination.id === "offers" && (
                   <div class="mt-6 space-y-4">
                     <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                      <div class="rounded-xl border border-[#c4b49d]/80 bg-[#fffdf8] p-4 transition-colors hover:border-[#b8614b]">
-                        <div class="flex items-center justify-between gap-1 text-xs text-[#5f665c]">
-                          <span class="font-semibold text-[#2d332b]">
-                            Developer Service
-                          </span>
-                          <span>Go &amp; TypeScript</span>
-                        </div>
-                        <h4 class="mt-1 font-serif text-lg font-normal text-[#2d332b]">
-                          <a
-                            href="/workshop#backend"
-                            class="text-[#2d332b] no-underline hover:text-[#b8614b] hover:underline"
-                          >
-                            Backend &amp; Systems
-                          </a>
-                        </h4>
-                        <p class="mt-1.5 text-xs leading-relaxed text-[#5f665c]">
-                          Reliable REST/gRPC APIs, schema design, and clean
-                          business logic. Built for performance and
-                          zero-headache maintenance.
-                        </p>
-                        <a
-                          href="/workshop#backend"
-                          class="mt-3 inline-flex min-h-9 items-center gap-1 text-xs font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-2 hover:text-[#843d2f]"
-                        >
-                          <span>Explore bench</span>
-                          <span aria-hidden="true">&rarr;</span>
-                        </a>
-                      </div>
-
-                      <div class="rounded-xl border border-[#c4b49d]/80 bg-[#fffdf8] p-4 transition-colors hover:border-[#b8614b]">
-                        <div class="flex items-center justify-between gap-1 text-xs text-[#5f665c]">
-                          <span class="font-semibold text-[#2d332b]">
-                            Web Craft
-                          </span>
-                          <span>AI-Augmented &amp; Hand-Tuned</span>
-                        </div>
-                        <h4 class="mt-1 font-serif text-lg font-normal text-[#2d332b]">
-                          <a
-                            href="/workshop#web-craft"
-                            class="text-[#2d332b] no-underline hover:text-[#b8614b] hover:underline"
-                          >
-                            Crafted Websites
-                          </a>
-                        </h4>
-                        <p class="mt-1.5 text-xs leading-relaxed text-[#5f665c]">
-                          Distinct, accessible, and fast websites. AI handles
-                          rapid iteration while human engineering ensures zero
-                          slop, high SEO, and deep craft.
-                        </p>
-                        <a
-                          href="/workshop#web-craft"
-                          class="mt-3 inline-flex min-h-9 items-center gap-1 text-xs font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-2 hover:text-[#843d2f]"
-                        >
-                          <span>Explore bench</span>
-                          <span aria-hidden="true">&rarr;</span>
-                        </a>
-                      </div>
+                      {offers.map((offer) => (
+                        <FieldCard
+                          meta={offer.category}
+                          metaEnd={offer.approach}
+                          title={offer.title}
+                          href={offer.href}
+                          body={offer.summary}
+                          cta="Explore bench"
+                        />
+                      ))}
                     </div>
 
-                    <p class="pt-2 text-[.9rem] leading-[1.6] text-[#5f665c]">
-                      <a
-                        class="inline-flex min-h-11 items-center gap-2 font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#843d2f]"
-                        href="/workshop"
-                      >
-                        <span>
-                          Step into the Workshop to see how we might work
-                          together
-                        </span>
-                        <span aria-hidden="true">&rarr;</span>
-                      </a>
-                    </p>
+                    <StepLink href="/workshop">
+                      Step into the Workshop to see how we might work together
+                    </StepLink>
                   </div>
                 )}
                 {destination.id === "thoughts" && (
                   <div class="mt-6 space-y-4">
                     <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
                       {thoughts.slice(0, 2).map((thought) => (
-                        <div class="rounded-xl border border-[#c4b49d]/80 bg-[#fffdf8] p-4 transition-colors hover:border-[#b8614b]">
-                          <div class="flex items-center justify-between gap-1 text-xs text-[#5f665c]">
-                            <span class="font-semibold text-[#6c895f]">
-                              {thought.poeticContext}
-                            </span>
-                            <span>{thought.date}</span>
-                          </div>
-                          <h4 class="mt-1 font-serif text-lg font-normal text-[#2d332b]">
-                            <a
-                              href={`/thoughts/${thought.slug}`}
-                              class="text-[#2d332b] no-underline hover:text-[#b8614b] hover:underline"
-                            >
-                              {thought.title}
-                            </a>
-                          </h4>
-                          <p class="mt-1.5 text-xs leading-relaxed text-[#5f665c]">
-                            {thought.summary}
-                          </p>
-                          <a
-                            href={`/thoughts/${thought.slug}`}
-                            class="mt-3 inline-flex min-h-9 items-center gap-1 text-xs font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-2 hover:text-[#843d2f]"
-                          >
-                            <span>Read passenger note</span>
-                            <span aria-hidden="true">&rarr;</span>
-                          </a>
-                        </div>
+                        <FieldCard
+                          meta={thought.poeticContext}
+                          metaEnd={thought.date}
+                          title={thought.title}
+                          href={`/thoughts/${thought.slug}`}
+                          body={thought.summary}
+                          cta="Read passenger note"
+                        />
                       ))}
                     </div>
 
-                    <p class="pt-2 text-[.9rem] leading-[1.6] text-[#5f665c]">
-                      <a
-                        class="inline-flex min-h-11 items-center gap-2 font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#843d2f]"
-                        href="/thoughts"
-                      >
-                        <span>
-                          Step into the Waiting Room for all notes and
-                          reflections
-                        </span>
-                        <span aria-hidden="true">&rarr;</span>
-                      </a>
-                    </p>
+                    <StepLink href="/thoughts">
+                      Step into the Waiting Room for all notes and reflections
+                    </StepLink>
                   </div>
                 )}
                 {destination.id === "connect" && (
                   <div class="mt-6 space-y-4">
                     <div class="rounded-xl border border-[#c4b49d]/80 bg-[#fffdf8] p-5 shadow-xs">
-                      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#c4b49d]/40 pb-3 text-xs text-[#5f665c]">
+                      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#c4b49d]/40 pb-3 text-[.8125rem] text-[#5f665c]">
                         <span class="font-semibold text-[#2d332b]">
                           Station Mail Slot &amp; Direct Channels
                         </span>
                         <a
-                          href="mailto:contact@lincie.me"
-                          class="font-sans text-xs font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-2 hover:text-[#843d2f]"
+                          href={`mailto:${site.contactEmail}`}
+                          class="inline-flex min-h-11 items-center font-sans text-[.8125rem] font-bold text-[#843d2f] underline decoration-[#b8614b] decoration-1 underline-offset-2 transition-colors hover:text-[#2d332b]"
                         >
-                          contact@lincie.me
+                          {site.contactEmail}
                         </a>
                       </div>
-                      <p class="mt-3 text-xs leading-relaxed text-[#5f665c]">
+                      <p class="mt-3 text-[.875rem] leading-relaxed text-[#5f665c]">
                         The letterbox welcomes three kinds of correspondence:
                         casual hellos from fellow wanderers, inquiries regarding
                         backend systems or handcrafted websites, and open
                         questions or thoughts.
                       </p>
                       <div class="mt-4 flex flex-wrap items-center gap-2">
-                        <span class="inline-flex items-center rounded-md border border-[#c4b49d]/60 bg-[#f7f2e8] px-2.5 py-1 text-xs font-medium text-[#2d332b]">
+                        <span class="inline-flex items-center rounded-md border border-[#c4b49d]/60 bg-[#f7f2e8] px-2.5 py-1 text-[.8125rem] font-medium text-[#2d332b]">
                           Say Hello
                         </span>
-                        <span class="inline-flex items-center rounded-md border border-[#c4b49d]/60 bg-[#f7f2e8] px-2.5 py-1 text-xs font-medium text-[#2d332b]">
+                        <span class="inline-flex items-center rounded-md border border-[#c4b49d]/60 bg-[#f7f2e8] px-2.5 py-1 text-[.8125rem] font-medium text-[#2d332b]">
                           Project &amp; Craft Inquiry
                         </span>
-                        <span class="inline-flex items-center rounded-md border border-[#c4b49d]/60 bg-[#f7f2e8] px-2.5 py-1 text-xs font-medium text-[#2d332b]">
+                        <span class="inline-flex items-center rounded-md border border-[#c4b49d]/60 bg-[#f7f2e8] px-2.5 py-1 text-[.8125rem] font-medium text-[#2d332b]">
                           Open Question
                         </span>
                       </div>
                     </div>
 
-                    <p class="pt-2 text-[.9rem] leading-[1.6] text-[#5f665c]">
-                      <a
-                        class="inline-flex min-h-11 items-center gap-2 font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#843d2f]"
-                        href="/connect"
-                      >
-                        <span>Step into the Letterbox to leave a note</span>
-                        <span aria-hidden="true">&rarr;</span>
-                      </a>
-                    </p>
+                    <StepLink href="/connect">
+                      Step into the Letterbox to leave a note
+                    </StepLink>
                   </div>
                 )}
                 <a
-                  class="mt-7 inline-flex min-h-11 items-center gap-[.45rem] font-sans text-[.83rem] font-bold text-[#2d332b] underline decoration-[#b8614b] decoration-1 underline-offset-[.3rem] transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] hover:text-[#843d2f] motion-reduce:transition-none"
+                  class="mt-7 inline-flex min-h-11 items-center gap-[.45rem] font-sans text-[.8125rem] font-bold text-[#2d332b] underline decoration-[#b8614b] decoration-1 underline-offset-[.3rem] transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] hover:text-[#843d2f] motion-reduce:transition-none"
                   href="#board"
                 >
                   <span>Return to the station board</span>
@@ -827,7 +702,6 @@ const siteContainer =
                     <svg
                       class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
                       viewBox="0 0 20 20"
-                      role="img"
                     >
                       <path d="M3 10h13M10 4l6 6-6 6" />
                     </svg>
@@ -842,7 +716,7 @@ const siteContainer =
   </section>
 
   <section
-    class="border-t border-[#c4b49d] bg-[#fffdf8]"
+    class="scroll-mt-[5.5rem] border-t border-[#c4b49d] bg-[#fffdf8]"
     id="pause"
     aria-labelledby="pause-title"
   >
@@ -868,7 +742,7 @@ const siteContainer =
         </p>
       </div>
       <a
-        class="inline-flex min-h-11 items-center gap-[.45rem] font-sans text-[.83rem] font-bold text-[#2d332b] underline decoration-[#b8614b] decoration-1 underline-offset-[.3rem] transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] hover:text-[#843d2f] motion-reduce:transition-none max-[760px]:col-start-2 max-[760px]:justify-self-start max-[480px]:col-start-1"
+        class="inline-flex min-h-11 items-center gap-[.45rem] font-sans text-[.8125rem] font-bold text-[#2d332b] underline decoration-[#b8614b] decoration-1 underline-offset-[.3rem] transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] hover:text-[#843d2f] motion-reduce:transition-none max-[760px]:col-start-2 max-[760px]:justify-self-start max-[480px]:col-start-1"
         href="#main-content"
       >
         <span>Back to the platform</span>
@@ -879,7 +753,6 @@ const siteContainer =
           <svg
             class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
             viewBox="0 0 20 20"
-            role="img"
           >
             <path d="M3 10h13M10 4l6 6-6 6"></path>
           </svg>
@@ -992,12 +865,12 @@ const siteContainer =
           .addLabel("arrival")
           .fromTo(
             sceneImage,
-            { scale: 1.035, autoAlpha: 0 },
+            { scale: 1.035, willChange: "transform" },
             {
               scale: 1,
-              autoAlpha: isMobile ? 0.42 : 0.98,
-              duration: 2.2,
+              duration: 1.4,
               ease: "power1.out",
+              clearProps: "willChange",
             },
             "arrival",
           )
@@ -1030,12 +903,7 @@ const siteContainer =
             { x: 0, autoAlpha: 1, duration: 0.7 },
             "arrival",
           )
-          .fromTo(
-            title,
-            { y: 24, autoAlpha: 0 },
-            { y: 0, autoAlpha: 1, duration: 0.95 },
-            "arrival",
-          )
+          .fromTo(title, { y: 24 }, { y: 0, duration: 0.95 }, "arrival")
           .fromTo(
             copy,
             { y: 14, autoAlpha: 0 },
@@ -1056,24 +924,20 @@ const siteContainer =
           )
           .fromTo(
             board,
-            {
-              y: isMobile ? 16 : 26,
-              scale: 0.985,
-              autoAlpha: 0,
-            },
-            { y: 0, scale: 1, autoAlpha: 1, duration: 1.7 },
+            { y: isMobile ? 16 : 26, scale: 0.985 },
+            { y: 0, scale: 1, duration: 1.2 },
             "arrival",
           )
           .fromTo(
             routes,
             { y: 8, autoAlpha: 0 },
-            { y: 0, autoAlpha: 1, duration: 1.9 },
+            { y: 0, autoAlpha: 1, duration: 1.4 },
             "arrival",
           )
           .fromTo(
             gestures,
             { y: 10, autoAlpha: 0 },
-            { y: 0, autoAlpha: 1, duration: 2.1 },
+            { y: 0, autoAlpha: 1, duration: 1.6 },
             "arrival",
           );
       },

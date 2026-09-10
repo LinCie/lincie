@@ -12,6 +12,7 @@ export interface SiteConfig {
     organization: string;
     github: string;
   };
+  contactEmail: string;
   ogImage: {
     url: string;
     width: number;
@@ -35,6 +36,7 @@ export const site: SiteConfig = {
     organization: "Sea Labs Indonesia",
     github: "https://github.com/LinCie",
   },
+  contactEmail: "contact@lincie.me",
   ogImage: {
     url: "/images/lincie-countryside-arrival.webp",
     width: 1376,
