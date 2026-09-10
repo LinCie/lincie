@@ -16,6 +16,57 @@ const isThoughts =
   pathname === "/waiting-room";
 const isConnect = pathname === "/connect" || pathname === "/letterbox";
 
+const routes = [
+  {
+    href: "/",
+    poetic: "Platform",
+    literal: "Arrival & Welcome",
+    kanji: "停留所",
+    active: isHome,
+    desc: "Station entrance, arrival notice, and departure board.",
+  },
+  {
+    href: "/about",
+    poetic: "Station House",
+    literal: "About Me",
+    kanji: "駅舎",
+    active: isAbout,
+    desc: "Personal introduction, room corners, and everyday comforts.",
+  },
+  {
+    href: "/projects",
+    poetic: "Rice Fields",
+    literal: "Projects",
+    kanji: "稲田",
+    active: isProjects,
+    desc: "Cultivated software craft and deep project stories.",
+  },
+  {
+    href: "/workshop",
+    poetic: "Workshop",
+    literal: "Offers & Crafts",
+    kanji: "工房",
+    active: isWorkshop,
+    desc: "Confirmed situations where LinCie can help and build.",
+  },
+  {
+    href: "/thoughts",
+    poetic: "Waiting Room",
+    literal: "Thoughts & Notes",
+    kanji: "待合室",
+    active: isThoughts,
+    desc: "Quiet reflections, learning notes, and wandering ideas.",
+  },
+  {
+    href: "/connect",
+    poetic: "Letterbox",
+    literal: "Ways to Connect",
+    kanji: "郵便受け",
+    active: isConnect,
+    desc: "Practical, low-pressure channels to send a letter.",
+  },
+];
+
 const siteContainer =
   "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
 ---
@@ -51,8 +102,9 @@ const siteContainer =
     >
       <!-- Location Badge -->
       <div
-        class="inline-flex items-center gap-2 rounded-full border border-[#c4b49d]/70 bg-[#fffdf8] px-3 py-1.5 font-sans text-xs font-semibold tracking-[0.03em] text-[#5f665c] max-[360px]:px-2"
+        class="inline-flex items-center gap-2 rounded-full border border-[#c4b49d]/70 bg-[#fffdf8] px-2.5 py-1.5 font-sans text-xs font-semibold tracking-[0.03em] text-[#5f665c] max-[360px]:hidden sm:px-3"
         aria-current="page"
+        data-station-badge
       >
         <span
           class="size-2 shrink-0 rounded-full bg-[#b8614b]"
@@ -96,69 +148,556 @@ const siteContainer =
         </span>
       </div>
 
-      <!-- Action / Nav Links -->
-      <div class="flex items-center gap-1 sm:gap-3">
+      <!-- Desktop Action / Nav Links -->
+      <div class="hidden items-center gap-1 sm:gap-3 md:flex">
         {
-          !isHome && (
-            <a
-              href="/"
-              class="group/nav inline-flex min-h-11 items-center gap-1 rounded-md px-2 py-1.5 font-sans text-xs font-bold tracking-[0.03em] text-[#2d332b] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#b8614b] hover:decoration-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-            >
-              <span>Platform</span>
-            </a>
-          )
-        }
-        {
-          !isAbout && (
-            <a
-              href="/about"
-              class="group/nav inline-flex min-h-11 items-center gap-1 rounded-md px-2 py-1.5 font-sans text-xs font-bold tracking-[0.03em] text-[#2d332b] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#b8614b] hover:decoration-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-            >
-              <span>Station House</span>
-            </a>
-          )
-        }
-        {
-          !isProjects && (
-            <a
-              href="/projects"
-              class="group/nav inline-flex min-h-11 items-center gap-1 rounded-md px-2 py-1.5 font-sans text-xs font-bold tracking-[0.03em] text-[#2d332b] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#b8614b] hover:decoration-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-            >
-              <span>Rice Fields</span>
-            </a>
-          )
-        }
-        {
-          !isWorkshop && (
-            <a
-              href="/workshop"
-              class="group/nav inline-flex min-h-11 items-center gap-1 rounded-md px-2 py-1.5 font-sans text-xs font-bold tracking-[0.03em] text-[#2d332b] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#b8614b] hover:decoration-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-            >
-              <span>Workshop</span>
-            </a>
-          )
-        }
-        {
-          !isThoughts && (
-            <a
-              href="/thoughts"
-              class="group/nav inline-flex min-h-11 items-center gap-1 rounded-md px-2 py-1.5 font-sans text-xs font-bold tracking-[0.03em] text-[#2d332b] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#b8614b] hover:decoration-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-            >
-              <span>Waiting Room</span>
-            </a>
-          )
-        }
-        {
-          !isConnect && (
-            <a
-              href="/connect"
-              class="group/nav inline-flex min-h-11 items-center gap-1 rounded-md px-2 py-1.5 font-sans text-xs font-bold tracking-[0.03em] text-[#2d332b] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#b8614b] hover:decoration-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-            >
-              <span>Letterbox</span>
-            </a>
-          )
+          routes
+            .filter((route) => !route.active)
+            .map((route) => (
+              <a
+                href={route.href}
+                class="group/nav inline-flex min-h-11 items-center gap-1 rounded-md px-2 py-1.5 font-sans text-xs font-bold tracking-[0.03em] text-[#2d332b] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#b8614b] hover:decoration-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+              >
+                <span>{route.poetic}</span>
+              </a>
+            ))
         }
       </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button
+        type="button"
+        id="mobile-nav-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-sidebar-panel"
+        aria-label="Open station menu"
+        class="group relative inline-flex size-11 items-center justify-center rounded-lg border border-[#c4b49d]/70 bg-[#fffdf8] text-[#2d332b] shadow-xs transition-colors hover:border-[#b8614b] hover:text-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] active:scale-95 md:hidden"
+      >
+        <span class="sr-only">Toggle navigation menu</span>
+        <div
+          class="relative flex h-3.5 w-4.5 flex-col justify-between"
+          aria-hidden="true"
+        >
+          <span
+            id="hamburger-line-1"
+            class="h-0.5 w-full origin-center rounded-full bg-current transition-transform duration-300 ease-out"
+          ></span>
+          <span
+            id="hamburger-line-2"
+            class="h-0.5 w-3/4 self-end rounded-full bg-current transition-all duration-200 ease-out"
+          ></span>
+          <span
+            id="hamburger-line-3"
+            class="h-0.5 w-full origin-center rounded-full bg-current transition-transform duration-300 ease-out"
+          ></span>
+        </div>
+      </button>
     </nav>
   </div>
 </header>
+
+<!-- Mobile Sidebar Overlay & Drawer -->
+<div
+  id="mobile-sidebar-container"
+  class="pointer-events-none invisible fixed inset-0 z-50"
+  aria-hidden="true"
+>
+  <!-- Backdrop button -->
+  <button
+    type="button"
+    id="mobile-sidebar-backdrop"
+    tabindex="-1"
+    aria-label="Close station menu"
+    class="absolute inset-0 size-full cursor-default bg-[#2d332b]/40 opacity-0 backdrop-blur-xs focus:outline-none"
+  >
+  </button>
+
+  <!-- Sidebar Panel (Drawer) -->
+  <nav
+    id="mobile-sidebar-panel"
+    aria-label="Mobile station wayfinding"
+    role="dialog"
+    aria-modal="true"
+    tabindex="-1"
+    inert
+    class="absolute top-0 right-0 bottom-0 flex h-full w-[min(100vw-2.5rem,360px)] max-w-sm translate-x-full flex-col overflow-hidden border-l border-[#c4b49d] bg-[#fffdf8] shadow-[-16px_0_40px_rgba(45,51,43,0.12)]"
+  >
+    <!-- Sidebar Header -->
+    <div
+      class="flex items-center justify-between border-b border-[#c4b49d]/60 bg-[#f7f2e8]/85 px-5 py-4"
+    >
+      <div class="flex items-center gap-2.5">
+        <span class="relative flex size-2.5" aria-hidden="true">
+          <span
+            class="absolute inline-flex size-full animate-ping rounded-full bg-[#b8614b] opacity-60"
+          ></span>
+          <span class="relative inline-flex size-2.5 rounded-full bg-[#b8614b]"
+          ></span>
+        </span>
+        <div class="flex flex-col">
+          <span class="font-serif text-base tracking-[-0.01em] text-[#2d332b]">
+            Station Board
+          </span>
+          <span
+            class="font-sans text-xs font-semibold tracking-[0.04em] text-[#5f665c]"
+          >
+            時刻表 · Wayfinding
+          </span>
+        </div>
+      </div>
+      <button
+        type="button"
+        id="mobile-sidebar-close"
+        aria-label="Close station navigation menu"
+        class="inline-flex size-10 items-center justify-center rounded-lg border border-[#c4b49d]/60 bg-[#fffdf8] text-[#2d332b] transition-colors hover:border-[#b8614b] hover:text-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] active:scale-95"
+      >
+        <svg
+          class="size-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Current Station Status -->
+    <div
+      class="flex items-center gap-2 border-b border-[#c4b49d]/40 bg-[#f7f2e8]/40 px-5 py-2.5 text-xs text-[#5f665c]"
+    >
+      <span class="font-sans font-medium">Current Stop:</span>
+      <span
+        class="inline-flex items-center gap-1.5 rounded-full border border-[#c4b49d]/50 bg-[#fffdf8] px-2.5 py-0.5 font-semibold text-[#2d332b]"
+      >
+        <span class="size-1.5 rounded-full bg-[#b8614b]" aria-hidden="true"
+        ></span>
+        {
+          isHome
+            ? "Platform (Arrival)"
+            : isAbout
+              ? "Station House (About Me)"
+              : isProjects
+                ? "Rice Fields (Projects)"
+                : isWorkshop
+                  ? "Workshop (Offers)"
+                  : isThoughts
+                    ? "Waiting Room (Thoughts)"
+                    : isConnect
+                      ? "Letterbox (Connect)"
+                      : "Station"
+        }
+      </span>
+    </div>
+
+    <!-- Route Links (Station Wayfinding List) -->
+    <div class="flex-1 space-y-2 overflow-y-auto px-4 py-4" tabindex="-1">
+      {
+        routes.map((route) => (
+          <a
+            href={route.href}
+            data-sidebar-link
+            aria-current={route.active ? "page" : undefined}
+            class={`group relative flex items-center justify-between rounded-xl border p-3.5 no-underline transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] ${
+              route.active
+                ? "border-[#b8614b]/60 bg-[#f7f2e8] shadow-xs"
+                : "border-[#c4b49d]/40 bg-[#fffdf8] hover:border-[#c4b49d] hover:bg-[#f7f2e8]/60"
+            }`}
+          >
+            <div class="flex items-start gap-3">
+              <div class="mt-0.5 flex flex-col items-center" aria-hidden="true">
+                <span
+                  class={`grid size-5 place-items-center rounded-full border ${
+                    route.active
+                      ? "border-[#b8614b] bg-[#b8614b] text-[#fffdf8]"
+                      : "border-[#c4b49d] bg-[#fffdf8] group-hover:border-[#b8614b]"
+                  }`}
+                >
+                  {route.active ? (
+                    <span class="size-1.5 rounded-full bg-[#fffdf8]" />
+                  ) : (
+                    <span class="size-1 rounded-full bg-[#c4b49d] group-hover:bg-[#b8614b]" />
+                  )}
+                </span>
+              </div>
+
+              <div class="flex flex-col">
+                <div class="flex items-baseline gap-2">
+                  <span
+                    class={`font-serif text-lg tracking-[-0.01em] ${
+                      route.active
+                        ? "font-medium text-[#2d332b]"
+                        : "text-[#2d332b] group-hover:text-[#b8614b]"
+                    }`}
+                  >
+                    {route.poetic}
+                  </span>
+                  <span class="font-sans text-xs font-semibold text-[#5f665c]/80">
+                    {route.kanji}
+                  </span>
+                </div>
+                <span class="font-sans text-xs text-[#5f665c]">
+                  {route.literal}
+                </span>
+                <span class="mt-0.5 font-sans text-xs leading-snug text-[#5f665c]/80">
+                  {route.desc}
+                </span>
+              </div>
+            </div>
+
+            <div class="ml-2 shrink-0">
+              {route.active ? (
+                <span class="inline-flex items-center rounded-md bg-[#b8614b]/10 px-2 py-0.5 font-sans text-xs font-bold tracking-wide text-[#b8614b]">
+                  Here
+                </span>
+              ) : (
+                <span
+                  class="font-serif text-sm text-[#c4b49d] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-[#b8614b]"
+                  aria-hidden="true"
+                >
+                  ──→
+                </span>
+              )}
+            </div>
+          </a>
+        ))
+      }
+    </div>
+
+    <!-- Sidebar Footer -->
+    <div
+      class="border-t border-[#c4b49d]/50 bg-[#f7f2e8]/60 px-5 py-3.5 text-center"
+    >
+      <p class="font-sans text-xs text-[#5f665c]">
+        LinCie · Software Engineering Trainee
+      </p>
+      <p class="mt-0.5 font-serif text-xs text-[#5f665c]/75 italic">
+        A quiet rural station in morning light.
+      </p>
+    </div>
+  </nav>
+</div>
+
+<script>
+  import gsap from "gsap";
+
+  let navAbortController: AbortController | null = null;
+  let activeTimeline: gsap.core.Timeline | null = null;
+  let isOpen = false;
+
+  const prefersReducedMotion = (): boolean =>
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function initMobileNav() {
+    // Reset previous controller if running on page swap
+    if (navAbortController) {
+      navAbortController.abort();
+      navAbortController = null;
+    }
+
+    if (activeTimeline) {
+      activeTimeline.kill();
+      activeTimeline = null;
+    }
+
+    // Ensure body scroll is unlocked when new page loads
+    document.body.style.overflow = "";
+    isOpen = false;
+
+    const toggleBtn = document.getElementById("mobile-nav-toggle");
+    const closeBtn = document.getElementById("mobile-sidebar-close");
+    const backdrop = document.getElementById("mobile-sidebar-backdrop");
+    const container = document.getElementById("mobile-sidebar-container");
+    const drawer = document.getElementById("mobile-sidebar-panel");
+    const line1 = document.getElementById("hamburger-line-1");
+    const line2 = document.getElementById("hamburger-line-2");
+    const line3 = document.getElementById("hamburger-line-3");
+    const links = drawer?.querySelectorAll<HTMLAnchorElement>(
+      "[data-sidebar-link]",
+    );
+
+    if (!toggleBtn || !container || !drawer) return;
+
+    navAbortController = new AbortController();
+    const { signal } = navAbortController;
+
+    // Reset initial visual state
+    gsap.set(drawer, { x: "100%" });
+    if (backdrop) gsap.set(backdrop, { opacity: 0 });
+
+    function setHamburgerVisual(open: boolean) {
+      if (!line1 || !line2 || !line3) return;
+      if (open) {
+        line1.style.transform = "translateY(6px) rotate(45deg)";
+        line2.style.opacity = "0";
+        line2.style.transform = "scaleX(0)";
+        line3.style.transform = "translateY(-6px) rotate(-45deg)";
+      } else {
+        line1.style.transform = "";
+        line2.style.opacity = "";
+        line2.style.transform = "";
+        line3.style.transform = "";
+      }
+    }
+
+    function openSidebar() {
+      if (isOpen) return;
+      isOpen = true;
+
+      toggleBtn?.setAttribute("aria-expanded", "true");
+      toggleBtn?.setAttribute("aria-label", "Close station menu");
+      container?.classList.remove("invisible", "pointer-events-none");
+      container?.setAttribute("aria-hidden", "false");
+      drawer?.removeAttribute("inert");
+      document.body.style.overflow = "hidden";
+      setHamburgerVisual(true);
+
+      if (activeTimeline) activeTimeline.kill();
+
+      if (prefersReducedMotion()) {
+        if (backdrop) gsap.set(backdrop, { opacity: 1 });
+        gsap.set(drawer, { x: "0%" });
+        const targetFocus =
+          drawer?.querySelector<HTMLElement>('[aria-current="page"]') ||
+          links?.[0] ||
+          closeBtn;
+        targetFocus?.focus();
+        return;
+      }
+
+      const items = drawer?.querySelectorAll("[data-sidebar-link]");
+      const header = drawer?.querySelector(".border-b");
+      const footer = drawer?.querySelector(".border-t");
+
+      const tl = gsap.timeline({
+        defaults: { ease: "power3.out" },
+        onComplete: () => {
+          const targetFocus =
+            drawer?.querySelector<HTMLElement>('[aria-current="page"]') ||
+            links?.[0] ||
+            closeBtn;
+          targetFocus?.focus();
+        },
+      });
+      activeTimeline = tl;
+
+      if (backdrop) {
+        tl.fromTo(
+          backdrop,
+          { opacity: 0 },
+          { opacity: 1, duration: 0.3, ease: "power2.out" },
+          0,
+        );
+      }
+
+      tl.fromTo(
+        drawer,
+        { x: "100%" },
+        { x: "0%", duration: 0.4, ease: "power3.out" },
+        0,
+      );
+
+      if (header || footer) {
+        tl.fromTo(
+          [header, footer].filter(Boolean),
+          { opacity: 0, y: -8 },
+          { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" },
+          0.06,
+        );
+      }
+
+      if (items && items.length > 0) {
+        tl.fromTo(
+          items,
+          { opacity: 0, x: 22 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.34,
+            stagger: 0.04,
+            ease: "power2.out",
+          },
+          0.08,
+        );
+      }
+    }
+
+    function closeSidebar(instant = false) {
+      if (!isOpen) return;
+      isOpen = false;
+
+      toggleBtn?.setAttribute("aria-expanded", "false");
+      toggleBtn?.setAttribute("aria-label", "Open station menu");
+      setHamburgerVisual(false);
+      document.body.style.overflow = "";
+
+      if (activeTimeline) activeTimeline.kill();
+
+      const finishClosing = () => {
+        container?.classList.add("invisible", "pointer-events-none");
+        container?.setAttribute("aria-hidden", "true");
+        drawer?.setAttribute("inert", "");
+        gsap.set(drawer, { x: "100%" });
+        if (backdrop) gsap.set(backdrop, { opacity: 0 });
+        const items = drawer?.querySelectorAll("[data-sidebar-link]");
+        if (items) gsap.set(items, { clearProps: "transform,opacity" });
+      };
+
+      if (instant || prefersReducedMotion()) {
+        finishClosing();
+        if (!instant) toggleBtn?.focus();
+        return;
+      }
+
+      const items = drawer?.querySelectorAll("[data-sidebar-link]");
+      const tl = gsap.timeline({
+        onComplete: () => {
+          finishClosing();
+          toggleBtn?.focus();
+        },
+      });
+      activeTimeline = tl;
+
+      if (items && items.length > 0) {
+        tl.to(
+          items,
+          {
+            opacity: 0,
+            x: 14,
+            duration: 0.18,
+            stagger: 0.02,
+            ease: "power2.in",
+          },
+          0,
+        );
+      }
+
+      tl.to(drawer, { x: "100%", duration: 0.28, ease: "power3.in" }, 0.04);
+
+      if (backdrop) {
+        tl.to(
+          backdrop,
+          { opacity: 0, duration: 0.24, ease: "power2.in" },
+          0.06,
+        );
+      }
+    }
+
+    toggleBtn.addEventListener(
+      "click",
+      () => {
+        if (isOpen) {
+          closeSidebar();
+        } else {
+          openSidebar();
+        }
+      },
+      { signal },
+    );
+
+    closeBtn?.addEventListener("click", () => closeSidebar(), { signal });
+    backdrop?.addEventListener("click", () => closeSidebar(), { signal });
+
+    // Trap focus and handle ESC
+    drawer.addEventListener(
+      "keydown",
+      (e: KeyboardEvent) => {
+        if (e.key === "Escape") {
+          e.preventDefault();
+          closeSidebar();
+          return;
+        }
+
+        if (e.key === "Tab") {
+          const focusableEls = Array.from(
+            drawer.querySelectorAll<HTMLElement>(
+              'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+            ),
+          ).filter(
+            (el) => !el.hasAttribute("disabled") && el.offsetParent !== null,
+          );
+
+          if (focusableEls.length === 0) return;
+
+          const firstEl = focusableEls[0];
+          const lastEl = focusableEls[focusableEls.length - 1];
+
+          if (e.shiftKey) {
+            if (document.activeElement === firstEl) {
+              e.preventDefault();
+              lastEl.focus();
+            }
+          } else {
+            if (document.activeElement === lastEl) {
+              e.preventDefault();
+              firstEl.focus();
+            }
+          }
+        }
+      },
+      { signal },
+    );
+
+    // Close when navigating via any sidebar link
+    links?.forEach((link) => {
+      link.addEventListener(
+        "click",
+        () => {
+          const href = link.getAttribute("href");
+          const current = window.location.pathname.replace(/\/$/, "") || "/";
+          const target = href ? href.replace(/\/$/, "") || "/" : "";
+          if (target === current) {
+            closeSidebar(false);
+          } else {
+            closeSidebar(true);
+          }
+        },
+        { signal },
+      );
+    });
+
+    // Close automatically if viewport expands to desktop breakpoint
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && isOpen) {
+        closeSidebar(true);
+      }
+    };
+    window.addEventListener("resize", handleResize, { signal });
+  }
+
+  // Astro & DOM lifecycle
+  if (typeof document !== "undefined") {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initMobileNav);
+    } else {
+      initMobileNav();
+    }
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    initMobileNav();
+  });
+
+  document.addEventListener("astro:before-preparation", () => {
+    document.body.style.overflow = "";
+    const container = document.getElementById("mobile-sidebar-container");
+    const drawer = document.getElementById("mobile-sidebar-panel");
+    const toggleBtn = document.getElementById("mobile-nav-toggle");
+    if (container && drawer) {
+      container.classList.add("invisible", "pointer-events-none");
+      container.setAttribute("aria-hidden", "true");
+      drawer.setAttribute("inert", "");
+      gsap.set(drawer, { x: "100%" });
+    }
+    if (toggleBtn) {
+      toggleBtn.setAttribute("aria-expanded", "false");
+      toggleBtn.setAttribute("aria-label", "Open station menu");
+    }
+  });
+</script>

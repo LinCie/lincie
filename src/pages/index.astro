@@ -889,10 +889,23 @@ const siteContainer =
 
   gsap.registerPlugin(DrawSVGPlugin);
 
-  const arrival = document.querySelector<HTMLElement>("[data-arrival]");
+  let motion: gsap.MatchMedia | null = null;
 
-  if (arrival) {
-    const motion = gsap.matchMedia();
+  document.addEventListener("astro:before-swap", () => {
+    if (motion) {
+      motion.revert();
+      motion = null;
+    }
+  });
+
+  document.addEventListener("astro:page-load", () => {
+    const arrival = document.querySelector<HTMLElement>("[data-arrival]");
+    if (!arrival) return;
+
+    if (motion) {
+      motion.revert();
+    }
+    motion = gsap.matchMedia();
 
     motion.add(
       {
@@ -1060,5 +1073,5 @@ const siteContainer =
       },
       arrival,
     );
-  }
+  });
 </script>

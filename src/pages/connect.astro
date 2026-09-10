@@ -599,8 +599,9 @@ const targetEmail = "contact@lincie.me";
 </MainLayout>
 
 <script is:inline define:vars={{ intentsData: intents, targetEmail }}>
-  (function () {
+  function initConnectDesk() {
     const tabs = document.querySelectorAll(".intent-btn");
+    if (!tabs.length) return;
     const subjectEl = document.getElementById("blueprint-subject");
     const promptsEl = document.getElementById("blueprint-prompts");
     const mailtoLink = document.getElementById("primary-mailto-link");
@@ -713,5 +714,7 @@ const targetEmail = "contact@lincie.me";
         }
       });
     }
-  })();
+  }
+
+  document.addEventListener("astro:page-load", initConnectDesk);
 </script>

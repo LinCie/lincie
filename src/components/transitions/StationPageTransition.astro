@@ -1,0 +1,715 @@
+---
+// src/components/transitions/StationPageTransition.astro
+// Overdrive Direction 1: The Rural Train Window & Shifting Landscape
+// (Cinematic Vignette, Parallax Countryside, Railway Geometry & Staggered Arrival)
+---
+
+<!-- Station Train Transition Curtain -->
+<div
+  id="station-train-transition"
+  class="pointer-events-none fixed inset-0 z-50 hidden overflow-hidden opacity-0"
+  aria-hidden="true"
+>
+  <!-- Layer 0: Sunlit Paper Canvas & Morning Vignette -->
+  <div
+    class="train-paper-ground absolute inset-0 bg-[#f7f2e8] bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(247,242,232,0.92)_0%,rgba(233,221,201,0.75)_60%,rgba(196,180,157,0.35)_100%)]"
+  >
+  </div>
+
+  <!-- Layer 1: Morning Sky Gradient & Radiant Sun Flare -->
+  <div
+    class="train-sky-layer pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(201,224,226,0.65)_0%,rgba(201,224,226,0.25)_40%,transparent_75%)]"
+  >
+  </div>
+
+  <div
+    class="train-sun-flare pointer-events-none absolute -top-16 left-1/2 h-[480px] w-[760px] -translate-x-1/2 bg-[radial-gradient(circle_at_50%_30%,rgba(248,215,141,0.45)_0%,rgba(212,154,72,0.18)_40%,transparent_70%)]"
+  >
+  </div>
+
+  <!-- Layer 2: Shifting Countryside Horizon & Parallax Silhouettes -->
+  <div
+    class="train-landscape-layer pointer-events-none absolute inset-x-0 bottom-0 flex h-[60%] items-end overflow-hidden"
+  >
+    <svg
+      class="train-landscape-svg absolute bottom-0 left-[-15%] h-[280px] w-[140%] min-w-[1440px]"
+      viewBox="0 0 1600 280"
+      preserveAspectRatio="none"
+      fill="none"
+      focusable="false"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="train-hill-far" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#c4b49d" stop-opacity="0.26"></stop>
+          <stop offset="100%" stop-color="#c4b49d" stop-opacity="0.08"></stop>
+        </linearGradient>
+        <linearGradient id="train-hill-near" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#dce7c9" stop-opacity="0.55"></stop>
+          <stop offset="100%" stop-color="#c4b49d" stop-opacity="0.22"></stop>
+        </linearGradient>
+      </defs>
+
+      <!-- Distant soft mountain contour -->
+      <path
+        d="M0,180 C240,110 480,210 720,140 C960,80 1200,180 1440,130 C1520,110 1600,140 1600,280 L0,280 Z"
+        fill="url(#train-hill-far)"></path>
+
+      <!-- Near rolling field contour -->
+      <path
+        d="M0,210 C320,170 560,240 880,185 C1160,135 1400,225 1600,195 L1600,280 L0,280 Z"
+        fill="url(#train-hill-near)"></path>
+
+      <!-- Rural railway telegraph poles & fine lines -->
+      <g stroke="#c4b49d" stroke-width="1.5" opacity="0.4">
+        <line x1="280" y1="120" x2="280" y2="240"></line>
+        <line x1="268" y1="135" x2="292" y2="135"></line>
+        <line x1="720" y1="95" x2="720" y2="220"></line>
+        <line x1="708" y1="110" x2="732" y2="110"></line>
+        <line x1="1180" y1="115" x2="1180" y2="230"></line>
+        <line x1="1168" y1="130" x2="1192" y2="130"></line>
+        <path
+          d="M0,150 Q280,145 720,120 Q1180,140 1600,130"
+          fill="none"
+          stroke="#c4b49d"
+          stroke-width="1"
+          opacity="0.35"></path>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Layer 3: The Railway Tracks & Mechanical Signal Arm -->
+  <div
+    class="train-track-layer pointer-events-none absolute inset-x-0 bottom-0 h-36 overflow-hidden"
+  >
+    <!-- Soft track ballast gradient -->
+    <div
+      class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#e9ddc9]/60 to-transparent"
+    >
+    </div>
+
+    <!-- Railway track lines with ties/sleepers -->
+    <svg
+      class="train-tracks-svg absolute bottom-3 left-[-15%] h-20 w-[130%]"
+      viewBox="0 0 1600 80"
+      preserveAspectRatio="none"
+      fill="none"
+      focusable="false"
+      aria-hidden="true"
+    >
+      <!-- Timber sleepers / cross-ties -->
+      <g
+        stroke="#c4b49d"
+        stroke-width="2.5"
+        opacity="0.55"
+        stroke-linecap="round"
+      >
+        <path
+          d="M40,24 L40,64 M90,24 L90,64 M140,24 L140,64 M190,24 L190,64 M240,24 L240,64 M290,24 L290,64 M340,24 L340,64 M390,24 L390,64 M440,24 L440,64 M490,24 L490,64 M540,24 L540,64 M590,24 L590,64 M640,24 L640,64 M690,24 L690,64 M740,24 L740,64 M790,24 L790,64 M840,24 L840,64 M890,24 L890,64 M940,24 L940,64 M990,24 L990,64 M1040,24 L1040,64 M1090,24 L1090,64 M1140,24 L1140,64 M1190,24 L1190,64 M1240,24 L1240,64 M1290,24 L1290,64 M1340,24 L1340,64 M1390,24 L1390,64 M1440,24 L1440,64 M1490,24 L1490,64 M1540,24 L1540,64 M1590,24 L1590,64"
+        ></path>
+      </g>
+
+      <!-- Top steel rail -->
+      <line x1="0" y1="32" x2="1600" y2="32" stroke="#c4b49d" stroke-width="2"
+      ></line>
+      <line
+        x1="0"
+        y1="34"
+        x2="1600"
+        y2="34"
+        stroke="#5f665c"
+        stroke-width="0.75"
+        opacity="0.4"></line>
+
+      <!-- Bottom steel rail -->
+      <line x1="0" y1="56" x2="1600" y2="56" stroke="#c4b49d" stroke-width="2"
+      ></line>
+      <line
+        x1="0"
+        y1="58"
+        x2="1600"
+        y2="58"
+        stroke="#5f665c"
+        stroke-width="0.75"
+        opacity="0.4"></line>
+
+      <!-- Center hairline guidance -->
+      <line
+        x1="0"
+        y1="44"
+        x2="1600"
+        y2="44"
+        stroke="#c4b49d"
+        stroke-width="1"
+        stroke-dasharray="6 8"
+        opacity="0.45"></line>
+    </svg>
+
+    <!-- Mechanical Railway Signal Assembly -->
+    <div
+      class="train-signal-assembly absolute bottom-8 left-[18%] flex items-end md:left-[24%]"
+    >
+      <!-- Post mast -->
+      <div class="h-20 w-1 rounded-t-xs bg-[#5f665c]/70"></div>
+
+      <!-- Signal arm pivoting from top of post -->
+      <div
+        class="train-signal-arm absolute -top-1 left-0 flex origin-bottom-left items-center"
+        style="transform: rotate(-26deg);"
+      >
+        <div
+          class="flex h-2.5 w-10 items-center justify-end border border-[#c4b49d] bg-[#fffdf8] px-1 shadow-xs md:w-12"
+        >
+          <span class="size-2 rounded-full border border-[#c4b49d] bg-[#b8614b]"
+          ></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Layer 4: Wayfinding Journey Stamp (Tactile Station Wayfinding) -->
+  <div
+    class="pointer-events-none absolute inset-0 flex items-center justify-center px-4"
+  >
+    <div
+      class="train-wayfinding-stamp flex items-center gap-3 rounded-full border border-[#c4b49d]/75 bg-[#fffdf8]/95 px-5 py-2.5 shadow-[0_4px_20px_rgba(45,51,43,0.08)] backdrop-blur-xs"
+    >
+      <span class="train-signal-pulse relative flex size-2.5">
+        <span
+          class="absolute inline-flex size-full animate-ping rounded-full bg-[#b8614b] opacity-60"
+        ></span>
+        <span class="relative inline-flex size-2.5 rounded-full bg-[#b8614b]"
+        ></span>
+      </span>
+      <span
+        class="font-sans text-[13px] font-medium tracking-[0.04em] text-[#5f665c]"
+        data-train-from
+      >
+        Station Platform
+      </span>
+      <span aria-hidden="true" class="font-serif text-sm text-[#c4b49d]">
+        ──→
+      </span>
+      <span
+        class="font-serif text-sm font-normal tracking-[-0.01em] text-[#2d332b]"
+        data-train-to
+      >
+        The Station House
+      </span>
+    </div>
+  </div>
+
+  <!-- Layer 5: Train Carriage Window Sills / Architectural Framing -->
+  <div
+    class="pointer-events-none absolute inset-x-0 top-0 h-2 border-b border-[#c4b49d]/40 bg-[#e9ddc9]/80"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute inset-x-0 bottom-0 h-2 border-t border-[#c4b49d]/40 bg-[#e9ddc9]/80"
+  >
+  </div>
+</div>
+
+<script>
+  import gsap from "gsap";
+
+  const prefersReducedMotion = (): boolean =>
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Station route dictionary for poetic destination labels
+  const ROUTE_NAMES: Record<string, string> = {
+    "/": "Station Platform",
+    "/about": "The Station House",
+    "/projects": "The Rice Fields",
+    "/offers": "The Workshop",
+    "/workshop": "The Workshop",
+    "/thoughts": "The Waiting Room",
+    "/connect": "The Letterbox",
+    "/letterbox": "The Letterbox",
+    "/waiting-room": "The Waiting Room",
+    "/forest": "Forest Path",
+    "/mountain": "Mountain Trail",
+    "/map": "Station Map",
+    "/lost-platform": "Lost Platform",
+  };
+
+  function getStationName(pathname: string): string {
+    const normalized = pathname.replace(/\/$/, "") || "/";
+    if (ROUTE_NAMES[normalized]) return ROUTE_NAMES[normalized];
+    if (normalized.startsWith("/projects/")) return "Cultivated Plot";
+    if (normalized.startsWith("/thoughts/")) return "Station Note";
+    return "Rural Line";
+  }
+
+  // Linear track hierarchy to compute spatial travel direction
+  const ROUTE_ORDER: Record<string, number> = {
+    "/": 0,
+    "/about": 1,
+    "/projects": 2,
+    "/offers": 3,
+    "/workshop": 3,
+    "/thoughts": 4,
+    "/waiting-room": 4,
+    "/connect": 5,
+    "/letterbox": 5,
+    "/forest": 6,
+    "/mountain": 7,
+    "/map": 8,
+  };
+
+  function getRouteDirection(fromPath: string, toPath: string): number {
+    const fromNorm = fromPath.replace(/\/$/, "") || "/";
+    const toNorm = toPath.replace(/\/$/, "") || "/";
+    const fromOrder = ROUTE_ORDER[fromNorm] ?? 2;
+    const toOrder = ROUTE_ORDER[toNorm] ?? 2;
+    if (toOrder > fromOrder) return 1; // forward down the line (eastbound)
+    if (toOrder < fromOrder) return -1; // back toward terminus (westbound)
+    return 1;
+  }
+
+  let currentTimeline: gsap.core.Timeline | null = null;
+  let isTransitioning = false;
+  let lastDirection = 1;
+
+  function getElements() {
+    const curtain = document.getElementById("station-train-transition");
+    if (!curtain) return null;
+    const ground = curtain.querySelector<HTMLElement>(".train-paper-ground");
+    const sky = curtain.querySelector<HTMLElement>(".train-sky-layer");
+    const sun = curtain.querySelector<HTMLElement>(".train-sun-flare");
+    const landscape = curtain.querySelector<SVGElement>(".train-landscape-svg");
+    const tracks = curtain.querySelector<SVGElement>(".train-tracks-svg");
+    const signalArm = curtain.querySelector<HTMLElement>(".train-signal-arm");
+    const stamp = curtain.querySelector<HTMLElement>(".train-wayfinding-stamp");
+    const fromText = curtain.querySelector<HTMLElement>("[data-train-from]");
+    const toText = curtain.querySelector<HTMLElement>("[data-train-to]");
+
+    return {
+      curtain,
+      ground,
+      sky,
+      sun,
+      landscape,
+      tracks,
+      signalArm,
+      stamp,
+      fromText,
+      toText,
+    };
+  }
+
+  function resetTransition() {
+    const els = getElements();
+    if (!els) return;
+
+    els.curtain.classList.add("hidden");
+    gsap.set(els.curtain, { opacity: 0, clearProps: "all" });
+    if (els.sun) gsap.set(els.sun, { clearProps: "all" });
+    if (els.landscape) gsap.set(els.landscape, { clearProps: "all" });
+    if (els.tracks) gsap.set(els.tracks, { clearProps: "all" });
+    if (els.signalArm) gsap.set(els.signalArm, { clearProps: "all" });
+    if (els.stamp) gsap.set(els.stamp, { clearProps: "all" });
+
+    // Clean up outgoing main content transform if any was applied
+    const main = document.getElementById("main-content");
+    if (main) gsap.set(main, { clearProps: "transform,opacity" });
+
+    isTransitioning = false;
+  }
+
+  function playTrainDeparture(
+    fromUrl: URL,
+    toUrl: URL,
+    abortSignal?: AbortSignal,
+  ): Promise<void> {
+    return new Promise((resolve) => {
+      if (prefersReducedMotion()) {
+        resolve();
+        return;
+      }
+
+      const els = getElements();
+      if (!els) {
+        resolve();
+        return;
+      }
+
+      isTransitioning = true;
+      lastDirection = getRouteDirection(fromUrl.pathname, toUrl.pathname);
+
+      if (els.fromText) {
+        els.fromText.textContent = getStationName(fromUrl.pathname);
+      }
+      if (els.toText) {
+        els.toText.textContent = getStationName(toUrl.pathname);
+      }
+
+      els.curtain.classList.remove("hidden");
+
+      if (currentTimeline) {
+        currentTimeline.kill();
+        currentTimeline = null;
+      }
+
+      const tl = gsap.timeline({
+        defaults: { ease: "power2.out" },
+        onComplete: () => resolve(),
+      });
+      currentTimeline = tl;
+
+      // Animate outgoing page content with gentle drift
+      const main = document.getElementById("main-content");
+      if (main) {
+        tl.to(
+          main,
+          {
+            x: -lastDirection * 20,
+            opacity: 0.28,
+            duration: 0.28,
+            ease: "power1.inOut",
+          },
+          0,
+        );
+      }
+
+      // Fade in transition curtain
+      tl.fromTo(
+        els.curtain,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.24, ease: "power2.inOut" },
+        0,
+      );
+
+      // Expand morning sun flare
+      if (els.sun) {
+        tl.fromTo(
+          els.sun,
+          { scale: 0.88, opacity: 0 },
+          { scale: 1.05, opacity: 1, duration: 0.36, ease: "power2.out" },
+          0.04,
+        );
+      }
+
+      // Parallax translation of countryside landscape
+      if (els.landscape) {
+        tl.fromTo(
+          els.landscape,
+          { x: lastDirection * 45, opacity: 0.7 },
+          { x: 0, opacity: 1, duration: 0.38, ease: "power2.out" },
+          0.02,
+        );
+      }
+
+      // High-speed glide of railway track geometry
+      if (els.tracks) {
+        tl.fromTo(
+          els.tracks,
+          { x: lastDirection * 120, opacity: 0.4 },
+          { x: 0, opacity: 1, duration: 0.36, ease: "power2.out" },
+          0.02,
+        );
+      }
+
+      // Station signal arm flips up to horizontal route clearance
+      if (els.signalArm) {
+        tl.fromTo(
+          els.signalArm,
+          { rotation: -26 },
+          { rotation: 0, duration: 0.3, ease: "back.out(1.9)" },
+          0.05,
+        );
+      }
+
+      // Tactile wayfinding stamp rises into view
+      if (els.stamp) {
+        tl.fromTo(
+          els.stamp,
+          { y: 16, scale: 0.94, opacity: 0 },
+          { y: 0, scale: 1, opacity: 1, duration: 0.32, ease: "power2.out" },
+          0.06,
+        );
+      }
+
+      if (abortSignal) {
+        abortSignal.addEventListener(
+          "abort",
+          () => {
+            resetTransition();
+            resolve();
+          },
+          { once: true },
+        );
+      }
+    });
+  }
+
+  function playTrainArrival(): Promise<void> {
+    return new Promise((resolve) => {
+      const els = getElements();
+      if (!els) {
+        resolve();
+        return;
+      }
+
+      if (prefersReducedMotion() || !isTransitioning) {
+        resetTransition();
+        resolve();
+        return;
+      }
+
+      if (currentTimeline) {
+        currentTimeline.kill();
+        currentTimeline = null;
+      }
+
+      const tl = gsap.timeline({
+        onComplete: () => {
+          resetTransition();
+          resolve();
+        },
+      });
+      currentTimeline = tl;
+
+      // Signal arm dips to acknowledge arrival
+      if (els.signalArm) {
+        tl.to(els.signalArm, {
+          rotation: 18,
+          opacity: 0,
+          duration: 0.22,
+          ease: "power1.in",
+        });
+      }
+
+      // Track lines glide away
+      if (els.tracks) {
+        tl.to(
+          els.tracks,
+          {
+            x: -lastDirection * 70,
+            opacity: 0,
+            duration: 0.28,
+            ease: "power2.in",
+          },
+          "<",
+        );
+      }
+
+      // Landscape drifts off
+      if (els.landscape) {
+        tl.to(
+          els.landscape,
+          {
+            x: -lastDirection * 35,
+            opacity: 0,
+            duration: 0.28,
+            ease: "power2.in",
+          },
+          "<",
+        );
+      }
+
+      // Sun flare gently diffuses outward
+      if (els.sun) {
+        tl.to(
+          els.sun,
+          {
+            scale: 1.15,
+            opacity: 0,
+            duration: 0.32,
+            ease: "power2.out",
+          },
+          "<",
+        );
+      }
+
+      // Wayfinding stamp dissolves with subtle lift
+      if (els.stamp) {
+        tl.to(
+          els.stamp,
+          {
+            y: -10,
+            opacity: 0,
+            duration: 0.22,
+            ease: "power2.in",
+          },
+          "<",
+        );
+      }
+
+      // Transition curtain fades out smoothly to reveal the new page
+      tl.to(
+        els.curtain,
+        {
+          opacity: 0,
+          duration: 0.34,
+          ease: "power2.out",
+        },
+        "<0.04",
+      );
+    });
+  }
+
+  function getRevealTargets(): {
+    nav: HTMLElement | null;
+    h1: HTMLElement | null;
+    lead: HTMLElement | null;
+    h2s: HTMLElement[];
+    cards: HTMLElement[];
+  } {
+    const main = document.getElementById("main-content");
+    if (!main) {
+      return { nav: null, h1: null, lead: null, h2s: [], cards: [] };
+    }
+
+    // Home arrival hero section manages its own custom sequence
+    if (main.querySelector("[data-arrival]")) {
+      return { nav: null, h1: null, lead: null, h2s: [], cards: [] };
+    }
+
+    const nav = main.querySelector<HTMLElement>(
+      'nav[aria-label*="wayfinding"], nav[aria-label*="Route"]',
+    );
+    const h1 = main.querySelector<HTMLElement>("h1");
+
+    let lead: HTMLElement | null = null;
+    if (h1) {
+      if (
+        h1.nextElementSibling instanceof HTMLElement &&
+        h1.nextElementSibling.tagName === "P"
+      ) {
+        lead = h1.nextElementSibling;
+      } else {
+        lead = h1.parentElement?.querySelector<HTMLElement>("p") ?? null;
+      }
+    }
+
+    const h2s = Array.from(main.querySelectorAll<HTMLElement>("h2")).slice(
+      0,
+      3,
+    );
+
+    const cards = Array.from(
+      main.querySelectorAll<HTMLElement>(
+        "article, [data-project-card], .station-card, section:nth-of-type(2) > div > article, section:nth-of-type(2) > div > *",
+      ),
+    ).slice(0, 5);
+
+    return { nav, h1, lead, h2s, cards };
+  }
+
+  function playStaggeredReveal() {
+    if (prefersReducedMotion()) return;
+
+    const { nav, h1, lead, h2s, cards } = getRevealTargets();
+    const allTargets = [nav, h1, lead, ...h2s, ...cards].filter(
+      (el): el is HTMLElement => el !== null,
+    );
+    if (allTargets.length === 0) return;
+
+    const tl = gsap.timeline({
+      defaults: { ease: "power2.out" },
+      onComplete: () => {
+        gsap.set(allTargets, { clearProps: "transform,opacity" });
+      },
+    });
+
+    if (nav) {
+      tl.fromTo(
+        nav,
+        { y: -10, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.36 },
+        0,
+      );
+    }
+
+    if (h1) {
+      tl.fromTo(
+        h1,
+        { y: 22, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.46, ease: "power3.out" },
+        0.04,
+      );
+    }
+
+    if (lead) {
+      tl.fromTo(
+        lead,
+        { y: 16, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.4 },
+        0.1,
+      );
+    }
+
+    if (h2s.length > 0) {
+      tl.fromTo(
+        h2s,
+        { y: 16, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.42, stagger: 0.05 },
+        0.14,
+      );
+    }
+
+    if (cards.length > 0) {
+      tl.fromTo(
+        cards,
+        { y: 22, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.46,
+          stagger: 0.07,
+          ease: "power2.out",
+        },
+        0.18,
+      );
+    }
+  }
+
+  interface BeforePreparationEvent extends Event {
+    readonly from: URL;
+    to: URL;
+    readonly signal: AbortSignal;
+    loader: () => Promise<void>;
+  }
+
+  // Astro page transition lifecycle hooks
+  document.addEventListener("astro:before-preparation", (e) => {
+    const event = e as BeforePreparationEvent;
+    if (!event?.from || !event?.to) return;
+
+    // Ignore hash jumps on identical page (e.g. skip-to-content links)
+    if (event.from.pathname === event.to.pathname) return;
+
+    if (prefersReducedMotion()) return;
+
+    lastDirection = getRouteDirection(event.from.pathname, event.to.pathname);
+
+    const originalLoader = event.loader;
+    event.loader = async () => {
+      await Promise.all([
+        originalLoader(),
+        playTrainDeparture(event.from, event.to, event.signal),
+      ]);
+    };
+  });
+
+  document.addEventListener("astro:before-swap", () => {
+    if (currentTimeline) {
+      currentTimeline.kill();
+      currentTimeline = null;
+    }
+    // Clear any transform offset on main content so incoming page renders cleanly
+    const main = document.getElementById("main-content");
+    if (main) gsap.set(main, { clearProps: "transform,opacity" });
+  });
+
+  document.addEventListener("astro:page-load", () => {
+    playTrainArrival();
+    playStaggeredReveal();
+  });
+
+  window.addEventListener("pageshow", () => {
+    resetTransition();
+  });
+</script>

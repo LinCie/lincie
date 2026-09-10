@@ -57,3 +57,38 @@ a:focus-visible {
   border-radius: 999px;
   background: #6c895f;
 }
+
+/* Station View Transitions */
+header {
+  view-transition-name: station-header;
+}
+
+[data-station-badge] {
+  view-transition-name: station-badge;
+}
+
+::view-transition-old(station-header),
+::view-transition-new(station-header) {
+  animation-duration: 0.24s;
+  animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+::view-transition-old(station-badge),
+::view-transition-new(station-badge) {
+  animation-duration: 0.24s;
+  animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.24s;
+  animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
