@@ -1,0 +1,179 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+
+interface TimeOption {
+  id: "morning" | "midday" | "dusk" | "night";
+  label: string;
+  kanji: string;
+  time: string;
+  desc: string;
+}
+
+const times: TimeOption[] = [
+  {
+    id: "morning",
+    label: "Morning",
+    kanji: "朝",
+    time: "07:00",
+    desc: "Dewy morning mist and soft golden sun",
+  },
+  {
+    id: "midday",
+    label: "Midday",
+    kanji: "昼",
+    time: "12:00",
+    desc: "Clear high sun over the countryside",
+  },
+  {
+    id: "dusk",
+    label: "Sunset",
+    kanji: "夕",
+    time: "17:30",
+    desc: "Warm terracotta golden hour and amber tracks",
+  },
+  {
+    id: "night",
+    label: "Night",
+    kanji: "夜",
+    time: "21:00",
+    desc: "Quiet indigo night, crescent moon, and platform lanterns",
+  },
+];
+---
+
+<div
+  class:list={[
+    "inline-flex flex-col gap-1.5 rounded-xl border border-[#c4b49d]/80 bg-[#fffdf8]/92 p-1.5 shadow-xs backdrop-blur-xs max-[640px]:w-full sm:flex-row sm:items-center sm:gap-2 sm:px-2.5 sm:py-1",
+    className,
+  ]}
+  role="region"
+  aria-label="Station solar clock and lighting atmosphere"
+  data-station-clock
+>
+  <!-- Solar Clock Indicator (and Live button on small screens) -->
+  <div
+    class="flex items-center justify-between gap-1.5 px-1 font-sans text-xs font-semibold text-[#5f665c] sm:justify-start"
+  >
+    <div class="flex items-center gap-1.5">
+      <span class="relative flex size-2 shrink-0" aria-hidden="true">
+        <span
+          class="absolute inline-flex size-full animate-ping rounded-full bg-[#b8614b] opacity-60"
+        ></span>
+        <span
+          class="relative inline-flex size-2 rounded-full bg-[#b8614b]"
+          data-clock-pip></span>
+      </span>
+      <span
+        class="font-serif text-[.8125rem] tracking-[-0.01em] text-[#2d332b]"
+      >
+        Station Dial
+      </span>
+      <span class="text-[#c4b49d]" aria-hidden="true">·</span>
+      <span
+        data-clock-current-time
+        class="font-mono text-[.8125rem] font-semibold text-[#2d332b]"
+      >
+        07:00
+      </span>
+    </div>
+
+    <!-- Live toggle on mobile top row -->
+    <button
+      type="button"
+      data-time-live
+      aria-pressed="false"
+      class="inline-flex min-h-7 min-w-[38px] items-center justify-center gap-1 rounded-lg border border-transparent px-2 py-0.5 text-[.8125rem] font-medium text-[#5f665c] transition-all duration-200 hover:border-[#c4b49d]/60 hover:bg-[#f7f2e8] hover:text-[#2d332b] focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#b8614b] sm:hidden"
+      title="Synchronize station atmosphere with your local time of day"
+    >
+      <svg
+        class="size-2.5 text-[#b8614b]"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 16 14"></polyline>
+      </svg>
+      <span>Live</span>
+    </button>
+  </div>
+
+  <!-- Time buttons group -->
+  <div
+    class="grid grid-cols-4 gap-1 sm:flex sm:items-center"
+    role="radiogroup"
+    aria-label="Choose station atmosphere"
+  >
+    {
+      times.map((t) => (
+        <button
+          type="button"
+          role="radio"
+          aria-checked={t.id === "morning" ? "true" : "false"}
+          data-time-btn={t.id}
+          data-time-hour={t.time}
+          data-time-name={t.label}
+          title={`${t.label} (${t.time}) — ${t.desc}`}
+          class:list={[
+            "group inline-flex min-h-7 items-center justify-center gap-1 rounded-lg px-2 py-0.5 text-[.8125rem] font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#b8614b]",
+            t.id === "morning"
+              ? "border border-[#b8614b]/60 bg-[#e9ddc9] font-semibold text-[#2d332b] shadow-xs"
+              : "border border-transparent text-[#5f665c] hover:border-[#c4b49d]/60 hover:bg-[#f7f2e8] hover:text-[#2d332b]",
+          ]}
+        >
+          <span
+            class:list={[
+              "size-1 rounded-full transition-colors",
+              t.id === "morning" ? "bg-[#b8614b]" : "bg-[#c4b49d]",
+            ]}
+            aria-hidden="true"
+            data-btn-indicator
+          />
+          <span class="font-serif font-normal">{t.kanji}</span>
+          <span>{t.label}</span>
+        </button>
+      ))
+    }
+
+    <span
+      class="mx-0.5 hidden h-3 w-px bg-[#c4b49d]/60 sm:inline-block"
+      aria-hidden="true"></span>
+
+    <!-- Live Sync Toggle (Desktop inline) -->
+    <button
+      type="button"
+      data-time-live
+      aria-pressed="false"
+      class="hidden min-h-7 min-w-[38px] items-center justify-center gap-1 rounded-lg border border-transparent px-2 py-0.5 text-[.8125rem] font-medium text-[#5f665c] transition-all duration-200 hover:border-[#c4b49d]/60 hover:bg-[#f7f2e8] hover:text-[#2d332b] focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#b8614b] sm:inline-flex"
+      title="Synchronize station atmosphere with your local time of day"
+    >
+      <svg
+        class="size-2.5 text-[#b8614b]"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 16 14"></polyline>
+      </svg>
+      <span>Live</span>
+    </button>
+  </div>
+
+  <span class="sr-only" aria-live="polite" data-clock-announcement>
+    Station atmosphere set to Morning, 07:00. Dewy morning mist and soft golden
+    sun.
+  </span>
+</div>

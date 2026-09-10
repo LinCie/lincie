@@ -3,6 +3,7 @@ import { siteContainer } from "../components/layout/container";
 import MainLayout from "../components/layout/MainLayout.astro";
 import FieldCard from "../components/station/FieldCard.astro";
 import StepLink from "../components/station/StepLink.astro";
+import StationSolarDial from "../components/station/StationSolarDial.astro";
 import { offers } from "../data/offers";
 import { projects } from "../data/projects";
 import { stationRoutes } from "../data/routes";
@@ -82,16 +83,17 @@ const destinations = stationRoutes
   pageType="ProfilePage"
 >
   <section
-    class="relative isolate min-h-[47rem] overflow-hidden bg-[#c9e0e2] max-[760px]:min-h-0"
+    class="relative isolate min-h-[47rem] overflow-hidden bg-[#c9e0e2] transition-colors duration-1000 ease-out max-[760px]:min-h-0"
     aria-labelledby="arrival-title"
     data-arrival
+    data-sky="morning"
   >
     <div
       class="pointer-events-none absolute inset-0 z-0 overflow-hidden"
       aria-hidden="true"
     >
       <img
-        class="absolute inset-0 size-full object-cover object-center opacity-[.98] max-[760px]:object-[70%_center] max-[760px]:opacity-[.42]"
+        class="absolute inset-0 size-full object-cover object-center opacity-[.98] transition-[filter,opacity] duration-1000 ease-out max-[760px]:object-[70%_center] max-[760px]:opacity-[.42]"
         src="/images/lincie-countryside-arrival.webp"
         alt=""
         width="1376"
@@ -100,24 +102,87 @@ const destinations = stationRoutes
         fetchpriority="high"
         data-arrival-image
       />
+
+      <!-- Morning Sky Layer (default) -->
       <div
-        class="absolute inset-0 bg-[linear-gradient(90deg,rgba(201,224,226,.86)_0%,rgba(201,224,226,.58)_34%,rgba(201,224,226,.16)_70%,rgba(201,224,226,.02)_100%)] max-[760px]:bg-[linear-gradient(180deg,rgba(201,224,226,.92)_0%,rgba(201,224,226,.72)_48%,rgba(220,231,201,.48)_100%)]"
+        class="absolute inset-0 transition-opacity duration-1000 ease-out"
+        data-sky-layer="morning"
       >
+        <div
+          class="absolute inset-0 bg-[linear-gradient(90deg,rgba(201,224,226,.86)_0%,rgba(201,224,226,.58)_34%,rgba(201,224,226,.16)_70%,rgba(201,224,226,.02)_100%)] max-[760px]:bg-[linear-gradient(180deg,rgba(201,224,226,.92)_0%,rgba(201,224,226,.72)_48%,rgba(220,231,201,.48)_100%)]"
+        >
+        </div>
+        <div
+          class="absolute inset-x-0 bottom-0 h-[43%] bg-[linear-gradient(180deg,rgba(220,231,201,.02)_0%,rgba(220,231,201,.38)_100%)] max-[760px]:h-[32%]"
+        >
+        </div>
+        <div
+          class="absolute inset-y-0 left-0 w-[62%] bg-[linear-gradient(90deg,rgba(247,242,232,.58)_0%,rgba(247,242,232,.46)_46%,rgba(247,242,232,0)_100%)] max-[760px]:hidden"
+        >
+        </div>
       </div>
+
+      <!-- Midday Sky Layer -->
       <div
-        class="absolute inset-x-0 bottom-0 h-[43%] bg-[linear-gradient(180deg,rgba(220,231,201,.02)_0%,rgba(220,231,201,.38)_100%)] max-[760px]:h-[32%]"
+        class="absolute inset-0 opacity-0 transition-opacity duration-1000 ease-out"
+        data-sky-layer="midday"
       >
+        <div
+          class="absolute inset-0 bg-[linear-gradient(90deg,rgba(247,244,232,.85)_0%,rgba(235,243,238,.55)_34%,rgba(189,224,234,.15)_70%,rgba(189,224,234,.02)_100%)] max-[760px]:bg-[linear-gradient(180deg,rgba(247,244,232,.92)_0%,rgba(235,243,238,.72)_48%,rgba(198,222,170,.48)_100%)]"
+        >
+        </div>
+        <div
+          class="absolute inset-x-0 bottom-0 h-[43%] bg-[linear-gradient(180deg,rgba(210,228,185,.04)_0%,rgba(198,222,170,.42)_100%)] max-[760px]:h-[32%]"
+        >
+        </div>
+        <div
+          class="absolute inset-y-0 left-0 w-[62%] bg-[linear-gradient(90deg,rgba(255,253,248,.68)_0%,rgba(247,242,232,.48)_46%,rgba(247,242,232,0)_100%)] max-[760px]:hidden"
+        >
+        </div>
       </div>
-      <!-- Warm paper haze under the arrival column: keeps every word legible without dimming the scene. -->
+
+      <!-- Dusk / Sunset Sky Layer -->
       <div
-        class="absolute inset-y-0 left-0 w-[62%] bg-[linear-gradient(90deg,rgba(247,242,232,.58)_0%,rgba(247,242,232,.46)_46%,rgba(247,242,232,0)_100%)] max-[760px]:hidden"
+        class="absolute inset-0 opacity-0 transition-opacity duration-1000 ease-out"
+        data-sky-layer="dusk"
       >
+        <div
+          class="absolute inset-0 bg-[linear-gradient(90deg,rgba(244,228,212,.90)_0%,rgba(238,192,160,.62)_34%,rgba(223,166,132,.22)_70%,rgba(223,166,132,.04)_100%)] max-[760px]:bg-[linear-gradient(180deg,rgba(244,228,212,.94)_0%,rgba(238,192,160,.75)_48%,rgba(184,97,75,.42)_100%)]"
+        >
+        </div>
+        <div
+          class="absolute inset-x-0 bottom-0 h-[43%] bg-[linear-gradient(180deg,rgba(184,97,75,.03)_0%,rgba(184,97,75,.35)_100%)] max-[760px]:h-[32%]"
+        >
+        </div>
+        <div
+          class="absolute inset-y-0 left-0 w-[62%] bg-[linear-gradient(90deg,rgba(253,246,238,.72)_0%,rgba(248,234,220,.52)_46%,rgba(248,234,220,0)_100%)] max-[760px]:hidden"
+        >
+        </div>
+      </div>
+
+      <!-- Night / Lantern Sky Layer -->
+      <div
+        class="absolute inset-0 opacity-0 transition-opacity duration-1000 ease-out"
+        data-sky-layer="night"
+      >
+        <div
+          class="absolute inset-0 bg-[linear-gradient(90deg,rgba(242,238,230,.92)_0%,rgba(220,222,218,.72)_34%,rgba(42,54,62,.48)_70%,rgba(36,47,54,.18)_100%)] max-[760px]:bg-[linear-gradient(180deg,rgba(245,242,236,.95)_0%,rgba(220,222,218,.78)_48%,rgba(30,40,46,.68)_100%)]"
+        >
+        </div>
+        <div
+          class="absolute inset-x-0 bottom-0 h-[43%] bg-[linear-gradient(180deg,rgba(30,40,46,.05)_0%,rgba(25,34,39,.68)_100%)] max-[760px]:h-[32%]"
+        >
+        </div>
+        <div
+          class="absolute inset-y-0 left-0 w-[62%] bg-[linear-gradient(90deg,rgba(250,247,242,.88)_0%,rgba(245,241,234,.72)_46%,rgba(245,241,234,0)_100%)] max-[760px]:hidden"
+        >
+        </div>
       </div>
 
       <svg
         class="absolute inset-0 size-full"
         viewBox="0 0 1440 760"
-        preserveAspectRatio="none"
+        preserveAspectRatio="xMidYMid slice"
         focusable="false"
       >
         <defs>
@@ -125,7 +190,48 @@ const destinations = stationRoutes
             <stop offset="0%" stop-color="#d49a48" stop-opacity=".46"></stop>
             <stop offset="100%" stop-color="#d49a48" stop-opacity="0"></stop>
           </radialGradient>
+          <radialGradient id="arrival-moon-halo" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fffdf8" stop-opacity=".45"></stop>
+            <stop offset="100%" stop-color="#c9e0e2" stop-opacity="0"></stop>
+          </radialGradient>
+          <radialGradient id="arrival-lantern-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ffd479" stop-opacity=".95"></stop>
+            <stop offset="45%" stop-color="#d49a48" stop-opacity=".42"></stop>
+            <stop offset="100%" stop-color="#d49a48" stop-opacity="0"></stop>
+          </radialGradient>
         </defs>
+
+        <!-- Stars (Night mode) -->
+        <g
+          data-arrival-stars
+          class="max-[760px]:hidden"
+          opacity="0"
+          fill="#fffdf8"
+        >
+          <circle cx="680" cy="70" r="1.5" opacity=".7"></circle>
+          <circle cx="740" cy="110" r="1.2" opacity=".8"></circle>
+          <circle cx="810" cy="50" r="1.8" opacity=".9"></circle>
+          <circle cx="880" cy="95" r="1" opacity=".6"></circle>
+          <circle cx="940" cy="65" r="1.6" opacity=".85"></circle>
+          <circle cx="1020" cy="45" r="1.2" opacity=".75"></circle>
+          <circle cx="1090" cy="85" r="1.5" opacity=".8"></circle>
+          <circle cx="1240" cy="60" r="1.8" opacity=".9"></circle>
+          <circle cx="1310" cy="95" r="1.2" opacity=".7"></circle>
+          <circle cx="1380" cy="70" r="1.5" opacity=".85"></circle>
+          <circle cx="770" cy="160" r="1.2" opacity=".65"></circle>
+          <circle cx="910" cy="140" r="1.4" opacity=".75"></circle>
+          <circle cx="1040" cy="120" r="1.2" opacity=".8"></circle>
+        </g>
+
+        <!-- Moon (Night mode) -->
+        <g class="max-[760px]:hidden" data-arrival-moon opacity="0">
+          <circle cx="1170" cy="122" r="70" fill="url(#arrival-moon-halo)"
+          ></circle>
+          <path
+            d="M 1158 98 A 30 30 0 0 0 1190 130 A 26 26 0 1 1 1158 98 Z"
+            fill="#fffdf8"
+            fill-opacity=".88"></path>
+        </g>
 
         <g class="max-[760px]:hidden" data-arrival-sun>
           <circle cx="1170" cy="122" r="96" fill="url(#arrival-sun-halo)"
@@ -163,9 +269,13 @@ const destinations = stationRoutes
             data-arrival-draw
             d="M640 338c126-43 198-10 300-69 94-54 167-6 261-45 91-38 172 39 275-9 112-52 184 23 288-38 99-57 221-8 356-69"
           ></path>
+
+          <!-- The Valley Track Path (train journeys along this path) -->
           <path
+            id="arrival-train-track"
             data-arrival-draw
-            d="M-20 576c270-35 493-8 720-29 259-24 483 8 760-30"></path>
+            d="M-80 584 L-20 576c270-35 493-8 720-29 259-24 483 8 760-30 L1520 509"
+          ></path>
           <path
             data-arrival-draw
             d="M-20 632c272-29 500-10 780-31 255-20 477 11 700-28"></path>
@@ -180,6 +290,98 @@ const destinations = stationRoutes
             d="M-20 728c306-26 577-13 873-37 235-19 422 6 607-16"></path>
         </g>
 
+        <!-- The Living Countryside Valley Train (Distant 2-car train) -->
+        <g
+          data-arrival-train
+          class="max-[760px]:hidden"
+          opacity="0"
+          pointer-events="none"
+        >
+          <!-- Car 1 (front car) -->
+          <rect
+            x="-26"
+            y="-10"
+            width="24"
+            height="9.5"
+            rx="2"
+            fill="#2d332b"
+            opacity=".88"></rect>
+          <!-- Car 1 windows -->
+          <rect
+            data-train-window
+            x="-24"
+            y="-8"
+            width="4.5"
+            height="3.5"
+            rx="1"
+            fill="#e9ddc9"
+            opacity=".92"></rect>
+          <rect
+            data-train-window
+            x="-17"
+            y="-8"
+            width="4.5"
+            height="3.5"
+            rx="1"
+            fill="#e9ddc9"
+            opacity=".92"></rect>
+          <rect
+            data-train-window
+            x="-10"
+            y="-8"
+            width="4.5"
+            height="3.5"
+            rx="1"
+            fill="#e9ddc9"
+            opacity=".92"></rect>
+          <!-- Coupler -->
+          <line
+            x1="-2"
+            y1="-4.5"
+            x2="2"
+            y2="-4.5"
+            stroke="#2d332b"
+            stroke-width="1.8"></line>
+          <!-- Car 2 (rear car) -->
+          <rect
+            x="2"
+            y="-10"
+            width="24"
+            height="9.5"
+            rx="2"
+            fill="#2d332b"
+            opacity=".88"></rect>
+          <!-- Car 2 windows -->
+          <rect
+            data-train-window
+            x="4"
+            y="-8"
+            width="4.5"
+            height="3.5"
+            rx="1"
+            fill="#e9ddc9"
+            opacity=".92"></rect>
+          <rect
+            data-train-window
+            x="11"
+            y="-8"
+            width="4.5"
+            height="3.5"
+            rx="1"
+            fill="#e9ddc9"
+            opacity=".92"></rect>
+          <rect
+            data-train-window
+            x="18"
+            y="-8"
+            width="4.5"
+            height="3.5"
+            rx="1"
+            fill="#e9ddc9"
+            opacity=".92"></rect>
+        </g>
+
+        <!-- Platform Stop Sign & Platform Lantern -->
         <g
           data-arrival-stop
           fill="none"
@@ -195,6 +397,32 @@ const destinations = stationRoutes
           <path data-arrival-draw d="M714 548h64"></path>
           <circle cx="746" cy="386" r="14" fill="#b8614b"></circle>
           <path d="M738 386h16" stroke="#fffdf8" stroke-width="2"></path>
+
+          <!-- Vintage Station Gooseneck Platform Lamp -->
+          <path
+            d="M746 395 C746 368 732 360 725 360"
+            stroke="#2d332b"
+            stroke-width="2"></path>
+          <path
+            d="M717 360 L733 360 L729 356 Z"
+            fill="#2d332b"
+            stroke="#2d332b"
+            stroke-width="1"></path>
+          <circle
+            cx="725"
+            cy="362"
+            r="2.5"
+            fill="#fffdf8"
+            stroke="#2d332b"
+            stroke-width="0.5"></circle>
+          <!-- Lantern Glow Pool (Dusk/Night) -->
+          <circle
+            cx="725"
+            cy="370"
+            r="64"
+            fill="url(#arrival-lantern-glow)"
+            data-arrival-lantern
+            opacity="0"></circle>
         </g>
       </svg>
     </div>
@@ -206,7 +434,7 @@ const destinations = stationRoutes
         class="relative z-[1] col-start-1 row-start-1 max-w-[38rem] self-start max-[760px]:col-auto max-[760px]:row-auto max-[760px]:max-w-none"
       >
         <div
-          class="mb-6 flex w-fit flex-wrap items-center gap-x-3 gap-y-2 border-b border-[#2d332b]/40 pb-[.7rem] font-sans text-[.8125rem] tracking-[.02em] text-[#2d332b]"
+          class="mb-4 flex w-fit flex-wrap items-center gap-x-3 gap-y-2 border-b border-[#2d332b]/40 pb-[.7rem] font-sans text-[.8125rem] tracking-[.02em] text-[#2d332b]"
           data-arrival-location
         >
           <span
@@ -216,6 +444,10 @@ const destinations = stationRoutes
           <strong class="font-bold text-[#2d332b]"
             >Platform / Station arrival</strong
           >
+        </div>
+
+        <div class="mb-5 flex items-center" data-arrival-dial>
+          <StationSolarDial />
         </div>
 
         <h1
@@ -268,16 +500,17 @@ const destinations = stationRoutes
             All rooms open.
           </h2>
           <p
-            class="col-start-2 text-[.9rem] leading-[1.5] text-[#2d332b] max-[900px]:col-start-1"
+            class="col-start-2 text-[.9rem] leading-[1.5] text-[#2d332b] transition-opacity duration-300 max-[900px]:col-start-1"
+            data-arrival-notice-note
           >
-            The doors below are unlocked and tended. Take your time wandering
-            through each space.
+            The doors below are unlocked and tended. The morning air is crisp
+            and quiet across the platform.
           </p>
         </aside>
       </div>
 
       <nav
-        class="relative z-[1] col-start-2 row-span-2 row-start-1 rotate-[.7deg] scroll-mt-[5.5rem] self-center rounded-[1.25rem] border border-[#c4b49d] bg-[#e9ddc9] p-[clamp(1.25rem,3vw,2rem)] shadow-[0_16px_34px_rgba(57,52,38,0.14)] max-[760px]:col-auto max-[760px]:row-auto max-[760px]:rotate-0"
+        class="relative z-[1] col-start-2 row-span-2 row-start-1 rotate-[.7deg] scroll-mt-[5.5rem] self-center rounded-[1.25rem] border border-[#c4b49d] bg-[#e9ddc9] p-[clamp(1.25rem,3vw,2rem)] shadow-[0_16px_34px_rgba(57,52,38,0.14)] transition-[box-shadow] duration-1000 ease-out max-[760px]:col-auto max-[760px]:row-auto max-[760px]:rotate-0"
         id="board"
         aria-labelledby="board-title"
         data-arrival-board
@@ -762,18 +995,138 @@ const destinations = stationRoutes
   </section>
 </MainLayout>
 
+<style>
+  [data-arrival] {
+    transition: background-color 1s ease-out;
+  }
+  [data-arrival][data-sky="dusk"] #board {
+    box-shadow:
+      0 16px 36px rgba(57, 52, 38, 0.18),
+      0 -4px 22px rgba(212, 154, 72, 0.22);
+  }
+  [data-arrival][data-sky="night"] #board {
+    box-shadow:
+      0 16px 40px rgba(18, 22, 24, 0.38),
+      0 -6px 30px rgba(240, 184, 110, 0.32);
+  }
+</style>
+
 <script>
   import gsap from "gsap";
   import DrawSVGPlugin from "gsap/DrawSVGPlugin";
+  import MotionPathPlugin from "gsap/MotionPathPlugin";
 
-  gsap.registerPlugin(DrawSVGPlugin);
+  gsap.registerPlugin(DrawSVGPlugin, MotionPathPlugin);
+
+  type SkyMode = "morning" | "midday" | "dusk" | "night";
+
+  const skyConfigs: Record<
+    SkyMode,
+    {
+      time: string;
+      label: string;
+      announcement: string;
+      noticeNote: string;
+      bgColor: string;
+      imgFilter: string;
+      sun: { x: number; y: number; alpha: number };
+      moonAlpha: number;
+      starsAlpha: number;
+      lanternAlpha: number;
+      trainWindow: string;
+    }
+  > = {
+    morning: {
+      time: "07:00",
+      label: "Morning",
+      announcement:
+        "Station atmosphere set to Morning, 07:00. Dewy morning mist and soft golden sun.",
+      noticeNote:
+        "The doors below are unlocked and tended. The morning air is crisp and quiet across the platform.",
+      bgColor: "#c9e0e2",
+      imgFilter: "brightness(1.02) saturate(1.02)",
+      sun: { x: 0, y: 0, alpha: 1 },
+      moonAlpha: 0,
+      starsAlpha: 0,
+      lanternAlpha: 0,
+      trainWindow: "#e9ddc9",
+    },
+    midday: {
+      time: "12:00",
+      label: "Midday",
+      announcement:
+        "Station atmosphere set to Midday, 12:00. Clear high sun over the countryside.",
+      noticeNote:
+        "The doors below are unlocked and tended. High sun over the rice fields; take your time wandering.",
+      bgColor: "#bde0ea",
+      imgFilter: "brightness(1.06) saturate(1.08) contrast(1.02)",
+      sun: { x: -210, y: -50, alpha: 1 },
+      moonAlpha: 0,
+      starsAlpha: 0,
+      lanternAlpha: 0,
+      trainWindow: "#e9ddc9",
+    },
+    dusk: {
+      time: "17:30",
+      label: "Sunset",
+      announcement:
+        "Station atmosphere set to Sunset, 17:30. Warm terracotta golden hour and amber tracks.",
+      noticeNote:
+        "The doors below are unlocked and tended. Golden hour settles across the tracks; unhurried wandering.",
+      bgColor: "#dfa684",
+      imgFilter:
+        "sepia(0.24) saturate(1.25) brightness(0.96) hue-rotate(-12deg)",
+      sun: { x: -390, y: 136, alpha: 1 },
+      moonAlpha: 0,
+      starsAlpha: 0,
+      lanternAlpha: 0.55,
+      trainWindow: "#ffd479",
+    },
+    night: {
+      time: "21:00",
+      label: "Night",
+      announcement:
+        "Station atmosphere set to Night, 21:00. Quiet indigo night, crescent moon, and platform lanterns.",
+      noticeNote:
+        "The doors below are unlocked and tended. Platform lanterns are lit; stay and wander as long as you like.",
+      bgColor: "#242f36",
+      imgFilter:
+        "brightness(0.68) contrast(1.15) saturate(0.85) hue-rotate(185deg)",
+      sun: { x: 0, y: 0, alpha: 0 },
+      moonAlpha: 1,
+      starsAlpha: 0.85,
+      lanternAlpha: 1,
+      trainWindow: "#fff0a8",
+    },
+  };
 
   let motion: gsap.MatchMedia | null = null;
+  let trainTimeline: gsap.core.Timeline | null = null;
+  let starTwinkleTimeline: gsap.core.Tween | null = null;
+  let observer: IntersectionObserver | null = null;
+  let abortController: AbortController | null = null;
+  let isLive = false;
 
   document.addEventListener("astro:before-swap", () => {
     if (motion) {
       motion.revert();
       motion = null;
+    }
+    if (trainTimeline) {
+      trainTimeline.kill();
+      trainTimeline = null;
+    }
+    if (starTwinkleTimeline) {
+      starTwinkleTimeline.kill();
+      starTwinkleTimeline = null;
+    }
+    if (observer) {
+      observer.disconnect();
+      observer = null;
+    }
+    if (abortController) {
+      abortController.abort();
+      abortController = null;
     }
   });
 
@@ -784,6 +1137,302 @@ const destinations = stationRoutes
     if (motion) {
       motion.revert();
     }
+    if (trainTimeline) {
+      trainTimeline.kill();
+      trainTimeline = null;
+    }
+    if (starTwinkleTimeline) {
+      starTwinkleTimeline.kill();
+      starTwinkleTimeline = null;
+    }
+    if (observer) {
+      observer.disconnect();
+      observer = null;
+    }
+    if (abortController) {
+      abortController.abort();
+    }
+    abortController = new AbortController();
+    const { signal } = abortController;
+
+    const sceneImage = arrival.querySelector<HTMLImageElement>(
+      "[data-arrival-image]",
+    );
+    const sun = arrival.querySelector<SVGGElement>("[data-arrival-sun]");
+    const moon = arrival.querySelector<SVGGElement>("[data-arrival-moon]");
+    const stars = arrival.querySelector<SVGGElement>("[data-arrival-stars]");
+    const lantern = arrival.querySelector<SVGCircleElement>(
+      "[data-arrival-lantern]",
+    );
+    const stop = arrival.querySelector<SVGGElement>("[data-arrival-stop]");
+    const drawPaths = arrival.querySelectorAll<SVGElement>(
+      "[data-arrival-draw]",
+    );
+    const train = arrival.querySelector<SVGGElement>("[data-arrival-train]");
+    const trainWindows = arrival.querySelectorAll<SVGRectElement>(
+      "[data-train-window]",
+    );
+    const skyLayers = arrival.querySelectorAll<HTMLElement>("[data-sky-layer]");
+    const location = arrival.querySelector<HTMLElement>(
+      "[data-arrival-location]",
+    );
+    const title = arrival.querySelector<HTMLElement>("[data-arrival-title]");
+    const copy = arrival.querySelector<HTMLElement>("[data-arrival-copy]");
+    const note = arrival.querySelector<HTMLElement>("[data-arrival-note]");
+    const notice = arrival.querySelector<HTMLElement>("[data-arrival-notice]");
+    const noticeNote = arrival.querySelector<HTMLElement>(
+      "[data-arrival-notice-note]",
+    );
+    const board = arrival.querySelector<HTMLElement>("[data-arrival-board]");
+    const routes = arrival.querySelectorAll<HTMLElement>(
+      "[data-arrival-route]",
+    );
+    const gestures = arrival.querySelectorAll<HTMLElement>(
+      "[data-arrival-gesture]",
+    );
+
+    // Solar Clock controls
+    const clockContainer = arrival.querySelector<HTMLElement>(
+      "[data-station-clock]",
+    );
+    const timeButtons =
+      arrival.querySelectorAll<HTMLButtonElement>("[data-time-btn]");
+    const liveButtons =
+      arrival.querySelectorAll<HTMLButtonElement>("[data-time-live]");
+    const clockTimeDisplay = arrival.querySelector<HTMLElement>(
+      "[data-clock-current-time]",
+    );
+    const announcementEl = arrival.querySelector<HTMLElement>(
+      "[data-clock-announcement]",
+    );
+
+    let currentMode: SkyMode =
+      (sessionStorage.getItem("lincie-station-sky") as SkyMode) || "morning";
+    if (!skyConfigs[currentMode]) currentMode = "morning";
+
+    function updateControlStates(mode: SkyMode, customTime?: string) {
+      const cfg = skyConfigs[mode];
+      if (clockTimeDisplay) {
+        clockTimeDisplay.textContent = customTime || cfg.time;
+      }
+      if (announcementEl) {
+        announcementEl.textContent = cfg.announcement;
+      }
+      if (noticeNote) {
+        noticeNote.textContent = cfg.noticeNote;
+      }
+
+      timeButtons.forEach((btn) => {
+        const btnMode = btn.getAttribute("data-time-btn") as SkyMode;
+        const isSelected = btnMode === mode && !isLive;
+        btn.setAttribute("aria-checked", isSelected ? "true" : "false");
+        const indicator = btn.querySelector("[data-btn-indicator]");
+
+        if (isSelected) {
+          btn.classList.add(
+            "border-[#b8614b]/60",
+            "bg-[#e9ddc9]",
+            "font-semibold",
+            "text-[#2d332b]",
+            "shadow-xs",
+          );
+          btn.classList.remove("border-transparent", "text-[#5f665c]");
+          indicator?.classList.add("bg-[#b8614b]");
+          indicator?.classList.remove("bg-[#c4b49d]");
+        } else {
+          btn.classList.remove(
+            "border-[#b8614b]/60",
+            "bg-[#e9ddc9]",
+            "font-semibold",
+            "text-[#2d332b]",
+            "shadow-xs",
+          );
+          btn.classList.add("border-transparent", "text-[#5f665c]");
+          indicator?.classList.remove("bg-[#b8614b]");
+          indicator?.classList.add("bg-[#c4b49d]");
+        }
+      });
+
+      liveButtons.forEach((btn) => {
+        btn.setAttribute("aria-pressed", isLive ? "true" : "false");
+        if (isLive) {
+          btn.classList.add(
+            "border-[#b8614b]/60",
+            "bg-[#e9ddc9]",
+            "font-semibold",
+            "text-[#2d332b]",
+            "shadow-xs",
+          );
+          btn.classList.remove("border-transparent", "text-[#5f665c]");
+        } else {
+          btn.classList.remove(
+            "border-[#b8614b]/60",
+            "bg-[#e9ddc9]",
+            "font-semibold",
+            "text-[#2d332b]",
+            "shadow-xs",
+          );
+          btn.classList.add("border-transparent", "text-[#5f665c]");
+        }
+      });
+    }
+
+    function applyAtmosphere(
+      mode: SkyMode,
+      immediate = false,
+      reduceMotion = false,
+    ) {
+      if (!arrival) return;
+      currentMode = mode;
+      sessionStorage.setItem("lincie-station-sky", mode);
+      const cfg = skyConfigs[mode];
+
+      arrival.setAttribute("data-sky", mode);
+      arrival.style.backgroundColor = cfg.bgColor;
+
+      // Cross-fade sky gradient layers
+      skyLayers.forEach((layer) => {
+        const layerMode = layer.getAttribute("data-sky-layer");
+        if (layerMode === mode) {
+          layer.style.opacity = "1";
+        } else {
+          layer.style.opacity = "0";
+        }
+      });
+
+      // Color filter on landscape image
+      if (sceneImage) {
+        sceneImage.style.filter = cfg.imgFilter;
+      }
+
+      // Train passenger window light
+      trainWindows.forEach((w) => {
+        w.setAttribute("fill", cfg.trainWindow);
+      });
+
+      // Update button visual states
+      updateControlStates(mode);
+
+      // Celestial positioning & lantern lighting
+      const dur = immediate || reduceMotion ? 0 : 1.2;
+
+      if (mode === "night") {
+        if (sun) gsap.to(sun, { autoAlpha: 0, duration: dur * 0.6 });
+        if (moon)
+          gsap.to(moon, {
+            autoAlpha: cfg.moonAlpha,
+            duration: dur,
+            ease: "power2.out",
+          });
+        if (stars)
+          gsap.to(stars, {
+            autoAlpha: cfg.starsAlpha,
+            duration: dur,
+            ease: "power2.out",
+          });
+
+        if (!reduceMotion && stars) {
+          if (starTwinkleTimeline) starTwinkleTimeline.kill();
+          const starCircles = stars.querySelectorAll("circle");
+          starTwinkleTimeline = gsap.to(starCircles, {
+            opacity: "random(0.3, 1)",
+            duration: "random(1.8, 3.2)",
+            repeat: -1,
+            yoyo: true,
+            stagger: { amount: 1.5, from: "random" },
+            ease: "sine.inOut",
+          });
+        }
+      } else {
+        if (moon) gsap.to(moon, { autoAlpha: 0, duration: dur * 0.5 });
+        if (stars) gsap.to(stars, { autoAlpha: 0, duration: dur * 0.5 });
+        if (starTwinkleTimeline) {
+          starTwinkleTimeline.kill();
+          starTwinkleTimeline = null;
+        }
+        if (sun) {
+          gsap.to(sun, {
+            x: cfg.sun.x,
+            y: cfg.sun.y,
+            autoAlpha: cfg.sun.alpha,
+            duration: dur,
+            ease: "power2.out",
+          });
+        }
+      }
+
+      if (lantern) {
+        gsap.to(lantern, {
+          autoAlpha: cfg.lanternAlpha,
+          duration: dur,
+          ease: "power2.out",
+        });
+      }
+    }
+
+    function determineLiveMode(): { mode: SkyMode; timeStr: string } {
+      const now = new Date();
+      const hour = now.getHours();
+      const timeStr = now.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+
+      let mode: SkyMode;
+      if (hour >= 5 && hour < 11) {
+        mode = "morning";
+      } else if (hour >= 11 && hour < 16) {
+        mode = "midday";
+      } else if (hour >= 16 && hour < 20) {
+        mode = "dusk";
+      } else {
+        mode = "night";
+      }
+
+      return { mode, timeStr };
+    }
+
+    // Set up button listeners
+    timeButtons.forEach((btn) => {
+      btn.addEventListener(
+        "click",
+        () => {
+          isLive = false;
+          const targetMode = btn.getAttribute("data-time-btn") as SkyMode;
+          if (targetMode && skyConfigs[targetMode]) {
+            applyAtmosphere(
+              targetMode,
+              false,
+              window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+            );
+          }
+        },
+        { signal },
+      );
+    });
+
+    liveButtons.forEach((btn) => {
+      btn.addEventListener(
+        "click",
+        () => {
+          isLive = !isLive;
+          if (isLive) {
+            const { mode, timeStr } = determineLiveMode();
+            applyAtmosphere(
+              mode,
+              false,
+              window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+            );
+            updateControlStates(mode, timeStr);
+          } else {
+            updateControlStates(currentMode);
+          }
+        },
+        { signal },
+      );
+    });
+
+    // Set up GSAP matchMedia & entrance animation
     motion = gsap.matchMedia();
 
     motion.add(
@@ -797,40 +1446,13 @@ const destinations = stationRoutes
           { isMobile?: boolean; reduceMotion?: boolean } | undefined;
         const isMobile = conditions?.isMobile ?? false;
         const reduceMotion = conditions?.reduceMotion ?? false;
-        const sceneImage = arrival.querySelector<HTMLImageElement>(
-          "[data-arrival-image]",
-        );
-        const sun = arrival.querySelector<SVGGElement>("[data-arrival-sun]");
-        const stop = arrival.querySelector<SVGGElement>("[data-arrival-stop]");
-        const drawPaths = arrival.querySelectorAll<SVGElement>(
-          "[data-arrival-draw]",
-        );
-        const location = arrival.querySelector<HTMLElement>(
-          "[data-arrival-location]",
-        );
-        const title = arrival.querySelector<HTMLElement>(
-          "[data-arrival-title]",
-        );
-        const copy = arrival.querySelector<HTMLElement>("[data-arrival-copy]");
-        const note = arrival.querySelector<HTMLElement>("[data-arrival-note]");
-        const notice = arrival.querySelector<HTMLElement>(
-          "[data-arrival-notice]",
-        );
-        const board = arrival.querySelector<HTMLElement>(
-          "[data-arrival-board]",
-        );
-        const routes = arrival.querySelectorAll<HTMLElement>(
-          "[data-arrival-route]",
-        );
-        const gestures = arrival.querySelectorAll<HTMLElement>(
-          "[data-arrival-gesture]",
-        );
 
         const visibleElements = [
           sceneImage,
           sun,
           stop,
           location,
+          clockContainer,
           title,
           copy,
           note,
@@ -846,15 +1468,53 @@ const destinations = stationRoutes
           return;
         }
 
+        // Apply saved or current atmosphere immediately
+        applyAtmosphere(currentMode, true, reduceMotion);
+
         if (reduceMotion) {
           gsap.set(drawPaths, { drawSVG: "0% 100%" });
           gsap.set(visibleElements, {
             autoAlpha: 1,
             clearProps: "transform,opacity,filter",
           });
+          if (train) gsap.set(train, { autoAlpha: 0 });
           return;
         }
 
+        // The living countryside train journey
+        if (train) {
+          if (trainTimeline) trainTimeline.kill();
+          trainTimeline = gsap.timeline({ repeat: -1, repeatDelay: 12 });
+          trainTimeline.set(train, { autoAlpha: 1 });
+          trainTimeline.to(train, {
+            duration: 26,
+            ease: "none",
+            motionPath: {
+              path: "#arrival-train-track",
+              align: "#arrival-train-track",
+              alignOrigin: [0.5, 0.95],
+              autoRotate: true,
+            },
+          });
+          trainTimeline.to(train, { autoAlpha: 0, duration: 0.4 });
+
+          // Intersection observer: pause train animation when scrolled out of view
+          observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  trainTimeline?.resume();
+                } else {
+                  trainTimeline?.pause();
+                }
+              });
+            },
+            { threshold: 0.1 },
+          );
+          observer.observe(arrival);
+        }
+
+        // Coordinated arrival entrance sequence
         const sequence = gsap.timeline({
           defaults: {
             ease: "power3.out",
@@ -872,12 +1532,6 @@ const destinations = stationRoutes
               ease: "power1.out",
               clearProps: "willChange",
             },
-            "arrival",
-          )
-          .fromTo(
-            sun,
-            { autoAlpha: 0 },
-            { autoAlpha: 1, duration: 0.8, ease: "power2.out" },
             "arrival",
           )
           .fromTo(
@@ -901,6 +1555,12 @@ const destinations = stationRoutes
             location,
             { x: -16, autoAlpha: 0 },
             { x: 0, autoAlpha: 1, duration: 0.7 },
+            "arrival",
+          )
+          .fromTo(
+            clockContainer,
+            { x: -12, autoAlpha: 0 },
+            { x: 0, autoAlpha: 1, duration: 0.8 },
             "arrival",
           )
           .fromTo(title, { y: 24 }, { y: 0, duration: 0.95 }, "arrival")
