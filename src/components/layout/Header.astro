@@ -183,10 +183,11 @@ const routes = stationRoutes.map((route) => ({
     aria-modal="true"
     tabindex="-1"
     inert
-    class="absolute top-0 right-0 bottom-0 flex h-full w-[min(100vw-2.5rem,360px)] max-w-sm translate-x-full flex-col overflow-hidden border-l border-[#c4b49d] bg-[#fffdf8] shadow-[-16px_0_40px_rgba(45,51,43,0.12)]"
+    class="absolute top-0 right-0 bottom-0 flex h-full w-[min(100vw-2.5rem,360px)] max-w-sm translate-x-full flex-col overflow-hidden border-l border-[#c4b49d] bg-[#fffdf8] shadow-[-16px_0_40px_rgba(45,51,43,0.12)] will-change-transform"
   >
     <!-- Sidebar Header -->
     <div
+      data-sidebar-header
       class="flex items-center justify-between border-b border-[#c4b49d]/60 bg-[#f7f2e8]/85 px-5 py-4"
     >
       <div class="flex items-center gap-2.5">
@@ -232,6 +233,7 @@ const routes = stationRoutes.map((route) => ({
 
     <!-- Current Station Status -->
     <div
+      data-sidebar-status
       class="flex items-center gap-2 border-b border-[#c4b49d]/40 bg-[#f7f2e8]/40 px-5 py-2.5 text-[.8125rem] text-[#5f665c]"
     >
       <span class="font-sans font-medium">Current Stop:</span>
@@ -266,7 +268,7 @@ const routes = stationRoutes.map((route) => ({
             href={route.href}
             data-sidebar-link
             aria-current={route.active ? "page" : undefined}
-            class={`group relative flex items-center justify-between rounded-xl border p-3.5 no-underline transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] ${
+            class={`group relative flex items-center justify-between rounded-xl border p-3.5 no-underline transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] ${
               route.active
                 ? "border-[#b8614b]/60 bg-[#f7f2e8] shadow-xs"
                 : "border-[#c4b49d]/40 bg-[#fffdf8] hover:border-[#c4b49d] hover:bg-[#f7f2e8]/60"
@@ -334,6 +336,7 @@ const routes = stationRoutes.map((route) => ({
 
     <!-- Sidebar Footer -->
     <div
+      data-sidebar-footer
       class="border-t border-[#c4b49d]/50 bg-[#f7f2e8]/60 px-5 py-3.5 text-center"
     >
       <p class="font-sans text-xs text-[#5f665c]">
@@ -393,6 +396,23 @@ const routes = stationRoutes.map((route) => ({
     // Reset initial visual state
     gsap.set(drawer, { x: "100%" });
     if (backdrop) gsap.set(backdrop, { opacity: 0 });
+    const initialItems = drawer.querySelectorAll<HTMLElement>(
+      "[data-sidebar-link]",
+    );
+    const initialHeader = drawer.querySelector<HTMLElement>(
+      "[data-sidebar-header]",
+    );
+    const initialStatus = drawer.querySelector<HTMLElement>(
+      "[data-sidebar-status]",
+    );
+    const initialFooter = drawer.querySelector<HTMLElement>(
+      "[data-sidebar-footer]",
+    );
+    if (initialHeader) gsap.set(initialHeader, { opacity: 0, x: 14 });
+    if (initialStatus) gsap.set(initialStatus, { opacity: 0, x: 14 });
+    if (initialItems && initialItems.length > 0)
+      gsap.set(initialItems, { opacity: 0, x: 18 });
+    if (initialFooter) gsap.set(initialFooter, { opacity: 0, y: 8 });
 
     function setHamburgerVisual(open: boolean) {
       if (!line1 || !line2 || !line3) return;
@@ -423,9 +443,26 @@ const routes = stationRoutes.map((route) => ({
 
       if (activeTimeline) activeTimeline.kill();
 
+      const items = drawer?.querySelectorAll<HTMLElement>(
+        "[data-sidebar-link]",
+      );
+      const header = drawer?.querySelector<HTMLElement>(
+        "[data-sidebar-header]",
+      );
+      const status = drawer?.querySelector<HTMLElement>(
+        "[data-sidebar-status]",
+      );
+      const footer = drawer?.querySelector<HTMLElement>(
+        "[data-sidebar-footer]",
+      );
+
       if (prefersReducedMotion()) {
         if (backdrop) gsap.set(backdrop, { opacity: 1 });
         gsap.set(drawer, { x: "0%" });
+        if (header) gsap.set(header, { opacity: 1, x: 0 });
+        if (status) gsap.set(status, { opacity: 1, x: 0 });
+        if (items) gsap.set(items, { opacity: 1, x: 0 });
+        if (footer) gsap.set(footer, { opacity: 1, y: 0 });
         const targetFocus =
           drawer?.querySelector<HTMLElement>('[aria-current="page"]') ||
           links?.[0] ||
@@ -434,12 +471,15 @@ const routes = stationRoutes.map((route) => ({
         return;
       }
 
-      const items = drawer?.querySelectorAll("[data-sidebar-link]");
-      const header = drawer?.querySelector(".border-b");
-      const footer = drawer?.querySelector(".border-t");
+      // Start everything at 0 opacity regardless, avoiding any hitch or flash
+      gsap.set(drawer, { x: "100%" });
+      if (backdrop) gsap.set(backdrop, { opacity: 0 });
+      if (header) gsap.set(header, { opacity: 0, x: 14 });
+      if (status) gsap.set(status, { opacity: 0, x: 14 });
+      if (items && items.length > 0) gsap.set(items, { opacity: 0, x: 18 });
+      if (footer) gsap.set(footer, { opacity: 0, y: 8 });
 
       const tl = gsap.timeline({
-        defaults: { ease: "power3.out" },
         onComplete: () => {
           const targetFocus =
             drawer?.querySelector<HTMLElement>('[aria-current="page"]') ||
@@ -450,43 +490,41 @@ const routes = stationRoutes.map((route) => ({
       });
       activeTimeline = tl;
 
+      // Start everything at the exact same time (0) with timeline sequencing via duration:
+      // No nav waits for another to finish, eliminating the perceived pause.
       if (backdrop) {
-        tl.fromTo(
-          backdrop,
-          { opacity: 0 },
-          { opacity: 1, duration: 0.3, ease: "power2.out" },
+        tl.to(backdrop, { opacity: 1, duration: 0.28, ease: "power2.out" }, 0);
+      }
+
+      tl.to(drawer, { x: "0%", duration: 0.34, ease: "power3.out" }, 0);
+
+      const topContent = [header, status].filter(Boolean);
+      if (topContent.length > 0) {
+        tl.to(
+          topContent,
+          { opacity: 1, x: 0, duration: 0.24, ease: "power2.out" },
           0,
         );
       }
 
-      tl.fromTo(
-        drawer,
-        { x: "100%" },
-        { x: "0%", duration: 0.4, ease: "power3.out" },
-        0,
-      );
-
-      if (header || footer) {
-        tl.fromTo(
-          [header, footer].filter(Boolean),
-          { opacity: 0, y: -8 },
-          { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" },
-          0.06,
-        );
-      }
-
       if (items && items.length > 0) {
-        tl.fromTo(
+        tl.to(
           items,
-          { opacity: 0, x: 22 },
           {
             opacity: 1,
             x: 0,
-            duration: 0.34,
-            stagger: 0.04,
+            duration: (i: number) => 0.24 + i * 0.02,
             ease: "power2.out",
           },
-          0.08,
+          0,
+        );
+      }
+
+      if (footer) {
+        tl.to(
+          footer,
+          { opacity: 1, y: 0, duration: 0.32, ease: "power2.out" },
+          0,
         );
       }
     }
@@ -502,14 +540,29 @@ const routes = stationRoutes.map((route) => ({
 
       if (activeTimeline) activeTimeline.kill();
 
+      const items = drawer?.querySelectorAll<HTMLElement>(
+        "[data-sidebar-link]",
+      );
+      const header = drawer?.querySelector<HTMLElement>(
+        "[data-sidebar-header]",
+      );
+      const status = drawer?.querySelector<HTMLElement>(
+        "[data-sidebar-status]",
+      );
+      const footer = drawer?.querySelector<HTMLElement>(
+        "[data-sidebar-footer]",
+      );
+
       const finishClosing = () => {
         container?.classList.add("invisible", "pointer-events-none");
         container?.setAttribute("aria-hidden", "true");
         drawer?.setAttribute("inert", "");
         gsap.set(drawer, { x: "100%" });
         if (backdrop) gsap.set(backdrop, { opacity: 0 });
-        const items = drawer?.querySelectorAll("[data-sidebar-link]");
         if (items) gsap.set(items, { clearProps: "transform,opacity" });
+        if (header) gsap.set(header, { clearProps: "transform,opacity" });
+        if (status) gsap.set(status, { clearProps: "transform,opacity" });
+        if (footer) gsap.set(footer, { clearProps: "transform,opacity" });
       };
 
       if (instant || prefersReducedMotion()) {
@@ -518,7 +571,6 @@ const routes = stationRoutes.map((route) => ({
         return;
       }
 
-      const items = drawer?.querySelectorAll("[data-sidebar-link]");
       const tl = gsap.timeline({
         onComplete: () => {
           finishClosing();
@@ -532,23 +584,31 @@ const routes = stationRoutes.map((route) => ({
           items,
           {
             opacity: 0,
-            x: 14,
-            duration: 0.18,
-            stagger: 0.02,
+            x: 12,
+            duration: 0.16,
             ease: "power2.in",
           },
           0,
         );
       }
 
-      tl.to(drawer, { x: "100%", duration: 0.28, ease: "power3.in" }, 0.04);
+      const contentElements = [header, status, footer].filter(Boolean);
+      if (contentElements.length > 0) {
+        tl.to(
+          contentElements,
+          {
+            opacity: 0,
+            duration: 0.14,
+            ease: "power2.in",
+          },
+          0,
+        );
+      }
+
+      tl.to(drawer, { x: "100%", duration: 0.22, ease: "power3.in" }, 0);
 
       if (backdrop) {
-        tl.to(
-          backdrop,
-          { opacity: 0, duration: 0.24, ease: "power2.in" },
-          0.06,
-        );
+        tl.to(backdrop, { opacity: 0, duration: 0.2, ease: "power2.in" }, 0);
       }
     }
 
@@ -657,6 +717,14 @@ const routes = stationRoutes.map((route) => ({
       container.setAttribute("aria-hidden", "true");
       drawer.setAttribute("inert", "");
       gsap.set(drawer, { x: "100%" });
+      const items = drawer.querySelectorAll("[data-sidebar-link]");
+      const header = drawer.querySelector("[data-sidebar-header]");
+      const status = drawer.querySelector("[data-sidebar-status]");
+      const footer = drawer.querySelector("[data-sidebar-footer]");
+      if (items) gsap.set(items, { clearProps: "transform,opacity" });
+      if (header) gsap.set(header, { clearProps: "transform,opacity" });
+      if (status) gsap.set(status, { clearProps: "transform,opacity" });
+      if (footer) gsap.set(footer, { clearProps: "transform,opacity" });
     }
     if (toggleBtn) {
       toggleBtn.setAttribute("aria-expanded", "false");
