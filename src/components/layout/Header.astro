@@ -9,6 +9,7 @@ const isHome = pathname === "/";
 const isAbout = pathname === "/about";
 const isProjects =
   pathname === "/projects" || pathname.startsWith("/projects/");
+const isWorkshop = pathname === "/workshop" || pathname === "/offers";
 
 const siteContainer =
   "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
@@ -67,6 +68,11 @@ const siteContainer =
                 <span class="hidden sm:inline">Rice Fields · </span>Projects
                 <span class="hidden md:inline"> · 稲田</span>
               </>
+            ) : isWorkshop ? (
+              <>
+                <span class="hidden sm:inline">Workshop · </span>Offers
+                <span class="hidden md:inline"> · 工房</span>
+              </>
             ) : (
               "Station"
             )
@@ -103,6 +109,16 @@ const siteContainer =
               class="group/nav inline-flex min-h-11 items-center gap-1 rounded-md px-2 py-1.5 font-sans text-xs font-bold tracking-[0.03em] text-[#2d332b] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#b8614b] hover:decoration-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
             >
               <span>Rice Fields</span>
+            </a>
+          )
+        }
+        {
+          !isWorkshop && (
+            <a
+              href="/workshop"
+              class="group/nav inline-flex min-h-11 items-center gap-1 rounded-md px-2 py-1.5 font-sans text-xs font-bold tracking-[0.03em] text-[#2d332b] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#b8614b] hover:decoration-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+            >
+              <span>Workshop</span>
             </a>
           )
         }

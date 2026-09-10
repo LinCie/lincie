@@ -36,7 +36,7 @@ const destinations: Destination[] = [
     label: "Things LinCie offers",
     invitation: "Find the situations that may fit.",
     roomNote:
-      "The workshop is quiet for now. Confirmed ways LinCie may help will be listed here.",
+      "A sunlit bench where tools rest in their grooves. I build reliable backend services in Go and TypeScript, and carefully craft bespoke, anti-AI-slop websites with deep human care.",
     tone: "workshop",
   },
   {
@@ -551,6 +551,10 @@ const siteContainer =
                     <span class="font-sans text-xs font-bold tracking-[.04em] text-[#6c895f] uppercase">
                       Field Gate · 1 Tended, 3 Harvested
                     </span>
+                  ) : destination.id === "offers" ? (
+                    <span class="font-sans text-xs font-bold tracking-[.04em] text-[#6c895f] uppercase">
+                      Active Benches · Open for Collaboration
+                    </span>
                   ) : destination.id !== "about-me" ? (
                     <span class="font-sans text-xs font-bold tracking-[.04em] text-[#843d2f] uppercase">
                       Quiet for now
@@ -617,6 +621,82 @@ const siteContainer =
                         <span>
                           Step into the Rice Fields to view all 4 cultivated
                           projects
+                        </span>
+                        <span aria-hidden="true">&rarr;</span>
+                      </a>
+                    </p>
+                  </div>
+                )}
+                {destination.id === "offers" && (
+                  <div class="mt-6 space-y-4">
+                    <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                      <div class="rounded-xl border border-[#c4b49d]/80 bg-[#fffdf8] p-4 transition-colors hover:border-[#b8614b]">
+                        <div class="flex items-center justify-between gap-1 text-xs text-[#5f665c]">
+                          <span class="font-semibold text-[#2d332b]">
+                            Developer Service
+                          </span>
+                          <span>Go &amp; TypeScript</span>
+                        </div>
+                        <h4 class="mt-1 font-serif text-lg font-normal text-[#2d332b]">
+                          <a
+                            href="/workshop#backend"
+                            class="text-[#2d332b] no-underline hover:text-[#b8614b] hover:underline"
+                          >
+                            Backend &amp; Systems
+                          </a>
+                        </h4>
+                        <p class="mt-1.5 text-xs leading-relaxed text-[#5f665c]">
+                          Reliable REST/gRPC APIs, schema design, and clean
+                          business logic. Built for performance and
+                          zero-headache maintenance.
+                        </p>
+                        <a
+                          href="/workshop#backend"
+                          class="mt-3 inline-flex min-h-9 items-center gap-1 text-xs font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-2 hover:text-[#843d2f]"
+                        >
+                          <span>Explore bench</span>
+                          <span aria-hidden="true">&rarr;</span>
+                        </a>
+                      </div>
+
+                      <div class="rounded-xl border border-[#c4b49d]/80 bg-[#fffdf8] p-4 transition-colors hover:border-[#b8614b]">
+                        <div class="flex items-center justify-between gap-1 text-xs text-[#5f665c]">
+                          <span class="font-semibold text-[#2d332b]">
+                            Web Craft
+                          </span>
+                          <span>AI-Augmented &amp; Hand-Tuned</span>
+                        </div>
+                        <h4 class="mt-1 font-serif text-lg font-normal text-[#2d332b]">
+                          <a
+                            href="/workshop#web-craft"
+                            class="text-[#2d332b] no-underline hover:text-[#b8614b] hover:underline"
+                          >
+                            Crafted Websites
+                          </a>
+                        </h4>
+                        <p class="mt-1.5 text-xs leading-relaxed text-[#5f665c]">
+                          Distinct, accessible, and fast websites. AI handles
+                          rapid iteration while human engineering ensures zero
+                          slop, high SEO, and deep craft.
+                        </p>
+                        <a
+                          href="/workshop#web-craft"
+                          class="mt-3 inline-flex min-h-9 items-center gap-1 text-xs font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-2 hover:text-[#843d2f]"
+                        >
+                          <span>Explore bench</span>
+                          <span aria-hidden="true">&rarr;</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <p class="pt-2 text-[.9rem] leading-[1.6] text-[#5f665c]">
+                      <a
+                        class="inline-flex min-h-11 items-center gap-2 font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#843d2f]"
+                        href="/workshop"
+                      >
+                        <span>
+                          Step into the Workshop to see how we might work
+                          together
                         </span>
                         <span aria-hidden="true">&rarr;</span>
                       </a>
