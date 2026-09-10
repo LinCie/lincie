@@ -14,6 +14,7 @@ const isThoughts =
   pathname === "/thoughts" ||
   pathname.startsWith("/thoughts/") ||
   pathname === "/waiting-room";
+const isConnect = pathname === "/connect" || pathname === "/letterbox";
 
 const siteContainer =
   "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
@@ -82,6 +83,12 @@ const siteContainer =
                 <span class="hidden sm:inline">Waiting Room · </span>Thoughts
                 <span class="hidden md:inline"> · 待合室</span>
               </>
+            ) : isConnect ? (
+              <>
+                <span class="hidden sm:inline">Letterbox · </span>Ways to
+                connect
+                <span class="hidden md:inline"> · 郵便受け</span>
+              </>
             ) : (
               "Station"
             )
@@ -138,6 +145,16 @@ const siteContainer =
               class="group/nav inline-flex min-h-11 items-center gap-1 rounded-md px-2 py-1.5 font-sans text-xs font-bold tracking-[0.03em] text-[#2d332b] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#b8614b] hover:decoration-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
             >
               <span>Waiting Room</span>
+            </a>
+          )
+        }
+        {
+          !isConnect && (
+            <a
+              href="/connect"
+              class="group/nav inline-flex min-h-11 items-center gap-1 rounded-md px-2 py-1.5 font-sans text-xs font-bold tracking-[0.03em] text-[#2d332b] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#b8614b] hover:decoration-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+            >
+              <span>Letterbox</span>
             </a>
           )
         }

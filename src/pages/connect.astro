@@ -1,0 +1,717 @@
+---
+import MainLayout from "../components/layout/MainLayout.astro";
+
+const siteContainer =
+  "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
+
+type IntentKey = "say-hello" | "project-craft" | "open-question";
+
+interface IntentData {
+  key: IntentKey;
+  label: string;
+  badge: string;
+  subject: string;
+  description: string;
+  prompts: string[];
+  bodyTemplate: string;
+}
+
+const intents: IntentData[] = [
+  {
+    key: "say-hello",
+    label: "Say Hello",
+    badge: "Friendly Greeting",
+    subject: "[Hello] Wandering through LinCie Station",
+    description:
+      "A warm note if you stumbled upon this station, enjoyed an essay in the Waiting Room, or just wanted to exchange greetings.",
+    prompts: [
+      "Where you arrived from or how you found LinCie Station",
+      "A kind thought, common interest, or whatever caught your eye",
+      "A link to your own personal website, blog, or corner of the internet",
+    ],
+    bodyTemplate:
+      "Hello LinCie,%0D%0A%0D%0AI was wandering through the station and wanted to drop a quick note.%0D%0A%0D%0A[Your message here]%0D%0A%0D%0ABest,%0D%0A[Your Name]",
+  },
+  {
+    key: "project-craft",
+    label: "Project & Craft",
+    badge: "Systems & Web Inquiry",
+    subject: "[Project Inquiry] Systems & Web Craft collaboration with LinCie",
+    description:
+      "Inquire about backend services in Go/TypeScript, database schema design, or crafting an anti-slop, accessible bespoke website.",
+    prompts: [
+      "The core problem, system, or custom website you need help building",
+      "Current technical stack or constraints (Go, TypeScript, PostgreSQL, Astro, etc.)",
+      "Anticipated scope, timeframe, and how we might collaborate",
+    ],
+    bodyTemplate:
+      "Hello LinCie,%0D%0A%0D%0AI’d like to explore a potential project or engineering collaboration.%0D%0A%0D%0A1. What we are building:%0D%0A[Brief summary]%0D%0A%0D%0A2. Technical focus:%0D%0A[Backend API, database schemas, or tailored website craft]%0D%0A%0D%0A3. Scope & Timeline:%0D%0A[Anticipated schedule]%0D%0A%0D%0ABest regards,%0D%0A[Your Name]",
+  },
+  {
+    key: "open-question",
+    label: "Open Question",
+    badge: "Learning & Dialogue",
+    subject: "[Question] A thought from the station platform",
+    description:
+      "Ask about software engineering journeys, systems architecture, or something written in the station notes.",
+    prompts: [
+      "The technical question, design nuance, or reflection you'd like to explore",
+      "What prompted the inquiry or reference from the Waiting Room / Workshop",
+      "Any context on your own background or learning trajectory",
+    ],
+    bodyTemplate:
+      "Hello LinCie,%0D%0A%0D%0AI have an open question after reading your notes at the station.%0D%0A%0D%0A[Your question or reflection here]%0D%0A%0D%0ACheers,%0D%0A[Your Name]",
+  },
+];
+
+const defaultIntent = intents[0];
+const targetEmail = "contact@lincie.me";
+---
+
+<MainLayout
+  title="The Letterbox — LinCie (Ways to connect)"
+  description="Leave a note at LinCie Station. Intent-based contact for saying hello, exploring backend systems or tailored web craft collaborations, or asking open questions."
+  currentRoute="/connect"
+>
+  <!-- Threshold & Wayfinding Banner -->
+  <section
+    class="border-b border-[#c4b49d] bg-[#f7f2e8] pt-10 pb-12 md:pt-16 md:pb-16"
+  >
+    <div class={siteContainer}>
+      <nav
+        aria-label="Route wayfinding"
+        class="flex items-center gap-2 font-sans text-xs font-semibold tracking-[0.03em] text-[#5f665c]"
+      >
+        <a
+          href="/"
+          class="inline-flex min-h-11 items-center text-[#5f665c] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#b8614b] hover:decoration-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+        >
+          Station Platform
+        </a>
+        <span aria-hidden="true" class="text-[#c4b49d]">/</span>
+        <span class="text-[#2d332b]" aria-current="page">The Letterbox</span>
+      </nav>
+
+      <div class="mt-6 max-w-[72ch]">
+        <div
+          class="flex items-center gap-2 font-sans text-xs font-bold tracking-[0.06em] text-[#b8614b] uppercase"
+        >
+          <span>Station Mail Slot · 郵便受け</span>
+        </div>
+        <h1
+          class="mt-2 font-serif text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.05] font-normal tracking-[-0.03em] text-[#2d332b]"
+        >
+          The Letterbox
+        </h1>
+        <p
+          class="mt-4 font-serif text-[clamp(1.15rem,2.2vw,1.4rem)] leading-[1.45] text-[#5f665c]"
+        >
+          A quiet wooden desk by the station window where mail is gathered and
+          sent. Whether you're passing by to say hello, exploring collaboration
+          on backend systems or bespoke websites, or sharing an open
+          reflection—there is always room for a thoughtful note.
+        </p>
+      </div>
+
+      <!-- Station Status Plaque -->
+      <div
+        class="mt-8 flex flex-col gap-3 rounded-xl border border-[#c4b49d]/80 bg-[#fffdf8] p-5 shadow-xs sm:flex-row sm:items-center sm:justify-between"
+      >
+        <div class="flex items-center gap-2.5">
+          <span class="relative flex size-3" aria-hidden="true">
+            <span
+              class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#6c895f] opacity-75 motion-reduce:animate-none"
+            ></span>
+            <span class="relative inline-flex size-3 rounded-full bg-[#6c895f]"
+            ></span>
+          </span>
+          <span
+            class="font-sans text-xs font-bold tracking-[0.04em] text-[#2d332b] uppercase"
+          >
+            Desk Open · Direct Mail &amp; GitHub
+          </span>
+        </div>
+        <p
+          class="font-sans text-xs leading-relaxed text-[#5f665c] sm:max-w-[48ch] sm:text-right"
+        >
+          No automated autoresponders or marketing funnels. Direct, unhurried
+          correspondence between humans.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Letter Desk Section -->
+  <section
+    class="border-b border-[#c4b49d] bg-[#fffdf8] py-14 md:py-20"
+    aria-labelledby="desk-heading"
+  >
+    <div class={siteContainer}>
+      <div class="max-w-[48rem]">
+        <h2
+          id="desk-heading"
+          class="font-serif text-[clamp(1.85rem,3.6vw,2.8rem)] leading-[1.12] font-normal tracking-[-0.025em] text-[#2d332b]"
+        >
+          Choose your letter intent
+        </h2>
+        <p class="mt-3 text-base leading-[1.65] text-[#5f665c]">
+          Selecting an intent prepares a tailored letter blueprint with the
+          right subject line and gentle prompts. Choose whichever feels closest
+          to why you stopped by.
+        </p>
+      </div>
+
+      <!-- Intent Selection Tabs -->
+      <div class="mt-8">
+        <div
+          role="tablist"
+          aria-label="Letter intents"
+          class="grid grid-cols-1 gap-3 sm:grid-cols-3"
+          id="intent-tabs"
+        >
+          {
+            intents.map((intent, idx) => (
+              <button
+                type="button"
+                role="tab"
+                id={`tab-${intent.key}`}
+                aria-selected={idx === 0 ? "true" : "false"}
+                aria-controls={`panel-${intent.key}`}
+                data-intent-key={intent.key}
+                class:list={[
+                  "intent-btn group flex cursor-pointer flex-col items-start justify-between rounded-xl border p-4 text-left transition-all duration-200 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] motion-reduce:transition-none",
+                  idx === 0
+                    ? "border-[#b8614b] bg-[#f7f2e8] text-[#2d332b] shadow-xs"
+                    : "border-[#c4b49d]/70 bg-[#fffdf8] text-[#5f665c] hover:border-[#b8614b]/60 hover:bg-[#f7f2e8]/50",
+                ]}
+              >
+                <div class="w-full">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="font-sans text-xs font-bold tracking-[0.05em] text-[#b8614b] uppercase">
+                      {intent.badge}
+                    </span>
+                    <span
+                      class:list={[
+                        "intent-indicator size-2 rounded-full transition-colors",
+                        idx === 0 ? "bg-[#b8614b]" : "bg-[#c4b49d]/60",
+                      ]}
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 class="mt-1 font-serif text-lg font-normal text-[#2d332b]">
+                    {intent.label}
+                  </h3>
+                  <p class="mt-1.5 text-xs leading-relaxed text-[#5f665c]">
+                    {intent.description}
+                  </p>
+                </div>
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- The Letter Blueprint Card -->
+      <div
+        class="mt-8 overflow-hidden rounded-2xl border border-[#c4b49d] bg-[#f7f2e8] p-6 shadow-sm sm:p-8"
+        id="letter-blueprint"
+      >
+        <!-- Letter Blueprint Header -->
+        <div
+          class="flex flex-wrap items-center justify-between gap-4 border-b border-[#c4b49d]/60 pb-5"
+        >
+          <div class="flex items-center gap-3">
+            <span
+              class="grid size-9 place-items-center rounded-lg border border-[#b8614b]/40 bg-[#fffdf8] text-[#b8614b]"
+              aria-hidden="true"
+            >
+              <svg
+                class="size-5 fill-none [stroke:currentColor] [stroke-width:1.75] [stroke-linecap:round] [stroke-linejoin:round]"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                ></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </span>
+            <div>
+              <span
+                class="font-sans text-xs font-bold tracking-[0.05em] text-[#5f665c] uppercase"
+              >
+                Prepared Letter Blueprint
+              </span>
+              <p class="font-serif text-base font-normal text-[#2d332b]">
+                Station Dispatch Box
+              </p>
+            </div>
+          </div>
+
+          <!-- Direct Copy Quick Action -->
+          <div class="flex items-center gap-2">
+            <span
+              class="rounded-md border border-[#c4b49d]/60 bg-[#fffdf8] px-2.5 py-1 font-mono text-xs text-[#5f665c]"
+            >
+              {targetEmail}
+            </span>
+            <button
+              type="button"
+              id="copy-email-btn"
+              class="inline-flex min-h-9 cursor-pointer items-center gap-1.5 rounded-md border border-[#c4b49d] bg-[#fffdf8] px-3 py-1.5 font-sans text-xs font-semibold text-[#2d332b] transition-colors hover:border-[#b8614b] hover:text-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+              aria-label="Copy email address to clipboard"
+            >
+              <svg
+                class="size-3.5 fill-none [stroke:currentColor] [stroke-width:2] [stroke-linecap:round] [stroke-linejoin:round]"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path
+                  d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                ></path>
+              </svg>
+              <span id="copy-btn-text">Copy email</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dispatch Fields -->
+        <div class="mt-6 space-y-4 font-sans text-sm">
+          <div
+            class="grid grid-cols-1 items-baseline gap-2 sm:grid-cols-[6rem_1fr]"
+          >
+            <span
+              class="text-xs font-semibold tracking-wider text-[#5f665c] uppercase"
+            >
+              To:
+            </span>
+            <span class="font-medium text-[#2d332b]">
+              LinCie &lt;{targetEmail}&gt;
+            </span>
+          </div>
+
+          <div
+            class="grid grid-cols-1 items-baseline gap-2 sm:grid-cols-[6rem_1fr]"
+          >
+            <span
+              class="text-xs font-semibold tracking-wider text-[#5f665c] uppercase"
+            >
+              Subject:
+            </span>
+            <span
+              id="blueprint-subject"
+              class="rounded-md border border-[#c4b49d]/70 bg-[#fffdf8] px-3 py-1.5 font-medium text-[#2d332b] shadow-2xs"
+            >
+              {defaultIntent.subject}
+            </span>
+          </div>
+
+          <!-- Thought Starters / Suggested Prompts -->
+          <div
+            class="grid grid-cols-1 items-start gap-2 pt-2 sm:grid-cols-[6rem_1fr]"
+          >
+            <span
+              class="pt-1 text-xs font-semibold tracking-wider text-[#5f665c] uppercase"
+            >
+              Prompts:
+            </span>
+            <div
+              class="rounded-xl border border-[#c4b49d]/60 bg-[#fffdf8] p-4 text-xs leading-relaxed text-[#5f665c]"
+            >
+              <p class="mb-2 font-semibold text-[#2d332b]">
+                Thought starters you might include:
+              </p>
+              <ul
+                id="blueprint-prompts"
+                class="list-disc space-y-1 pl-4 text-[#5f665c]"
+              >
+                {defaultIntent.prompts.map((p) => <li>{p}</li>)}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accessible Copy Toast Notification -->
+        <div
+          id="copy-status"
+          role="status"
+          aria-live="polite"
+          class="mt-4 hidden rounded-lg border border-[#6c895f]/50 bg-[#dce7c9]/40 px-3.5 py-2 text-xs font-medium text-[#2d332b]"
+        >
+          ✓ Address copied to clipboard (contact@lincie.me). Ready to paste into
+          your mail app!
+        </div>
+
+        <!-- Action Row -->
+        <div
+          class="mt-8 flex flex-wrap items-center gap-3 border-t border-[#c4b49d]/50 pt-4"
+        >
+          <a
+            id="primary-mailto-link"
+            href={`mailto:${targetEmail}?subject=${encodeURIComponent(defaultIntent.subject)}&body=${defaultIntent.bodyTemplate}`}
+            class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[#b8614b] bg-[#b8614b] px-6 py-3 font-sans text-sm font-bold text-[#fffdf8] shadow-xs transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#843d2f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] active:scale-[0.98] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+          >
+            <span>Open in Mail Client</span>
+            <svg
+              class="size-4 fill-none [stroke:currentColor] [stroke-width:2] [stroke-linecap:round] [stroke-linejoin:round]"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+
+          <a
+            id="webmail-gmail-link"
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${targetEmail}&su=${encodeURIComponent(defaultIntent.subject)}&body=${defaultIntent.bodyTemplate}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[#c4b49d] bg-[#fffdf8] px-5 py-3 font-sans text-sm font-semibold text-[#2d332b] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:text-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+          >
+            <span>Open via Webmail (Gmail)</span>
+            <svg
+              class="size-3.5 fill-none [stroke:currentColor] [stroke-width:2] [stroke-linecap:round] [stroke-linejoin:round]"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+              ></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Station Rhythm & Direct Channels Section -->
+  <section
+    class="border-b border-[#c4b49d] bg-[#f7f2e8] py-14 md:py-20"
+    aria-labelledby="channels-heading"
+  >
+    <div class={siteContainer}>
+      <div class="grid grid-cols-1 gap-10 md:grid-cols-[1.1fr_1fr] md:gap-12">
+        <!-- Left: Honest Expectations & Rhythms -->
+        <div>
+          <h2
+            id="channels-heading"
+            class="font-serif text-[clamp(1.85rem,3.6vw,2.8rem)] leading-[1.12] font-normal tracking-[-0.025em] text-[#2d332b]"
+          >
+            Station Rhythm &amp; Correspondence
+          </h2>
+          <p class="mt-4 text-base leading-[1.65] text-[#5f665c]">
+            LinCie is currently a software engineering trainee at Sea Labs
+            Indonesia. Time is treasured for quiet systems craft, learning deep
+            backend primitives, and resting.
+          </p>
+
+          <div class="mt-8 space-y-4">
+            <div class="rounded-xl border border-[#c4b49d]/80 bg-[#fffdf8] p-5">
+              <div
+                class="flex items-center gap-2 text-xs font-bold tracking-[0.04em] text-[#6c895f] uppercase"
+              >
+                <span class="size-2 rounded-full bg-[#6c895f]"></span>
+                <span>Response Pace</span>
+              </div>
+              <h3 class="mt-2 font-serif text-lg font-normal text-[#2d332b]">
+                Thoughtful &amp; Unhurried
+              </h3>
+              <p class="mt-1 text-xs leading-relaxed text-[#5f665c]">
+                I read every genuine note that arrives at the desk. You can
+                expect a human reply within 2 to 4 days. Because I prioritize
+                deep focus over constant inbox triage, there is no artificial
+                5-minute autoresponder.
+              </p>
+            </div>
+
+            <div class="rounded-xl border border-[#c4b49d]/80 bg-[#fffdf8] p-5">
+              <div
+                class="flex items-center gap-2 text-xs font-bold tracking-[0.04em] text-[#b8614b] uppercase"
+              >
+                <span class="size-2 rounded-full bg-[#b8614b]"></span>
+                <span>What Stays Outside the Station</span>
+              </div>
+              <h3 class="mt-2 font-serif text-lg font-normal text-[#2d332b]">
+                Zero Spam, Zero Scarcity
+              </h3>
+              <p class="mt-1 text-xs leading-relaxed text-[#5f665c]">
+                Automated mass sales outreach, unsolicited recruitment blasts,
+                and SEO backlink pitches are filtered out. Grounded questions,
+                collaborative craft inquiries, and warm hellos are always
+                welcomed.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Direct Channels -->
+        <div>
+          <h2
+            class="font-serif text-[clamp(1.85rem,3.6vw,2.8rem)] leading-[1.12] font-normal tracking-[-0.025em] text-[#2d332b]"
+          >
+            Direct Channels
+          </h2>
+          <p class="mt-4 text-base leading-[1.65] text-[#5f665c]">
+            If you prefer direct routes without the blueprint helper, here are
+            the official coordinates:
+          </p>
+
+          <div class="mt-8 space-y-4">
+            <!-- Email Channel Card -->
+            <div
+              class="rounded-xl border border-[#c4b49d]/80 bg-[#fffdf8] p-6 transition-colors hover:border-[#b8614b]"
+            >
+              <div
+                class="flex items-center justify-between gap-2 text-xs text-[#5f665c]"
+              >
+                <span class="font-bold tracking-wider text-[#2d332b] uppercase">
+                  Direct Email
+                </span>
+                <span class="font-semibold text-[#6c895f]">Primary Route</span>
+              </div>
+              <h3 class="mt-2 font-mono text-base text-[#2d332b]">
+                <a
+                  href={`mailto:${targetEmail}`}
+                  class="text-[#2d332b] no-underline hover:text-[#b8614b] hover:underline"
+                >
+                  {targetEmail}
+                </a>
+              </h3>
+              <p class="mt-2 text-xs leading-relaxed text-[#5f665c]">
+                For letters, questions, and project collaboration notes. Sent
+                straight to my personal inbox.
+              </p>
+              <div class="mt-4">
+                <a
+                  href={`mailto:${targetEmail}`}
+                  class="inline-flex min-h-9 items-center gap-1.5 text-xs font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-4 hover:text-[#843d2f]"
+                >
+                  <span>Write to {targetEmail}</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- GitHub Channel Card -->
+            <div
+              class="rounded-xl border border-[#c4b49d]/80 bg-[#fffdf8] p-6 transition-colors hover:border-[#b8614b]"
+            >
+              <div
+                class="flex items-center justify-between gap-2 text-xs text-[#5f665c]"
+              >
+                <span class="font-bold tracking-wider text-[#2d332b] uppercase">
+                  Code &amp; Repositories
+                </span>
+                <span class="font-semibold text-[#5f665c]">Open Platform</span>
+              </div>
+              <h3 class="mt-2 font-serif text-lg font-normal text-[#2d332b]">
+                <a
+                  href="https://github.com/lincie"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-[#2d332b] no-underline hover:text-[#b8614b] hover:underline"
+                >
+                  GitHub / lincie
+                </a>
+              </h3>
+              <p class="mt-2 text-xs leading-relaxed text-[#5f665c]">
+                Follow ongoing open-source experiments, backend architectures,
+                schema designs, and public learning.
+              </p>
+              <div class="mt-4">
+                <a
+                  href="https://github.com/lincie"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex min-h-9 items-center gap-1.5 text-xs font-bold text-[#b8614b] underline decoration-[#b8614b] decoration-1 underline-offset-4 hover:text-[#843d2f]"
+                >
+                  <span>Visit GitHub profile</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Station Wayfinding Exits -->
+  <section class="bg-[#fffdf8] py-14 md:py-20" aria-labelledby="exit-title">
+    <div class={siteContainer}>
+      <div class="max-w-[48rem]">
+        <h2
+          id="exit-title"
+          class="font-serif text-[clamp(1.85rem,3.5vw,2.8rem)] leading-[1.12] font-normal tracking-[-0.02em] text-[#2d332b]"
+        >
+          Where would you like to wander next?
+        </h2>
+        <p class="mt-3 text-base leading-[1.65] text-[#5f665c]">
+          There is no set path and no deadline. Step back out onto the open
+          platform, explore cultivated projects, or sit quietly in the Waiting
+          Room.
+        </p>
+      </div>
+
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <a
+          href="/"
+          class="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[#2d332b] bg-[#2d332b] px-6 py-3 font-sans text-sm font-semibold text-[#fffdf8] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:bg-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+        >
+          <svg
+            class="size-4 fill-none [stroke:currentColor] [stroke-width:2] [stroke-linecap:round] [stroke-linejoin:round]"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M19 12H5M12 19l-7-7 7-7"></path>
+          </svg>
+          <span>Return to Station Platform</span>
+        </a>
+
+        <a
+          href="/about"
+          class="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[#c4b49d] bg-[#fffdf8] px-6 py-3 font-sans text-sm font-semibold text-[#2d332b] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:text-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+        >
+          <span>Station House (About Me)</span>
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+
+        <a
+          href="/workshop"
+          class="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[#c4b49d] bg-[#fffdf8] px-6 py-3 font-sans text-sm font-semibold text-[#2d332b] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:text-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+        >
+          <span>The Workshop (Offers)</span>
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+
+        <a
+          href="/thoughts"
+          class="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[#c4b49d] bg-[#fffdf8] px-6 py-3 font-sans text-sm font-semibold text-[#2d332b] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:text-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+        >
+          <span>Waiting Room (Thoughts)</span>
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<script is:inline define:vars={{ intentsData: intents, targetEmail }}>
+  (function () {
+    const tabs = document.querySelectorAll(".intent-btn");
+    const subjectEl = document.getElementById("blueprint-subject");
+    const promptsEl = document.getElementById("blueprint-prompts");
+    const mailtoLink = document.getElementById("primary-mailto-link");
+    const webmailLink = document.getElementById("webmail-gmail-link");
+    const copyBtn = document.getElementById("copy-email-btn");
+    const copyText = document.getElementById("copy-btn-text");
+    const copyStatus = document.getElementById("copy-status");
+
+    let activeIntentKey = "say-hello";
+
+    function updateDesk(key) {
+      const intent = intentsData.find((i) => i.key === key);
+      if (!intent) return;
+      activeIntentKey = key;
+
+      tabs.forEach((tab) => {
+        const isSelected = tab.getAttribute("data-intent-key") === key;
+        tab.setAttribute("aria-selected", isSelected ? "true" : "false");
+        const indicator = tab.querySelector(".intent-indicator");
+
+        if (isSelected) {
+          tab.classList.remove(
+            "border-[#c4b49d]/70",
+            "bg-[#fffdf8]",
+            "text-[#5f665c]",
+          );
+          tab.classList.add(
+            "border-[#b8614b]",
+            "bg-[#f7f2e8]",
+            "text-[#2d332b]",
+            "shadow-xs",
+          );
+          if (indicator) {
+            indicator.classList.remove("bg-[#c4b49d]/60");
+            indicator.classList.add("bg-[#b8614b]");
+          }
+        } else {
+          tab.classList.remove(
+            "border-[#b8614b]",
+            "bg-[#f7f2e8]",
+            "text-[#2d332b]",
+            "shadow-xs",
+          );
+          tab.classList.add(
+            "border-[#c4b49d]/70",
+            "bg-[#fffdf8]",
+            "text-[#5f665c]",
+          );
+          if (indicator) {
+            indicator.classList.remove("bg-[#b8614b]");
+            indicator.classList.add("bg-[#c4b49d]/60");
+          }
+        }
+      });
+
+      if (subjectEl) {
+        subjectEl.textContent = intent.subject;
+      }
+
+      if (promptsEl) {
+        promptsEl.innerHTML = "";
+        intent.prompts.forEach((promptText) => {
+          const li = document.createElement("li");
+          li.textContent = promptText;
+          promptsEl.appendChild(li);
+        });
+      }
+
+      const encodedSubject = encodeURIComponent(intent.subject);
+      const bodyTemplate = intent.bodyTemplate;
+
+      if (mailtoLink) {
+        mailtoLink.setAttribute(
+          "href",
+          `mailto:${targetEmail}?subject=${encodedSubject}&body=${bodyTemplate}`,
+        );
+      }
+
+      if (webmailLink) {
+        webmailLink.setAttribute(
+          "href",
+          `https://mail.google.com/mail/?view=cm&fs=1&to=${targetEmail}&su=${encodedSubject}&body=${bodyTemplate}`,
+        );
+      }
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const key = tab.getAttribute("data-intent-key");
+        if (key && key !== activeIntentKey) {
+          updateDesk(key);
+        }
+      });
+    });
+
+    if (copyBtn) {
+      copyBtn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(targetEmail);
+          if (copyText) copyText.textContent = "Copied!";
+          if (copyStatus) copyStatus.classList.remove("hidden");
+
+          setTimeout(() => {
+            if (copyText) copyText.textContent = "Copy email";
+            if (copyStatus) copyStatus.classList.add("hidden");
+          }, 3000);
+        } catch {
+          // Fallback if clipboard API is blocked
+          if (copyText) copyText.textContent = targetEmail;
+        }
+      });
+    }
+  })();
+</script>
