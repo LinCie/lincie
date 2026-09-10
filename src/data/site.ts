@@ -24,7 +24,7 @@ export interface SiteConfig {
 export const site: SiteConfig = {
   url: "https://lincie.me",
   name: "LinCie Station",
-  title: "LinCie — Software Engineering Trainee & Backend Developer",
+  title: "LinCie | Software Engineering Trainee & Backend Developer",
   description:
     "LinCie is a software engineering trainee at Sea Labs Indonesia building Go and TypeScript backends, careful PostgreSQL schemas, and handcrafted websites.",
   locale: "en_US",

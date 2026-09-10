@@ -149,7 +149,7 @@ The palette is a quiet rural morning: low-saturation surfaces create air and war
 - **Quiet Ink** (`{colors.ink-secondary}`): Metadata and secondary explanations only when contrast remains legible. On Station Wood it does not clear 4.5:1, so quiet copy there uses Deep Moss Ink.
 - **Soft Boundary** (`{colors.border-soft}`): Hairline dividers, tracks, board edges, and quiet control boundaries.
 
-**The Rare Signal Rule.** Accent colors are most welcoming when they remain scarce. Use them to point, focus, or acknowledge—not to fill every card, label, and surface.
+**The Rare Signal Rule.** Accent colors are most welcoming when they remain scarce. Use them to point, focus, or acknowledge, not to fill every card, label, and surface.
 
 **The Quiet Ground Rule.** Long text must sit on a separable, calm surface. Never place essential copy over busy landscape artwork.
 
@@ -214,7 +214,7 @@ Keep borders quiet with `{colors.border-soft}`. Avoid glossy panels, hard black 
 
 The form language joins quiet station architecture with soft countryside forms. Use `{rounded.sm}` for compact controls, route markers, and labels; `{rounded.md}` for route signs, notes, and discovery objects; and `{rounded.lg}` or `{rounded.xl}` for boards, station houses, and broad field shapes.
 
-Reserve `{rounded.full}` for a small dot, bell, sun, pet detail, or status marker—not for every button or content container. Combine straight or gently rounded architectural edges with organic field, grass, cloud, and mountain silhouettes. Organic shapes belong to the background language, not to interactive puzzles.
+Reserve `{rounded.full}` for a small dot, bell, sun, pet detail, or status marker, not for every button or content container. Combine straight or gently rounded architectural edges with organic field, grass, cloud, and mountain silhouettes. Organic shapes belong to the background language, not to interactive puzzles.
 
 The visible ornament may be small, but its interactive wrapper must meet `{spacing.touch-target}`. Focus remains visible with the station signal or another contrast-safe treatment; the focus treatment must not depend on pointer styling.
 
@@ -292,4 +292,4 @@ Forest paths use layered greens, trail marks, and open space for experiments and
 
 ## Asset provenance
 
-- `public/images/lincie-countryside-arrival.webp` — original countryside arrival scene generated for LinCie with Gemini 3 Pro Image, then converted to WebP with `ffmpeg`; no external source imagery or text assets are included.
+- `public/images/lincie-countryside-arrival.webp`: original countryside arrival scene generated for LinCie with Gemini 3 Pro Image, then converted to WebP with `ffmpeg`; no external source imagery or text assets are included.
