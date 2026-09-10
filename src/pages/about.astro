@@ -5,7 +5,16 @@ const siteContainer =
   "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
 ---
 
-<MainLayout title="Station House — LinCie (About Me)">
+<MainLayout
+  title="About LinCie — Software Engineering Trainee"
+  description="Meet the person behind the work: how a business degree led to backend engineering, what the work values are, and the everyday comforts of the Station House."
+  currentRoute="/about"
+  pageType="AboutPage"
+  breadcrumbs={[
+    { name: "Station Platform", path: "/" },
+    { name: "Station House (About Me)", path: "/about" },
+  ]}
+>
   <!-- Threshold & Intro Banner -->
   <section
     class="border-b border-[#c4b49d] bg-[#f7f2e8] pt-12 pb-14 md:pt-16 md:pb-20"

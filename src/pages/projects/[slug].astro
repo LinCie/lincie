@@ -1,6 +1,7 @@
 ---
 import MainLayout from "../../components/layout/MainLayout.astro";
 import { projects, type Project } from "../../data/projects";
+import { site, canonicalUrl } from "../../data/site";
 
 export function getStaticPaths() {
   return projects.map((project) => ({
@@ -21,12 +22,38 @@ const nextProject = projects[(currentIndex + 1) % projects.length];
 
 const siteContainer =
   "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
+
+const pageUrl = canonicalUrl(`/projects/${project.slug}`);
+
+const projectJsonLd = {
+  "@type": "SoftwareApplication",
+  "@id": `${pageUrl}#software`,
+  name: project.title,
+  alternateName: project.poeticTitle,
+  description: project.summary,
+  abstract: project.tagline,
+  keywords: project.technologies.join(", "),
+  author: { "@id": `${site.url}/#person` },
+  creator: { "@id": `${site.url}/#person` },
+  inLanguage: site.language,
+  mainEntityOfPage: pageUrl,
+  ...(project.liveUrl ? { url: project.liveUrl } : {}),
+  ...(project.repoUrl ? { codeRepository: project.repoUrl } : {}),
+};
 ---
 
 <MainLayout
-  title={`${project.title} — Rice Fields · LinCie`}
-  description={project.tagline}
+  title={project.seoTitle}
+  description={project.seoDescription}
   currentRoute={`/projects/${project.slug}`}
+  ogType="article"
+  pageType="ItemPage"
+  breadcrumbs={[
+    { name: "Station Platform", path: "/" },
+    { name: "Rice Fields (Projects)", path: "/projects" },
+    { name: project.title, path: `/projects/${project.slug}` },
+  ]}
+  jsonLd={projectJsonLd}
 >
   <!-- Route Sign & Return Breadcrumb -->
   <section class="border-b border-[#c4b49d] bg-[#f7f2e8] pt-10 pb-8 md:pt-14">

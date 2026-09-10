@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../components/layout/MainLayout.astro";
+import { site, canonicalUrl } from "../data/site";
 
 const siteContainer =
   "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
@@ -69,9 +70,22 @@ const targetEmail = "contact@lincie.me";
 ---
 
 <MainLayout
-  title="The Letterbox — LinCie (Ways to connect)"
-  description="Leave a note at LinCie Station. Intent-based contact for saying hello, exploring backend systems or tailored web craft collaborations, or asking open questions."
+  title="Contact LinCie — Letterbox, Email & GitHub"
+  description="Reach LinCie by email or GitHub. Three letter intents for saying hello, project inquiries, or open questions — no autoresponders, no sales funnels."
   currentRoute="/connect"
+  pageType="ContactPage"
+  breadcrumbs={[
+    { name: "Station Platform", path: "/" },
+    { name: "The Letterbox (Ways to connect)", path: "/connect" },
+  ]}
+  jsonLd={{
+    "@type": "ContactPoint",
+    "@id": `${canonicalUrl("/connect")}#contact`,
+    contactType: "General inquiries",
+    email: `mailto:${targetEmail}`,
+    url: canonicalUrl("/connect"),
+    availableLanguage: site.language,
+  }}
 >
   <!-- Threshold & Wayfinding Banner -->
   <section

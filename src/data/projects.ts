@@ -8,6 +8,8 @@ export interface Project {
   status: "tended" | "harvested";
   statusLabel: string;
   summary: string;
+  seoTitle: string;
+  seoDescription: string;
   metricsSummary: string;
   technologies: string[];
   liveUrl?: string;
@@ -39,6 +41,9 @@ export const projects: Project[] = [
     statusLabel: "Currently Tended",
     summary:
       "A fast, modular POS and ERP backend designed for retail workflows, instant Docker environment setup, and zero-degradation database queries at scale.",
+    seoTitle: "Bearuang — POS & ERP Backend by LinCie",
+    seoDescription:
+      "Bearuang is a modular POS and ERP backend in TypeScript and PostgreSQL, verified at 2,000+ requests per minute against a million-row database.",
     metricsSummary:
       "30+ REST endpoints · 2,000+ req/min (~33 RPS) · 1M+ seeded products",
     technologies: [
@@ -101,6 +106,9 @@ export const projects: Project[] = [
     statusLabel: "Harvested & in Production",
     summary:
       "A complete system rewrite replacing legacy query bottlenecks with explicit Kysely queries, containerizing infrastructure, and automating workflows across Sales, Inventory, and Finance.",
+    seoTitle: "Haebot ERP Rewrite — Enterprise Backend by LinCie",
+    seoDescription:
+      "A ground-up ERP rewrite for PT Haebot Teknologi Indonesia: query latency cut from 2.5s to under 400ms and setup time from an hour to under five minutes.",
     metricsSummary:
       ">84% latency cut (2.5s to <400ms) · >90% faster setup · 25 employees served",
     technologies: [
@@ -167,6 +175,9 @@ export const projects: Project[] = [
     statusLabel: "Harvested & Live",
     summary:
       "An authoritative enterprise company profile and interactive digital experience for a nationwide Indonesian logistics operator, featuring fluid page transitions, custom SVG network schematics, and GSAP scroll choreography.",
+    seoTitle: "Lintas Nusa — Logistics Web Platform by LinCie",
+    seoDescription:
+      "An enterprise logistics web platform built with Astro, GSAP, and Tailwind CSS — five pages, an interactive nine-node SVG network map, and fluid transitions.",
     metricsSummary:
       "5 core enterprise pages · 9-node interactive SVG map · Fluid Swup transitions",
     technologies: [
@@ -228,6 +239,9 @@ export const projects: Project[] = [
     statusLabel: "Harvested & Running",
     summary:
       "A long-running community music bot delivering stutter-free audio streaming, multi-provider source failover, and contextual AI chat interactions.",
+    seoTitle: "Mika — Discord Music Bot by LinCie",
+    seoDescription:
+      "A Discord music bot in TypeScript and Node.js with multi-source audio streaming, automatic source failover, and over two years of continuous uptime.",
     metricsSummary: "2+ years uptime · 6 servers · 1,000+ community members",
     technologies: [
       "TypeScript",

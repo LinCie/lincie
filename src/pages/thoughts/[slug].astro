@@ -1,6 +1,7 @@
 ---
 import MainLayout from "../../components/layout/MainLayout.astro";
 import { thoughts, type Thought } from "../../data/thoughts";
+import { site, absoluteUrl, canonicalUrl } from "../../data/site";
 
 export function getStaticPaths() {
   return thoughts
@@ -24,12 +25,42 @@ const nextThought = published[(currentIndex + 1) % published.length];
 
 const siteContainer =
   "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
+
+const pageUrl = canonicalUrl(`/thoughts/${thought.slug}`);
+
+const thoughtJsonLd = {
+  "@type": "BlogPosting",
+  "@id": `${pageUrl}#article`,
+  headline: thought.title,
+  description: thought.summary,
+  abstract: thought.excerpt,
+  articleSection: thought.topic,
+  keywords: thought.topic,
+  datePublished: thought.isoDate,
+  wordCount: thought.paragraphs.join(" ").split(/\s+/).length,
+  author: { "@id": `${site.url}/#person` },
+  publisher: { "@id": `${site.url}/#person` },
+  image: absoluteUrl(site.ogImage.url),
+  url: pageUrl,
+  mainEntityOfPage: pageUrl,
+  inLanguage: site.language,
+  isPartOf: { "@id": `${canonicalUrl("/thoughts")}#webpage` },
+};
 ---
 
 <MainLayout
-  title={`${thought.title} — The Waiting Room · LinCie`}
+  title={`${thought.title} — LinCie`}
   description={thought.summary}
   currentRoute={`/thoughts/${thought.slug}`}
+  ogType="article"
+  pageType="ItemPage"
+  publishedTime={thought.isoDate}
+  breadcrumbs={[
+    { name: "Station Platform", path: "/" },
+    { name: "The Waiting Room (Thoughts)", path: "/thoughts" },
+    { name: thought.title, path: `/thoughts/${thought.slug}` },
+  ]}
+  jsonLd={thoughtJsonLd}
 >
   <!-- Route Sign & Return Breadcrumb -->
   <section class="border-b border-[#c4b49d] bg-[#f7f2e8] pt-10 pb-8 md:pt-14">

@@ -2,6 +2,7 @@
 import MainLayout from "../components/layout/MainLayout.astro";
 import { projects } from "../data/projects";
 import { thoughts } from "../data/thoughts";
+import { site } from "../data/site";
 
 type Destination = {
   id: string;
@@ -64,7 +65,12 @@ const siteContainer =
   "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
 ---
 
-<MainLayout title="LinCie — Welcome. You made it here.">
+<MainLayout
+  title={site.title}
+  description={site.description}
+  currentRoute="/"
+  pageType="ProfilePage"
+>
   <section
     class="relative isolate min-h-[47rem] overflow-hidden bg-[#c9e0e2] max-[760px]:min-h-0"
     aria-labelledby="arrival-title"

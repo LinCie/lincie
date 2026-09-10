@@ -1,14 +1,55 @@
 ---
 import MainLayout from "../components/layout/MainLayout.astro";
+import { site, canonicalUrl } from "../data/site";
 
 const siteContainer =
   "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
 ---
 
 <MainLayout
-  title="The Workshop — LinCie (Developer Services & Web Craft)"
-  description="Backend developer services in Go and TypeScript, and carefully crafted, anti-AI-slop websites by LinCie. Engineered for speed, reliability, and human workflows."
+  title="Workshop — Backend APIs & Handcrafted Websites by LinCie"
+  description="Backend engineering in Go and TypeScript, plus carefully crafted, anti-AI-slop websites. Built for speed, reliability, accessibility, and real workflows."
   currentRoute="/workshop"
+  pageType="CollectionPage"
+  breadcrumbs={[
+    { name: "Station Platform", path: "/" },
+    { name: "The Workshop (Offers)", path: "/workshop" },
+  ]}
+  jsonLd={{
+    "@type": "ItemList",
+    "@id": `${canonicalUrl("/workshop")}#services`,
+    name: "Backend and web craft services offered by LinCie",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        item: {
+          "@type": "Service",
+          name: "Backend & Systems Engineering",
+          serviceType: "Backend engineering",
+          description:
+            "REST and gRPC API architecture, PostgreSQL database modeling and query tuning, and internal tools and business automation built in Go and TypeScript.",
+          provider: { "@id": `${site.url}/#person` },
+          areaServed: "Worldwide",
+          url: canonicalUrl("/workshop"),
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        item: {
+          "@type": "Service",
+          name: "Carefully Crafted Websites",
+          serviceType: "Web design and development",
+          description:
+            "Hand-tuned, accessible, sub-second websites built with Astro and Tailwind CSS, with semantic HTML, WCAG 2.2 AA contrast, and SEO foundations included.",
+          provider: { "@id": `${site.url}/#person` },
+          areaServed: "Worldwide",
+          url: canonicalUrl("/workshop"),
+        },
+      },
+    ],
+  }}
 >
   <!-- Threshold & Wayfinding Banner -->
   <section

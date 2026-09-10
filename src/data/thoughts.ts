@@ -5,6 +5,8 @@ export interface Thought {
   sensoryWeather: string;
   topic: string;
   date: string;
+  /** ISO 8601 date for structured data and sitemap freshness. Month precision is intentional: only the month is known. */
+  isoDate: string;
   status: "published" | "in-preparation";
   statusLabel: string;
   summary: string;
@@ -21,6 +23,7 @@ export const thoughts: Thought[] = [
     sensoryWeather: "Cool dawn air drifting through open timber windows",
     topic: "Journey & Craft",
     date: "March 2026",
+    isoDate: "2026-03",
     status: "published",
     statusLabel: "Passenger Note #1",
     summary:
@@ -45,6 +48,7 @@ export const thoughts: Thought[] = [
       "Warm breeze over green stalks, sun warming the timber floor",
     topic: "Engineering Philosophy",
     date: "February 2026",
+    isoDate: "2026-02",
     status: "published",
     statusLabel: "Passenger Note #2",
     summary:
@@ -67,6 +71,7 @@ export const thoughts: Thought[] = [
     sensoryWeather: "Amber light across the platform, evening quiet settles in",
     topic: "Sea Labs Trainee",
     date: "April 2026 (Upcoming)",
+    isoDate: "2026-04",
     status: "in-preparation",
     statusLabel: "Resting on the desk · In preparation",
     summary:

@@ -1,15 +1,38 @@
 ---
 import MainLayout from "../../components/layout/MainLayout.astro";
 import { tendedProjects, harvestedProjects } from "../../data/projects";
+import { canonicalUrl } from "../../data/site";
 
 const siteContainer =
   "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
+
+const projectsJsonLd = {
+  "@type": "ItemList",
+  "@id": `${canonicalUrl("/projects")}#projects`,
+  name: "Software projects built by LinCie",
+  numberOfItems: tendedProjects.length + harvestedProjects.length,
+  itemListElement: [...tendedProjects, ...harvestedProjects].map(
+    (project, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: project.title,
+      description: project.summary,
+      url: canonicalUrl(`/projects/${project.slug}`),
+    }),
+  ),
+};
 ---
 
 <MainLayout
-  title="Rice Fields — LinCie (Projects)"
-  description="Cultivated software projects by LinCie. Systems engineered for speed, resilience, and human workflows in Go and TypeScript."
+  title="Projects — Backend & Web Systems Built by LinCie"
+  description="Four cultivated software projects: POS and ERP backends, an enterprise ERP rewrite, a logistics web platform, and a long-running Discord bot."
   currentRoute="/projects"
+  pageType="CollectionPage"
+  breadcrumbs={[
+    { name: "Station Platform", path: "/" },
+    { name: "Rice Fields (Projects)", path: "/projects" },
+  ]}
+  jsonLd={projectsJsonLd}
 >
   <!-- Threshold & Wayfinding Banner -->
   <section

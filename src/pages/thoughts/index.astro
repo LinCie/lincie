@@ -1,18 +1,46 @@
 ---
 import MainLayout from "../../components/layout/MainLayout.astro";
 import { thoughts } from "../../data/thoughts";
+import { site, canonicalUrl } from "../../data/site";
 
 const siteContainer =
   "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
 
 const publishedThoughts = thoughts.filter((t) => t.status === "published");
 const inPrepThoughts = thoughts.filter((t) => t.status === "in-preparation");
+
+const thoughtsJsonLd = {
+  "@type": "ItemList",
+  "@id": `${canonicalUrl("/thoughts")}#notes`,
+  name: "Passenger notes from the LinCie Station waiting room",
+  numberOfItems: publishedThoughts.length,
+  itemListElement: publishedThoughts.map((thought, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "BlogPosting",
+      headline: thought.title,
+      description: thought.summary,
+      articleSection: thought.topic,
+      datePublished: thought.isoDate,
+      url: canonicalUrl(`/thoughts/${thought.slug}`),
+      author: { "@id": `${site.url}/#person` },
+      inLanguage: site.language,
+    },
+  })),
+};
 ---
 
 <MainLayout
-  title="The Waiting Room — LinCie (Personal Thoughts & Reflections)"
-  description="Passenger notes and reflections left at the station table. Human-sized thoughts on backend engineering, database craft, and the unhurried life."
+  title="Thoughts — Notes on Backend Craft & Learning by LinCie"
+  description="Passenger notes from the station table — reflections on backend engineering, database craft, and learning to work unhurried. No algorithms, no metrics."
   currentRoute="/thoughts"
+  pageType="CollectionPage"
+  breadcrumbs={[
+    { name: "Station Platform", path: "/" },
+    { name: "The Waiting Room (Thoughts)", path: "/thoughts" },
+  ]}
+  jsonLd={thoughtsJsonLd}
 >
   <!-- Threshold & Wayfinding Banner -->
   <section
