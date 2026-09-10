@@ -57,116 +57,229 @@ const destinations: Destination[] = [
     tone: "letterbox",
   },
 ];
+
+const siteContainer =
+  "mx-auto w-[calc(100%-40px)] max-w-[1152px] max-[480px]:w-[calc(100%-32px)] md:w-[calc(100%-80px)]";
 ---
 
 <MainLayout title="LinCie — Welcome. You made it here.">
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a
+    class="fixed top-4 left-4 z-20 -translate-y-[160%] rounded-md border border-[#b8614b] bg-[#fffdf8] px-4 py-3 text-sm font-bold text-[#2d332b] transition-transform duration-200 ease-out focus:translate-y-0 motion-reduce:transition-none"
+    href="#main-content">Skip to main content</a
+  >
 
-  <div class="site-shell">
-    <header class="site-header">
-      <div class="site-container header-inner">
+  <div class="min-h-screen overflow-clip bg-[#f7f2e8] text-[#2d332b]">
+    <header class="relative z-10 border-b border-[#c4b49d] bg-[#f7f2e8]/95">
+      <div
+        class={`${siteContainer} flex min-h-[4.5rem] items-center justify-between gap-4 max-[480px]:min-h-16`}
+      >
         <a
-          class="brand"
+          class="inline-flex min-h-11 items-center gap-3 text-[#2d332b] no-underline"
           href="/"
           aria-current="page"
           aria-label="LinCie station home"
         >
-          <span class="brand-mark" aria-hidden="true">
-            <span></span>
+          <span
+            class="relative grid size-8 place-items-center rounded-full border-[1.5px] border-[#b8614b] before:absolute before:block before:h-0 before:w-[1.15rem] before:border-t-[1.5px] before:border-[#b8614b] before:content-[''] after:absolute after:block after:h-[1.15rem] after:w-0 after:border-l-[1.5px] after:border-[#b8614b] after:content-['']"
+            aria-hidden="true"
+          >
+            <span class="size-[.35rem] rounded-full bg-[#b8614b]"></span>
           </span>
-          <span class="brand-name">LinCie</span>
+          <span class="font-serif text-2xl tracking-[-0.02em]">LinCie</span>
         </a>
 
-        <p class="header-status">
-          <span class="status-light" aria-hidden="true"></span>
+        <p
+          class="inline-flex items-center gap-2 font-sans text-xs font-bold tracking-[0.04em] text-[#5f665c] max-[480px]:text-[.68rem]"
+        >
+          <span
+            class="size-[.55rem] shrink-0 rounded-full bg-[#b8614b]"
+            aria-hidden="true"></span>
           Station arrival
         </p>
       </div>
     </header>
 
     <main id="main-content" tabindex="-1">
-      <section class="arrival" aria-labelledby="arrival-title">
-        <div class="arrival-landscape" aria-hidden="true">
-          <span class="morning-sun"></span>
-          <span class="far-hill"></span>
-          <span class="near-field"></span>
-          <span class="station-house-shape">
-            <span class="station-roof"></span>
-            <span class="station-wall">
-              <span class="station-window"></span>
-              <span class="station-window"></span>
-              <span class="station-door"></span>
+      <section
+        class="relative isolate min-h-[47rem] overflow-hidden bg-[#c9e0e2] max-[760px]:min-h-0"
+        aria-labelledby="arrival-title"
+      >
+        <div
+          class="pointer-events-none absolute inset-0 -z-10"
+          aria-hidden="true"
+        >
+          <span
+            class="absolute top-[13%] right-[18%] aspect-square w-[clamp(5rem,10vw,9rem)] rounded-full border border-[#d49a48]/65 bg-[#d49a48]/65 shadow-[0_0_0_1.25rem_rgba(212,154,72,0.15)] max-[760px]:top-[8%] max-[760px]:right-[12%]"
+          ></span>
+          <span
+            class="absolute right-[-8%] bottom-[27%] h-[31%] w-[70%] rotate-[-3deg] rounded-t-[55%] bg-[#6c895f]/35 max-[760px]:bottom-[18%] max-[760px]:h-[19%] max-[760px]:w-[95%]"
+          ></span>
+          <span
+            class="absolute inset-x-[-10%] bottom-[-18%] h-[48%] rotate-[1.5deg] rounded-t-[50%] bg-[#dce7c9] max-[760px]:bottom-[-6%] max-[760px]:h-[31%]"
+          ></span>
+          <span
+            class="absolute right-[5%] bottom-[25%] h-[13rem] w-[min(35vw,27rem)] max-[760px]:right-[-8%] max-[760px]:bottom-[3.5%] max-[760px]:w-72 max-[760px]:origin-bottom-right max-[760px]:scale-75 max-[760px]:opacity-70"
+          >
+            <span
+              class="absolute inset-x-[-4%] top-0 h-9 border border-[#2d332b]/35 bg-[#e9ddc9] [clip-path:polygon(5%_100%,50%_0,95%_100%)]"
+            ></span>
+            <span
+              class="absolute inset-x-[5%] bottom-0 h-[11.5rem] border border-[#c4b49d] bg-[#f5ecdf]"
+            >
+              <span
+                class="absolute bottom-5 left-[13%] block h-[5.5rem] w-[22%] border border-[#c4b49d] bg-[#c9e0e2] shadow-[inset_1.5rem_0_rgba(255,253,248,0.12),inset_-1.5rem_0_rgba(255,253,248,0.12)]"
+              ></span>
+              <span
+                class="absolute bottom-5 left-[39%] block h-[5.5rem] w-[22%] border border-[#c4b49d] bg-[#c9e0e2] shadow-[inset_1.5rem_0_rgba(255,253,248,0.12),inset_-1.5rem_0_rgba(255,253,248,0.12)]"
+              ></span>
+              <span
+                class="absolute right-[12%] bottom-5 block h-28 w-[20%] bg-[#6c895f]"
+              ></span>
             </span>
-            <span class="station-lamp"></span>
+            <span
+              class="absolute top-14 right-[43%] size-3 rounded-full bg-[#d49a48] shadow-[0_0_0_.6rem_rgba(212,154,72,0.24)] motion-safe:animate-pulse motion-reduce:animate-none"
+            ></span>
           </span>
-          <span class="track-system"></span>
-          <span class="grass-cluster grass-cluster-one"></span>
-          <span class="grass-cluster grass-cluster-two"></span>
+          <span
+            class="absolute inset-x-[-6%] bottom-[17%] h-16 rotate-[-1deg] border-y-2 border-[#2d332b]/70 opacity-70 before:absolute before:inset-x-0 before:top-[1.15rem] before:block before:h-[.35rem] before:border-y before:border-[#c4b49d] before:content-[''] after:absolute after:inset-x-0 after:top-[2.5rem] after:block after:h-[.35rem] after:border-y after:border-[#2d332b]/35 after:content-[''] max-[760px]:bottom-[14%]"
+          ></span>
+          <span
+            class="absolute bottom-[19%] left-[7%] h-12 w-8 rotate-[25deg] rounded-[100%_0_0_0] border-l border-[#6c895f] before:absolute before:bottom-0 before:left-2 before:block before:h-[2.65rem] before:w-[1.4rem] before:rounded-[100%_0_0_0] before:border-l before:border-[#6c895f] before:content-[''] after:absolute after:bottom-0 after:left-[.9rem] after:block after:h-[2.65rem] after:w-[1.4rem] after:rounded-[100%_0_0_0] after:border-l after:border-[#6c895f] after:content-['']"
+          ></span>
+          <span
+            class="absolute right-[43%] bottom-[19%] h-12 w-8 scale-[.8] rotate-[25deg] rounded-[100%_0_0_0] border-l border-[#6c895f] before:absolute before:bottom-0 before:left-2 before:block before:h-[2.65rem] before:w-[1.4rem] before:rounded-[100%_0_0_0] before:border-l before:border-[#6c895f] before:content-[''] after:absolute after:bottom-0 after:left-[.9rem] after:block after:h-[2.65rem] after:w-[1.4rem] after:rounded-[100%_0_0_0] after:border-l after:border-[#6c895f] after:content-['']"
+          ></span>
         </div>
 
-        <div class="site-container arrival-inner">
-          <div class="welcome-column">
-            <div class="current-location" aria-label="Current location">
-              <span class="location-signal" aria-hidden="true"></span>
+        <div
+          class={`${siteContainer} relative grid min-h-[47rem] grid-cols-[minmax(0,0.95fr)_minmax(25rem,0.8fr)] grid-rows-[auto_auto] items-center gap-[clamp(2.5rem,7vw,7.5rem)] py-[clamp(3rem,5vw,4rem)] max-[1050px]:grid-cols-[minmax(0,0.9fr)_minmax(22rem,0.8fr)] max-[1050px]:gap-10 max-[760px]:flex max-[760px]:min-h-0 max-[760px]:flex-col max-[760px]:items-stretch max-[760px]:gap-12 max-[760px]:pb-16 max-[760px]:pt-14`}
+        >
+          <div
+            class="relative z-[1] col-start-1 row-start-1 max-w-[38rem] self-start max-[760px]:col-auto max-[760px]:row-auto max-[760px]:max-w-none"
+          >
+            <div
+              class="mb-6 flex w-fit flex-wrap items-center gap-x-3 gap-y-2 border-b border-[#2d332b]/40 pb-[.7rem] font-sans text-[.78rem] tracking-[.02em] text-[#50594d] max-[480px]:gap-x-[.6rem] max-[480px]:text-[.72rem]"
+              aria-label="Current location"
+            >
+              <span
+                class="size-[.55rem] shrink-0 rounded-full bg-[#b8614b]"
+                aria-hidden="true"></span>
               <span>You are here</span>
-              <strong>Platform / Station arrival</strong>
+              <strong class="font-bold text-[#2d332b]"
+                >Platform / Station arrival</strong
+              >
             </div>
 
-            <h1 id="arrival-title">Welcome.<br />You made it <em>here.</em></h1>
+            <h1
+              id="arrival-title"
+              class="max-w-[10ch] font-serif text-[clamp(3.75rem,7.2vw,6rem)] leading-[.99] font-normal tracking-[-0.035em] max-[760px]:max-w-[9ch] max-[760px]:text-[clamp(3.45rem,16vw,5.3rem)]"
+            >
+              Welcome.<br />You made it <em
+                class="font-normal text-[#b8614b] not-italic">here.</em
+              >
+            </h1>
 
-            <p class="welcome-copy">
+            <p
+              class="mt-7 max-w-[38rem] text-[clamp(1.05rem,1.5vw,1.25rem)] leading-[1.55]"
+            >
               LinCie is a software engineering trainee making room for
               thoughtful work, curious ideas, and a life around them.
             </p>
 
-            <p class="identity-line">
-              <span class="identity-rule" aria-hidden="true"></span>
+            <p
+              class="mt-[1.35rem] flex max-w-[32rem] items-start gap-[.85rem] text-[.9rem] leading-[1.55] text-[#50594d]"
+            >
+              <span
+                class="mt-[.7rem] w-9 shrink-0 border-t border-[#b8614b]"
+                aria-hidden="true"></span>
               <span
                 >Take your time. There is no right route through this place.</span
               >
             </p>
 
             <aside
-              class="current-signal"
+              class="mt-8 grid max-w-[31rem] grid-cols-[minmax(7rem,0.3fr)_1fr] gap-x-5 gap-y-[.35rem] border-y border-[#2d332b]/30 py-4 max-[480px]:grid-cols-1 max-[480px]:gap-y-[.45rem]"
               aria-labelledby="current-signal-title"
             >
-              <div class="signal-heading">
-                <span class="signal-dot" aria-hidden="true"></span>
+              <div
+                class="flex items-center gap-2 font-sans text-xs font-bold tracking-[.03em] text-[#50594d]"
+              >
+                <span
+                  class="size-[.55rem] rounded-full bg-[#b8614b]"
+                  aria-hidden="true"></span>
                 <span>Current notice</span>
               </div>
-              <h2 id="current-signal-title">Still making room.</h2>
-              <p>
+              <h2
+                id="current-signal-title"
+                class="font-serif text-[clamp(1.35rem,2vw,1.75rem)] leading-[1.1] font-normal tracking-[-0.025em]"
+              >
+                Still making room.
+              </h2>
+              <p
+                class="col-start-2 text-[.9rem] leading-[1.5] text-[#50594d] max-[480px]:col-start-1"
+              >
                 The rooms below are quiet for now. Their doors are still easy to
                 find.
               </p>
             </aside>
           </div>
 
-          <nav class="station-board" id="board" aria-labelledby="board-title">
-            <div class="board-peg board-peg-left" aria-hidden="true"></div>
-            <div class="board-peg board-peg-right" aria-hidden="true"></div>
+          <nav
+            class="relative z-[1] col-start-2 row-span-2 row-start-1 rotate-[.7deg] self-center rounded-[1.25rem] border border-[#c4b49d] bg-[#e9ddc9] p-[clamp(1.25rem,3vw,2rem)] shadow-[0_16px_34px_rgba(57,52,38,0.14)] max-[760px]:col-auto max-[760px]:row-auto max-[760px]:rotate-0"
+            id="board"
+            aria-labelledby="board-title"
+          >
+            <span
+              class="absolute top-4 left-4 size-[.6rem] rounded-full border border-[#2d332b]/35 bg-[#fffdf8] shadow-[inset_0_1px_2px_rgba(45,51,43,0.14)]"
+              aria-hidden="true"></span>
+            <span
+              class="absolute top-4 right-4 size-[.6rem] rounded-full border border-[#2d332b]/35 bg-[#fffdf8] shadow-[inset_0_1px_2px_rgba(45,51,43,0.14)]"
+              aria-hidden="true"></span>
 
-            <div class="board-heading">
-              <div>
-                <h2 id="board-title">Where would you like to wander?</h2>
-              </div>
-              <p class="board-note">Five rooms, all on this page.</p>
+            <div
+              class="flex items-end justify-between gap-4 border-b border-[#2d332b]/25 px-[.6rem] pt-[.6rem] pb-5 max-[760px]:flex-col max-[760px]:items-start"
+            >
+              <h2
+                id="board-title"
+                class="max-w-[15ch] font-serif text-[clamp(1.65rem,3vw,2.35rem)] leading-[1.05] font-normal tracking-[-0.03em]"
+              >
+                Where would you like to wander?
+              </h2>
+              <p
+                class="max-w-40 text-right text-xs leading-[1.35] text-[#50594d] max-[760px]:max-w-none max-[760px]:text-left"
+              >
+                Five rooms, all on this page.
+              </p>
             </div>
 
-            <ul class="board-list">
+            <ul class="m-0 list-none divide-y divide-[#2d332b]/20 p-0">
               {
                 destinations.map((destination) => (
                   <li>
-                    <a class="board-link" href={`#${destination.id}`}>
-                      <span class="board-link-copy">
-                        <span class="route-place">{destination.place}</span>
-                        <span class="route-label">{destination.label}</span>
-                        <span class="route-invitation">
+                    <a
+                      class="group grid min-h-20 grid-cols-[1fr_auto] items-center gap-4 px-[.6rem] py-[.85rem] text-[#2d332b] no-underline transition-[background-color,padding-inline] duration-200 ease-out hover:bg-[#fffdf8]/55 hover:px-[.95rem] motion-reduce:transition-none max-[480px]:min-h-[5.4rem] max-[480px]:px-0 max-[480px]:hover:px-[.35rem]"
+                      href={`#${destination.id}`}
+                    >
+                      <span class="grid min-w-0 gap-[.14rem]">
+                        <span class="font-serif text-[clamp(1.35rem,2.2vw,1.7rem)] leading-[1.08] tracking-[-0.025em]">
+                          {destination.place}
+                        </span>
+                        <span class="font-sans text-[.76rem] font-bold tracking-[.03em]">
+                          {destination.label}
+                        </span>
+                        <span class="text-[.8rem] leading-[1.35] text-[#50594d] max-[480px]:text-[.75rem]">
                           {destination.invitation}
                         </span>
                       </span>
-                      <span class="route-arrow" aria-hidden="true">
-                        <svg viewBox="0 0 20 20" role="img">
+                      <span
+                        class="grid size-8 shrink-0 place-items-center rounded-full border border-[#2d332b]/30 text-[#b8614b]"
+                        aria-hidden="true"
+                      >
+                        <svg
+                          class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+                          viewBox="0 0 20 20"
+                          role="img"
+                        >
                           <path d="M3 10h13M10 4l6 6-6 6" />
                         </svg>
                       </span>
@@ -176,65 +289,134 @@ const destinations: Destination[] = [
               }
             </ul>
 
-            <div class="board-footer">
-              <span class="board-footer-line" aria-hidden="true"></span>
+            <div
+              class="flex items-center gap-[.6rem] px-[.6rem] pt-4 pb-[.2rem] text-xs text-[#50594d]"
+            >
+              <span class="w-8 border-t border-[#b8614b]" aria-hidden="true"
+              ></span>
               <span>Choose a door, or simply stay a while.</span>
             </div>
           </nav>
 
-          <div class="arrival-gestures" aria-label="Ways to begin">
-            <a class="gesture-link" href="#board">
-              <span class="gesture-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" role="img">
+          <div
+            class="col-start-1 row-start-2 mt-5 grid max-w-[36rem] grid-cols-3 gap-3 max-[1050px]:max-w-[31rem] max-[1050px]:grid-cols-1 max-[760px]:col-auto max-[760px]:row-auto max-[760px]:max-w-none"
+            aria-label="Ways to begin"
+          >
+            <a
+              class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8]/55 p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:bg-[#fffdf8] motion-reduce:transition-none max-[1050px]:min-h-14"
+              href="#board"
+            >
+              <span
+                class="grid size-7 place-items-center rounded-md border border-[#c4b49d] bg-[#fffdf8] text-[#b8614b]"
+                aria-hidden="true"
+              >
+                <svg
+                  class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+                  viewBox="0 0 24 24"
+                  role="img"
+                >
                   <rect x="4" y="3.5" width="16" height="17" rx="1.5"></rect>
                   <path d="M7.5 8h9M7.5 12h9M7.5 16h5"></path>
                 </svg>
               </span>
-              <span class="gesture-copy">
-                <strong>Look at the board</strong>
-                <small>See every room on this page.</small>
+              <span class="grid min-w-0 gap-[.15rem]">
+                <strong class="text-[.8125rem] leading-[1.2]"
+                  >Look at the board</strong
+                >
+                <small class="text-xs leading-[1.25] text-[#50594d]"
+                  >See every room on this page.</small
+                >
               </span>
-              <span class="link-arrow" aria-hidden="true">
-                <svg viewBox="0 0 20 20" role="img">
+              <span
+                class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
+                aria-hidden="true"
+              >
+                <svg
+                  class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+                  viewBox="0 0 20 20"
+                  role="img"
+                >
                   <path d="M3 10h13M10 4l6 6-6 6"></path>
                 </svg>
               </span>
             </a>
 
-            <a class="gesture-link" href="#pause">
-              <span class="gesture-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" role="img">
+            <a
+              class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8]/55 p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:bg-[#fffdf8] motion-reduce:transition-none max-[1050px]:min-h-14"
+              href="#pause"
+            >
+              <span
+                class="grid size-7 place-items-center rounded-md border border-[#c4b49d] bg-[#fffdf8] text-[#b8614b]"
+                aria-hidden="true"
+              >
+                <svg
+                  class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+                  viewBox="0 0 24 24"
+                  role="img"
+                >
                   <path
                     d="M4 16.5h16M6.5 16.5v2M17.5 16.5v2M7 13h10M9 13V8.5h6V13"
                   ></path>
                   <path d="M8 8.5 12 5l4 3.5"></path>
                 </svg>
               </span>
-              <span class="gesture-copy">
-                <strong>Sit for a moment</strong>
-                <small>Stay with the welcome.</small>
+              <span class="grid min-w-0 gap-[.15rem]">
+                <strong class="text-[.8125rem] leading-[1.2]"
+                  >Sit for a moment</strong
+                >
+                <small class="text-xs leading-[1.25] text-[#50594d]"
+                  >Stay with the welcome.</small
+                >
               </span>
-              <span class="link-arrow" aria-hidden="true">
-                <svg viewBox="0 0 20 20" role="img">
+              <span
+                class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
+                aria-hidden="true"
+              >
+                <svg
+                  class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+                  viewBox="0 0 20 20"
+                  role="img"
+                >
                   <path d="M3 10h13M10 4l6 6-6 6"></path>
                 </svg>
               </span>
             </a>
 
-            <a class="gesture-link" href="#about-me">
-              <span class="gesture-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" role="img">
+            <a
+              class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8]/55 p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:bg-[#fffdf8] motion-reduce:transition-none max-[1050px]:min-h-14"
+              href="#about-me"
+            >
+              <span
+                class="grid size-7 place-items-center rounded-md border border-[#c4b49d] bg-[#fffdf8] text-[#b8614b]"
+                aria-hidden="true"
+              >
+                <svg
+                  class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+                  viewBox="0 0 24 24"
+                  role="img"
+                >
                   <path
                     d="M3.5 10.5 12 4l8.5 6.5M5.5 9.5v10h13v-10M9 19.5v-6h6v6"
                   ></path>
                 </svg>
               </span>
-              <span class="gesture-copy">
-                <strong>Step inside</strong>
-                <small>Visit the Station House.</small>
+              <span class="grid min-w-0 gap-[.15rem]">
+                <strong class="text-[.8125rem] leading-[1.2]"
+                  >Step inside</strong
+                >
+                <small class="text-xs leading-[1.25] text-[#50594d]"
+                  >Visit the Station House.</small
+                >
               </span>
-              <span class="link-arrow" aria-hidden="true">
-                <svg viewBox="0 0 20 20" role="img">
+              <span
+                class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
+                aria-hidden="true"
+              >
+                <svg
+                  class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+                  viewBox="0 0 20 20"
+                  role="img"
+                >
                   <path d="M3 10h13M10 4l6 6-6 6"></path>
                 </svg>
               </span>
@@ -243,45 +425,111 @@ const destinations: Destination[] = [
         </div>
       </section>
 
-      <section class="rooms-section" id="rooms" aria-labelledby="rooms-title">
-        <div class="site-container">
-          <div class="section-heading">
-            <div>
-              <h2 id="rooms-title">A small world, still becoming.</h2>
-            </div>
-            <p class="section-intro">
+      <section
+        class="bg-[#f7f2e8] pt-[clamp(5rem,10vw,9rem)] pb-[clamp(5rem,9vw,8rem)]"
+        id="rooms"
+        aria-labelledby="rooms-title"
+      >
+        <div class={siteContainer}>
+          <div
+            class="flex items-end justify-between gap-12 border-b border-[#c4b49d] pb-6 max-[760px]:block"
+          >
+            <h2
+              id="rooms-title"
+              class="max-w-[13ch] font-serif text-[clamp(2.4rem,5vw,4.2rem)] leading-none font-normal tracking-[-0.035em]"
+            >
+              A small world, still becoming.
+            </h2>
+            <p
+              class="max-w-[31rem] text-base leading-[1.6] text-[#5f665c] max-[760px]:mt-5"
+            >
               The places are named now. Their real stories will arrive when
               there is something confirmed to share.
             </p>
           </div>
 
-          <div class="room-list">
+          <div class="mt-4 max-[760px]:mt-0">
             {
-              destinations.map((destination) => (
+              destinations.map((destination, index) => (
                 <article
-                  class={`quiet-room quiet-room-${destination.tone}`}
+                  class:list={[
+                    "grid scroll-mt-6 grid-cols-[minmax(15rem,0.62fr)_minmax(0,1fr)] items-center gap-[clamp(2rem,6vw,6rem)] border-b border-[#c4b49d] py-[clamp(2.5rem,6vw,5rem)] max-[760px]:grid-cols-1 max-[760px]:gap-8 max-[760px]:py-12",
+                    index % 2 === 1 &&
+                      "min-[761px]:grid-cols-[minmax(0,1fr)_minmax(15rem,0.62fr)]",
+                  ]}
                   id={destination.id}
                 >
-                  <div class="room-marker" aria-hidden="true">
-                    <span class="marker-sun" />
-                    <span class="marker-shape marker-shape-one" />
-                    <span class="marker-shape marker-shape-two" />
-                    <span class="marker-sign">
-                      <span>{destination.place}</span>
+                  <div
+                    class:list={[
+                      "relative min-h-[clamp(12rem,24vw,18rem)] overflow-hidden rounded-[1.25rem] border border-[#c4b49d] bg-[#dce7c9] max-[760px]:min-h-[13rem]",
+                      destination.tone === "house" && "bg-[#e9ddc9]",
+                      destination.tone === "workshop" && "bg-[#c9e0e2]",
+                      destination.tone === "thoughts" && "bg-[#fffdf8]",
+                      destination.tone === "letterbox" && "bg-[#e2e2c9]",
+                      index % 2 === 1 &&
+                        "max-[760px]:order-0 min-[761px]:order-2",
+                    ]}
+                    aria-hidden="true"
+                  >
+                    <span class="absolute top-[14%] right-[14%] size-14 rounded-full bg-[#d49a48]/75" />
+                    <span
+                      class:list={[
+                        "absolute bottom-[-13%] left-[-15%] h-[54%] w-[72%] rounded-t-[50%] bg-[#6c895f]/70",
+                        destination.tone === "house" &&
+                          "bottom-0 h-[52%] w-[52%] rounded-none bg-[#f5ecdf] [clip-path:polygon(0_28%,50%_0,100%_28%,100%_100%,0_100%)]",
+                        destination.tone === "workshop" &&
+                          "h-[40%] w-[42%] rounded-t-xl bg-[#fffdf8]/80",
+                        destination.tone === "thoughts" &&
+                          "bottom-[16%] left-[10%] h-[.7rem] w-[65%] rotate-[-8deg] rounded-none bg-[#c4b49d]",
+                        destination.tone === "letterbox" &&
+                          "bottom-[18%] left-[16%] h-[42%] w-[52%] rounded-lg bg-[#b8614b]",
+                      ]}
+                    />
+                    <span
+                      class:list={[
+                        "absolute right-[-18%] bottom-[-13%] h-[54%] w-[60%] rounded-t-[50%] bg-[#6c895f]/42",
+                        destination.tone === "house" &&
+                          "bottom-0 h-[52%] w-[52%] rounded-none bg-[#f5ecdf] [clip-path:polygon(0_28%,50%_0,100%_28%,100%_100%,0_100%)]",
+                        destination.tone === "thoughts" &&
+                          "right-[7%] h-[70%] w-px rounded-none bg-[#c4b49d]",
+                        destination.tone === "letterbox" &&
+                          "right-[12%] bottom-[18%] h-[58%] w-[24%] rounded-none bg-[#f5ecdf]",
+                      ]}
+                    />
+                    <span class="absolute inset-x-[13%] bottom-[13%] grid min-h-11 place-items-center border border-[#c4b49d] bg-[#fffdf8] p-2 text-center font-serif text-[clamp(1rem,2vw,1.35rem)] text-[#2d332b] shadow-[0_8px_18px_rgba(57,52,38,0.11)]">
+                      {destination.place}
                     </span>
                   </div>
 
-                  <div class="room-copy">
-                    <div class="room-heading-row">
-                      <h3>{destination.label}</h3>
-                      <span class="quiet-state">Quiet for now</span>
+                  <div class="max-w-[38rem]">
+                    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-[.9rem]">
+                      <h3 class="font-serif text-[clamp(2rem,4vw,3.2rem)] leading-none font-normal tracking-[-0.03em]">
+                        {destination.label}
+                      </h3>
+                      <span class="font-sans text-[.72rem] font-bold tracking-[.04em] text-[#843d2f] uppercase">
+                        Quiet for now
+                      </span>
                     </div>
-                    <p class="room-place">{destination.place}</p>
-                    <p class="room-note">{destination.roomNote}</p>
-                    <a class="room-return" href="#board">
+                    <p class="mt-[.65rem] font-sans text-[.82rem] font-bold tracking-[.03em] text-[#5f665c]">
+                      {destination.place}
+                    </p>
+                    <p class="mt-[1.35rem] max-w-[36rem] text-[1.05rem] leading-[1.65] text-[#5f665c]">
+                      {destination.roomNote}
+                    </p>
+                    <a
+                      class="mt-7 inline-flex min-h-11 items-center gap-[.45rem] font-sans text-[.83rem] font-bold text-[#2d332b] underline decoration-[#b8614b] decoration-1 underline-offset-[.3rem] transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] hover:text-[#843d2f] motion-reduce:transition-none"
+                      href="#board"
+                    >
                       <span>Return to the station board</span>
-                      <span class="link-arrow" aria-hidden="true">
-                        <svg viewBox="0 0 20 20" role="img">
+                      <span
+                        class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
+                        aria-hidden="true"
+                      >
+                        <svg
+                          class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+                          viewBox="0 0 20 20"
+                          role="img"
+                        >
                           <path d="M3 10h13M10 4l6 6-6 6" />
                         </svg>
                       </span>
@@ -294,22 +542,49 @@ const destinations: Destination[] = [
         </div>
       </section>
 
-      <section class="pause-section" id="pause" aria-labelledby="pause-title">
-        <div class="site-container pause-inner">
-          <div class="pause-mark" aria-hidden="true">
-            <span></span>
+      <section
+        class="border-t border-[#c4b49d] bg-[#fffdf8]"
+        id="pause"
+        aria-labelledby="pause-title"
+      >
+        <div
+          class={`${siteContainer} grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-6 py-[clamp(3rem,7vw,5.5rem)] max-[760px]:grid-cols-[auto_minmax(0,1fr)] max-[480px]:grid-cols-1`}
+        >
+          <div
+            class="grid size-14 place-items-center rounded-full border border-[#c4b49d] bg-[#e9ddc9] max-[480px]:size-12"
+            aria-hidden="true"
+          >
+            <span class="size-[1.1rem] rounded-full border border-[#b8614b]"
+            ></span>
           </div>
           <div>
-            <h2 id="pause-title">You can pause here.</h2>
-            <p>
+            <h2
+              id="pause-title"
+              class="font-serif text-[clamp(2rem,4vw,3.4rem)] leading-none font-normal tracking-[-0.03em]"
+            >
+              You can pause here.
+            </h2>
+            <p
+              class="mt-3 max-w-[40rem] text-base leading-[1.6] text-[#5f665c]"
+            >
               There is no tour to finish and nothing to keep up with. Come back
               when you feel like wandering again.
             </p>
           </div>
-          <a class="back-to-top" href="#main-content">
+          <a
+            class="inline-flex min-h-11 items-center gap-[.45rem] font-sans text-[.83rem] font-bold text-[#2d332b] underline decoration-[#b8614b] decoration-1 underline-offset-[.3rem] transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] hover:text-[#843d2f] motion-reduce:transition-none max-[760px]:col-start-2 max-[760px]:justify-self-start max-[480px]:col-start-1"
+            href="#main-content"
+          >
             <span>Back to the platform</span>
-            <span class="link-arrow" aria-hidden="true">
-              <svg viewBox="0 0 20 20" role="img">
+            <span
+              class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
+              aria-hidden="true"
+            >
+              <svg
+                class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
+                viewBox="0 0 20 20"
+                role="img"
+              >
                 <path d="M3 10h13M10 4l6 6-6 6"></path>
               </svg>
             </span>
@@ -318,1323 +593,43 @@ const destinations: Destination[] = [
       </section>
     </main>
 
-    <footer class="return-platform" id="return-platform">
-      <div class="site-container footer-inner">
+    <footer class="bg-[#384637] text-[#f7f2e8]">
+      <div
+        class={`${siteContainer} grid grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-8 py-10 max-[760px]:grid-cols-1 max-[760px]:gap-6`}
+      >
         <div>
-          <p class="footer-sign">LinCie Station</p>
-          <p class="footer-copy">A personal world first. A portfolio second.</p>
+          <p class="font-serif text-[1.55rem] tracking-[-0.02em]">
+            LinCie Station
+          </p>
+          <p class="mt-[.35rem] text-[.8rem] text-[#f7f2e8]/72">
+            A personal world first. A portfolio second.
+          </p>
         </div>
 
-        <nav class="footer-nav" aria-label="Return navigation">
-          <a href="#board">Station board</a>
-          <a href="#rooms">Quiet rooms</a>
-          <a href="#main-content">Top of page</a>
+        <nav
+          class="flex flex-wrap justify-end gap-[1.1rem] max-[760px]:justify-start"
+          aria-label="Return navigation"
+        >
+          <a
+            class="inline-flex min-h-11 items-center font-sans text-xs font-bold text-[#f7f2e8] underline decoration-[#b8614b] decoration-1 underline-offset-1 transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] hover:text-[#f7f2e8] motion-reduce:transition-none"
+            href="#board">Station board</a
+          >
+          <a
+            class="inline-flex min-h-11 items-center font-sans text-xs font-bold text-[#f7f2e8] underline decoration-[#b8614b] decoration-1 underline-offset-1 transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] hover:text-[#f7f2e8] motion-reduce:transition-none"
+            href="#rooms">Quiet rooms</a
+          >
+          <a
+            class="inline-flex min-h-11 items-center font-sans text-xs font-bold text-[#f7f2e8] underline decoration-[#b8614b] decoration-1 underline-offset-1 transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] hover:text-[#f7f2e8] motion-reduce:transition-none"
+            href="#main-content">Top of page</a
+          >
         </nav>
 
-        <p class="footer-note">No route to complete.</p>
+        <p
+          class="text-[.8rem] whitespace-nowrap text-[#f7f2e8]/72 max-[480px]:whitespace-normal"
+        >
+          No route to complete.
+        </p>
       </div>
     </footer>
   </div>
 </MainLayout>
-
-<style>
-  /* The station scene uses local CSS for its responsive physical layers; the content remains native HTML anchors. */
-  :global(:root) {
-    --sunlit: #f7f2e8;
-    --paper: #fffdf8;
-    --station: #e9ddc9;
-    --field: #dce7c9;
-    --sky: #c9e0e2;
-    --ink: #2d332b;
-    --quiet: #5f665c;
-    --line: #c4b49d;
-    --green: #6c895f;
-    --terracotta: #b8614b;
-    --signal-ink: #843d2f;
-    --quiet-strong: #50594d;
-    --gold: #d49a48;
-    --deep-green: #384637;
-    --shadow: 0 16px 34px rgba(57, 52, 38, 0.14);
-  }
-
-  :global(html) {
-    scroll-padding-top: 1.5rem;
-  }
-
-  :global(body) {
-    background: var(--sunlit);
-    color: var(--ink);
-  }
-
-  .site-shell {
-    min-height: 100vh;
-    overflow: clip;
-    background: var(--sunlit);
-  }
-
-  .site-container {
-    width: min(calc(100% - 40px), 1152px);
-    margin-inline: auto;
-  }
-
-  .skip-link {
-    position: fixed;
-    z-index: 20;
-    top: 1rem;
-    left: 1rem;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--terracotta);
-    border-radius: 0.375rem;
-    background: var(--paper);
-    color: var(--ink);
-    font-size: 0.875rem;
-    font-weight: 700;
-    transform: translateY(-160%);
-    transition: transform 180ms ease-out;
-  }
-
-  .skip-link:focus {
-    transform: translateY(0);
-  }
-
-  .site-header {
-    position: relative;
-    z-index: 5;
-    border-bottom: 1px solid var(--line);
-    background: color-mix(in srgb, var(--sunlit) 94%, transparent);
-  }
-
-  .header-inner {
-    display: flex;
-    min-height: 4.5rem;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
-  .brand,
-  .header-status,
-  .signal-heading,
-  .quiet-state,
-  .footer-sign {
-    font-family: ui-sans-serif, system-ui, sans-serif;
-  }
-
-  .brand {
-    display: inline-flex;
-    min-height: 2.75rem;
-    align-items: center;
-    gap: 0.75rem;
-    color: var(--ink);
-    text-decoration: none;
-  }
-
-  .brand-mark {
-    position: relative;
-    display: grid;
-    width: 2rem;
-    height: 2rem;
-    place-items: center;
-    border: 1.5px solid var(--terracotta);
-    border-radius: 50%;
-  }
-
-  .brand-mark::before,
-  .brand-mark::after,
-  .brand-mark span {
-    position: absolute;
-    display: block;
-    content: "";
-  }
-
-  .brand-mark::before {
-    width: 1.15rem;
-    border-top: 1.5px solid var(--terracotta);
-  }
-
-  .brand-mark::after {
-    height: 1.15rem;
-    border-left: 1.5px solid var(--terracotta);
-  }
-
-  .brand-mark span {
-    width: 0.35rem;
-    height: 0.35rem;
-    border-radius: 50%;
-    background: var(--terracotta);
-  }
-
-  .brand-name {
-    font-family: Georgia, "Noto Serif", serif;
-    font-size: 1.5rem;
-    letter-spacing: -0.02em;
-  }
-
-  .header-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--quiet);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-  }
-
-  .status-light,
-  .location-signal,
-  .signal-dot {
-    display: inline-block;
-    width: 0.55rem;
-    height: 0.55rem;
-    flex: 0 0 auto;
-    border-radius: 50%;
-    background: var(--terracotta);
-  }
-
-  .arrival {
-    position: relative;
-    isolation: isolate;
-    min-height: 47rem;
-    overflow: hidden;
-    background: var(--sky);
-  }
-
-  .arrival-landscape,
-  .arrival-landscape > span {
-    position: absolute;
-    pointer-events: none;
-  }
-
-  .arrival-landscape {
-    inset: 0;
-    z-index: -1;
-  }
-
-  .morning-sun {
-    top: 13%;
-    right: 18%;
-    width: clamp(5rem, 10vw, 9rem);
-    aspect-ratio: 1;
-    border: 1px solid color-mix(in srgb, var(--gold) 65%, var(--sky));
-    border-radius: 50%;
-    background: color-mix(in srgb, var(--gold) 65%, var(--sky));
-    box-shadow: 0 0 0 1.25rem color-mix(in srgb, var(--gold) 15%, transparent);
-  }
-
-  .far-hill {
-    right: -8%;
-    bottom: 27%;
-    width: 70%;
-    height: 31%;
-    border-radius: 58% 42% 0 0 / 100% 100% 0 0;
-    background: color-mix(in srgb, var(--green) 35%, var(--sky));
-    transform: rotate(-3deg);
-  }
-
-  .near-field {
-    right: -10%;
-    bottom: -18%;
-    left: -10%;
-    height: 48%;
-    border-radius: 50% 50% 0 0 / 20% 20% 0 0;
-    background: var(--field);
-    transform: rotate(1.5deg);
-  }
-
-  .station-house-shape {
-    right: 5%;
-    bottom: 25%;
-    width: min(35vw, 27rem);
-    height: 13rem;
-  }
-
-  .station-roof {
-    right: -4%;
-    left: -4%;
-    height: 2.25rem;
-    border: 1px solid color-mix(in srgb, var(--ink) 35%, var(--station));
-    background: var(--station);
-    clip-path: polygon(5% 100%, 50% 0, 95% 100%);
-  }
-
-  .station-wall {
-    right: 5%;
-    bottom: 0;
-    left: 5%;
-    height: 11.5rem;
-    border: 1px solid var(--line);
-    background: color-mix(in srgb, var(--paper) 55%, var(--station));
-  }
-
-  .station-window,
-  .station-door {
-    position: absolute;
-    bottom: 1.25rem;
-    display: block;
-    border: 1px solid var(--line);
-    background: var(--sky);
-  }
-
-  .station-window {
-    left: 13%;
-    width: 22%;
-    height: 5.5rem;
-    box-shadow:
-      inset 1.5rem 0 0 color-mix(in srgb, var(--paper) 12%, transparent),
-      inset -1.5rem 0 0 color-mix(in srgb, var(--paper) 12%, transparent);
-  }
-
-  .station-window + .station-window {
-    left: 39%;
-  }
-
-  .station-door {
-    right: 12%;
-    width: 20%;
-    height: 7rem;
-    background: var(--green);
-  }
-
-  .station-lamp {
-    top: 3.5rem;
-    right: 43%;
-    width: 0.75rem;
-    height: 0.75rem;
-    border-radius: 50%;
-    background: var(--gold);
-    box-shadow: 0 0 0 0.6rem color-mix(in srgb, var(--gold) 24%, transparent);
-  }
-
-  .track-system {
-    right: -6%;
-    bottom: 17%;
-    left: -6%;
-    height: 4rem;
-    border-top: 2px solid color-mix(in srgb, var(--ink) 72%, transparent);
-    border-bottom: 2px solid color-mix(in srgb, var(--ink) 72%, transparent);
-    opacity: 0.72;
-    transform: rotate(-1deg);
-  }
-
-  .track-system::before,
-  .track-system::after {
-    position: absolute;
-    top: 1.15rem;
-    right: 0;
-    left: 0;
-    display: block;
-    height: 0.35rem;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    content: "";
-  }
-
-  .track-system::after {
-    top: 2.5rem;
-    border-color: color-mix(in srgb, var(--ink) 35%, transparent);
-  }
-
-  .grass-cluster {
-    bottom: 19%;
-    width: 2rem;
-    height: 3rem;
-    border-left: 1px solid var(--green);
-    border-radius: 100% 0 0 0;
-    transform: rotate(25deg);
-  }
-
-  .grass-cluster::before,
-  .grass-cluster::after {
-    position: absolute;
-    bottom: 0;
-    display: block;
-    width: 1.4rem;
-    height: 2.65rem;
-    border-left: 1px solid var(--green);
-    border-radius: 100% 0 0 0;
-    content: "";
-  }
-
-  .grass-cluster::before {
-    left: 0.5rem;
-    transform: rotate(18deg);
-  }
-
-  .grass-cluster::after {
-    left: 0.9rem;
-    transform: rotate(37deg);
-  }
-
-  .grass-cluster-one {
-    left: 7%;
-  }
-
-  .grass-cluster-two {
-    right: 43%;
-    transform: scale(0.8) rotate(25deg);
-  }
-
-  .arrival-inner {
-    position: relative;
-    display: grid;
-    min-height: 47rem;
-    grid-template-columns: minmax(0, 0.95fr) minmax(25rem, 0.8fr);
-    grid-template-rows: auto auto;
-    align-items: center;
-    gap: clamp(2.5rem, 7vw, 7.5rem);
-    padding-top: clamp(3rem, 5vw, 4rem);
-    padding-bottom: clamp(3rem, 5vw, 4rem);
-  }
-
-  .welcome-column {
-    position: relative;
-    z-index: 2;
-    max-width: 38rem;
-    grid-column: 1;
-    grid-row: 1;
-    align-self: start;
-  }
-
-  .current-location {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem 0.75rem;
-    width: fit-content;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.7rem;
-    border-bottom: 1px solid color-mix(in srgb, var(--ink) 38%, transparent);
-    color: var(--quiet-strong);
-    font-family: ui-sans-serif, system-ui, sans-serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.02em;
-  }
-
-  .current-location strong {
-    color: var(--ink);
-    font-weight: 700;
-  }
-
-  h1,
-  h2,
-  h3,
-  p {
-    margin: 0;
-  }
-
-  h1,
-  h2,
-  h3,
-  .brand-name,
-  .route-place,
-  .footer-sign {
-    font-family: Georgia, "Noto Serif", serif;
-    font-weight: 400;
-  }
-
-  h1 {
-    max-width: 10ch;
-    font-size: clamp(3.75rem, 7.2vw, 6rem);
-    letter-spacing: -0.035em;
-    line-height: 0.99;
-  }
-
-  h1 em {
-    color: var(--terracotta);
-    font-style: normal;
-  }
-
-  .welcome-copy {
-    max-width: 38rem;
-    margin-top: 1.75rem;
-    color: var(--ink);
-    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
-    line-height: 1.55;
-  }
-
-  .identity-line {
-    display: flex;
-    max-width: 32rem;
-    align-items: flex-start;
-    gap: 0.85rem;
-    margin-top: 1.35rem;
-    color: var(--quiet-strong);
-    font-size: 0.9rem;
-    line-height: 1.55;
-  }
-
-  .identity-rule {
-    width: 2.25rem;
-    flex: 0 0 auto;
-    margin-top: 0.7rem;
-    border-top: 1px solid var(--terracotta);
-  }
-
-  .current-signal {
-    display: grid;
-    max-width: 31rem;
-    grid-template-columns: minmax(7rem, 0.3fr) 1fr;
-    gap: 0.35rem 1.25rem;
-    margin-top: 2rem;
-    padding-block: 1rem;
-    border-top: 1px solid color-mix(in srgb, var(--ink) 30%, transparent);
-    border-bottom: 1px solid color-mix(in srgb, var(--ink) 30%, transparent);
-  }
-
-  .signal-heading {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--quiet-strong);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-  }
-
-  .current-signal h2 {
-    font-size: clamp(1.35rem, 2vw, 1.75rem);
-    letter-spacing: -0.025em;
-    line-height: 1.1;
-  }
-
-  .current-signal p {
-    grid-column: 2;
-    color: var(--quiet-strong);
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-
-  .arrival-gestures {
-    display: grid;
-    max-width: 36rem;
-    grid-column: 1;
-    grid-row: 2;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.75rem;
-    margin-top: 1.25rem;
-  }
-
-  .gesture-link {
-    display: grid;
-    min-width: 0;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 0.65rem;
-    min-height: 4.2rem;
-    padding: 0.75rem;
-    border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent);
-    border-radius: 0.75rem;
-    background: color-mix(in srgb, var(--paper) 55%, transparent);
-    color: var(--ink);
-    text-decoration: none;
-    transition:
-      border-color 180ms ease-out,
-      background-color 180ms ease-out,
-      transform 180ms ease-out;
-  }
-
-  .gesture-link:hover {
-    border-color: var(--terracotta);
-    background: var(--paper);
-    transform: translateY(-2px);
-  }
-
-  .gesture-icon {
-    display: grid;
-    width: 1.75rem;
-    height: 1.75rem;
-    place-items: center;
-    border: 1px solid var(--line);
-    border-radius: 0.375rem;
-    background: var(--paper);
-    color: var(--terracotta);
-  }
-
-  .gesture-icon svg,
-  .link-arrow svg,
-  .route-arrow svg {
-    display: block;
-    width: 1rem;
-    height: 1rem;
-    fill: none;
-    stroke: currentColor;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-width: 1.5;
-  }
-
-  .gesture-copy {
-    display: grid;
-    min-width: 0;
-    gap: 0.15rem;
-  }
-
-  .gesture-copy strong {
-    font-size: 0.8125rem;
-    line-height: 1.2;
-  }
-
-  .gesture-copy small {
-    color: var(--quiet-strong);
-    font-size: 0.75rem;
-    line-height: 1.25;
-  }
-
-  .link-arrow {
-    display: inline-grid;
-    width: 1.3rem;
-    height: 1.3rem;
-    flex: 0 0 auto;
-    place-items: center;
-    color: var(--terracotta);
-  }
-
-  .station-board {
-    position: relative;
-    z-index: 2;
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    align-self: center;
-    padding: clamp(1.25rem, 3vw, 2rem);
-    border: 1px solid var(--line);
-    border-radius: 1.25rem;
-    background: var(--station);
-    box-shadow: var(--shadow);
-    transform: rotate(0.7deg);
-  }
-
-  .board-peg {
-    position: absolute;
-    top: 1rem;
-    width: 0.6rem;
-    height: 0.6rem;
-    border: 1px solid color-mix(in srgb, var(--ink) 35%, var(--station));
-    border-radius: 50%;
-    background: var(--paper);
-    box-shadow: inset 0 1px 2px rgba(45, 51, 43, 0.14);
-  }
-
-  .board-peg-left {
-    left: 1rem;
-  }
-
-  .board-peg-right {
-    right: 1rem;
-  }
-
-  .board-heading {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.6rem 0.6rem 1.25rem;
-    border-bottom: 1px solid color-mix(in srgb, var(--ink) 24%, transparent);
-  }
-
-  .board-heading h2 {
-    max-width: 15ch;
-    margin-top: 0;
-    font-size: clamp(1.65rem, 3vw, 2.35rem);
-    letter-spacing: -0.03em;
-    line-height: 1.05;
-  }
-
-  .board-note {
-    max-width: 10rem;
-    color: var(--quiet-strong);
-    font-size: 0.75rem;
-    line-height: 1.35;
-    text-align: right;
-  }
-
-  .board-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .board-list li + li {
-    border-top: 1px solid color-mix(in srgb, var(--ink) 22%, transparent);
-  }
-
-  .board-link {
-    display: grid;
-    min-height: 5rem;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.85rem 0.6rem;
-    color: var(--ink);
-    text-decoration: none;
-    transition:
-      background-color 180ms ease-out,
-      padding-inline 180ms ease-out;
-  }
-
-  .board-link:hover {
-    padding-inline: 0.95rem;
-    background: color-mix(in srgb, var(--paper) 52%, transparent);
-  }
-
-  .board-link-copy {
-    display: grid;
-    min-width: 0;
-    gap: 0.14rem;
-  }
-
-  .route-place {
-    font-size: clamp(1.35rem, 2.2vw, 1.7rem);
-    letter-spacing: -0.025em;
-    line-height: 1.08;
-  }
-
-  .route-label {
-    color: var(--ink);
-    font-family: ui-sans-serif, system-ui, sans-serif;
-    font-size: 0.76rem;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-  }
-
-  .route-invitation {
-    color: var(--quiet-strong);
-    font-size: 0.8rem;
-    line-height: 1.35;
-  }
-
-  .route-arrow {
-    display: grid;
-    width: 2rem;
-    height: 2rem;
-    flex: 0 0 auto;
-    place-items: center;
-    border: 1px solid color-mix(in srgb, var(--ink) 30%, transparent);
-    border-radius: 50%;
-    color: var(--terracotta);
-  }
-
-  .board-footer {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 1rem 0.6rem 0.2rem;
-    color: var(--quiet-strong);
-    font-size: 0.75rem;
-  }
-
-  .board-footer-line {
-    width: 2rem;
-    border-top: 1px solid var(--terracotta);
-  }
-
-  .rooms-section {
-    padding: clamp(5rem, 10vw, 9rem) 0 clamp(5rem, 9vw, 8rem);
-    background: var(--sunlit);
-  }
-
-  .section-heading {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 3rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .section-heading h2 {
-    max-width: 13ch;
-    margin-top: 0;
-    font-size: clamp(2.4rem, 5vw, 4.2rem);
-    letter-spacing: -0.035em;
-    line-height: 1;
-  }
-
-  .section-intro {
-    max-width: 31rem;
-    color: var(--quiet);
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  .room-list {
-    margin-top: 1rem;
-  }
-
-  .quiet-room {
-    display: grid;
-    grid-template-columns: minmax(15rem, 0.62fr) minmax(0, 1fr);
-    align-items: center;
-    gap: clamp(2rem, 6vw, 6rem);
-    padding-block: clamp(2.5rem, 6vw, 5rem);
-    border-bottom: 1px solid var(--line);
-    scroll-margin-top: 1.5rem;
-  }
-
-  .quiet-room:nth-child(even) {
-    grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.62fr);
-  }
-
-  .quiet-room:nth-child(even) .room-marker {
-    order: 2;
-  }
-
-  .room-marker {
-    position: relative;
-    min-height: clamp(12rem, 24vw, 18rem);
-    overflow: hidden;
-    border: 1px solid var(--line);
-    border-radius: 1.25rem;
-    background: var(--field);
-  }
-
-  .quiet-room-house .room-marker {
-    background: var(--station);
-  }
-
-  .quiet-room-workshop .room-marker {
-    background: var(--sky);
-  }
-
-  .quiet-room-thoughts .room-marker {
-    background: var(--paper);
-  }
-
-  .quiet-room-letterbox .room-marker {
-    background: color-mix(in srgb, var(--station) 70%, var(--field));
-  }
-
-  .marker-sun {
-    position: absolute;
-    top: 14%;
-    right: 14%;
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 50%;
-    background: color-mix(in srgb, var(--gold) 74%, var(--paper));
-  }
-
-  .marker-shape {
-    position: absolute;
-    bottom: -13%;
-    width: 72%;
-    height: 54%;
-    border-radius: 50% 50% 0 0 / 35% 35% 0 0;
-    background: color-mix(in srgb, var(--green) 70%, var(--field));
-  }
-
-  .marker-shape-one {
-    left: -15%;
-  }
-
-  .marker-shape-two {
-    right: -18%;
-    width: 60%;
-    background: color-mix(in srgb, var(--green) 42%, var(--field));
-  }
-
-  .quiet-room-house .marker-shape-one,
-  .quiet-room-house .marker-shape-two {
-    bottom: 0;
-    width: 52%;
-    height: 52%;
-    border-radius: 0;
-    background: color-mix(in srgb, var(--paper) 60%, var(--station));
-    clip-path: polygon(0 28%, 50% 0, 100% 28%, 100% 100%, 0 100%);
-  }
-
-  .quiet-room-workshop .marker-shape-one {
-    width: 42%;
-    height: 40%;
-    border-radius: 0.6rem 0.6rem 0 0;
-    background: color-mix(in srgb, var(--paper) 80%, var(--sky));
-  }
-
-  .quiet-room-thoughts .marker-shape-one {
-    bottom: 16%;
-    left: 10%;
-    width: 65%;
-    height: 0.7rem;
-    border-radius: 0;
-    background: var(--line);
-    transform: rotate(-8deg);
-  }
-
-  .quiet-room-thoughts .marker-shape-two {
-    right: 7%;
-    width: 1px;
-    height: 70%;
-    border-radius: 0;
-    background: var(--line);
-  }
-
-  .quiet-room-letterbox .marker-shape-one {
-    bottom: 18%;
-    left: 16%;
-    width: 52%;
-    height: 42%;
-    border-radius: 0.5rem;
-    background: var(--terracotta);
-  }
-
-  .quiet-room-letterbox .marker-shape-two {
-    right: 12%;
-    bottom: 18%;
-    width: 24%;
-    height: 58%;
-    border-radius: 0;
-    background: color-mix(in srgb, var(--paper) 70%, var(--station));
-  }
-
-  .marker-sign {
-    position: absolute;
-    right: 13%;
-    bottom: 13%;
-    left: 13%;
-    display: grid;
-    min-height: 2.8rem;
-    place-items: center;
-    padding: 0.5rem;
-    border: 1px solid var(--line);
-    background: var(--paper);
-    box-shadow: 0 8px 18px rgba(57, 52, 38, 0.11);
-    color: var(--ink);
-    font-family: Georgia, "Noto Serif", serif;
-    font-size: clamp(1rem, 2vw, 1.35rem);
-    text-align: center;
-  }
-
-  .room-copy {
-    max-width: 38rem;
-  }
-
-  .room-heading-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.9rem 1rem;
-  }
-
-  .room-heading-row h3 {
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    letter-spacing: -0.03em;
-    line-height: 1;
-  }
-
-  .quiet-state {
-    color: var(--signal-ink);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
-  .room-place {
-    margin-top: 0.65rem;
-    color: var(--quiet);
-    font-family: ui-sans-serif, system-ui, sans-serif;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-  }
-
-  .room-note {
-    max-width: 36rem;
-    margin-top: 1.35rem;
-    color: var(--quiet);
-    font-size: 1.05rem;
-    line-height: 1.65;
-  }
-
-  .room-return,
-  .back-to-top,
-  .footer-nav a {
-    display: inline-flex;
-    min-height: 2.75rem;
-    align-items: center;
-    gap: 0.45rem;
-    color: var(--ink);
-    font-family: ui-sans-serif, system-ui, sans-serif;
-    font-size: 0.83rem;
-    font-weight: 700;
-    text-decoration: underline;
-    text-decoration-color: var(--terracotta);
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.3rem;
-    transition:
-      color 180ms ease-out,
-      gap 180ms ease-out;
-  }
-
-  .room-return {
-    margin-top: 1.75rem;
-  }
-
-  .room-return:hover,
-  .back-to-top:hover {
-    gap: 0.7rem;
-    color: var(--signal-ink);
-  }
-
-  .footer-nav a:hover {
-    gap: 0.7rem;
-    color: var(--sunlit);
-  }
-
-  .pause-section {
-    border-top: 1px solid var(--line);
-    background: var(--paper);
-  }
-
-  .pause-inner {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 1.5rem;
-    padding-block: clamp(3rem, 7vw, 5.5rem);
-  }
-
-  .pause-mark {
-    display: grid;
-    width: 3.5rem;
-    height: 3.5rem;
-    place-items: center;
-    border: 1px solid var(--line);
-    border-radius: 50%;
-    background: var(--station);
-  }
-
-  .pause-mark span {
-    width: 1.1rem;
-    height: 1.1rem;
-    border: 1px solid var(--terracotta);
-    border-radius: 50%;
-  }
-
-  .pause-inner h2 {
-    font-size: clamp(2rem, 4vw, 3.4rem);
-    letter-spacing: -0.03em;
-    line-height: 1;
-  }
-
-  .pause-inner p {
-    max-width: 40rem;
-    margin-top: 0.75rem;
-    color: var(--quiet);
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  .return-platform {
-    background: var(--deep-green);
-    color: var(--sunlit);
-  }
-
-  .footer-inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto auto;
-    align-items: center;
-    gap: 2rem;
-    padding-block: 2.5rem;
-  }
-
-  .footer-sign {
-    font-size: 1.55rem;
-    letter-spacing: -0.02em;
-  }
-
-  .footer-copy,
-  .footer-note {
-    margin-top: 0.35rem;
-    color: color-mix(in srgb, var(--sunlit) 72%, var(--deep-green));
-    font-size: 0.8rem;
-  }
-
-  .footer-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: end;
-    gap: 1.1rem;
-  }
-
-  .footer-nav a {
-    color: var(--sunlit);
-    font-size: 0.75rem;
-    text-underline-offset: 0.25rem;
-  }
-
-  .footer-note {
-    margin-top: 0;
-    white-space: nowrap;
-  }
-
-  @media (min-width: 768px) {
-    .site-container {
-      width: min(calc(100% - 80px), 1152px);
-    }
-  }
-
-  @media (max-width: 1050px) {
-    .arrival-inner {
-      grid-template-columns: minmax(0, 0.9fr) minmax(22rem, 0.8fr);
-      gap: 2.5rem;
-    }
-
-    .arrival-gestures {
-      grid-template-columns: 1fr;
-      max-width: 31rem;
-    }
-
-    .gesture-link {
-      min-height: 3.5rem;
-    }
-
-    .gesture-copy small {
-      white-space: normal;
-    }
-  }
-
-  @media (max-width: 760px) {
-    .arrival {
-      min-height: auto;
-    }
-
-    .arrival-inner {
-      display: flex;
-      min-height: auto;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 3rem;
-      padding-top: 3.5rem;
-      padding-bottom: 4rem;
-    }
-
-    .welcome-column,
-    .station-board,
-    .arrival-gestures {
-      grid-column: auto;
-      grid-row: auto;
-    }
-
-    .welcome-column {
-      max-width: none;
-    }
-
-    h1 {
-      max-width: 9ch;
-      font-size: clamp(3.45rem, 16vw, 5.3rem);
-    }
-
-    .arrival-landscape .station-house-shape {
-      right: -8%;
-      bottom: 3.5%;
-      width: 18rem;
-      opacity: 0.72;
-      transform: scale(0.75);
-      transform-origin: bottom right;
-    }
-
-    .arrival-landscape .near-field {
-      bottom: -6%;
-      height: 31%;
-    }
-
-    .arrival-landscape .far-hill {
-      bottom: 18%;
-      width: 95%;
-      height: 19%;
-    }
-
-    .arrival-landscape .track-system {
-      bottom: 14%;
-    }
-
-    .arrival-landscape .morning-sun {
-      top: 8%;
-      right: 12%;
-    }
-
-    .arrival-gestures {
-      max-width: none;
-    }
-
-    .station-board {
-      transform: none;
-    }
-
-    .board-heading {
-      align-items: start;
-      flex-direction: column;
-    }
-
-    .board-note {
-      max-width: none;
-      text-align: left;
-    }
-
-    .room-list {
-      margin-top: 0;
-    }
-
-    .section-heading {
-      display: block;
-    }
-
-    .section-intro {
-      margin-top: 1.25rem;
-    }
-
-    .quiet-room,
-    .quiet-room:nth-child(even) {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      padding-block: 3rem;
-    }
-
-    .quiet-room:nth-child(even) .room-marker {
-      order: 0;
-    }
-
-    .room-marker {
-      min-height: 13rem;
-    }
-
-    .pause-inner {
-      grid-template-columns: auto minmax(0, 1fr);
-    }
-
-    .back-to-top {
-      grid-column: 2;
-      justify-self: start;
-    }
-
-    .footer-inner {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    .footer-nav {
-      justify-content: start;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .site-container {
-      width: min(calc(100% - 32px), 1152px);
-    }
-
-    .header-inner {
-      min-height: 4rem;
-    }
-
-    .header-status {
-      font-size: 0.68rem;
-    }
-
-    .current-location {
-      gap: 0.4rem 0.6rem;
-      font-size: 0.72rem;
-    }
-
-    .current-signal {
-      grid-template-columns: 1fr;
-      gap: 0.45rem;
-    }
-
-    .current-signal p {
-      grid-column: 1;
-    }
-
-    .gesture-link {
-      grid-template-columns: auto 1fr auto;
-    }
-
-    .board-link {
-      min-height: 5.4rem;
-      padding-inline: 0;
-    }
-
-    .board-link:hover {
-      padding-inline: 0.35rem;
-    }
-
-    .route-place {
-      font-size: 1.35rem;
-    }
-
-    .route-invitation {
-      font-size: 0.75rem;
-    }
-
-    .pause-inner {
-      grid-template-columns: 1fr;
-    }
-
-    .back-to-top {
-      grid-column: 1;
-    }
-
-    .footer-note {
-      white-space: normal;
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .station-lamp {
-      animation: lamp-breathe 6s ease-in-out infinite;
-    }
-  }
-
-  @keyframes lamp-breathe {
-    0%,
-    100% {
-      opacity: 0.65;
-      box-shadow: 0 0 0 0.55rem color-mix(in srgb, var(--gold) 18%, transparent);
-    }
-
-    50% {
-      opacity: 1;
-      box-shadow: 0 0 0 0.8rem color-mix(in srgb, var(--gold) 28%, transparent);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .skip-link,
-    .gesture-link,
-    .board-link,
-    .room-return,
-    .back-to-top,
-    .footer-nav a {
-      transition: none;
-    }
-  }
-
-  @media (forced-colors: active) {
-    .station-house-shape,
-    .arrival-landscape,
-    .room-marker,
-    .gesture-icon,
-    .route-arrow,
-    .pause-mark {
-      forced-color-adjust: none;
-    }
-
-    .station-house-shape,
-    .room-marker,
-    .gesture-icon,
-    .route-arrow,
-    .pause-mark {
-      border: 1px solid CanvasText;
-    }
-
-    .arrival-landscape > span,
-    .marker-shape,
-    .marker-sun,
-    .station-lamp,
-    .brand-mark,
-    .status-light,
-    .location-signal,
-    .signal-dot {
-      forced-color-adjust: none;
-    }
-  }
-</style>
