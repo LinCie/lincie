@@ -12,7 +12,7 @@
 >
   <!-- Layer 0: Sunlit Paper Canvas & Morning Vignette -->
   <div
-    class="train-paper-ground absolute inset-0 bg-[#f7f2e8] bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(247,242,232,0.92)_0%,rgba(233,221,201,0.75)_60%,rgba(196,180,157,0.35)_100%)]"
+    class="train-paper-ground bg-surface-sunlit absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(247,242,232,0.92)_0%,rgba(233,221,201,0.75)_60%,rgba(196,180,157,0.35)_100%)]"
   >
   </div>
 
@@ -41,12 +41,22 @@
     >
       <defs>
         <linearGradient id="train-hill-far" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#c4b49d" stop-opacity="0.26"></stop>
-          <stop offset="100%" stop-color="#c4b49d" stop-opacity="0.08"></stop>
+          <stop offset="0%" stop-color="var(--border-soft)" stop-opacity="0.26"
+          ></stop>
+          <stop
+            offset="100%"
+            stop-color="var(--border-soft)"
+            stop-opacity="0.08"></stop>
         </linearGradient>
         <linearGradient id="train-hill-near" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#dce7c9" stop-opacity="0.55"></stop>
-          <stop offset="100%" stop-color="#c4b49d" stop-opacity="0.22"></stop>
+          <stop
+            offset="0%"
+            stop-color="var(--surface-field)"
+            stop-opacity="0.55"></stop>
+          <stop
+            offset="100%"
+            stop-color="var(--border-soft)"
+            stop-opacity="0.22"></stop>
         </linearGradient>
       </defs>
 
@@ -61,7 +71,7 @@
         fill="url(#train-hill-near)"></path>
 
       <!-- Rural railway telegraph poles & fine lines -->
-      <g stroke="#c4b49d" stroke-width="1.5" opacity="0.4">
+      <g stroke="var(--border-soft)" stroke-width="1.5" opacity="0.4">
         <line x1="280" y1="120" x2="280" y2="240"></line>
         <line x1="268" y1="135" x2="292" y2="135"></line>
         <line x1="720" y1="95" x2="720" y2="220"></line>
@@ -71,7 +81,7 @@
         <path
           d="M0,150 Q280,145 720,120 Q1180,140 1600,130"
           fill="none"
-          stroke="#c4b49d"
+          stroke="var(--border-soft)"
           stroke-width="1"
           opacity="0.35"></path>
       </g>
@@ -84,7 +94,7 @@
   >
     <!-- Soft track ballast gradient -->
     <div
-      class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#e9ddc9]/60 to-transparent"
+      class="from-surface-station/60 absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t to-transparent"
     >
     </div>
 
@@ -99,7 +109,7 @@
     >
       <!-- Timber sleepers / cross-ties -->
       <g
-        stroke="#c4b49d"
+        stroke="var(--border-soft)"
         stroke-width="2.5"
         opacity="0.55"
         stroke-linecap="round"
@@ -110,26 +120,36 @@
       </g>
 
       <!-- Top steel rail -->
-      <line x1="0" y1="32" x2="1600" y2="32" stroke="#c4b49d" stroke-width="2"
-      ></line>
+      <line
+        x1="0"
+        y1="32"
+        x2="1600"
+        y2="32"
+        stroke="var(--border-soft)"
+        stroke-width="2"></line>
       <line
         x1="0"
         y1="34"
         x2="1600"
         y2="34"
-        stroke="#5f665c"
+        stroke="var(--ink-secondary)"
         stroke-width="0.75"
         opacity="0.4"></line>
 
       <!-- Bottom steel rail -->
-      <line x1="0" y1="56" x2="1600" y2="56" stroke="#c4b49d" stroke-width="2"
-      ></line>
+      <line
+        x1="0"
+        y1="56"
+        x2="1600"
+        y2="56"
+        stroke="var(--border-soft)"
+        stroke-width="2"></line>
       <line
         x1="0"
         y1="58"
         x2="1600"
         y2="58"
-        stroke="#5f665c"
+        stroke="var(--ink-secondary)"
         stroke-width="0.75"
         opacity="0.4"></line>
 
@@ -139,7 +159,7 @@
         y1="44"
         x2="1600"
         y2="44"
-        stroke="#c4b49d"
+        stroke="var(--border-soft)"
         stroke-width="1"
         stroke-dasharray="6 8"
         opacity="0.45"></line>
@@ -150,7 +170,7 @@
       class="train-signal-assembly absolute bottom-8 left-[18%] flex items-end md:left-[24%]"
     >
       <!-- Post mast -->
-      <div class="h-20 w-1 rounded-t-xs bg-[#5f665c]/70"></div>
+      <div class="bg-ink-secondary/70 h-20 w-1 rounded-t-xs"></div>
 
       <!-- Signal arm pivoting from top of post -->
       <div
@@ -158,9 +178,10 @@
         style="transform: rotate(-26deg);"
       >
         <div
-          class="flex h-2.5 w-10 items-center justify-end border border-[#c4b49d] bg-[#fffdf8] px-1 shadow-xs md:w-12"
+          class="border-border-soft bg-surface-paper flex h-2.5 w-10 items-center justify-end border px-1 shadow-xs md:w-12"
         >
-          <span class="size-2 rounded-full border border-[#c4b49d] bg-[#b8614b]"
+          <span
+            class="border-border-soft bg-signal-terracotta size-2 rounded-full border"
           ></span>
         </div>
       </div>
@@ -172,26 +193,27 @@
     class="pointer-events-none absolute inset-0 flex items-center justify-center px-4"
   >
     <div
-      class="train-wayfinding-stamp flex items-center gap-3 rounded-full border border-[#c4b49d]/75 bg-[#fffdf8]/95 px-5 py-2.5 shadow-[0_4px_20px_rgba(45,51,43,0.08)] backdrop-blur-xs"
+      class="train-wayfinding-stamp border-border-soft/75 bg-surface-paper/95 flex items-center gap-3 rounded-full border px-5 py-2.5 shadow-[0_4px_20px_rgba(45,51,43,0.08)] backdrop-blur-xs"
     >
       <span class="train-signal-pulse relative flex size-2.5">
         <span
-          class="absolute inline-flex size-full animate-ping rounded-full bg-[#b8614b] opacity-60"
+          class="bg-signal-terracotta absolute inline-flex size-full animate-ping rounded-full opacity-60 motion-reduce:animate-none"
         ></span>
-        <span class="relative inline-flex size-2.5 rounded-full bg-[#b8614b]"
+        <span
+          class="bg-signal-terracotta relative inline-flex size-2.5 rounded-full"
         ></span>
       </span>
       <span
-        class="font-sans text-[13px] font-medium tracking-[0.04em] text-[#5f665c]"
+        class="text-ink-secondary font-sans text-[13px] font-medium tracking-[0.04em]"
         data-train-from
       >
         Station Platform
       </span>
-      <span aria-hidden="true" class="font-serif text-sm text-[#c4b49d]">
+      <span aria-hidden="true" class="text-border-soft font-serif text-sm">
         ──→
       </span>
       <span
-        class="font-serif text-sm font-normal tracking-[-0.01em] text-[#2d332b]"
+        class="text-ink-primary font-serif text-sm font-normal tracking-[-0.01em]"
         data-train-to
       >
         The Station House
@@ -201,11 +223,11 @@
 
   <!-- Layer 5: Train Carriage Window Sills / Architectural Framing -->
   <div
-    class="pointer-events-none absolute inset-x-0 top-0 h-2 border-b border-[#c4b49d]/40 bg-[#e9ddc9]/80"
+    class="border-border-soft/40 bg-surface-station/80 pointer-events-none absolute inset-x-0 top-0 h-2 border-b"
   >
   </div>
   <div
-    class="pointer-events-none absolute inset-x-0 bottom-0 h-2 border-t border-[#c4b49d]/40 bg-[#e9ddc9]/80"
+    class="border-border-soft/40 bg-surface-station/80 pointer-events-none absolute inset-x-0 bottom-0 h-2 border-t"
   >
   </div>
 </div>

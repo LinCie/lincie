@@ -84,7 +84,7 @@ const destinations = stationRoutes
   pageType="ProfilePage"
 >
   <section
-    class="relative isolate min-h-[47rem] overflow-hidden bg-[#c9e0e2] transition-colors duration-1000 ease-out max-[760px]:min-h-0"
+    class="bg-sky-morning relative isolate min-h-[47rem] overflow-hidden transition-colors duration-1000 ease-out motion-reduce:transition-none max-[760px]:min-h-0"
     aria-labelledby="arrival-title"
     data-arrival
     data-sky="morning"
@@ -94,7 +94,7 @@ const destinations = stationRoutes
       aria-hidden="true"
     >
       <img
-        class="absolute inset-0 size-full object-cover object-center opacity-[.98] transition-[filter,opacity] duration-1000 ease-out max-[760px]:object-[70%_center] max-[760px]:opacity-[.42]"
+        class="absolute inset-0 size-full object-cover object-center opacity-[.98] transition-[filter,opacity] duration-1000 ease-out motion-reduce:transition-none max-[760px]:object-[70%_center] max-[760px]:opacity-[.42]"
         src="/images/lincie-countryside-arrival.webp"
         alt=""
         width="1376"
@@ -106,7 +106,7 @@ const destinations = stationRoutes
 
       <!-- Morning Sky Layer (default) -->
       <div
-        class="absolute inset-0 transition-opacity duration-1000 ease-out"
+        class="absolute inset-0 transition-opacity duration-1000 ease-out motion-reduce:transition-none"
         data-sky-layer="morning"
       >
         <div
@@ -125,7 +125,7 @@ const destinations = stationRoutes
 
       <!-- Midday Sky Layer -->
       <div
-        class="absolute inset-0 opacity-0 transition-opacity duration-1000 ease-out"
+        class="absolute inset-0 opacity-0 transition-opacity duration-1000 ease-out motion-reduce:transition-none"
         data-sky-layer="midday"
       >
         <div
@@ -144,7 +144,7 @@ const destinations = stationRoutes
 
       <!-- Dusk / Sunset Sky Layer -->
       <div
-        class="absolute inset-0 opacity-0 transition-opacity duration-1000 ease-out"
+        class="absolute inset-0 opacity-0 transition-opacity duration-1000 ease-out motion-reduce:transition-none"
         data-sky-layer="dusk"
       >
         <div
@@ -163,7 +163,7 @@ const destinations = stationRoutes
 
       <!-- Night / Lantern Sky Layer -->
       <div
-        class="absolute inset-0 opacity-0 transition-opacity duration-1000 ease-out"
+        class="absolute inset-0 opacity-0 transition-opacity duration-1000 ease-out motion-reduce:transition-none"
         data-sky-layer="night"
       >
         <div
@@ -188,17 +188,27 @@ const destinations = stationRoutes
       >
         <defs>
           <radialGradient id="arrival-sun-halo" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#d49a48" stop-opacity=".46"></stop>
-            <stop offset="100%" stop-color="#d49a48" stop-opacity="0"></stop>
+            <stop offset="0%" stop-color="var(--signal-gold)" stop-opacity=".46"
+            ></stop>
+            <stop offset="100%" stop-color="var(--signal-gold)" stop-opacity="0"
+            ></stop>
           </radialGradient>
           <radialGradient id="arrival-moon-halo" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#fffdf8" stop-opacity=".45"></stop>
-            <stop offset="100%" stop-color="#c9e0e2" stop-opacity="0"></stop>
+            <stop
+              offset="0%"
+              stop-color="var(--surface-paper)"
+              stop-opacity=".45"></stop>
+            <stop offset="100%" stop-color="var(--sky-morning)" stop-opacity="0"
+            ></stop>
           </radialGradient>
           <radialGradient id="arrival-lantern-glow" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stop-color="#ffd479" stop-opacity=".95"></stop>
-            <stop offset="45%" stop-color="#d49a48" stop-opacity=".42"></stop>
-            <stop offset="100%" stop-color="#d49a48" stop-opacity="0"></stop>
+            <stop
+              offset="45%"
+              stop-color="var(--signal-gold)"
+              stop-opacity=".42"></stop>
+            <stop offset="100%" stop-color="var(--signal-gold)" stop-opacity="0"
+            ></stop>
           </radialGradient>
         </defs>
 
@@ -207,7 +217,7 @@ const destinations = stationRoutes
           data-arrival-stars
           class="max-[760px]:hidden"
           opacity="0"
-          fill="#fffdf8"
+          fill="var(--surface-paper)"
         >
           <circle cx="680" cy="70" r="1.5" opacity=".7"></circle>
           <circle cx="740" cy="110" r="1.2" opacity=".8"></circle>
@@ -230,18 +240,22 @@ const destinations = stationRoutes
           ></circle>
           <path
             d="M 1158 98 A 30 30 0 0 0 1190 130 A 26 26 0 1 1 1158 98 Z"
-            fill="#fffdf8"
+            fill="var(--surface-paper)"
             fill-opacity=".88"></path>
         </g>
 
         <g class="max-[760px]:hidden" data-arrival-sun>
           <circle cx="1170" cy="122" r="96" fill="url(#arrival-sun-halo)"
           ></circle>
-          <circle cx="1170" cy="122" r="39" fill="#d49a48" fill-opacity=".64"
-          ></circle>
+          <circle
+            cx="1170"
+            cy="122"
+            r="39"
+            fill="var(--signal-gold)"
+            fill-opacity=".64"></circle>
           <g
             fill="none"
-            stroke="#d49a48"
+            stroke="var(--signal-gold)"
             stroke-linecap="round"
             stroke-width="2.5"
             opacity=".72"
@@ -259,7 +273,7 @@ const destinations = stationRoutes
 
         <g
           fill="none"
-          stroke="#f7f2e8"
+          stroke="var(--surface-sunlit)"
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
@@ -305,7 +319,7 @@ const destinations = stationRoutes
             width="24"
             height="9.5"
             rx="2"
-            fill="#2d332b"
+            fill="var(--ink-primary)"
             opacity=".88"></rect>
           <!-- Car 1 windows -->
           <rect
@@ -315,7 +329,7 @@ const destinations = stationRoutes
             width="4.5"
             height="3.5"
             rx="1"
-            fill="#e9ddc9"
+            fill="var(--surface-station)"
             opacity=".92"></rect>
           <rect
             data-train-window
@@ -324,7 +338,7 @@ const destinations = stationRoutes
             width="4.5"
             height="3.5"
             rx="1"
-            fill="#e9ddc9"
+            fill="var(--surface-station)"
             opacity=".92"></rect>
           <rect
             data-train-window
@@ -333,7 +347,7 @@ const destinations = stationRoutes
             width="4.5"
             height="3.5"
             rx="1"
-            fill="#e9ddc9"
+            fill="var(--surface-station)"
             opacity=".92"></rect>
           <!-- Coupler -->
           <line
@@ -341,7 +355,7 @@ const destinations = stationRoutes
             y1="-4.5"
             x2="2"
             y2="-4.5"
-            stroke="#2d332b"
+            stroke="var(--ink-primary)"
             stroke-width="1.8"></line>
           <!-- Car 2 (rear car) -->
           <rect
@@ -350,7 +364,7 @@ const destinations = stationRoutes
             width="24"
             height="9.5"
             rx="2"
-            fill="#2d332b"
+            fill="var(--ink-primary)"
             opacity=".88"></rect>
           <!-- Car 2 windows -->
           <rect
@@ -360,7 +374,7 @@ const destinations = stationRoutes
             width="4.5"
             height="3.5"
             rx="1"
-            fill="#e9ddc9"
+            fill="var(--surface-station)"
             opacity=".92"></rect>
           <rect
             data-train-window
@@ -369,7 +383,7 @@ const destinations = stationRoutes
             width="4.5"
             height="3.5"
             rx="1"
-            fill="#e9ddc9"
+            fill="var(--surface-station)"
             opacity=".92"></rect>
           <rect
             data-train-window
@@ -378,7 +392,7 @@ const destinations = stationRoutes
             width="4.5"
             height="3.5"
             rx="1"
-            fill="#e9ddc9"
+            fill="var(--surface-station)"
             opacity=".92"></rect>
         </g>
 
@@ -386,7 +400,7 @@ const destinations = stationRoutes
         <g
           data-arrival-stop
           fill="none"
-          stroke="#b8614b"
+          stroke="var(--signal-terracotta)"
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2.5"
@@ -396,25 +410,27 @@ const destinations = stationRoutes
           <path data-arrival-draw d="M746 548V395"></path>
           <path data-arrival-draw d="M746 409h-27"></path>
           <path data-arrival-draw d="M714 548h64"></path>
-          <circle cx="746" cy="386" r="14" fill="#b8614b"></circle>
-          <path d="M738 386h16" stroke="#fffdf8" stroke-width="2"></path>
+          <circle cx="746" cy="386" r="14" fill="var(--signal-terracotta)"
+          ></circle>
+          <path d="M738 386h16" stroke="var(--surface-paper)" stroke-width="2"
+          ></path>
 
           <!-- Vintage Station Gooseneck Platform Lamp -->
           <path
             d="M746 395 C746 368 732 360 725 360"
-            stroke="#2d332b"
+            stroke="var(--ink-primary)"
             stroke-width="2"></path>
           <path
             d="M717 360 L733 360 L729 356 Z"
-            fill="#2d332b"
-            stroke="#2d332b"
+            fill="var(--ink-primary)"
+            stroke="var(--ink-primary)"
             stroke-width="1"></path>
           <circle
             cx="725"
             cy="362"
             r="2.5"
-            fill="#fffdf8"
-            stroke="#2d332b"
+            fill="var(--surface-paper)"
+            stroke="var(--ink-primary)"
             stroke-width="0.5"></circle>
           <!-- Lantern Glow Pool (Dusk/Night) -->
           <circle
@@ -436,14 +452,14 @@ const destinations = stationRoutes
         data-arrival-left-column
       >
         <div
-          class="mb-4 flex w-fit flex-wrap items-center gap-x-3 gap-y-2 border-b border-[#2d332b]/40 pb-[.7rem] font-sans text-[.8125rem] tracking-[.02em] text-[#2d332b]"
+          class="border-ink-primary/40 text-ink-primary mb-4 flex w-fit flex-wrap items-center gap-x-3 gap-y-2 border-b pb-[.7rem] font-sans text-[.8125rem] tracking-[.02em]"
           data-arrival-location
         >
           <span
-            class="size-[.55rem] shrink-0 rounded-full bg-[#b8614b]"
+            class="bg-signal-terracotta size-[.55rem] shrink-0 rounded-full"
             aria-hidden="true"></span>
           <span>You are here</span>
-          <strong class="font-bold text-[#2d332b]"
+          <strong class="text-ink-primary font-bold"
             >Platform / Station arrival</strong
           >
         </div>
@@ -458,7 +474,7 @@ const destinations = stationRoutes
           data-arrival-title
         >
           Welcome.<br />You made it <em
-            class="font-normal text-[#843d2f] not-italic">here.</em
+            class="text-signal-terracotta-ink font-normal not-italic">here.</em
           >
         </h1>
 
@@ -471,11 +487,11 @@ const destinations = stationRoutes
         </p>
 
         <p
-          class="mt-[1.35rem] flex max-w-[32rem] items-start gap-[.85rem] text-[.9rem] leading-[1.55] text-[#2d332b]"
+          class="text-ink-primary mt-[1.35rem] flex max-w-[32rem] items-start gap-[.85rem] text-[.9rem] leading-[1.55]"
           data-arrival-note
         >
           <span
-            class="mt-[.7rem] w-9 shrink-0 border-t border-[#b8614b]"
+            class="border-signal-terracotta mt-[.7rem] w-9 shrink-0 border-t"
             aria-hidden="true"></span>
           <span
             >Take your time. There is no right route through this place.</span
@@ -483,15 +499,15 @@ const destinations = stationRoutes
         </p>
 
         <aside
-          class="mt-8 grid max-w-[31rem] grid-cols-[minmax(7rem,0.3fr)_1fr] gap-x-5 gap-y-[.35rem] border-y border-[#2d332b]/30 py-4 max-[900px]:grid-cols-1 max-[900px]:gap-y-[.45rem]"
+          class="border-ink-primary/30 mt-8 grid max-w-[31rem] grid-cols-[minmax(7rem,0.3fr)_1fr] gap-x-5 gap-y-[.35rem] border-y py-4 max-[900px]:grid-cols-1 max-[900px]:gap-y-[.45rem]"
           aria-labelledby="current-signal-title"
           data-arrival-notice
         >
           <div
-            class="flex items-center gap-2 font-sans text-[.8125rem] font-bold tracking-[.03em] whitespace-nowrap text-[#2d332b]"
+            class="text-ink-primary flex items-center gap-2 font-sans text-[.8125rem] font-bold tracking-[.03em] whitespace-nowrap"
           >
             <span
-              class="size-[.55rem] rounded-full bg-[#b8614b]"
+              class="bg-signal-terracotta size-[.55rem] rounded-full"
               aria-hidden="true"></span>
             <span>Current notice</span>
           </div>
@@ -502,7 +518,7 @@ const destinations = stationRoutes
             All rooms open.
           </h2>
           <p
-            class="col-start-2 text-[.9rem] leading-[1.5] text-[#2d332b] transition-opacity duration-300 max-[900px]:col-start-1"
+            class="text-ink-primary col-start-2 text-[.9rem] leading-[1.5] transition-opacity duration-300 motion-reduce:transition-none max-[900px]:col-start-1"
             data-arrival-notice-note
           >
             The doors below are unlocked and tended. The morning air is crisp
@@ -512,20 +528,20 @@ const destinations = stationRoutes
       </div>
 
       <nav
-        class="relative z-[1] col-start-2 row-span-2 row-start-1 rotate-[.7deg] scroll-mt-[5.5rem] self-center rounded-[1.25rem] border border-[#c4b49d] bg-[#e9ddc9] p-[clamp(1.25rem,3vw,2rem)] shadow-[0_16px_34px_rgba(57,52,38,0.14)] transition-[box-shadow] duration-1000 ease-out max-[760px]:col-auto max-[760px]:row-auto max-[760px]:rotate-0"
+        class="border-border-soft bg-surface-station relative z-[1] col-start-2 row-span-2 row-start-1 rotate-[.7deg] scroll-mt-[5.5rem] self-center rounded-[1.25rem] border p-[clamp(1.25rem,3vw,2rem)] shadow-[0_16px_34px_rgba(57,52,38,0.14)] transition-[box-shadow] duration-1000 ease-out motion-reduce:transition-none max-[760px]:col-auto max-[760px]:row-auto max-[760px]:rotate-0"
         id="board"
         aria-labelledby="board-title"
         data-arrival-board
       >
         <span
-          class="absolute top-4 left-4 size-[.6rem] rounded-full border border-[#2d332b]/35 bg-[#fffdf8] shadow-[inset_0_1px_2px_rgba(45,51,43,0.14)]"
+          class="border-ink-primary/35 bg-surface-paper absolute top-4 left-4 size-[.6rem] rounded-full border shadow-[inset_0_1px_2px_rgba(45,51,43,0.14)]"
           aria-hidden="true"></span>
         <span
-          class="absolute top-4 right-4 size-[.6rem] rounded-full border border-[#2d332b]/35 bg-[#fffdf8] shadow-[inset_0_1px_2px_rgba(45,51,43,0.14)]"
+          class="border-ink-primary/35 bg-surface-paper absolute top-4 right-4 size-[.6rem] rounded-full border shadow-[inset_0_1px_2px_rgba(45,51,43,0.14)]"
           aria-hidden="true"></span>
 
         <div
-          class="flex items-end justify-between gap-4 border-b border-[#2d332b]/25 px-[.6rem] pt-[.6rem] pb-5 max-[760px]:flex-col max-[760px]:items-start"
+          class="border-ink-primary/25 flex items-end justify-between gap-4 border-b px-[.6rem] pt-[.6rem] pb-5 max-[760px]:flex-col max-[760px]:items-start"
         >
           <h2
             id="board-title"
@@ -534,18 +550,18 @@ const destinations = stationRoutes
             Where would you like to wander?
           </h2>
           <p
-            class="max-w-40 text-right text-[.8125rem] leading-[1.35] text-[#2d332b] max-[760px]:max-w-none max-[760px]:text-left"
+            class="text-ink-primary max-w-40 text-right text-[.8125rem] leading-[1.35] max-[760px]:max-w-none max-[760px]:text-left"
           >
             {destinations.length} rooms, all on this page.
           </p>
         </div>
 
-        <ul class="m-0 list-none divide-y divide-[#2d332b]/20 p-0">
+        <ul class="divide-ink-primary/20 m-0 list-none divide-y p-0">
           {
             destinations.map((destination) => (
               <li data-arrival-route>
                 <a
-                  class="group grid min-h-20 grid-cols-[1fr_auto] items-center gap-4 px-[.6rem] py-[.85rem] text-[#2d332b] no-underline transition-[background-color,padding-inline] duration-200 ease-out hover:bg-[#fffdf8]/55 hover:px-[.95rem] motion-reduce:transition-none max-[480px]:min-h-[5.4rem] max-[480px]:px-0 max-[480px]:hover:px-[.35rem]"
+                  class="group text-ink-primary hover:bg-surface-paper/55 grid min-h-20 grid-cols-[1fr_auto] items-center gap-4 px-[.6rem] py-[.85rem] no-underline transition-[background-color,padding-inline] duration-200 ease-out hover:px-[.95rem] motion-reduce:transition-none max-[480px]:min-h-[5.4rem] max-[480px]:px-0 max-[480px]:hover:px-[.35rem]"
                   href={`#${destination.id}`}
                 >
                   <span class="grid min-w-0 gap-[.14rem]">
@@ -555,12 +571,12 @@ const destinations = stationRoutes
                     <span class="font-sans text-[.8125rem] font-bold tracking-[.03em]">
                       {destination.label}
                     </span>
-                    <span class="text-[.8125rem] leading-[1.35] text-[#2d332b]">
+                    <span class="text-ink-primary text-[.8125rem] leading-[1.35]">
                       {destination.invitation}
                     </span>
                   </span>
                   <span
-                    class="grid size-8 shrink-0 place-items-center rounded-full border border-[#2d332b]/30 text-[#b8614b]"
+                    class="border-ink-primary/30 text-signal-terracotta grid size-8 shrink-0 place-items-center rounded-full border"
                     aria-hidden="true"
                   >
                     <svg
@@ -577,9 +593,10 @@ const destinations = stationRoutes
         </ul>
 
         <div
-          class="flex items-center gap-[.6rem] px-[.6rem] pt-4 pb-[.2rem] text-[.8125rem] text-[#2d332b]"
+          class="text-ink-primary flex items-center gap-[.6rem] px-[.6rem] pt-4 pb-[.2rem] text-[.8125rem]"
         >
-          <span class="w-8 border-t border-[#b8614b]" aria-hidden="true"></span>
+          <span class="border-signal-terracotta w-8 border-t" aria-hidden="true"
+          ></span>
           <span>Choose a door, or simply stay a while.</span>
         </div>
       </nav>
@@ -590,12 +607,12 @@ const destinations = stationRoutes
         aria-label="Ways to begin"
       >
         <a
-          class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8] p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] motion-reduce:transition-none max-[1050px]:min-h-14"
+          class="group border-ink-primary/25 bg-surface-paper text-ink-primary hover:border-signal-terracotta grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border p-3 no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 motion-reduce:transition-none max-[1050px]:min-h-14"
           href="#board"
           data-arrival-gesture
         >
           <span
-            class="grid size-7 place-items-center rounded-md border border-[#c4b49d] bg-[#fffdf8] text-[#b8614b]"
+            class="border-border-soft bg-surface-paper text-signal-terracotta grid size-7 place-items-center rounded-md border"
             aria-hidden="true"
           >
             <svg
@@ -610,12 +627,12 @@ const destinations = stationRoutes
             <strong class="text-[.8125rem] leading-[1.2]"
               >Look at the board</strong
             >
-            <small class="text-[.8125rem] leading-[1.25] text-[#5f665c]"
+            <small class="text-ink-secondary text-[.8125rem] leading-[1.25]"
               >See every room on this page.</small
             >
           </span>
           <span
-            class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
+            class="text-signal-terracotta grid size-[1.3rem] shrink-0 place-items-center"
             aria-hidden="true"
           >
             <svg
@@ -628,12 +645,12 @@ const destinations = stationRoutes
         </a>
 
         <a
-          class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8] p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] motion-reduce:transition-none max-[1050px]:min-h-14"
+          class="group border-ink-primary/25 bg-surface-paper text-ink-primary hover:border-signal-terracotta grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border p-3 no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 motion-reduce:transition-none max-[1050px]:min-h-14"
           href="#pause"
           data-arrival-gesture
         >
           <span
-            class="grid size-7 place-items-center rounded-md border border-[#c4b49d] bg-[#fffdf8] text-[#b8614b]"
+            class="border-border-soft bg-surface-paper text-signal-terracotta grid size-7 place-items-center rounded-md border"
             aria-hidden="true"
           >
             <svg
@@ -649,12 +666,12 @@ const destinations = stationRoutes
             <strong class="text-[.8125rem] leading-[1.2]"
               >Sit for a moment</strong
             >
-            <small class="text-[.8125rem] leading-[1.25] text-[#5f665c]"
+            <small class="text-ink-secondary text-[.8125rem] leading-[1.25]"
               >Stay with the welcome.</small
             >
           </span>
           <span
-            class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
+            class="text-signal-terracotta grid size-[1.3rem] shrink-0 place-items-center"
             aria-hidden="true"
           >
             <svg
@@ -667,12 +684,12 @@ const destinations = stationRoutes
         </a>
 
         <a
-          class="group grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border border-[#2d332b]/25 bg-[#fffdf8] p-3 text-[#2d332b] no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] motion-reduce:transition-none max-[1050px]:min-h-14"
+          class="group border-ink-primary/25 bg-surface-paper text-ink-primary hover:border-signal-terracotta grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border p-3 no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 motion-reduce:transition-none max-[1050px]:min-h-14"
           href="/about"
           data-arrival-gesture
         >
           <span
-            class="grid size-7 place-items-center rounded-md border border-[#c4b49d] bg-[#fffdf8] text-[#b8614b]"
+            class="border-border-soft bg-surface-paper text-signal-terracotta grid size-7 place-items-center rounded-md border"
             aria-hidden="true"
           >
             <svg
@@ -685,12 +702,12 @@ const destinations = stationRoutes
           </span>
           <span class="grid min-w-0 gap-[.15rem]">
             <strong class="text-[.8125rem] leading-[1.2]">Step inside</strong>
-            <small class="text-[.8125rem] leading-[1.25] text-[#5f665c]"
+            <small class="text-ink-secondary text-[.8125rem] leading-[1.25]"
               >Visit the Station House.</small
             >
           </span>
           <span
-            class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
+            class="text-signal-terracotta grid size-[1.3rem] shrink-0 place-items-center"
             aria-hidden="true"
           >
             <svg
@@ -706,13 +723,13 @@ const destinations = stationRoutes
   </section>
 
   <section
-    class="scroll-mt-[5.5rem] bg-[#f7f2e8] pt-[clamp(5rem,10vw,9rem)] pb-[clamp(5rem,9vw,8rem)]"
+    class="bg-surface-sunlit scroll-mt-[5.5rem] pt-[clamp(5rem,10vw,9rem)] pb-[clamp(5rem,9vw,8rem)]"
     id="rooms"
     aria-labelledby="rooms-title"
   >
     <div class={siteContainer}>
       <div
-        class="flex items-end justify-between gap-12 border-b border-[#c4b49d] pb-6 max-[760px]:block"
+        class="border-border-soft flex items-end justify-between gap-12 border-b pb-6 max-[760px]:block"
       >
         <h2
           id="rooms-title"
@@ -721,7 +738,7 @@ const destinations = stationRoutes
           A small world, still becoming.
         </h2>
         <p
-          class="max-w-[31rem] text-base leading-[1.6] text-[#5f665c] max-[760px]:mt-5"
+          class="text-ink-secondary max-w-[31rem] text-base leading-[1.6] max-[760px]:mt-5"
         >
           The station house, fields, workshop, waiting room, and letterbox are
           open. Explore the stories below at your own pace.
@@ -754,7 +771,7 @@ const destinations = stationRoutes
                   width="28"
                   height="3.5"
                   rx="1"
-                  fill="#c4b49d"
+                  fill="var(--border-soft)"
                   opacity="0.48"></rect>
               </pattern>
             </defs>
@@ -771,13 +788,13 @@ const destinations = stationRoutes
             <!-- Base parallel track lines (left & right rails) -->
             <line
               data-rail-base-left
-              stroke="#c4b49d"
+              stroke="var(--border-soft)"
               stroke-width="1.75"
               stroke-linecap="round"
               opacity="0.75"></line>
             <line
               data-rail-base-right
-              stroke="#c4b49d"
+              stroke="var(--border-soft)"
               stroke-width="1.75"
               stroke-linecap="round"
               opacity="0.75"></line>
@@ -785,7 +802,7 @@ const destinations = stationRoutes
             <!-- Active illuminated track line that draws on scroll -->
             <line
               data-rail-active
-              stroke="#b8614b"
+              stroke="var(--signal-terracotta)"
               stroke-width="2.5"
               stroke-linecap="round"
               opacity="0.85"></line>
@@ -793,7 +810,7 @@ const destinations = stationRoutes
 
           <!-- Miniature Countryside Rail Trolley Car -->
           <div
-            class="pointer-events-none absolute top-0 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 will-change-transform"
+            class="pointer-events-none absolute top-0 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0"
             data-rail-car
           >
             <svg
@@ -803,22 +820,52 @@ const destinations = stationRoutes
               aria-hidden="true"
             >
               <!-- Wheel bogie -->
-              <rect x="2" y="6" width="3" height="8" rx="1.5" fill="#5f665c"
-              ></rect>
-              <rect x="23" y="6" width="3" height="8" rx="1.5" fill="#5f665c"
-              ></rect>
-              <rect x="2" y="26" width="3" height="8" rx="1.5" fill="#5f665c"
-              ></rect>
-              <rect x="23" y="26" width="3" height="8" rx="1.5" fill="#5f665c"
-              ></rect>
+              <rect
+                x="2"
+                y="6"
+                width="3"
+                height="8"
+                rx="1.5"
+                fill="var(--ink-secondary)"></rect>
+              <rect
+                x="23"
+                y="6"
+                width="3"
+                height="8"
+                rx="1.5"
+                fill="var(--ink-secondary)"></rect>
+              <rect
+                x="2"
+                y="26"
+                width="3"
+                height="8"
+                rx="1.5"
+                fill="var(--ink-secondary)"></rect>
+              <rect
+                x="23"
+                y="26"
+                width="3"
+                height="8"
+                rx="1.5"
+                fill="var(--ink-secondary)"></rect>
 
               <!-- Trolley body -->
-              <rect x="4" y="4" width="20" height="32" rx="4" fill="#2d332b"
-              ></rect>
+              <rect
+                x="4"
+                y="4"
+                width="20"
+                height="32"
+                rx="4"
+                fill="var(--ink-primary)"></rect>
 
               <!-- Roof panel in station wood tone -->
-              <rect x="6" y="6" width="16" height="28" rx="2.5" fill="#e9ddc9"
-              ></rect>
+              <rect
+                x="6"
+                y="6"
+                width="16"
+                height="28"
+                rx="2.5"
+                fill="var(--surface-station)"></rect>
 
               <!-- Front cab windshield (amber glow) -->
               <rect x="8" y="8" width="12" height="6" rx="1" fill="#ffd479"
@@ -831,7 +878,7 @@ const destinations = stationRoutes
                 width="5"
                 height="6"
                 rx="1"
-                fill="#fffdf8"
+                fill="var(--surface-paper)"
                 opacity="0.9"></rect>
               <rect
                 x="15"
@@ -839,7 +886,7 @@ const destinations = stationRoutes
                 width="5"
                 height="6"
                 rx="1"
-                fill="#fffdf8"
+                fill="var(--surface-paper)"
                 opacity="0.9"></rect>
 
               <!-- Rear cab window -->
@@ -853,12 +900,15 @@ const destinations = stationRoutes
                 opacity="0.85"></rect>
 
               <!-- Terracotta emblem roundel -->
-              <circle cx="14" cy="20" r="1.75" fill="#b8614b"></circle>
+              <circle cx="14" cy="20" r="1.75" fill="var(--signal-terracotta)"
+              ></circle>
 
               <!-- Front headlight & gentle beam -->
               <circle cx="14" cy="4" r="1.5" fill="#ffd479"></circle>
-              <path d="M11 2 L17 2 L22 -4 L6 -4 Z" fill="#d49a48" opacity="0.28"
-              ></path>
+              <path
+                d="M11 2 L17 2 L22 -4 L6 -4 Z"
+                fill="var(--signal-gold)"
+                opacity="0.28"></path>
             </svg>
           </div>
         </div>
@@ -868,7 +918,7 @@ const destinations = stationRoutes
             destinations.map((destination, index) => (
               <article
                 class:list={[
-                  "relative grid scroll-mt-[5.5rem] grid-cols-[minmax(15rem,0.62fr)_minmax(0,1fr)] items-center gap-[clamp(2rem,6vw,6rem)] border-b border-[#c4b49d] py-[clamp(2.5rem,6vw,5rem)] max-[760px]:grid-cols-1 max-[760px]:gap-8 max-[760px]:py-12",
+                  "border-border-soft relative grid scroll-mt-[5.5rem] grid-cols-[minmax(15rem,0.62fr)_minmax(0,1fr)] items-center gap-[clamp(2rem,6vw,6rem)] border-b py-[clamp(2.5rem,6vw,5rem)] max-[760px]:grid-cols-1 max-[760px]:gap-8 max-[760px]:py-12",
                   index % 2 === 1 &&
                     "min-[761px]:grid-cols-[minmax(0,1fr)_minmax(15rem,0.62fr)]",
                 ]}
@@ -882,16 +932,16 @@ const destinations = stationRoutes
                   aria-hidden="true"
                 >
                   <div
-                    class="flex size-7 items-center justify-center rounded-full border border-[#c4b49d] bg-[#fffdf8] shadow-xs transition-all duration-300 max-[760px]:size-5"
+                    class="border-border-soft bg-surface-paper flex size-7 items-center justify-center rounded-full border shadow-xs transition-all duration-300 max-[760px]:size-5"
                     data-stop-beacon
                   >
                     <span
-                      class="size-2.5 rounded-full bg-[#c4b49d] transition-colors duration-300 max-[760px]:size-2"
+                      class="bg-border-soft size-2.5 rounded-full transition-colors duration-300 max-[760px]:size-2"
                       data-stop-dot
                     />
                   </div>
                   <span
-                    class="mt-1.5 font-sans text-[.8125rem] font-bold tracking-[.06em] text-[#5f665c] transition-colors duration-300"
+                    class="text-ink-secondary mt-1.5 font-sans text-[.8125rem] font-bold tracking-[.06em] transition-colors duration-300"
                     data-stop-tag
                   >
                     0{index + 1}
@@ -919,19 +969,19 @@ const destinations = stationRoutes
                       {destination.label}
                     </h3>
                     {destination.badge ? (
-                      <span class="inline-flex items-center gap-1.5 font-sans text-[.8125rem] font-bold tracking-[.04em] text-[#2d332b] uppercase">
+                      <span class="text-ink-primary inline-flex items-center gap-1.5 font-sans text-[.8125rem] font-bold tracking-[.04em] uppercase">
                         <span
-                          class="size-1.5 shrink-0 rounded-full bg-[#6c895f]"
+                          class="bg-field-green size-1.5 shrink-0 rounded-full"
                           aria-hidden="true"
                         />
                         {destination.badge}
                       </span>
                     ) : null}
                   </div>
-                  <p class="mt-[.65rem] font-sans text-[.8125rem] font-bold tracking-[.03em] text-[#5f665c]">
+                  <p class="text-ink-secondary mt-[.65rem] font-sans text-[.8125rem] font-bold tracking-[.03em]">
                     {destination.place}
                   </p>
-                  <p class="mt-[1.35rem] max-w-[36rem] text-lg leading-[1.65] text-[#5f665c]">
+                  <p class="text-ink-secondary mt-[1.35rem] max-w-[36rem] text-lg leading-[1.65]">
                     {destination.roomNote}
                   </p>
                   {destination.id === "about-me" && (
@@ -1004,32 +1054,32 @@ const destinations = stationRoutes
                   )}
                   {destination.id === "connect" && (
                     <div class="mt-6 space-y-4">
-                      <div class="rounded-xl border border-[#c4b49d]/80 bg-[#fffdf8] p-5 shadow-xs">
-                        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#c4b49d]/40 pb-3 text-[.8125rem] text-[#5f665c]">
-                          <span class="font-semibold text-[#2d332b]">
+                      <div class="border-border-soft/80 bg-surface-paper rounded-xl border p-5 shadow-xs">
+                        <div class="border-border-soft/40 text-ink-secondary flex flex-wrap items-center justify-between gap-2 border-b pb-3 text-[.8125rem]">
+                          <span class="text-ink-primary font-semibold">
                             Station Mail Slot &amp; Direct Channels
                           </span>
                           <a
                             href={`mailto:${site.contactEmail}`}
-                            class="inline-flex min-h-11 items-center font-sans text-[.8125rem] font-bold text-[#843d2f] underline decoration-[#b8614b] decoration-1 underline-offset-2 transition-colors hover:text-[#2d332b]"
+                            class="text-signal-terracotta-ink decoration-signal-terracotta hover:text-ink-primary inline-flex min-h-11 items-center font-sans text-[.8125rem] font-bold underline decoration-1 underline-offset-2 transition-colors"
                           >
                             {site.contactEmail}
                           </a>
                         </div>
-                        <p class="mt-3 text-[.875rem] leading-relaxed text-[#5f665c]">
+                        <p class="text-ink-secondary mt-3 text-[.875rem] leading-relaxed">
                           The letterbox welcomes three kinds of correspondence:
                           casual hellos from fellow wanderers, inquiries
                           regarding backend systems or handcrafted websites, and
                           open questions or thoughts.
                         </p>
                         <div class="mt-4 flex flex-wrap items-center gap-2">
-                          <span class="inline-flex items-center rounded-md border border-[#c4b49d]/60 bg-[#f7f2e8] px-2.5 py-1 text-[.8125rem] font-medium text-[#2d332b]">
+                          <span class="border-border-soft/60 bg-surface-sunlit text-ink-primary inline-flex items-center rounded-md border px-2.5 py-1 text-[.8125rem] font-medium">
                             Say Hello
                           </span>
-                          <span class="inline-flex items-center rounded-md border border-[#c4b49d]/60 bg-[#f7f2e8] px-2.5 py-1 text-[.8125rem] font-medium text-[#2d332b]">
+                          <span class="border-border-soft/60 bg-surface-sunlit text-ink-primary inline-flex items-center rounded-md border px-2.5 py-1 text-[.8125rem] font-medium">
                             Project &amp; Craft Inquiry
                           </span>
-                          <span class="inline-flex items-center rounded-md border border-[#c4b49d]/60 bg-[#f7f2e8] px-2.5 py-1 text-[.8125rem] font-medium text-[#2d332b]">
+                          <span class="border-border-soft/60 bg-surface-sunlit text-ink-primary inline-flex items-center rounded-md border px-2.5 py-1 text-[.8125rem] font-medium">
                             Open Question
                           </span>
                         </div>
@@ -1041,12 +1091,12 @@ const destinations = stationRoutes
                     </div>
                   )}
                   <a
-                    class="mt-7 inline-flex min-h-11 items-center gap-[.45rem] font-sans text-[.8125rem] font-bold text-[#2d332b] underline decoration-[#b8614b] decoration-1 underline-offset-[.3rem] transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] hover:text-[#843d2f] motion-reduce:transition-none"
+                    class="text-ink-primary decoration-signal-terracotta hover:text-signal-terracotta-ink mt-7 inline-flex min-h-11 items-center gap-[.45rem] font-sans text-[.8125rem] font-bold underline decoration-1 underline-offset-[.3rem] transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] motion-reduce:transition-none"
                     href="#board"
                   >
                     <span>Return to the station board</span>
                     <span
-                      class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
+                      class="text-signal-terracotta grid size-[1.3rem] shrink-0 place-items-center"
                       aria-hidden="true"
                     >
                       <svg
@@ -1067,7 +1117,7 @@ const destinations = stationRoutes
   </section>
 
   <section
-    class="scroll-mt-[5.5rem] border-t border-[#c4b49d] bg-[#fffdf8]"
+    class="border-border-soft bg-surface-paper scroll-mt-[5.5rem] border-t"
     id="pause"
     aria-labelledby="pause-title"
   >
@@ -1075,12 +1125,12 @@ const destinations = stationRoutes
       class={`${siteContainer} grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-6 py-[clamp(3rem,7vw,5.5rem)] max-[760px]:grid-cols-[auto_minmax(0,1fr)] max-[480px]:grid-cols-1`}
     >
       <div
-        class="grid size-14 place-items-center rounded-full border border-[#c4b49d] bg-[#e9ddc9] transition-all duration-500 max-[480px]:size-12"
+        class="border-border-soft bg-surface-station grid size-14 place-items-center rounded-full border transition-all duration-500 max-[480px]:size-12"
         aria-hidden="true"
         data-pause-buffer
       >
         <span
-          class="size-[1.1rem] rounded-full border border-[#b8614b] transition-all duration-500"
+          class="border-signal-terracotta size-[1.1rem] rounded-full border transition-all duration-500"
           data-pause-buffer-inner></span>
       </div>
       <div>
@@ -1090,18 +1140,20 @@ const destinations = stationRoutes
         >
           You can pause here.
         </h2>
-        <p class="mt-3 max-w-[40rem] text-base leading-[1.6] text-[#5f665c]">
+        <p
+          class="text-ink-secondary mt-3 max-w-[40rem] text-base leading-[1.6]"
+        >
           There is no tour to finish and nothing to keep up with. Come back when
           you feel like wandering again.
         </p>
       </div>
       <a
-        class="inline-flex min-h-11 items-center gap-[.45rem] font-sans text-[.8125rem] font-bold text-[#2d332b] underline decoration-[#b8614b] decoration-1 underline-offset-[.3rem] transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] hover:text-[#843d2f] motion-reduce:transition-none max-[760px]:col-start-2 max-[760px]:justify-self-start max-[480px]:col-start-1"
+        class="text-ink-primary decoration-signal-terracotta hover:text-signal-terracotta-ink inline-flex min-h-11 items-center gap-[.45rem] font-sans text-[.8125rem] font-bold underline decoration-1 underline-offset-[.3rem] transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] motion-reduce:transition-none max-[760px]:col-start-2 max-[760px]:justify-self-start max-[480px]:col-start-1"
         href="#main-content"
       >
         <span>Back to the platform</span>
         <span
-          class="grid size-[1.3rem] shrink-0 place-items-center text-[#b8614b]"
+          class="text-signal-terracotta grid size-[1.3rem] shrink-0 place-items-center"
           aria-hidden="true"
         >
           <svg
@@ -1166,13 +1218,13 @@ const destinations = stationRoutes
         "Station atmosphere set to Morning, 07:00. Dewy morning mist and soft golden sun.",
       noticeNote:
         "The doors below are unlocked and tended. The morning air is crisp and quiet across the platform.",
-      bgColor: "#c9e0e2",
+      bgColor: "var(--sky-morning)",
       imgFilter: "brightness(1.02) saturate(1.02)",
       sun: { x: 0, y: 0, alpha: 1 },
       moonAlpha: 0,
       starsAlpha: 0,
       lanternAlpha: 0,
-      trainWindow: "#e9ddc9",
+      trainWindow: "var(--surface-station)",
     },
     midday: {
       time: "12:00",
@@ -1181,13 +1233,13 @@ const destinations = stationRoutes
         "Station atmosphere set to Midday, 12:00. Clear high sun over the countryside.",
       noticeNote:
         "The doors below are unlocked and tended. High sun over the rice fields; take your time wandering.",
-      bgColor: "#bde0ea",
+      bgColor: "var(--sky-midday)",
       imgFilter: "brightness(1.06) saturate(1.08) contrast(1.02)",
       sun: { x: -210, y: -50, alpha: 1 },
       moonAlpha: 0,
       starsAlpha: 0,
       lanternAlpha: 0,
-      trainWindow: "#e9ddc9",
+      trainWindow: "var(--surface-station)",
     },
     dusk: {
       time: "17:30",
@@ -1196,14 +1248,14 @@ const destinations = stationRoutes
         "Station atmosphere set to Sunset, 17:30. Warm terracotta golden hour and amber tracks.",
       noticeNote:
         "The doors below are unlocked and tended. Golden hour settles across the tracks; unhurried wandering.",
-      bgColor: "#dfa684",
+      bgColor: "var(--sky-dusk)",
       imgFilter:
         "sepia(0.24) saturate(1.25) brightness(0.96) hue-rotate(-12deg)",
       sun: { x: -390, y: 136, alpha: 1 },
       moonAlpha: 0,
       starsAlpha: 0,
       lanternAlpha: 0.55,
-      trainWindow: "#ffd479",
+      trainWindow: "var(--signal-lantern)",
     },
     night: {
       time: "21:00",
@@ -1212,14 +1264,14 @@ const destinations = stationRoutes
         "Station atmosphere set to Night, 21:00. Quiet indigo night, crescent moon, and platform lanterns.",
       noticeNote:
         "The doors below are unlocked and tended. Platform lanterns are lit; stay and wander as long as you like.",
-      bgColor: "#242f36",
+      bgColor: "var(--sky-night)",
       imgFilter:
         "brightness(0.68) contrast(1.15) saturate(0.85) hue-rotate(185deg)",
       sun: { x: 0, y: 0, alpha: 0 },
       moonAlpha: 1,
       starsAlpha: 0.85,
       lanternAlpha: 1,
-      trainWindow: "#fff0a8",
+      trainWindow: "var(--signal-lantern)",
     },
   };
 
@@ -1349,32 +1401,33 @@ const destinations = stationRoutes
 
       timeButtons.forEach((btn) => {
         const btnMode = btn.getAttribute("data-time-btn") as SkyMode;
-        const isSelected = btnMode === mode && !isLive;
+        const isSelected = btnMode === mode;
         btn.setAttribute("aria-checked", isSelected ? "true" : "false");
+        btn.tabIndex = isSelected ? 0 : -1;
         const indicator = btn.querySelector("[data-btn-indicator]");
 
         if (isSelected) {
           btn.classList.add(
-            "border-[#b8614b]/60",
-            "bg-[#e9ddc9]",
+            "border-signal-terracotta/60",
+            "bg-surface-station",
             "font-semibold",
-            "text-[#2d332b]",
+            "text-ink-primary",
             "shadow-xs",
           );
-          btn.classList.remove("border-transparent", "text-[#5f665c]");
-          indicator?.classList.add("bg-[#b8614b]");
-          indicator?.classList.remove("bg-[#c4b49d]");
+          btn.classList.remove("border-transparent", "text-ink-secondary");
+          indicator?.classList.add("bg-signal-terracotta");
+          indicator?.classList.remove("bg-border-soft");
         } else {
           btn.classList.remove(
-            "border-[#b8614b]/60",
-            "bg-[#e9ddc9]",
+            "border-signal-terracotta/60",
+            "bg-surface-station",
             "font-semibold",
-            "text-[#2d332b]",
+            "text-ink-primary",
             "shadow-xs",
           );
-          btn.classList.add("border-transparent", "text-[#5f665c]");
-          indicator?.classList.remove("bg-[#b8614b]");
-          indicator?.classList.add("bg-[#c4b49d]");
+          btn.classList.add("border-transparent", "text-ink-secondary");
+          indicator?.classList.remove("bg-signal-terracotta");
+          indicator?.classList.add("bg-border-soft");
         }
       });
 
@@ -1382,22 +1435,22 @@ const destinations = stationRoutes
         btn.setAttribute("aria-pressed", isLive ? "true" : "false");
         if (isLive) {
           btn.classList.add(
-            "border-[#b8614b]/60",
-            "bg-[#e9ddc9]",
+            "border-signal-terracotta/60",
+            "bg-surface-station",
             "font-semibold",
-            "text-[#2d332b]",
+            "text-ink-primary",
             "shadow-xs",
           );
-          btn.classList.remove("border-transparent", "text-[#5f665c]");
+          btn.classList.remove("border-transparent", "text-ink-secondary");
         } else {
           btn.classList.remove(
-            "border-[#b8614b]/60",
-            "bg-[#e9ddc9]",
+            "border-signal-terracotta/60",
+            "bg-surface-station",
             "font-semibold",
-            "text-[#2d332b]",
+            "text-ink-primary",
             "shadow-xs",
           );
-          btn.classList.add("border-transparent", "text-[#5f665c]");
+          btn.classList.add("border-transparent", "text-ink-secondary");
         }
       });
     }
@@ -1518,7 +1571,7 @@ const destinations = stationRoutes
     }
 
     // Set up button listeners
-    timeButtons.forEach((btn) => {
+    timeButtons.forEach((btn, index) => {
       btn.addEventListener(
         "click",
         () => {
@@ -1531,6 +1584,29 @@ const destinations = stationRoutes
               window.matchMedia("(prefers-reduced-motion: reduce)").matches,
             );
           }
+        },
+        { signal },
+      );
+
+      btn.addEventListener(
+        "keydown",
+        (event) => {
+          let nextIndex: number;
+          if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+            nextIndex = (index + 1) % timeButtons.length;
+          } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+            nextIndex = (index - 1 + timeButtons.length) % timeButtons.length;
+          } else if (event.key === "Home") {
+            nextIndex = 0;
+          } else if (event.key === "End") {
+            nextIndex = timeButtons.length - 1;
+          } else {
+            return;
+          }
+
+          event.preventDefault();
+          timeButtons[nextIndex]?.focus();
+          timeButtons[nextIndex]?.click();
         },
         { signal },
       );
@@ -1919,17 +1995,23 @@ const destinations = stationRoutes
 
           function setStopActive(active: boolean) {
             if (beacon) {
-              beacon.style.borderColor = active ? "#b8614b" : "#c4b49d";
+              beacon.style.borderColor = active
+                ? "var(--signal-terracotta)"
+                : "var(--border-soft)";
               beacon.style.boxShadow = active
-                ? "0 0 14px rgba(184, 97, 75, 0.38)"
+                ? "0 0 14px color-mix(in srgb, var(--signal-terracotta) 38%, transparent)"
                 : "";
               beacon.style.transform = active ? "scale(1.15)" : "scale(1)";
             }
             if (dot) {
-              dot.style.backgroundColor = active ? "#b8614b" : "#c4b49d";
+              dot.style.backgroundColor = active
+                ? "var(--signal-terracotta)"
+                : "var(--border-soft)";
             }
             if (tag) {
-              tag.style.color = active ? "#843d2f" : "#5f665c";
+              tag.style.color = active
+                ? "var(--signal-terracotta-ink)"
+                : "var(--ink-secondary)";
             }
           }
 
@@ -2076,12 +2158,14 @@ const destinations = stationRoutes
             trigger: pauseSection,
             start: "top 78%",
             onEnter: () => {
-              pauseBuffer.style.borderColor = "#b8614b";
-              pauseBuffer.style.boxShadow = "0 0 20px rgba(184, 97, 75, 0.32)";
-              pauseBufferInner.style.backgroundColor = "#b8614b";
+              pauseBuffer.style.borderColor = "var(--signal-terracotta)";
+              pauseBuffer.style.boxShadow =
+                "0 0 20px color-mix(in srgb, var(--signal-terracotta) 32%, transparent)";
+              pauseBufferInner.style.backgroundColor =
+                "var(--signal-terracotta)";
             },
             onLeaveBack: () => {
-              pauseBuffer.style.borderColor = "#c4b49d";
+              pauseBuffer.style.borderColor = "var(--border-soft)";
               pauseBuffer.style.boxShadow = "";
               pauseBufferInner.style.backgroundColor = "transparent";
             },

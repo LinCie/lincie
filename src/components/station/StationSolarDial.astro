@@ -47,7 +47,7 @@ const times: TimeOption[] = [
 
 <div
   class:list={[
-    "inline-flex flex-col gap-1.5 rounded-xl border border-[#c4b49d]/80 bg-[#fffdf8]/92 p-1.5 shadow-xs backdrop-blur-xs max-[640px]:w-full sm:flex-row sm:items-center sm:gap-2 sm:px-2.5 sm:py-1",
+    "border-border-soft/80 bg-surface-paper/92 inline-flex flex-col gap-1.5 rounded-xl border p-1.5 shadow-xs backdrop-blur-xs max-[640px]:w-full sm:flex-row sm:items-center sm:gap-2 sm:px-2.5 sm:py-1",
     className,
   ]}
   role="region"
@@ -56,26 +56,26 @@ const times: TimeOption[] = [
 >
   <!-- Solar Clock Indicator (and Live button on small screens) -->
   <div
-    class="flex items-center justify-between gap-1.5 px-1 font-sans text-xs font-semibold text-[#5f665c] sm:justify-start"
+    class="text-ink-secondary flex items-center justify-between gap-1.5 px-1 font-sans text-xs font-semibold sm:justify-start"
   >
     <div class="flex items-center gap-1.5">
       <span class="relative flex size-2 shrink-0" aria-hidden="true">
         <span
-          class="absolute inline-flex size-full animate-ping rounded-full bg-[#b8614b] opacity-60"
+          class="bg-signal-terracotta absolute inline-flex size-full animate-ping rounded-full opacity-60 motion-reduce:animate-none"
         ></span>
         <span
-          class="relative inline-flex size-2 rounded-full bg-[#b8614b]"
+          class="bg-signal-terracotta relative inline-flex size-2 rounded-full"
           data-clock-pip></span>
       </span>
       <span
-        class="font-serif text-[.8125rem] tracking-[-0.01em] text-[#2d332b]"
+        class="text-ink-primary font-serif text-[.8125rem] tracking-[-0.01em]"
       >
         Station Dial
       </span>
-      <span class="text-[#c4b49d]" aria-hidden="true">·</span>
+      <span class="text-border-soft" aria-hidden="true">·</span>
       <span
         data-clock-current-time
-        class="font-mono text-[.8125rem] font-semibold text-[#2d332b]"
+        class="text-ink-primary font-mono text-[.8125rem] font-semibold"
       >
         07:00
       </span>
@@ -86,11 +86,11 @@ const times: TimeOption[] = [
       type="button"
       data-time-live
       aria-pressed="false"
-      class="inline-flex min-h-7 min-w-[38px] items-center justify-center gap-1 rounded-lg border border-transparent px-2 py-0.5 text-[.8125rem] font-medium text-[#5f665c] transition-all duration-200 hover:border-[#c4b49d]/60 hover:bg-[#f7f2e8] hover:text-[#2d332b] focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#b8614b] sm:hidden"
+      class="text-ink-secondary hover:border-border-soft/60 hover:bg-surface-sunlit hover:text-ink-primary focus-visible:outline-signal-terracotta inline-flex min-h-11 min-w-11 items-center justify-center gap-1 rounded-lg border border-transparent px-2 py-0.5 text-[.8125rem] font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-1 motion-reduce:transition-none sm:hidden"
       title="Synchronize station atmosphere with your local time of day"
     >
       <svg
-        class="size-2.5 text-[#b8614b]"
+        class="text-signal-terracotta size-2.5"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -111,6 +111,7 @@ const times: TimeOption[] = [
     class="grid grid-cols-4 gap-1 sm:flex sm:items-center"
     role="radiogroup"
     aria-label="Choose station atmosphere"
+    aria-orientation="horizontal"
   >
     {
       times.map((t) => (
@@ -118,21 +119,22 @@ const times: TimeOption[] = [
           type="button"
           role="radio"
           aria-checked={t.id === "morning" ? "true" : "false"}
+          tabindex={t.id === "morning" ? 0 : -1}
           data-time-btn={t.id}
           data-time-hour={t.time}
           data-time-name={t.label}
           title={`${t.label} (${t.time}) — ${t.desc}`}
           class:list={[
-            "group inline-flex min-h-7 items-center justify-center gap-1 rounded-lg px-2 py-0.5 text-[.8125rem] font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#b8614b]",
+            "group text-ink-secondary focus-visible:outline-signal-terracotta inline-flex min-h-11 min-w-11 items-center justify-center gap-1 rounded-lg px-2 py-0.5 text-[.8125rem] font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-1 motion-reduce:transition-none",
             t.id === "morning"
-              ? "border border-[#b8614b]/60 bg-[#e9ddc9] font-semibold text-[#2d332b] shadow-xs"
-              : "border border-transparent text-[#5f665c] hover:border-[#c4b49d]/60 hover:bg-[#f7f2e8] hover:text-[#2d332b]",
+              ? "border-signal-terracotta/60 bg-surface-station text-ink-primary border font-semibold shadow-xs"
+              : "text-ink-secondary hover:border-border-soft/60 hover:bg-surface-sunlit hover:text-ink-primary border border-transparent",
           ]}
         >
           <span
             class:list={[
-              "size-1 rounded-full transition-colors",
-              t.id === "morning" ? "bg-[#b8614b]" : "bg-[#c4b49d]",
+              "size-1 rounded-full transition-colors motion-reduce:transition-none",
+              t.id === "morning" ? "bg-signal-terracotta" : "bg-border-soft",
             ]}
             aria-hidden="true"
             data-btn-indicator
@@ -144,7 +146,7 @@ const times: TimeOption[] = [
     }
 
     <span
-      class="mx-0.5 hidden h-3 w-px bg-[#c4b49d]/60 sm:inline-block"
+      class="bg-border-soft/60 mx-0.5 hidden h-3 w-px sm:inline-block"
       aria-hidden="true"></span>
 
     <!-- Live Sync Toggle (Desktop inline) -->
@@ -152,11 +154,11 @@ const times: TimeOption[] = [
       type="button"
       data-time-live
       aria-pressed="false"
-      class="hidden min-h-7 min-w-[38px] items-center justify-center gap-1 rounded-lg border border-transparent px-2 py-0.5 text-[.8125rem] font-medium text-[#5f665c] transition-all duration-200 hover:border-[#c4b49d]/60 hover:bg-[#f7f2e8] hover:text-[#2d332b] focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#b8614b] sm:inline-flex"
+      class="text-ink-secondary hover:border-border-soft/60 hover:bg-surface-sunlit hover:text-ink-primary focus-visible:outline-signal-terracotta hidden min-h-11 min-w-11 items-center justify-center gap-1 rounded-lg border border-transparent px-2 py-0.5 text-[.8125rem] font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-1 motion-reduce:transition-none sm:inline-flex"
       title="Synchronize station atmosphere with your local time of day"
     >
       <svg
-        class="size-2.5 text-[#b8614b]"
+        class="text-signal-terracotta size-2.5"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"

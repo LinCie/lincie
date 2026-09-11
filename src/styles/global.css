@@ -2,9 +2,42 @@
 
 :root {
   color-scheme: light;
+  --surface-sunlit: #f7f2e8;
+  --surface-paper: #fffdf8;
+  --surface-station: #e9ddc9;
+  --surface-field: #dce7c9;
+  --sky-morning: #c9e0e2;
+  --sky-midday: #bde0ea;
+  --sky-dusk: #dfa684;
+  --sky-night: #242f36;
+  --signal-lantern: #fff0a8;
+  --ink-primary: #2d332b;
+  --ink-secondary: #5f665c;
+  --border-soft: #c4b49d;
+  --field-green: #6c895f;
+  --signal-terracotta: #b8614b;
+  --signal-gold: #d49a48;
+  --signal-terracotta-ink: #843d2f;
+  --surface-footer: #384637;
   font-family: ui-sans-serif, system-ui, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+}
+
+@theme inline {
+  --color-surface-sunlit: var(--surface-sunlit);
+  --color-surface-paper: var(--surface-paper);
+  --color-surface-station: var(--surface-station);
+  --color-surface-field: var(--surface-field);
+  --color-sky-morning: var(--sky-morning);
+  --color-ink-primary: var(--ink-primary);
+  --color-ink-secondary: var(--ink-secondary);
+  --color-border-soft: var(--border-soft);
+  --color-field-green: var(--field-green);
+  --color-signal-terracotta: var(--signal-terracotta);
+  --color-signal-gold: var(--signal-gold);
+  --color-signal-terracotta-ink: var(--signal-terracotta-ink);
+  --color-surface-footer: var(--surface-footer);
 }
 
 * {
@@ -12,19 +45,19 @@
 }
 
 html {
-  background: #f7f2e8;
+  background: var(--surface-sunlit);
   scroll-behavior: smooth;
 }
 
 body {
   min-width: 320px;
   margin: 0;
-  background: #f7f2e8;
+  background: var(--surface-sunlit);
 }
 
 ::selection {
-  background: #d49a48;
-  color: #2d332b;
+  background: var(--signal-gold);
+  color: var(--ink-primary);
 }
 
 a:focus-visible {
@@ -49,13 +82,13 @@ a:focus-visible {
 }
 
 ::-webkit-scrollbar-track {
-  background: #e9ddc9;
+  background: var(--surface-station);
 }
 
 ::-webkit-scrollbar-thumb {
-  border: 2px solid #e9ddc9;
+  border: 2px solid var(--surface-station);
   border-radius: 999px;
-  background: #6c895f;
+  background: var(--field-green);
 }
 
 /* Station View Transitions */

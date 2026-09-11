@@ -33,12 +33,14 @@ const routes = stationRoutes.map((route) => ({
 }));
 
 const routeLinkClass =
-  "inline-flex min-h-11 items-center gap-2 text-sm text-[#f7f2e8]/85 underline decoration-[#b8614b] decoration-1 underline-offset-4 transition-colors hover:text-[#fffdf8] hover:decoration-[#fffdf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]";
+  "inline-flex min-h-11 items-center gap-2 text-sm text-surface-sunlit/85 underline decoration-signal-terracotta decoration-1 underline-offset-4 transition-colors hover:text-surface-paper hover:decoration-surface-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal-terracotta";
 
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-[#c4b49d]/40 bg-[#384637] text-[#f7f2e8]">
+<footer
+  class="border-border-soft/40 bg-surface-footer text-surface-sunlit border-t"
+>
   <div class={`${siteContainer} py-12 md:py-16`}>
     <div
       class="grid grid-cols-1 gap-10 md:grid-cols-[1.3fr_1fr_1fr] md:gap-8 lg:gap-12"
@@ -47,25 +49,25 @@ const currentYear = new Date().getFullYear();
       <div class="space-y-4">
         <div class="flex items-center gap-3">
           <span
-            class="relative grid size-7 place-items-center rounded-full border border-[#f7f2e8]/40 bg-[#f7f2e8]/10"
+            class="border-surface-sunlit/40 bg-surface-sunlit/10 relative grid size-7 place-items-center rounded-full border"
             aria-hidden="true"
           >
-            <span class="size-2 rounded-full bg-[#b8614b]"></span>
+            <span class="bg-signal-terracotta size-2 rounded-full"></span>
           </span>
-          <p class="font-serif text-2xl tracking-[-0.02em] text-[#f7f2e8]">
+          <p class="text-surface-sunlit font-serif text-2xl tracking-[-0.02em]">
             LinCie Station
           </p>
         </div>
 
-        <p class="max-w-[38ch] text-sm leading-relaxed text-[#f7f2e8]/80">
+        <p class="text-surface-sunlit/80 max-w-[38ch] text-sm leading-relaxed">
           A personal world first. A portfolio second. LinCie is a software
           engineering trainee making room for thoughtful work and curious ideas.
         </p>
 
         <div
-          class="flex items-center gap-2 pt-1 font-sans text-xs text-[#dce7c9]"
+          class="text-surface-field flex items-center gap-2 pt-1 font-sans text-xs"
         >
-          <span class="size-1.5 rounded-full bg-[#d49a48]" aria-hidden="true"
+          <span class="bg-signal-gold size-1.5 rounded-full" aria-hidden="true"
           ></span>
           <span>Sea Labs Indonesia · Go &amp; TypeScript</span>
         </div>
@@ -74,7 +76,7 @@ const currentYear = new Date().getFullYear();
       <!-- Zone 2: Wayfinding & Tracks -->
       <div>
         <h2
-          class="font-sans text-xs font-bold tracking-[0.06em] text-[#dce7c9] uppercase"
+          class="text-surface-field font-sans text-xs font-bold tracking-[0.06em] uppercase"
         >
           Wayfinding &amp; Tracks
         </h2>
@@ -87,7 +89,7 @@ const currentYear = new Date().getFullYear();
               >
                 <span>{route.footerLabel}</span>
                 {route.active && (
-                  <span class="text-xs text-[#dce7c9]">(Here)</span>
+                  <span class="text-surface-field text-xs">(Here)</span>
                 )}
               </a>
             ))
@@ -117,16 +119,18 @@ const currentYear = new Date().getFullYear();
       <!-- Zone 3: Station Atmosphere -->
       <div>
         <h2
-          class="font-sans text-xs font-bold tracking-[0.06em] text-[#dce7c9] uppercase"
+          class="text-surface-field font-sans text-xs font-bold tracking-[0.06em] uppercase"
         >
           Station Atmosphere
         </h2>
-        <div class="mt-4 space-y-3 text-sm leading-relaxed text-[#f7f2e8]/80">
+        <div
+          class="text-surface-sunlit/80 mt-4 space-y-3 text-sm leading-relaxed"
+        >
           <p>
             Take your time. There is no route to complete and no tour to finish.
             Come back when you feel like wandering again.
           </p>
-          <p class="text-xs text-[#f7f2e8]/65">
+          <p class="text-surface-sunlit/65 text-xs">
             Inspired by iyashikei calm, rural train platforms, and morning light
             across quiet fields.
           </p>
@@ -136,7 +140,7 @@ const currentYear = new Date().getFullYear();
 
     <!-- Bottom Colophon -->
     <div
-      class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[#f7f2e8]/15 pt-6 text-xs text-[#f7f2e8]/70 sm:flex-row"
+      class="border-surface-sunlit/15 text-surface-sunlit/70 mt-12 flex flex-col items-center justify-between gap-4 border-t pt-6 text-xs sm:flex-row"
     >
       <p>
         LinCie Station · &copy; {currentYear} · Built with care

@@ -181,17 +181,17 @@ const robotsContent = noindex
     <ClientRouter />
   </head>
   <body
-    class="bg-[#f7f2e8] text-[#2d332b] antialiased selection:bg-[#d49a48] selection:text-[#2d332b]"
+    class="bg-surface-sunlit text-ink-primary selection:bg-signal-gold selection:text-ink-primary antialiased"
   >
     <!-- Accessible Skip to Content Link -->
     <a
-      class="fixed top-4 left-4 z-50 -translate-y-[160%] rounded-md border border-[#b8614b] bg-[#fffdf8] px-4 py-3 text-sm font-bold text-[#2d332b] shadow-md transition-transform duration-200 ease-out focus:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] motion-reduce:transition-none"
+      class="border-signal-terracotta bg-surface-paper text-ink-primary focus-visible:outline-signal-terracotta fixed top-4 left-4 z-50 -translate-y-[160%] rounded-md border px-4 py-3 text-sm font-bold shadow-md transition-transform duration-200 ease-out focus:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 motion-reduce:transition-none"
       href="#main-content"
     >
       Skip to main content
     </a>
 
-    <div class="flex min-h-screen flex-col overflow-x-clip bg-[#f7f2e8]">
+    <div class="bg-surface-sunlit flex min-h-screen flex-col overflow-x-clip">
       <Header currentRoute={pathname} />
 
       <main
