@@ -729,12 +729,12 @@ const destinations = stationRoutes
 
       <!-- The Living Countryside Rail Journey -->
       <div
-        class="relative mt-8 pl-8 max-[760px]:mt-6 sm:pl-14 md:pl-16"
+        class="relative mt-8 pl-8 max-[760px]:mt-6 max-[760px]:pl-5 sm:pl-14 md:pl-16"
         data-rail-journey
       >
         <!-- The Left Rail Spine -->
         <div
-          class="pointer-events-none absolute top-4 bottom-4 left-0 w-8 overflow-visible select-none sm:w-14 md:w-16"
+          class="pointer-events-none absolute top-4 bottom-4 left-0 w-8 overflow-visible select-none max-[760px]:-left-3 max-[760px]:w-5 sm:w-14 md:w-16"
           aria-hidden="true"
           data-rail-track-wrap
         >
@@ -796,7 +796,7 @@ const destinations = stationRoutes
             data-rail-car
           >
             <svg
-              class="h-10 w-7 drop-shadow-[0_4px_8px_rgba(45,51,43,0.2)]"
+              class="h-10 w-7 drop-shadow-[0_4px_8px_rgba(45,51,43,0.2)] max-[760px]:scale-50"
               viewBox="0 0 28 40"
               fill="none"
               aria-hidden="true"
@@ -876,16 +876,16 @@ const destinations = stationRoutes
               >
                 {/* Station Stop Milestone Marker on the Track Spine */}
                 <div
-                  class="pointer-events-none absolute top-12 -left-8 flex w-8 flex-col items-center sm:-left-14 sm:w-14 md:-left-16 md:w-16"
+                  class="pointer-events-none absolute top-12 -left-8 flex w-8 flex-col items-center max-[760px]:-left-8 max-[760px]:w-5 sm:-left-14 sm:w-14 md:-left-16 md:w-16"
                   data-station-stop
                   aria-hidden="true"
                 >
                   <div
-                    class="flex size-7 items-center justify-center rounded-full border border-[#c4b49d] bg-[#fffdf8] shadow-xs transition-all duration-300"
+                    class="flex size-7 items-center justify-center rounded-full border border-[#c4b49d] bg-[#fffdf8] shadow-xs transition-all duration-300 max-[760px]:size-5"
                     data-stop-beacon
                   >
                     <span
-                      class="size-2.5 rounded-full bg-[#c4b49d] transition-colors duration-300"
+                      class="size-2.5 rounded-full bg-[#c4b49d] transition-colors duration-300 max-[760px]:size-2"
                       data-stop-dot
                     />
                   </div>
