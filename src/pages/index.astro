@@ -4,6 +4,7 @@ import MainLayout from "../components/layout/MainLayout.astro";
 import FieldCard from "../components/station/FieldCard.astro";
 import StepLink from "../components/station/StepLink.astro";
 import StationSolarDial from "../components/station/StationSolarDial.astro";
+import RoomDiorama from "../components/station/RoomDiorama.astro";
 import { offers } from "../data/offers";
 import { projects } from "../data/projects";
 import { stationRoutes } from "../data/routes";
@@ -899,86 +900,17 @@ const destinations = stationRoutes
 
                 <div
                   class:list={[
-                    "relative min-h-[clamp(12rem,24vw,18rem)] overflow-hidden rounded-[1.25rem] border border-[#c4b49d] bg-[#dce7c9] max-[760px]:min-h-[13rem]",
-                    destination.tone === "house" && "bg-[#e9ddc9]",
-                    destination.tone === "workshop" && "bg-[#c9e0e2]",
-                    destination.tone === "thoughts" && "bg-[#fffdf8]",
-                    destination.tone === "letterbox" && "bg-[#dce7c9]",
+                    "w-full",
                     index % 2 === 1 &&
                       "max-[760px]:order-0 min-[761px]:order-2",
                   ]}
-                  aria-hidden="true"
-                  data-room-diorama
                 >
-                  <span
-                    class="absolute top-[14%] right-[14%] size-14 rounded-full bg-[#d49a48]/75"
-                    data-diorama-sun
+                  <RoomDiorama
+                    id={destination.id}
+                    place={destination.place}
+                    tone={destination.tone}
+                    index={index}
                   />
-                  {destination.tone === "house" ? (
-                    <>
-                      <span
-                        class="absolute top-[18%] left-[14%] h-[31%] w-[30%] rounded-[.35rem] border border-[#c4b49d] bg-[#c9e0e2]/65 shadow-[inset_0_-0.65rem_0_rgba(247,242,232,0.36)]"
-                        data-diorama-back
-                      >
-                        <span class="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-[#c4b49d]" />
-                        <span class="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-[#c4b49d]" />
-                      </span>
-                      <span
-                        class="absolute right-[17%] bottom-[24%] h-[18%] w-[34%] rounded-t-[.85rem] border border-[#b8614b]/45 bg-[#fffdf8]/75"
-                        data-diorama-mid
-                      >
-                        <span class="absolute top-[22%] left-[12%] h-[42%] w-[29%] rounded-[.3rem] bg-[#d49a48]/60" />
-                        <span class="absolute right-[12%] bottom-0 h-[55%] w-[.3rem] bg-[#c4b49d]" />
-                      </span>
-                      <span
-                        class="absolute bottom-[24%] left-[16%] h-[10%] w-[22%] rounded-t-[.25rem] border border-[#c4b49d] bg-[#f7f2e8]"
-                        data-diorama-mid
-                      />
-                    </>
-                  ) : (
-                    <>
-                      <span
-                        class:list={[
-                          "absolute bottom-[-13%] left-[-15%] h-[54%] w-[72%] rounded-t-[50%] bg-[#6c895f]/70",
-                          destination.tone === "workshop" &&
-                            "h-[40%] w-[42%] rounded-t-xl bg-[#fffdf8]/80",
-                          destination.tone === "thoughts" &&
-                            "bottom-[20%] left-[12%] h-[36%] w-[48%] rounded-md border border-[#c4b49d] bg-[#f7f2e8] shadow-sm",
-                          destination.tone === "letterbox" &&
-                            "bottom-[20%] left-[16%] h-[42%] w-[48%] rounded-lg bg-[#b8614b] shadow-xs",
-                        ]}
-                        data-diorama-back
-                      />
-                      <span
-                        class:list={[
-                          "absolute right-[-18%] bottom-[-13%] h-[54%] w-[60%] rounded-t-[50%] bg-[#6c895f]/42",
-                          destination.tone === "thoughts" &&
-                            "top-[18%] right-[14%] h-[32%] w-[32%] rounded-[.35rem] border border-[#c4b49d] bg-[#c9e0e2]/60",
-                          destination.tone === "letterbox" &&
-                            "right-[18%] bottom-[12%] h-[60%] w-[14%] rounded-xs bg-[#c4b49d]",
-                        ]}
-                        data-diorama-mid
-                      />
-                      {destination.tone === "letterbox" && (
-                        <>
-                          <span
-                            class="absolute bottom-[44%] left-[22%] h-[3px] w-[32%] rounded-full bg-[#fffdf8]/90"
-                            data-diorama-mid
-                          />
-                          <span
-                            class="absolute bottom-[28%] left-[26%] h-[18%] w-[24%] -rotate-6 rounded-xs border border-[#c4b49d]/60 bg-[#fffdf8] shadow-xs"
-                            data-diorama-mid
-                          />
-                        </>
-                      )}
-                    </>
-                  )}
-                  <span
-                    class="absolute inset-x-[13%] bottom-[13%] grid min-h-11 place-items-center border border-[#c4b49d] bg-[#fffdf8] p-2 text-center font-serif text-[clamp(1rem,2vw,1.35rem)] text-[#2d332b] shadow-[0_8px_18px_rgba(57,52,38,0.11)]"
-                    data-diorama-sign
-                  >
-                    {destination.place}
-                  </span>
                 </div>
 
                 <div class="max-w-[38rem]" data-room-content>
@@ -1205,6 +1137,7 @@ const destinations = stationRoutes
   import ScrollTrigger from "gsap/ScrollTrigger";
   import DrawSVGPlugin from "gsap/DrawSVGPlugin";
   import MotionPathPlugin from "gsap/MotionPathPlugin";
+  import { initDioramaOverdrive } from "../scripts/diorama-overdrive";
 
   gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, MotionPathPlugin);
 
@@ -1965,6 +1898,9 @@ const destinations = stationRoutes
           "[data-room-article]",
         );
 
+        // Initialize Overdrive 3D tilt, specular glare & ambient particles
+        initDioramaOverdrive(signal);
+
         roomArticles.forEach((article) => {
           const beacon =
             article.querySelector<HTMLElement>("[data-stop-beacon]");
@@ -1997,7 +1933,7 @@ const destinations = stationRoutes
             }
           }
 
-          // Dual-plane optical diorama parallax inside each room card
+          // Multi-plane optical diorama parallax inside each room card
           const diorama = article.querySelector<HTMLElement>(
             "[data-room-diorama]",
           );
@@ -2009,6 +1945,9 @@ const destinations = stationRoutes
             );
             const midEls =
               diorama.querySelectorAll<HTMLElement>("[data-diorama-mid]");
+            const frontEls = diorama.querySelectorAll<HTMLElement>(
+              "[data-diorama-front]",
+            );
             const signEl = diorama.querySelector<HTMLElement>(
               "[data-diorama-sign]",
             );
@@ -2033,9 +1972,9 @@ const destinations = stationRoutes
             if (backEls.length) {
               gsap.fromTo(
                 backEls,
-                { y: 12 },
+                { y: 14 },
                 {
-                  y: -14,
+                  y: -16,
                   ease: "none",
                   scrollTrigger: {
                     trigger: article,
@@ -2052,7 +1991,24 @@ const destinations = stationRoutes
                 midEls,
                 { y: -6 },
                 {
-                  y: 10,
+                  y: 8,
+                  ease: "none",
+                  scrollTrigger: {
+                    trigger: article,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1.2,
+                  },
+                },
+              );
+            }
+
+            if (frontEls.length) {
+              gsap.fromTo(
+                frontEls,
+                { y: -12 },
+                {
+                  y: 16,
                   ease: "none",
                   scrollTrigger: {
                     trigger: article,
@@ -2067,7 +2023,7 @@ const destinations = stationRoutes
             if (signEl) {
               gsap.fromTo(
                 signEl,
-                { y: 10, scale: 0.98 },
+                { y: 8, scale: 0.98 },
                 {
                   y: -6,
                   scale: 1,
