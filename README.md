@@ -1,24 +1,39 @@
 # LinCie
 
-<div align="center">
-  <strong>Software engineering trainee · Backend engineer · Creative developer</strong>
-  <br />
+<p align="center">
+  <img src="./public/favicon.svg" alt="LinCie's cat and rice-sprout station logo" width="76" />
+</p>
+
+<p align="center">
+  <img src="./profile/lin-cie-station-banner.jpg" alt="A small rural station beside rice fields as a train arrives beneath distant mountains." width="100%" />
+</p>
+
+<p align="center">
+  <strong>Software engineering trainee · Backend engineer · Creative developer</strong><br />
   I build dependable systems and thoughtful digital experiences from Indonesia.
-  <br /><br />
-  <a href="https://lincie.me"><img src="https://img.shields.io/badge/Website-lincie.me-b8614b?style=flat-square" alt="Visit lincie.me" /></a>
-  <a href="https://github.com/lincie"><img src="https://img.shields.io/badge/GitHub-@lincie-2d332b?style=flat-square&logo=github&logoColor=white" alt="LinCie on GitHub" /></a>
-  <a href="mailto:contact@lincie.me"><img src="https://img.shields.io/badge/Email-contact%40lincie.me-6c895f?style=flat-square&logo=gmail&logoColor=white" alt="Email LinCie" /></a>
-</div>
+</p>
+
+<p align="center">
+  <a href="https://lincie.me">Website</a> ·
+  <a href="https://lincie.me/projects/">Projects</a> ·
+  <a href="https://lincie.me/thoughts/">Notes</a> ·
+  <a href="mailto:contact@lincie.me">Email</a> ·
+  <a href="https://github.com/lincie">GitHub</a>
+</p>
 
 ## Hello from the station
 
 I’m **LinCie**, a software engineering trainee at **Sea Labs Indonesia (Shopee)**. I work mostly on backend services in **Go** and **TypeScript**, with a focus on PostgreSQL, API design, query performance, and systems that stay understandable after they ship.
 
-My route into engineering began with a degree in **Marketing Management and Business Administration**. That background still shapes how I build: technical decisions should have a human and operational reason behind them. A faster query is valuable because it gives someone time back; a clear API is valuable because another person can safely maintain it.
+My route into engineering began with a degree in **Marketing Management and Business Administration**. That background still shapes how I build: technical decisions should have a human and operational reason behind them. A faster query gives someone time back; a clear API gives another person a system they can safely maintain.
 
 Before Sea Labs, I was a Full Stack Engineer at **PT Haebot Teknologi Indonesia**, where I led the rewrite of a core ERP system and reduced production query latency from approximately **2.5 seconds to under 400 milliseconds**.
 
 > I believe in quiet craft: measure first, prefer predictable solutions, and build software that reliably serves the people depending on it.
+
+<p align="center">
+  <img src="./profile/lin-cie-workshop.jpg" alt="A warm wooden workshop with a laptop showing abstract code, a database illustration, tools, and rice fields outside the window." width="76%" />
+</p>
 
 ## What I build
 
@@ -27,14 +42,20 @@ Before Sea Labs, I was a Full Stack Engineer at **PT Haebot Teknologi Indonesia*
 - **Production tooling** — Docker-based environments, resilient services, storage workflows, and practical automation.
 - **Crafted websites** — Fast, accessible, SEO-conscious experiences with Astro, Tailwind CSS, TypeScript, and carefully used motion.
 
+<p align="center">
+  <img src="./profile/lin-cie-systems-map.jpg" alt="A hand-drawn technical map connecting Indonesian islands with terracotta routes, database cylinders, and small service nodes." width="72%" />
+</p>
+
 ## Selected work
 
-| Project | What it is | Field evidence |
-| --- | --- | --- |
-| [**Bearuang**](https://lincie.me/projects/bearuang/) | A modular POS and ERP backend for retail workflows. | 30+ REST endpoints · 2,000+ req/min · 1M+ seeded products |
-| [**Haebot ERP Rewrite**](https://lincie.me/projects/haebot-erp/) | A ground-up enterprise ERP rewrite for Sales, Inventory, and Finance. | Query latency reduced by >84% · setup reduced from ~1 hour to <5 minutes |
-| [**Lintas Nusa Logistics**](https://lincie.me/projects/lintas-nusa/) | An enterprise logistics platform with an interactive national network map. | Astro · GSAP · Tailwind CSS · 9-node SVG network |
-| [**Mika Discord Music Bot**](https://lincie.me/projects/mika/) | A production music bot with normalized multi-source audio streaming. | 2+ years running · 6 servers · 1,000+ community members |
+- **[Bearuang](https://lincie.me/projects/bearuang/)** — A modular POS and ERP backend for retail workflows.  
+  `30+ REST endpoints` · `2,000+ req/min` · `1M+ seeded products`
+- **[Haebot ERP Rewrite](https://lincie.me/projects/haebot-erp/)** — A ground-up enterprise ERP rewrite for Sales, Inventory, and Finance.  
+  `>84% lower query latency` · `~1 hour → <5 minutes setup` · `25 employees served`
+- **[Lintas Nusa Logistics](https://lincie.me/projects/lintas-nusa/)** — An enterprise logistics platform with an interactive national network map.  
+  `5 core pages` · `9-node SVG map` · `Astro · GSAP · Tailwind CSS`
+- **[Mika Discord Music Bot](https://lincie.me/projects/mika/)** — A production music bot with normalized multi-source audio streaming.  
+  `2+ years running` · `6 servers` · `1,000+ community members`
 
 [Explore all projects →](https://lincie.me/projects/)
 
@@ -53,24 +74,36 @@ Before Sea Labs, I was a Full Stack Engineer at **PT Haebot Teknologi Indonesia*
   <img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white" alt="Redis" />
 </div>
 
-## GitHub at a glance
+## GitHub in pictures
 
-<div align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=lincie&amp;show_icons=true&amp;hide_border=true&amp;title_color=2d332b&amp;text_color=5f665c&amp;icon_color=b8614b&amp;bg_color=fffdf8" alt="LinCie's GitHub statistics" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=lincie&amp;layout=compact&amp;langs_count=8&amp;hide_border=true&amp;title_color=2d332b&amp;text_color=5f665c&amp;bg_color=fffdf8" alt="LinCie's most used programming languages" />
-</div>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./profile/github-stats-dark.svg" />
+    <img src="./profile/github-stats.svg" alt="GitHub statistics: public repositories, commits, pull requests, and collaborations." width="49%" />
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./profile/top-languages-dark.svg" />
+    <img src="./profile/top-languages.svg" alt="Top repository languages: TypeScript, Astro, Go, JavaScript, and Python." width="49%" />
+  </picture>
+</p>
 
-<div align="center">
-  <img src="https://streak-stats.demolab.com?user=lincie&amp;hide_border=true&amp;background=FFFDF8&amp;ring=B8614B&amp;fire=D49A48&amp;currStreakLabel=2D332B&amp;sideLabels=5F665C&amp;dates=5F665C&amp;currStreakNum=2D332B&amp;sideNums=2D332B" alt="LinCie's GitHub contribution streak" />
-</div>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./profile/github-snake-dark.svg" />
+    <img src="./profile/github-snake.svg" alt="A contribution-grid snake representing LinCie's GitHub activity." width="100%" />
+  </picture>
+</p>
 
-## About this repository
+These cards and the contribution illustration are stored in this repository and refreshed daily by [`.github/workflows/profile-visuals.yml`](./.github/workflows/profile-visuals.yml). They do not depend on a live public image endpoint, which keeps the profile visual without repeating the broken deployment problem.
+
+## This repository
 
 This repository, **[`lincie/lincie`](https://github.com/lincie/lincie)**, is the source for [LinCie Station](https://lincie.me): a personal portfolio, project archive, and small home for engineering notes.
 
-The site is intentionally built as a mostly static Astro experience. It combines data-driven pages with accessible navigation, responsive layouts, SEO metadata, structured data, and small, purposeful animations.
+The site is a mostly static Astro experience with data-driven pages, accessible navigation, responsive layouts, SEO metadata, structured data, and small, purposeful animations.
 
-### Run it locally
+<details>
+<summary><strong>Run it locally</strong></summary>
 
 **Requirements:** [Bun](https://bun.sh) and Node.js `>=22.12.0`.
 
@@ -91,12 +124,8 @@ bun run lint     # Lint source files
 bun run check    # Run Astro checks
 ```
 
-## Find me elsewhere
+</details>
 
-- **Website:** [lincie.me](https://lincie.me)
-- **Projects:** [lincie.me/projects](https://lincie.me/projects/)
-- **Notes:** [lincie.me/thoughts](https://lincie.me/thoughts/)
-- **Email:** [contact@lincie.me](mailto:contact@lincie.me)
-- **GitHub:** [github.com/lincie](https://github.com/lincie)
+---
 
 <sub>Built with Astro, Tailwind CSS, TypeScript, and a little GSAP. No tracking, no hurry.</sub>
