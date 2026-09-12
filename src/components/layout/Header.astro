@@ -269,7 +269,7 @@ const routes = stationRoutes.map((route) => ({
     <!-- Route Links (Station Wayfinding List) -->
     <div class="flex-1 space-y-2 overflow-y-auto px-4 py-4" tabindex="-1">
       {
-        routes.map((route) => (
+        routes.map((route, index) => (
           <a
             href={route.href}
             data-sidebar-link
@@ -283,17 +283,13 @@ const routes = stationRoutes.map((route) => ({
             <div class="flex items-start gap-3">
               <div class="mt-0.5 flex flex-col items-center" aria-hidden="true">
                 <span
-                  class={`grid size-5 place-items-center rounded-full border ${
+                  class={`grid size-6 place-items-center rounded-[4px] border font-mono text-[10px] font-bold tracking-tight transition-colors duration-200 ${
                     route.active
-                      ? "border-signal-terracotta bg-signal-terracotta text-surface-paper"
-                      : "border-border-soft bg-surface-paper group-hover:border-signal-terracotta"
+                      ? "border-signal-terracotta bg-signal-terracotta text-surface-paper shadow-xs"
+                      : "border-border-soft bg-surface-paper text-ink-secondary group-hover:border-signal-terracotta group-hover:text-signal-terracotta-ink"
                   }`}
                 >
-                  {route.active ? (
-                    <span class="bg-surface-paper size-1.5 rounded-full" />
-                  ) : (
-                    <span class="bg-border-soft group-hover:bg-signal-terracotta size-1 rounded-full" />
-                  )}
+                  0{index + 1}
                 </span>
               </div>
 

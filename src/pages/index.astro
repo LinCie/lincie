@@ -911,27 +911,78 @@ const destinations = stationRoutes
                 id={destination.id}
                 data-room-article
               >
-                {/* Station Stop Milestone Marker on the Track Spine */}
+                {/* Station Platform Stop Signpost on the Track Spine */}
                 <div
-                  class="pointer-events-none absolute top-12 -left-8 flex w-8 flex-col items-center max-[760px]:-left-8 max-[760px]:w-5 sm:-left-14 sm:w-14 md:-left-16 md:w-16"
+                  class="pointer-events-none absolute top-10 -left-8 flex w-8 flex-col items-center max-[760px]:-left-8 max-[760px]:w-5 sm:-left-14 sm:w-14 md:-left-16 md:w-16"
                   data-station-stop
                   aria-hidden="true"
                 >
                   <div
-                    class="border-border-soft bg-surface-paper flex size-7 items-center justify-center rounded-full border shadow-xs transition-all duration-300 max-[760px]:size-5"
-                    data-stop-beacon
+                    class="flex flex-col items-center transition-transform duration-300 ease-out motion-reduce:transition-none"
+                    data-stop-sign
                   >
-                    <span
-                      class="bg-border-soft size-2.5 rounded-full transition-colors duration-300 max-[760px]:size-2"
-                      data-stop-dot
-                    />
+                    {/* Gabled Station Rooflet & Signal Finial */}
+                    <div class="flex flex-col items-center">
+                      <span
+                        class="bg-border-soft size-1.5 rounded-xs transition-all duration-300"
+                        data-stop-lantern
+                      />
+                      <svg
+                        class="h-2 w-7 overflow-visible max-[760px]:w-6"
+                        viewBox="0 0 28 8"
+                        fill="none"
+                      >
+                        <path
+                          d="M2 7 L14 2 L26 7"
+                          stroke="var(--ink-primary)"
+                          stroke-width="1.75"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4 7 L14 3.5 L24 7 Z"
+                          fill="var(--surface-station)"
+                          opacity="0.9"
+                        />
+                      </svg>
+                    </div>
+
+                    {/* Platform Signboard Plate (駅名標) */}
+                    <div
+                      class="border-border-soft bg-surface-paper relative -mt-0.5 flex flex-col items-center rounded-[3px] border px-2 py-1 shadow-xs transition-all duration-300 max-[760px]:px-1.5 max-[760px]:py-0.5"
+                      data-stop-board
+                    >
+                      {/* Railway Line Color Stripe */}
+                      <div
+                        class="bg-signal-terracotta/70 h-0.5 w-full rounded-full transition-colors duration-300"
+                        data-stop-stripe
+                      />
+                      {/* Station Stop Code */}
+                      <div class="flex items-baseline gap-1 pt-0.5">
+                        <span class="text-ink-secondary hidden font-sans text-xs font-bold tracking-wider uppercase opacity-75 sm:inline">
+                          STN
+                        </span>
+                        <span
+                          class="text-ink-primary font-mono text-[.8125rem] leading-none font-bold tracking-[.04em] transition-colors duration-300"
+                          data-stop-tag
+                        >
+                          0{index + 1}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Twin Wooden Stanchion Posts anchoring into track */}
+                    <div class="flex w-5 justify-between max-[760px]:w-4">
+                      <span
+                        class="bg-border-soft h-2.5 w-0.5 transition-colors duration-300"
+                        data-stop-leg
+                      />
+                      <span
+                        class="bg-border-soft h-2.5 w-0.5 transition-colors duration-300"
+                        data-stop-leg
+                      />
+                    </div>
                   </div>
-                  <span
-                    class="text-ink-secondary mt-1.5 font-sans text-[.8125rem] font-bold tracking-[.06em] transition-colors duration-300"
-                    data-stop-tag
-                  >
-                    0{index + 1}
-                  </span>
                 </div>
 
                 <div
@@ -1116,53 +1167,448 @@ const destinations = stationRoutes
   </section>
 
   <section
-    class="border-border-soft bg-surface-paper scroll-mt-[5.5rem] border-t"
+    class="border-border-soft bg-surface-sunlit/70 scroll-mt-[5.5rem] border-t"
     id="pause"
     aria-labelledby="pause-title"
   >
-    <div
-      class={`${siteContainer} grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-6 py-[clamp(3rem,7vw,5.5rem)] max-[760px]:grid-cols-[auto_minmax(0,1fr)] max-[480px]:grid-cols-1`}
-    >
+    <div class={`${siteContainer} py-[clamp(3.5rem,7vw,6rem)]`}>
       <div
-        class="border-border-soft bg-surface-station grid size-14 place-items-center rounded-full border transition-all duration-500 max-[480px]:size-12"
-        aria-hidden="true"
-        data-pause-buffer
+        class="grid grid-cols-1 items-center gap-10 lg:grid-cols-[auto_1fr] lg:gap-16"
       >
-        <span
-          class="border-signal-terracotta size-[1.1rem] rounded-full border transition-all duration-500"
-          data-pause-buffer-inner></span>
-      </div>
-      <div>
-        <h2
-          id="pause-title"
-          class="font-serif text-[clamp(2rem,4vw,3.4rem)] leading-none font-normal tracking-[-0.03em]"
-        >
-          You can pause here.
-        </h2>
-        <p
-          class="text-ink-secondary mt-3 max-w-[40rem] text-base leading-[1.6]"
-        >
-          There is no tour to finish and nothing to keep up with. Come back when
-          you feel like wandering again.
-        </p>
-      </div>
-      <a
-        class="text-ink-primary decoration-signal-terracotta hover:text-signal-terracotta-ink inline-flex min-h-11 items-center gap-[.45rem] font-sans text-[.8125rem] font-bold underline decoration-1 underline-offset-[.3rem] transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] motion-reduce:transition-none max-[760px]:col-start-2 max-[760px]:justify-self-start max-[480px]:col-start-1"
-        href="#main-content"
-      >
-        <span>Back to the platform</span>
-        <span
-          class="text-signal-terracotta grid size-[1.3rem] shrink-0 place-items-center"
+        <!-- Handcrafted Railway Terminus & Wayside Platform Scene -->
+        <div
+          class="flex justify-center lg:justify-start"
+          data-pause-scene
           aria-hidden="true"
         >
           <svg
-            class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
-            viewBox="0 0 20 20"
+            class="w-full max-w-[260px] drop-shadow-[0_4px_12px_rgba(45,51,43,0.06)] max-[480px]:max-w-[210px]"
+            viewBox="0 0 240 150"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <path d="M3 10h13M10 4l6 6-6 6"></path>
+            <defs>
+              <!-- Soft warm lantern glow pool -->
+              <radialGradient id="pause-lantern-glow" cx="50%" cy="30%" r="65%">
+                <stop offset="0%" stop-color="#ffd479" stop-opacity="0.5"
+                ></stop>
+                <stop
+                  offset="50%"
+                  stop-color="var(--signal-gold)"
+                  stop-opacity="0.2"></stop>
+                <stop offset="100%" stop-color="#ffd479" stop-opacity="0"
+                ></stop>
+              </radialGradient>
+              <!-- Terracotta warning stripe pattern for bumper timber beam -->
+              <pattern
+                id="pause-hazard-stripes"
+                width="16"
+                height="16"
+                patternTransform="rotate(45)"
+                patternUnits="userSpaceOnUse"
+              >
+                <rect width="8" height="16" fill="var(--signal-terracotta)"
+                ></rect>
+                <rect x="8" width="8" height="16" fill="var(--surface-station)"
+                ></rect>
+              </pattern>
+            </defs>
+
+            <!-- Lantern Light Pool -->
+            <ellipse
+              cx="160"
+              cy="115"
+              rx="75"
+              ry="32"
+              fill="url(#pause-lantern-glow)"
+              data-pause-lantern-pool
+              class="opacity-45 transition-opacity duration-700"></ellipse>
+
+            <!-- Track Ballast Base (Gravel siding) -->
+            <path
+              d="M10 135 L120 135 L115 105 L15 105 Z"
+              fill="var(--surface-sunlit)"
+              stroke="var(--border-soft)"
+              stroke-width="1"
+              stroke-dasharray="3 3"
+              opacity="0.75"></path>
+
+            <!-- Wooden Cross-Ties (Sleepers) -->
+            <rect
+              x="20"
+              y="128"
+              width="90"
+              height="4.5"
+              rx="1.5"
+              fill="var(--border-soft)"
+              opacity="0.65"></rect>
+            <rect
+              x="25"
+              y="118"
+              width="80"
+              height="4.5"
+              rx="1.5"
+              fill="var(--border-soft)"
+              opacity="0.65"></rect>
+            <rect
+              x="30"
+              y="108"
+              width="70"
+              height="4.5"
+              rx="1.5"
+              fill="var(--border-soft)"
+              opacity="0.65"></rect>
+
+            <!-- Steel Rails terminating at buffer stop -->
+            <line
+              x1="38"
+              y1="138"
+              x2="42"
+              y2="92"
+              stroke="var(--border-soft)"
+              stroke-width="2.5"
+              stroke-linecap="round"></line>
+            <line
+              x1="88"
+              y1="138"
+              x2="84"
+              y2="92"
+              stroke="var(--border-soft)"
+              stroke-width="2.5"
+              stroke-linecap="round"></line>
+            <line
+              x1="38"
+              y1="138"
+              x2="42"
+              y2="92"
+              stroke="var(--ink-primary)"
+              stroke-width="1.25"
+              opacity="0.8"></line>
+            <line
+              x1="88"
+              y1="138"
+              x2="84"
+              y2="92"
+              stroke="var(--ink-primary)"
+              stroke-width="1.25"
+              opacity="0.8"></line>
+
+            <!-- Buffer Stop Steel A-Frame Struts (Kuruma-dome trestle) -->
+            <path
+              d="M35 125 L45 88 L58 88 L46 125 Z"
+              fill="var(--surface-station)"
+              stroke="var(--ink-primary)"
+              stroke-width="1.25"
+              stroke-linejoin="round"></path>
+            <path
+              d="M91 125 L81 88 L68 88 L80 125 Z"
+              fill="var(--surface-station)"
+              stroke="var(--ink-primary)"
+              stroke-width="1.25"
+              stroke-linejoin="round"></path>
+            <line
+              x1="45"
+              y1="108"
+              x2="81"
+              y2="108"
+              stroke="var(--ink-primary)"
+              stroke-width="1.5"></line>
+
+            <!-- Timber Buffer Beam with Hazard Stripes -->
+            <g data-pause-buffer-beam class="transition-all duration-500">
+              <rect
+                x="24"
+                y="80"
+                width="78"
+                height="15"
+                rx="2"
+                fill="url(#pause-hazard-stripes)"
+                stroke="var(--ink-primary)"
+                stroke-width="1.75"></rect>
+              <!-- Rail Impact Blocks -->
+              <rect
+                x="38"
+                y="82"
+                width="8"
+                height="11"
+                rx="1"
+                fill="var(--ink-primary)"></rect>
+              <rect
+                x="80"
+                y="82"
+                width="8"
+                height="11"
+                rx="1"
+                fill="var(--ink-primary)"></rect>
+              <!-- Terminus Marker: 終点 / TERMINUS -->
+              <rect
+                x="52"
+                y="74"
+                width="22"
+                height="10"
+                rx="1.5"
+                fill="var(--surface-paper)"
+                stroke="var(--signal-terracotta)"
+                stroke-width="1.25"></rect>
+              <text
+                x="63"
+                y="82"
+                font-family="system-ui, sans-serif"
+                font-size="6.5"
+                font-weight="bold"
+                fill="var(--signal-terracotta-ink)"
+                text-anchor="middle">終点</text
+              >
+            </g>
+
+            <!-- Platform Wooden Deck & Resting Bench -->
+            <rect
+              x="125"
+              y="120"
+              width="105"
+              height="18"
+              rx="2"
+              fill="var(--surface-station)"
+              stroke="var(--border-soft)"
+              stroke-width="1.25"></rect>
+            <line
+              x1="125"
+              y1="126"
+              x2="230"
+              y2="126"
+              stroke="var(--border-soft)"
+              stroke-width="1"
+              stroke-dasharray="8 3"
+              opacity="0.6"></line>
+
+            <!-- Platform Bench -->
+            <line
+              x1="140"
+              y1="105"
+              x2="140"
+              y2="120"
+              stroke="var(--ink-primary)"
+              stroke-width="2"
+              stroke-linecap="round"></line>
+            <line
+              x1="185"
+              y1="105"
+              x2="185"
+              y2="120"
+              stroke="var(--ink-primary)"
+              stroke-width="2"
+              stroke-linecap="round"></line>
+            <line
+              x1="137"
+              y1="113"
+              x2="188"
+              y2="113"
+              stroke="var(--ink-primary)"
+              stroke-width="1.25"></line>
+            <rect
+              x="134"
+              y="103"
+              width="56"
+              height="4"
+              rx="1"
+              fill="var(--signal-gold)"
+              stroke="var(--ink-primary)"
+              stroke-width="1.2"></rect>
+            <rect
+              x="134"
+              y="90"
+              width="56"
+              height="4.5"
+              rx="1"
+              fill="var(--signal-gold)"
+              stroke="var(--ink-primary)"
+              stroke-width="1.2"></rect>
+            <rect
+              x="134"
+              y="96"
+              width="56"
+              height="3"
+              rx="0.75"
+              fill="var(--signal-gold)"
+              stroke="var(--ink-primary)"
+              stroke-width="1"></rect>
+            <line
+              x1="138"
+              y1="88"
+              x2="138"
+              y2="103"
+              stroke="var(--ink-primary)"
+              stroke-width="1.5"></line>
+            <line
+              x1="186"
+              y1="88"
+              x2="186"
+              y2="103"
+              stroke="var(--ink-primary)"
+              stroke-width="1.5"></line>
+
+            <!-- Ceramic Teacup on Bench -->
+            <path
+              d="M174 100 L175 103 L180 103 L181 100 Z"
+              fill="var(--surface-paper)"
+              stroke="var(--ink-primary)"
+              stroke-width="0.8"></path>
+            <path
+              d="M176 98 Q175 96 177 94 Q179 92 178 90"
+              stroke="var(--border-soft)"
+              stroke-width="0.75"
+              stroke-linecap="round"
+              fill="none"
+              opacity="0.6"></path>
+
+            <!-- Vintage Platform Gooseneck Lamp -->
+            <path
+              d="M205 120 L205 50 C205 38 188 36 175 40"
+              stroke="var(--ink-primary)"
+              stroke-width="2.25"
+              stroke-linecap="round"
+              fill="none"></path>
+            <line
+              x1="202"
+              y1="120"
+              x2="208"
+              y2="120"
+              stroke="var(--ink-primary)"
+              stroke-width="3"
+              stroke-linecap="round"></line>
+            <path
+              d="M165 42 L185 42 L181 37 L169 37 Z"
+              fill="var(--ink-primary)"
+              stroke="var(--ink-primary)"
+              stroke-width="1"
+              stroke-linejoin="round"></path>
+            <rect
+              x="172"
+              y="42"
+              width="6"
+              height="4.5"
+              rx="2"
+              fill="#ffd479"
+              data-pause-lantern-glass
+              class="transition-colors duration-500"></rect>
           </svg>
-        </span>
-      </a>
+        </div>
+
+        <!-- Terminus Words & Platform Content -->
+        <div class="max-w-[42rem]">
+          <!-- Station Line Indicator -->
+          <div
+            class="text-ink-secondary flex items-center gap-2 font-sans text-xs font-semibold tracking-[0.06em] uppercase"
+          >
+            <span
+              class="bg-signal-terracotta h-0.5 w-6 rounded-full"
+              aria-hidden="true"></span>
+            <span>Platform Terminus · 終着の小休止</span>
+          </div>
+
+          <h2
+            id="pause-title"
+            class="text-ink-primary mt-3 font-serif text-[clamp(2.2rem,4.5vw,3.6rem)] leading-[1.08] font-normal tracking-[-0.03em]"
+          >
+            The tracks rest here.<br class="hidden sm:inline" />
+            You can, too.
+          </h2>
+
+          <p class="text-ink-secondary mt-4 text-base leading-[1.65]">
+            The countryside rail line ends at this quiet platform siding. There
+            is no tour to finish, no feeds to keep up with, and no next stop
+            calling for your attention.
+          </p>
+
+          <p class="text-ink-secondary mt-2 text-base leading-[1.65]">
+            Take a breath on the platform bench, listen to the afternoon breeze
+            across the fields, or wander wherever your curiosity leads.
+          </p>
+
+          <!-- Commemorative Platform Stamp (駅スタンプ) -->
+          <div
+            class="border-border-soft/75 bg-surface-paper/90 mt-7 flex items-center gap-4 rounded-xl border border-dashed p-4 shadow-xs"
+          >
+            <div
+              class="border-signal-terracotta/70 text-signal-terracotta flex size-14 shrink-0 items-center justify-center rounded-lg border-2 border-double p-1"
+              aria-hidden="true"
+              data-pause-stamp
+            >
+              <svg viewBox="0 0 44 44" class="size-full fill-current">
+                <rect
+                  x="2"
+                  y="2"
+                  width="40"
+                  height="40"
+                  rx="3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-dasharray="3 1.5"></rect>
+                <text
+                  x="22"
+                  y="14"
+                  font-family="Georgia, serif"
+                  font-size="8"
+                  font-weight="bold"
+                  text-anchor="middle"
+                  letter-spacing="1">LINCIE</text
+                >
+                <text x="22" y="26" font-size="10" text-anchor="middle">⚲</text>
+                <text
+                  x="22"
+                  y="37"
+                  font-family="system-ui, sans-serif"
+                  font-size="7.5"
+                  font-weight="bold"
+                  text-anchor="middle"
+                  letter-spacing="0.5">終着駅</text
+                >
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <p
+                class="text-ink-primary font-sans text-xs font-bold tracking-[0.02em]"
+              >
+                Station Siding No. 1 · Rest Seal
+              </p>
+              <p class="text-ink-secondary mt-0.5 text-xs leading-relaxed">
+                A quiet platform memento for travelers who reached the end of
+                the line.
+              </p>
+            </div>
+          </div>
+
+          <!-- Platform Departures & Return Navigation -->
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a
+              class="bg-surface-paper border-border-soft text-ink-primary hover:border-signal-terracotta hover:text-signal-terracotta-ink inline-flex min-h-11 items-center gap-2.5 rounded-lg border px-4 py-2.5 font-sans text-[.8125rem] font-bold shadow-xs transition-all duration-200 ease-out hover:shadow-sm"
+              href="#main-content"
+            >
+              <svg
+                class="text-signal-terracotta size-4"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M10 16V4M4 10l6-6 6 6"></path>
+              </svg>
+              <span>Board return train (Top of platform)</span>
+            </a>
+
+            <a
+              class="text-ink-primary decoration-signal-terracotta hover:text-signal-terracotta-ink inline-flex min-h-11 items-center gap-1.5 font-sans text-[.8125rem] font-bold underline decoration-1 underline-offset-[.3rem] transition-colors duration-200"
+              href="#board"
+            >
+              <span>Return to station board</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </MainLayout>
@@ -1991,10 +2437,15 @@ const destinations = stationRoutes
         );
 
         roomArticles.forEach((article) => {
-          const beacon =
-            article.querySelector<HTMLElement>("[data-stop-beacon]");
-          const dot = article.querySelector<HTMLElement>("[data-stop-dot]");
+          const sign = article.querySelector<HTMLElement>("[data-stop-sign]");
+          const board = article.querySelector<HTMLElement>("[data-stop-board]");
+          const lantern = article.querySelector<HTMLElement>(
+            "[data-stop-lantern]",
+          );
+          const stripe =
+            article.querySelector<HTMLElement>("[data-stop-stripe]");
           const tag = article.querySelector<HTMLElement>("[data-stop-tag]");
+          const legs = article.querySelectorAll<HTMLElement>("[data-stop-leg]");
 
           ScrollTrigger.create({
             trigger: article,
@@ -2007,52 +2458,86 @@ const destinations = stationRoutes
           });
 
           function setStopActive(active: boolean) {
-            if (beacon) {
-              beacon.style.borderColor = active
-                ? "var(--signal-terracotta)"
-                : "var(--border-soft)";
-              beacon.style.boxShadow = active
-                ? "0 0 14px color-mix(in srgb, var(--signal-terracotta) 38%, transparent)"
-                : "";
-              beacon.style.transform = active ? "scale(1.15)" : "scale(1)";
+            if (sign) {
+              sign.style.transform = active
+                ? "translateY(-2px) scale(1.06)"
+                : "translateY(0) scale(1)";
             }
-            if (dot) {
-              dot.style.backgroundColor = active
+            if (board) {
+              board.style.borderColor = active
                 ? "var(--signal-terracotta)"
                 : "var(--border-soft)";
+              board.style.boxShadow = active
+                ? "0 4px 12px color-mix(in srgb, var(--signal-terracotta) 28%, transparent)"
+                : "";
+            }
+            if (lantern) {
+              lantern.style.backgroundColor = active
+                ? "var(--signal-terracotta)"
+                : "var(--border-soft)";
+              lantern.style.boxShadow = active
+                ? "0 0 10px color-mix(in srgb, var(--signal-terracotta) 60%, transparent)"
+                : "";
+            }
+            if (stripe) {
+              stripe.style.backgroundColor = active
+                ? "var(--signal-terracotta)"
+                : "color-mix(in srgb, var(--signal-terracotta) 70%, transparent)";
             }
             if (tag) {
               tag.style.color = active
                 ? "var(--signal-terracotta-ink)"
-                : "var(--ink-secondary)";
+                : "var(--ink-primary)";
             }
+            legs.forEach((leg) => {
+              leg.style.backgroundColor = active
+                ? "var(--signal-terracotta)"
+                : "var(--border-soft)";
+            });
           }
         });
 
         // 4. Platform Buffer Stop at #pause
         const pauseSection = document.querySelector<HTMLElement>("#pause");
-        const pauseBuffer = pauseSection?.querySelector<HTMLElement>(
-          "[data-pause-buffer]",
+        const pauseLanternPool = pauseSection?.querySelector<HTMLElement>(
+          "[data-pause-lantern-pool]",
         );
-        const pauseBufferInner = pauseSection?.querySelector<HTMLElement>(
-          "[data-pause-buffer-inner]",
+        const pauseLanternGlass = pauseSection?.querySelector<HTMLElement>(
+          "[data-pause-lantern-glass]",
         );
+        const pauseBufferBeam = pauseSection?.querySelector<HTMLElement>(
+          "[data-pause-buffer-beam]",
+        );
+        const pauseStamp =
+          pauseSection?.querySelector<HTMLElement>("[data-pause-stamp]");
 
-        if (pauseSection && pauseBuffer && pauseBufferInner) {
+        if (pauseSection) {
           ScrollTrigger.create({
             trigger: pauseSection,
             start: "top 78%",
             onEnter: () => {
-              pauseBuffer.style.borderColor = "var(--signal-terracotta)";
-              pauseBuffer.style.boxShadow =
-                "0 0 20px color-mix(in srgb, var(--signal-terracotta) 32%, transparent)";
-              pauseBufferInner.style.backgroundColor =
-                "var(--signal-terracotta)";
+              if (pauseLanternPool) pauseLanternPool.style.opacity = "0.9";
+              if (pauseLanternGlass) pauseLanternGlass.style.fill = "#ffe599";
+              if (pauseBufferBeam) {
+                pauseBufferBeam.style.filter =
+                  "drop-shadow(0 0 8px rgba(184, 97, 75, 0.45))";
+              }
+              if (pauseStamp) {
+                pauseStamp.style.borderColor = "var(--signal-terracotta)";
+                pauseStamp.style.boxShadow =
+                  "0 2px 10px color-mix(in srgb, var(--signal-terracotta) 20%, transparent)";
+              }
             },
             onLeaveBack: () => {
-              pauseBuffer.style.borderColor = "var(--border-soft)";
-              pauseBuffer.style.boxShadow = "";
-              pauseBufferInner.style.backgroundColor = "transparent";
+              if (pauseLanternPool) pauseLanternPool.style.opacity = "0.45";
+              if (pauseLanternGlass) pauseLanternGlass.style.fill = "#ffd479";
+              if (pauseBufferBeam) {
+                pauseBufferBeam.style.filter = "none";
+              }
+              if (pauseStamp) {
+                pauseStamp.style.borderColor = "";
+                pauseStamp.style.boxShadow = "";
+              }
             },
           });
         }
