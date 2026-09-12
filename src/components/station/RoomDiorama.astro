@@ -3,59 +3,24 @@ interface Props {
   id: string;
   place: string;
   tone: "house" | "field" | "workshop" | "thoughts" | "letterbox";
-  index: number;
 }
 
-const { id, place, tone, index } = Astro.props;
+const { id, place, tone } = Astro.props;
 ---
 
-<div
-  id={`diorama-${id}`}
-  class="diorama-stage group relative w-full select-none"
-  data-diorama-stage
-  data-diorama-tone={tone}
-  data-diorama-index={index}
->
+<div id={`diorama-${id}`} class="relative w-full select-none">
   <div
     class:list={[
-      "diorama-card border-border-soft bg-surface-sunlit relative min-h-[clamp(13rem,25vw,19rem)] w-full overflow-hidden rounded-[1.25rem] border shadow-[0_8px_24px_rgba(45,51,43,0.08)] transition-[box-shadow,border-color] duration-500 ease-out max-[760px]:min-h-[13.5rem]",
+      "diorama-card border-border-soft bg-surface-sunlit relative min-h-[clamp(13rem,25vw,19rem)] w-full overflow-hidden rounded-[1.25rem] border max-[760px]:min-h-[13.5rem]",
       tone === "house" && "border-[#b49b82]/90 bg-[#f4ebe1]",
       tone === "field" && "border-[#8da978]/90 bg-[#ebf2df]",
       tone === "workshop" && "border-border-soft/90 bg-[#ebe5db]",
       tone === "thoughts" && "border-border-soft/90 bg-[#f9f6f0]",
       tone === "letterbox" && "border-border-soft/90 bg-[#f5ede4]",
     ]}
-    data-room-diorama
-    data-diorama-card
     aria-hidden="true"
   >
-    <!-- Dynamic Specular Glare / Sheen overlay across diorama glass -->
-    <div
-      class="pointer-events-none absolute inset-0 z-30 opacity-0 transition-opacity duration-300 motion-reduce:transition-none"
-      data-diorama-glare
-    >
-    </div>
-
-    <!-- Ambient Micro-Particle Canvas (Dust motes, pollen, sparks, mist) -->
-    <canvas
-      class="pointer-events-none absolute inset-0 z-20 size-full opacity-75"
-      data-particle-canvas={tone}
-      width="360"
-      height="260"></canvas>
-
-    <!-- Glass Rim & Vignette Frame -->
-    <div
-      class="ring-ink-primary/10 pointer-events-none absolute inset-0 z-25 rounded-[1.25rem] shadow-[inset_0_2px_8px_rgba(45,51,43,0.08),inset_0_-2px_8px_rgba(255,253,248,0.5)] ring-1 ring-inset"
-    >
-    </div>
-
-    <!-- ============================================================== -->
-    <!-- BACK DEPTH PLANE (translateZ -22px in 3D tilt, parallax scroll) -->
-    <!-- ============================================================== -->
-    <div
-      class="pointer-events-none absolute inset-0 origin-center"
-      data-diorama-back
-    >
+    <div class="pointer-events-none absolute inset-0">
       {
         tone === "house" && (
           <svg
@@ -247,13 +212,7 @@ const { id, place, tone, index } = Astro.props;
             <rect width="360" height="260" fill="url(#field-sky-grad)" />
 
             {/* Morning Sun over Mountain Ridge */}
-            <circle
-              cx="260"
-              cy="70"
-              r="48"
-              fill="url(#field-sun-halo)"
-              data-diorama-sun
-            />
+            <circle cx="260" cy="70" r="48" fill="url(#field-sun-halo)" />
             <circle
               cx="260"
               cy="70"
@@ -261,7 +220,6 @@ const { id, place, tone, index } = Astro.props;
               fill="#ffd479"
               stroke="var(--surface-sunlit)"
               stroke-width="2"
-              data-diorama-sun
             />
 
             {/* Distant Mountain 1 (Farthest Pale Ridge) */}
@@ -809,13 +767,7 @@ const { id, place, tone, index } = Astro.props;
       }
     </div>
 
-    <!-- ============================================================== -->
-    <!-- MID DEPTH PLANE (translateZ 18px in 3D tilt, parallax scroll)  -->
-    <!-- ============================================================== -->
-    <div
-      class="pointer-events-none absolute inset-0 origin-center"
-      data-diorama-mid
-    >
+    <div class="pointer-events-none absolute inset-0">
       {
         tone === "house" && (
           <svg
@@ -1973,13 +1925,7 @@ const { id, place, tone, index } = Astro.props;
       }
     </div>
 
-    <!-- ============================================================== -->
-    <!-- FRONT DEPTH PLANE (translateZ 38px in 3D tilt, parallax scroll)-->
-    <!-- ============================================================== -->
-    <div
-      class="pointer-events-none absolute inset-0 origin-center"
-      data-diorama-front
-    >
+    <div class="pointer-events-none absolute inset-0">
       {
         tone === "house" && (
           <svg
@@ -2424,12 +2370,8 @@ const { id, place, tone, index } = Astro.props;
       }
     </div>
 
-    <!-- ============================================================== -->
-    <!-- STATION SIGN BADGE (translateZ 54px in 3D tilt, parallax scrub)-->
-    <!-- ============================================================== -->
     <div
-      class="pointer-events-none absolute inset-x-[12%] bottom-[9%] z-35 flex justify-center"
-      data-diorama-sign
+      class="pointer-events-none absolute inset-x-[12%] bottom-[9%] flex justify-center"
     >
       <span
         class="border-border-soft bg-surface-paper/95 text-ink-primary inline-block border px-5 py-2 text-center font-serif text-[clamp(1rem,2vw,1.3rem)] tracking-wide shadow-[0_8px_20px_rgba(45,51,43,0.18)] backdrop-blur-[2px]"
@@ -2441,15 +2383,6 @@ const { id, place, tone, index } = Astro.props;
 </div>
 
 <style>
-  /* 3D Stage Setup */
-  .diorama-stage {
-    perspective: 1000px;
-  }
-
-  .diorama-card {
-    transform-style: preserve-3d;
-  }
-
   /* Cat gentle breathing loop */
   @keyframes catBreathing {
     0%,

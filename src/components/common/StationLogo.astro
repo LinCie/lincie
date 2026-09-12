@@ -1,0 +1,135 @@
+---
+interface Props {
+  variant?: "header" | "footer";
+  class?: string;
+}
+
+const { variant = "header", class: className = "size-8" } = Astro.props;
+const isFooter = variant === "footer";
+const clipId = `cat-clip-${variant}`;
+---
+
+<svg
+  viewBox="0 0 32 32"
+  class={className}
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <defs>
+    <clipPath id={clipId}>
+      <path
+        d="M16 9.5 C17 9.5 17.8 9.2 18.5 8.8 L21 3.8 C21.5 3 22.5 3 23 3.8 L25.2 10.2 C27.5 14 27.5 19.5 25 23 C22.8 26.5 18.8 27.5 16 27.5 C13.2 27.5 9.2 26.5 7 23 C4.5 19.5 4.5 14 6.8 10.2 L9 3.8 C9.5 3 10.5 3 11 3.8 L13.5 8.8 C14.2 9.2 15 9.5 16 9.5 Z"
+      ></path>
+    </clipPath>
+  </defs>
+
+  <!-- Cat Body / Silhouette -->
+  <path
+    d="M16 9.5 C17 9.5 17.8 9.2 18.5 8.8 L21 3.8 C21.5 3 22.5 3 23 3.8 L25.2 10.2 C27.5 14 27.5 19.5 25 23 C22.8 26.5 18.8 27.5 16 27.5 C13.2 27.5 9.2 26.5 7 23 C4.5 19.5 4.5 14 6.8 10.2 L9 3.8 C9.5 3 10.5 3 11 3.8 L13.5 8.8 C14.2 9.2 15 9.5 16 9.5 Z"
+    fill={isFooter
+      ? "rgba(255, 253, 248, 0.08)"
+      : "var(--surface-paper, #FFFDF8)"}
+    stroke={isFooter
+      ? "var(--surface-sunlit, #F7F2E8)"
+      : "var(--signal-terracotta, #B8614B)"}
+    stroke-width="1.6"
+    stroke-linejoin="round"></path>
+
+  <!-- Calico Ears (Clipped to Head Contour) -->
+  <g clip-path={`url(#${clipId})`}>
+    <!-- Right Ear: Station Terracotta -->
+    <path
+      d="M18.2 8.8 L21 3.8 C21.5 3 22.5 3 23 3.8 L25.5 10.5 C24.5 11.8 21.5 11.2 18.2 8.8 Z"
+      fill={isFooter ? "#D9775F" : "var(--signal-terracotta, #B8614B)"}></path>
+    <!-- Left Ear: Warm Station Gold -->
+    <path
+      d="M13.8 8.8 L11 3.8 C10.5 3 9.5 3 9 3.8 L6.5 10.5 C7.5 11.8 10.5 11.2 13.8 8.8 Z"
+      fill="var(--signal-gold, #D49A48)"></path>
+  </g>
+
+  <!-- Inner Ear Accents -->
+  <path
+    d="M9.8 7.5 L10.2 5.5 C10.4 5.2 10.8 5.2 11 5.5 L11.8 7.5"
+    fill="none"
+    stroke={isFooter
+      ? "var(--surface-sunlit, #F7F2E8)"
+      : "var(--surface-paper, #FFFDF8)"}
+    stroke-width="0.9"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    opacity="0.9"></path>
+  <path
+    d="M22.2 7.5 L21.8 5.5 C21.6 5.2 21.2 5.2 21 5.5 L20.2 7.5"
+    fill="none"
+    stroke={isFooter
+      ? "var(--surface-sunlit, #F7F2E8)"
+      : "var(--surface-paper, #FFFDF8)"}
+    stroke-width="0.9"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    opacity="0.9"></path>
+
+  <!-- Serene Sleeping Eyes -->
+  <path
+    d="M9.8 15 Q11.8 17 13.8 15"
+    fill="none"
+    stroke={isFooter
+      ? "var(--surface-sunlit, #F7F2E8)"
+      : "var(--ink-primary, #2D332B)"}
+    stroke-width="1.4"
+    stroke-linecap="round"></path>
+  <path
+    d="M18.2 15 Q20.2 17 22.2 15"
+    fill="none"
+    stroke={isFooter
+      ? "var(--surface-sunlit, #F7F2E8)"
+      : "var(--ink-primary, #2D332B)"}
+    stroke-width="1.4"
+    stroke-linecap="round"></path>
+
+  <!-- Terracotta Nose -->
+  <polygon
+    points="15.2,17.4 16.8,17.4 16,18.4"
+    fill={isFooter ? "#D9775F" : "var(--signal-terracotta, #B8614B)"}></polygon>
+
+  <!-- Soft Smile -->
+  <path
+    d="M15 19.2 Q16 20.1 16 19.2 Q16 20.1 17 19.2"
+    fill="none"
+    stroke={isFooter
+      ? "var(--surface-sunlit, #F7F2E8)"
+      : "var(--ink-primary, #2D332B)"}
+    stroke-width="1.1"
+    stroke-linecap="round"></path>
+
+  <!-- Rice Stalk Arch along collar (Inaho - representing rice fields) -->
+  <path
+    d="M9.5 23.8 Q16 26.2 22.5 23.8"
+    fill="none"
+    stroke={isFooter ? "#8BAA7C" : "var(--field-green, #6C895F)"}
+    stroke-width="1.2"
+    stroke-linecap="round"></path>
+
+  <!-- 3 Golden Rice Grains -->
+  <ellipse
+    cx="11.8"
+    cy="24"
+    rx="1.4"
+    ry="0.85"
+    transform="rotate(-18 11.8 24)"
+    fill="var(--signal-gold, #D49A48)"></ellipse>
+  <ellipse
+    cx="16"
+    cy="25.2"
+    rx="1.6"
+    ry="0.95"
+    fill="var(--signal-gold, #D49A48)"></ellipse>
+  <ellipse
+    cx="20.2"
+    cy="24"
+    rx="1.4"
+    ry="0.85"
+    transform="rotate(18 20.2 24)"
+    fill="var(--signal-gold, #D49A48)"></ellipse>
+</svg>

@@ -47,11 +47,11 @@ const times: TimeOption[] = [
 
 <div
   class:list={[
-    "border-border-soft/80 bg-surface-paper/92 inline-flex flex-col gap-1.5 rounded-xl border p-1.5 shadow-xs backdrop-blur-xs max-[640px]:w-full sm:flex-row sm:items-center sm:gap-2 sm:px-2.5 sm:py-1",
+    "border-border-soft/80 bg-surface-paper inline-flex flex-col gap-1.5 rounded-xl border p-1.5 shadow-xs max-[640px]:w-full sm:flex-row sm:items-center sm:gap-2 sm:px-2.5 sm:py-1",
     className,
   ]}
   role="region"
-  aria-label="Station solar clock and lighting atmosphere"
+  aria-label="Optional station atmosphere controls"
   data-station-clock
 >
   <!-- Solar Clock Indicator (and Live button on small screens) -->
@@ -59,14 +59,9 @@ const times: TimeOption[] = [
     class="text-ink-secondary flex items-center justify-between gap-1.5 px-1 font-sans text-xs font-semibold sm:justify-start"
   >
     <div class="flex items-center gap-1.5">
-      <span class="relative flex size-2 shrink-0" aria-hidden="true">
-        <span
-          class="bg-signal-terracotta absolute inline-flex size-full animate-ping rounded-full opacity-60 motion-reduce:animate-none"
-        ></span>
-        <span
-          class="bg-signal-terracotta relative inline-flex size-2 rounded-full"
-          data-clock-pip></span>
-      </span>
+      <span
+        class="bg-signal-terracotta size-2 shrink-0 rounded-full"
+        aria-hidden="true"></span>
       <span
         class="text-ink-primary font-serif text-[.8125rem] tracking-[-0.01em]"
       >

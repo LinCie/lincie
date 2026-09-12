@@ -1,6 +1,7 @@
 ---
 import { siteContainer } from "./container";
 import { stationRoutes } from "../../data/routes";
+import StationLogo from "../common/StationLogo.astro";
 
 interface Props {
   currentRoute?: string;
@@ -49,12 +50,9 @@ const routes = stationRoutes.map((route) => ({
         : "Return to LinCie station home"}
       aria-current={isHome ? "page" : undefined}
     >
-      <span
-        class="border-signal-terracotta bg-surface-paper before:border-signal-terracotta after:border-signal-terracotta relative grid size-8 place-items-center rounded-full border-[1.5px] transition-transform duration-200 ease-out group-hover:scale-105 before:absolute before:block before:h-0 before:w-[1.15rem] before:border-t-[1.5px] before:content-[''] after:absolute after:block after:h-[1.15rem] after:w-0 after:border-l-[1.5px] after:content-[''] motion-reduce:group-hover:scale-100"
-        aria-hidden="true"
-      >
-        <span class="bg-signal-terracotta size-[.35rem] rounded-full"></span>
-      </span>
+      <StationLogo
+        class="size-8 shrink-0 transition-transform duration-200 ease-out group-hover:scale-105 motion-reduce:group-hover:scale-100"
+      />
       <span class="font-serif text-2xl tracking-[-0.02em]">LinCie</span>
     </a>
 
@@ -65,8 +63,7 @@ const routes = stationRoutes.map((route) => ({
     >
       <!-- Location Badge -->
       <div
-        class="border-border-soft/70 bg-surface-paper text-ink-secondary inline-flex items-center gap-2 rounded-full border px-2.5 py-1.5 font-sans text-xs font-semibold tracking-[0.03em] max-[360px]:hidden sm:px-3"
-        aria-current="page"
+        class="border-border-soft/70 bg-surface-paper text-ink-secondary inline-flex items-center gap-2 rounded-full border px-2.5 py-1.5 font-sans text-xs font-semibold tracking-[0.03em] sm:px-3"
         data-station-badge
       >
         <span
@@ -119,9 +116,14 @@ const routes = stationRoutes.map((route) => ({
             .map((route) => (
               <a
                 href={route.href}
-                class="group/nav text-ink-primary decoration-border-soft hover:text-signal-terracotta-ink hover:decoration-signal-terracotta-ink focus-visible:outline-signal-terracotta inline-flex min-h-11 items-center gap-1 rounded-md px-2 py-1.5 font-sans text-xs font-bold tracking-[0.03em] whitespace-nowrap underline decoration-1 underline-offset-4 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
+                class="group/nav text-ink-primary decoration-border-soft hover:text-signal-terracotta-ink hover:decoration-signal-terracotta-ink focus-visible:outline-signal-terracotta inline-flex min-h-11 flex-col items-start justify-center gap-0 rounded-md px-2 py-1.5 font-sans text-xs font-bold tracking-[0.03em] whitespace-nowrap underline decoration-1 underline-offset-4 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
               >
-                <span>{route.place}</span>
+                <span class="font-serif text-lg leading-none font-normal tracking-[-0.01em]">
+                  {route.place}
+                </span>
+                <span class="text-ink-secondary text-[.8125rem] leading-tight font-semibold tracking-[0.02em]">
+                  {route.label}
+                </span>
               </a>
             ))
         }

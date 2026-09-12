@@ -28,6 +28,11 @@ const tendedCount = projects.filter(
 const harvestedCount = projects.filter(
   (project) => project.status === "harvested",
 ).length;
+const publishedThoughts = thoughts.filter(
+  (thought) => thought.status === "published",
+);
+const projectCountLabel = `${projects.length} ${projects.length === 1 ? "cultivated project" : "cultivated projects"}`;
+const contactEmail = site.contactEmail.trim();
 
 /** Homepage-only wording per place: the board's literal label, its invitation, room note, and tone. */
 const homeDetails: Record<string, HomeDetail> = {
@@ -48,16 +53,16 @@ const homeDetails: Record<string, HomeDetail> = {
   },
   offers: {
     label: "Things LinCie offers",
-    invitation: "Find the situations that may fit.",
-    badge: "Active Benches · Open for Collaboration",
+    invitation: "See where backend or web craft may help.",
+    badge: "Workshop · Backend & Web Craft",
     roomNote:
-      "A sunlit bench where tools rest in their grooves. I build reliable backend services in Go and TypeScript, and carefully craft bespoke, anti-AI-slop websites with deep human care.",
+      "A sunlit bench where tools rest in their grooves. I build reliable backend services in Go and TypeScript, and carefully craft bespoke websites with deep human care.",
     tone: "workshop",
   },
   thoughts: {
     label: "Personal thoughts",
     invitation: "Read a note when one is ready.",
-    badge: "Passenger Desk · Notes on the Table",
+    badge: "Waiting Room · Published notes",
     roomNote:
       "A sunlit timber bench where thoughts rest on the table. Human-sized reflections on backend engineering, databases, and the unhurried craft of software.",
     tone: "thoughts",
@@ -65,9 +70,9 @@ const homeDetails: Record<string, HomeDetail> = {
   connect: {
     label: "Ways to connect",
     invitation: "Find a practical way to say hello.",
-    badge: "Active Desk · Open for Notes",
+    badge: "Letterbox · Email contact",
     roomNote:
-      "A quiet desk at the edge of the platform where notes are received and sent. Whether to say hello, discuss backend systems or handcrafted websites, or ask an open question, there is always room for a thoughtful note.",
+      "A quiet desk at the edge of the platform for hellos, project questions, and open thoughts.",
     tone: "letterbox",
   },
 };
@@ -448,7 +453,7 @@ const destinations = stationRoutes
       class={`${siteContainer} relative grid min-h-[47rem] grid-cols-[minmax(0,0.95fr)_minmax(25rem,0.8fr)] grid-rows-[auto_auto] items-center gap-[clamp(2.5rem,7vw,7.5rem)] py-[clamp(3rem,5vw,4rem)] max-[1050px]:grid-cols-[minmax(0,0.9fr)_minmax(22rem,0.8fr)] max-[1050px]:gap-10 max-[760px]:flex max-[760px]:min-h-0 max-[760px]:flex-col max-[760px]:items-stretch max-[760px]:gap-12 max-[760px]:pb-16 max-[760px]:pt-14`}
     >
       <div
-        class="relative z-[1] col-start-1 row-start-1 max-w-[38rem] self-start max-[760px]:col-auto max-[760px]:row-auto max-[760px]:max-w-none"
+        class="relative z-[2] col-start-1 row-start-1 max-w-[38rem] self-start max-[760px]:col-auto max-[760px]:row-auto max-[760px]:max-w-none"
         data-arrival-left-column
       >
         <div
@@ -464,13 +469,9 @@ const destinations = stationRoutes
           >
         </div>
 
-        <div class="mb-5 flex items-center" data-arrival-dial>
-          <StationSolarDial />
-        </div>
-
         <h1
           id="arrival-title"
-          class="max-w-[10ch] font-serif text-[clamp(3.75rem,7.2vw,6rem)] leading-[.99] font-normal tracking-[-0.035em] max-[760px]:max-w-[9ch] max-[760px]:text-[clamp(3.45rem,16vw,5.3rem)]"
+          class="max-w-[10ch] font-serif text-[clamp(3.75rem,7.2vw,6rem)] leading-[.99] font-normal tracking-[-0.035em] max-[760px]:max-w-[9ch] max-[760px]:text-[clamp(3rem,14vw,4.5rem)]"
           data-arrival-title
         >
           Welcome.<br />You made it <em
@@ -515,20 +516,43 @@ const destinations = stationRoutes
             id="current-signal-title"
             class="font-serif text-[clamp(1.35rem,2vw,1.75rem)] leading-[1.1] font-normal tracking-[-0.025em]"
           >
-            All rooms open.
+            The station is ready.
           </h2>
           <p
             class="text-ink-primary col-start-2 text-[.9rem] leading-[1.5] transition-opacity duration-300 motion-reduce:transition-none max-[900px]:col-start-1"
             data-arrival-notice-note
           >
-            The doors below are unlocked and tended. The morning air is crisp
-            and quiet across the platform.
+            The board below is ready to explore. Morning air is crisp and quiet
+            across the platform.
           </p>
         </aside>
+
+        <details
+          class="border-ink-primary/20 bg-surface-paper/55 relative z-10 mt-5 max-w-[31rem] rounded-lg border px-3 py-2"
+          data-arrival-dial
+        >
+          <summary
+            class="text-ink-primary focus-visible:outline-signal-terracotta flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 font-sans text-[.8125rem] font-semibold marker:hidden focus-visible:outline-2 focus-visible:outline-offset-2"
+          >
+            <span class="flex items-center gap-2">
+              <span
+                class="bg-signal-terracotta size-2 shrink-0 rounded-full"
+                aria-hidden="true"></span>
+              <span>Set station atmosphere</span>
+            </span>
+            <span class="text-ink-secondary font-normal">Optional</span>
+          </summary>
+          <div
+            class="absolute top-full left-0 z-20 mt-2 w-full max-w-[31rem]"
+            data-arrival-dial-panel
+          >
+            <StationSolarDial />
+          </div>
+        </details>
       </div>
 
       <nav
-        class="border-border-soft bg-surface-station relative z-[1] col-start-2 row-span-2 row-start-1 rotate-[.7deg] scroll-mt-[5.5rem] self-center rounded-[1.25rem] border p-[clamp(1.25rem,3vw,2rem)] shadow-[0_16px_34px_rgba(57,52,38,0.14)] transition-[box-shadow] duration-1000 ease-out motion-reduce:transition-none max-[760px]:col-auto max-[760px]:row-auto max-[760px]:rotate-0"
+        class="border-border-soft bg-surface-station relative z-[1] col-start-2 row-span-2 row-start-1 rotate-[.7deg] scroll-mt-[5.5rem] self-center rounded-[1.25rem] border p-[clamp(1.25rem,3vw,2rem)] shadow-[0_12px_24px_rgba(57,52,38,0.1)] transition-[box-shadow] duration-1000 ease-out motion-reduce:transition-none max-[760px]:col-auto max-[760px]:row-auto max-[760px]:rotate-0"
         id="board"
         aria-labelledby="board-title"
         data-arrival-board
@@ -602,48 +626,10 @@ const destinations = stationRoutes
       </nav>
 
       <div
-        class="col-start-1 row-start-2 mt-5 grid max-w-[36rem] grid-cols-3 gap-3 max-[1050px]:max-w-[31rem] max-[1050px]:grid-cols-1 max-[760px]:col-auto max-[760px]:row-auto max-[760px]:max-w-none"
+        class="col-start-1 row-start-2 mt-5 grid max-w-[31rem] grid-cols-2 gap-3 max-[1050px]:grid-cols-1 max-[760px]:col-auto max-[760px]:row-auto max-[760px]:max-w-none"
         role="group"
-        aria-label="Ways to begin"
+        aria-label="Other ways to begin"
       >
-        <a
-          class="group border-ink-primary/25 bg-surface-paper text-ink-primary hover:border-signal-terracotta grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border p-3 no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 motion-reduce:transition-none max-[1050px]:min-h-14"
-          href="#board"
-          data-arrival-gesture
-        >
-          <span
-            class="border-border-soft bg-surface-paper text-signal-terracotta grid size-7 place-items-center rounded-md border"
-            aria-hidden="true"
-          >
-            <svg
-              class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
-              viewBox="0 0 24 24"
-            >
-              <rect x="4" y="3.5" width="16" height="17" rx="1.5"></rect>
-              <path d="M7.5 8h9M7.5 12h9M7.5 16h5"></path>
-            </svg>
-          </span>
-          <span class="grid min-w-0 gap-[.15rem]">
-            <strong class="text-[.8125rem] leading-[1.2]"
-              >Look at the board</strong
-            >
-            <small class="text-ink-secondary text-[.8125rem] leading-[1.25]"
-              >See every room on this page.</small
-            >
-          </span>
-          <span
-            class="text-signal-terracotta grid size-[1.3rem] shrink-0 place-items-center"
-            aria-hidden="true"
-          >
-            <svg
-              class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
-              viewBox="0 0 20 20"
-            >
-              <path d="M3 10h13M10 4l6 6-6 6"></path>
-            </svg>
-          </span>
-        </a>
-
         <a
           class="group border-ink-primary/25 bg-surface-paper text-ink-primary hover:border-signal-terracotta grid min-h-[4.2rem] min-w-0 grid-cols-[auto_1fr_auto] items-center gap-[.65rem] rounded-xl border p-3 no-underline transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 motion-reduce:transition-none max-[1050px]:min-h-14"
           href="#pause"
@@ -959,7 +945,6 @@ const destinations = stationRoutes
                     id={destination.id}
                     place={destination.place}
                     tone={destination.tone}
-                    index={index}
                   />
                 </div>
 
@@ -993,100 +978,114 @@ const destinations = stationRoutes
                   )}
                   {destination.id === "projects" && (
                     <div class="mt-6 space-y-4">
-                      <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                        {projects.slice(0, 2).map((project) => (
-                          <FieldCard
-                            meta={project.statusLabel}
-                            metaEnd={project.timeline}
-                            title={project.title}
-                            href={`/projects/${project.slug}`}
-                            body={project.metricsSummary}
-                            cta="Read field story"
-                          />
-                        ))}
-                      </div>
+                      {projects.length > 0 ? (
+                        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                          {projects.slice(0, 2).map((project) => (
+                            <FieldCard
+                              meta={project.statusLabel}
+                              metaEnd={project.timeline}
+                              title={project.title}
+                              href={`/projects/${project.slug}`}
+                              body={project.metricsSummary}
+                              cta="Read field story"
+                            />
+                          ))}
+                        </div>
+                      ) : (
+                        <p class="text-ink-secondary text-[.875rem] leading-[1.6]">
+                          The project field is quiet for now.
+                        </p>
+                      )}
 
                       <StepLink href="/projects">
-                        Step into the Rice Fields to view all {projects.length}{" "}
-                        cultivated projects
+                        {projects.length > 0
+                          ? `Step into the Rice Fields to view all ${projectCountLabel}`
+                          : "Visit the Rice Fields for project stories"}
                       </StepLink>
                     </div>
                   )}
                   {destination.id === "offers" && (
                     <div class="mt-6 space-y-4">
-                      <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                        {offers.map((offer) => (
-                          <FieldCard
-                            meta={offer.category}
-                            metaEnd={offer.approach}
-                            title={offer.title}
-                            href={offer.href}
-                            body={offer.summary}
-                            cta="Explore bench"
-                          />
-                        ))}
-                      </div>
+                      {offers.length > 0 ? (
+                        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                          {offers.map((offer) => (
+                            <FieldCard
+                              meta={offer.category}
+                              metaEnd={offer.approach}
+                              title={offer.title}
+                              href={offer.href}
+                              body={offer.summary}
+                              cta="Explore bench"
+                            />
+                          ))}
+                        </div>
+                      ) : (
+                        <p class="text-ink-secondary text-[.875rem] leading-[1.6]">
+                          The workshop is quiet for now.
+                        </p>
+                      )}
 
                       <StepLink href="/workshop">
-                        Step into the Workshop to see how we might work together
+                        Visit the Workshop for backend and web craft
                       </StepLink>
                     </div>
                   )}
                   {destination.id === "thoughts" && (
                     <div class="mt-6 space-y-4">
-                      <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                        {thoughts.slice(0, 2).map((thought) => (
-                          <FieldCard
-                            meta={thought.poeticContext}
-                            metaEnd={thought.date}
-                            title={thought.title}
-                            href={`/thoughts/${thought.slug}`}
-                            body={thought.summary}
-                            cta="Read passenger note"
-                          />
-                        ))}
-                      </div>
+                      {publishedThoughts.length > 0 ? (
+                        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                          {publishedThoughts.slice(0, 2).map((thought) => (
+                            <FieldCard
+                              meta={thought.poeticContext}
+                              metaEnd={thought.date}
+                              title={thought.title}
+                              href={`/thoughts/${thought.slug}`}
+                              body={thought.summary}
+                              cta="Read passenger note"
+                            />
+                          ))}
+                        </div>
+                      ) : (
+                        <p class="text-ink-secondary text-[.875rem] leading-[1.6]">
+                          No passenger notes are published yet.
+                        </p>
+                      )}
 
                       <StepLink href="/thoughts">
-                        Step into the Waiting Room for all notes and reflections
+                        Visit the Waiting Room for notes and reflections
                       </StepLink>
                     </div>
                   )}
                   {destination.id === "connect" && (
                     <div class="mt-6 space-y-4">
-                      <div class="border-border-soft/80 bg-surface-paper rounded-xl border p-5 shadow-xs">
-                        <div class="border-border-soft/40 text-ink-secondary flex flex-wrap items-center justify-between gap-2 border-b pb-3 text-[.8125rem]">
+                      <div class="border-border-soft/80 bg-surface-paper rounded-xl border p-5">
+                        <div class="border-border-soft/40 flex flex-wrap items-center justify-between gap-2 border-b pb-3 text-[.8125rem]">
                           <span class="text-ink-primary font-semibold">
-                            Station Mail Slot &amp; Direct Channels
+                            Email LinCie
                           </span>
-                          <a
-                            href={`mailto:${site.contactEmail}`}
-                            class="text-signal-terracotta-ink decoration-signal-terracotta hover:text-ink-primary inline-flex min-h-11 items-center font-sans text-[.8125rem] font-bold underline decoration-1 underline-offset-2 transition-colors"
-                          >
-                            {site.contactEmail}
-                          </a>
+                          {contactEmail ? (
+                            <a
+                              href={`mailto:${contactEmail}`}
+                              aria-label={`Email LinCie at ${contactEmail}`}
+                              class="text-signal-terracotta-ink decoration-signal-terracotta hover:text-ink-primary inline-flex min-h-11 max-w-full items-center font-sans text-[.8125rem] font-bold break-words underline decoration-1 underline-offset-2 transition-colors"
+                            >
+                              {contactEmail}
+                            </a>
+                          ) : (
+                            <span class="text-ink-secondary">
+                              Email contact is being prepared.
+                            </span>
+                          )}
                         </div>
                         <p class="text-ink-secondary mt-3 text-[.875rem] leading-relaxed">
-                          The letterbox welcomes three kinds of correspondence:
-                          casual hellos from fellow wanderers, inquiries
-                          regarding backend systems or handcrafted websites, and
-                          open questions or thoughts.
+                          The letterbox is here for casual hellos, project
+                          questions about backend systems or handcrafted
+                          websites, and open thoughts.
                         </p>
-                        <div class="mt-4 flex flex-wrap items-center gap-2">
-                          <span class="border-border-soft/60 bg-surface-sunlit text-ink-primary inline-flex items-center rounded-md border px-2.5 py-1 text-[.8125rem] font-medium">
-                            Say Hello
-                          </span>
-                          <span class="border-border-soft/60 bg-surface-sunlit text-ink-primary inline-flex items-center rounded-md border px-2.5 py-1 text-[.8125rem] font-medium">
-                            Project &amp; Craft Inquiry
-                          </span>
-                          <span class="border-border-soft/60 bg-surface-sunlit text-ink-primary inline-flex items-center rounded-md border px-2.5 py-1 text-[.8125rem] font-medium">
-                            Open Question
-                          </span>
-                        </div>
                       </div>
 
                       <StepLink href="/connect">
-                        Step into the Letterbox to leave a note
+                        Visit the Letterbox to find contact details
                       </StepLink>
                     </div>
                   )}
@@ -1189,7 +1188,6 @@ const destinations = stationRoutes
   import ScrollTrigger from "gsap/ScrollTrigger";
   import DrawSVGPlugin from "gsap/DrawSVGPlugin";
   import MotionPathPlugin from "gsap/MotionPathPlugin";
-  import { initDioramaOverdrive } from "../scripts/diorama-overdrive";
 
   gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, MotionPathPlugin);
 
@@ -1217,7 +1215,7 @@ const destinations = stationRoutes
       announcement:
         "Station atmosphere set to Morning, 07:00. Dewy morning mist and soft golden sun.",
       noticeNote:
-        "The doors below are unlocked and tended. The morning air is crisp and quiet across the platform.",
+        "The board below is ready to explore. Morning air is crisp and quiet across the platform.",
       bgColor: "var(--sky-morning)",
       imgFilter: "brightness(1.02) saturate(1.02)",
       sun: { x: 0, y: 0, alpha: 1 },
@@ -1232,7 +1230,7 @@ const destinations = stationRoutes
       announcement:
         "Station atmosphere set to Midday, 12:00. Clear high sun over the countryside.",
       noticeNote:
-        "The doors below are unlocked and tended. High sun over the rice fields; take your time wandering.",
+        "The board below is ready to explore. High sun rests over the rice fields; take your time wandering.",
       bgColor: "var(--sky-midday)",
       imgFilter: "brightness(1.06) saturate(1.08) contrast(1.02)",
       sun: { x: -210, y: -50, alpha: 1 },
@@ -1247,7 +1245,7 @@ const destinations = stationRoutes
       announcement:
         "Station atmosphere set to Sunset, 17:30. Warm terracotta golden hour and amber tracks.",
       noticeNote:
-        "The doors below are unlocked and tended. Golden hour settles across the tracks; unhurried wandering.",
+        "The board below is ready to explore. Golden hour settles across the tracks; wander unhurriedly.",
       bgColor: "var(--sky-dusk)",
       imgFilter:
         "sepia(0.24) saturate(1.25) brightness(0.96) hue-rotate(-12deg)",
@@ -1263,7 +1261,7 @@ const destinations = stationRoutes
       announcement:
         "Station atmosphere set to Night, 21:00. Quiet indigo night, crescent moon, and platform lanterns.",
       noticeNote:
-        "The doors below are unlocked and tended. Platform lanterns are lit; stay and wander as long as you like.",
+        "The board below is ready to explore. Platform lanterns are lit; stay as long as you like.",
       bgColor: "var(--sky-night)",
       imgFilter:
         "brightness(0.68) contrast(1.15) saturate(0.85) hue-rotate(185deg)",
@@ -1370,7 +1368,7 @@ const destinations = stationRoutes
 
     // Solar Clock controls
     const clockContainer = arrival.querySelector<HTMLElement>(
-      "[data-station-clock]",
+      "[data-arrival-dial]",
     );
     const timeButtons =
       arrival.querySelectorAll<HTMLButtonElement>("[data-time-btn]");
@@ -1383,9 +1381,27 @@ const destinations = stationRoutes
       "[data-clock-announcement]",
     );
 
-    let currentMode: SkyMode =
-      (sessionStorage.getItem("lincie-station-sky") as SkyMode) || "morning";
-    if (!skyConfigs[currentMode]) currentMode = "morning";
+    function readSavedAtmosphere(): SkyMode {
+      try {
+        const savedMode = sessionStorage.getItem("lincie-station-sky");
+        return savedMode &&
+          Object.prototype.hasOwnProperty.call(skyConfigs, savedMode)
+          ? (savedMode as SkyMode)
+          : "morning";
+      } catch {
+        return "morning";
+      }
+    }
+
+    function saveAtmosphere(mode: SkyMode) {
+      try {
+        sessionStorage.setItem("lincie-station-sky", mode);
+      } catch {
+        // Storage can be unavailable in privacy-restricted browser contexts.
+      }
+    }
+
+    let currentMode: SkyMode = readSavedAtmosphere();
 
     function updateControlStates(mode: SkyMode, customTime?: string) {
       const cfg = skyConfigs[mode];
@@ -1462,7 +1478,7 @@ const destinations = stationRoutes
     ) {
       if (!arrival) return;
       currentMode = mode;
-      sessionStorage.setItem("lincie-station-sky", mode);
+      saveAtmosphere(mode);
       const cfg = skyConfigs[mode];
 
       arrival.setAttribute("data-sky", mode);
@@ -1974,9 +1990,6 @@ const destinations = stationRoutes
           "[data-room-article]",
         );
 
-        // Initialize Overdrive 3D tilt, specular glare & ambient particles
-        initDioramaOverdrive(signal);
-
         roomArticles.forEach((article) => {
           const beacon =
             article.querySelector<HTMLElement>("[data-stop-beacon]");
@@ -2013,134 +2026,6 @@ const destinations = stationRoutes
                 ? "var(--signal-terracotta-ink)"
                 : "var(--ink-secondary)";
             }
-          }
-
-          // Multi-plane optical diorama parallax inside each room card
-          const diorama = article.querySelector<HTMLElement>(
-            "[data-room-diorama]",
-          );
-          if (diorama) {
-            const sunEl =
-              diorama.querySelector<HTMLElement>("[data-diorama-sun]");
-            const backEls = diorama.querySelectorAll<HTMLElement>(
-              "[data-diorama-back]",
-            );
-            const midEls =
-              diorama.querySelectorAll<HTMLElement>("[data-diorama-mid]");
-            const frontEls = diorama.querySelectorAll<HTMLElement>(
-              "[data-diorama-front]",
-            );
-            const signEl = diorama.querySelector<HTMLElement>(
-              "[data-diorama-sign]",
-            );
-
-            if (sunEl) {
-              gsap.fromTo(
-                sunEl,
-                { y: 16 },
-                {
-                  y: -22,
-                  ease: "none",
-                  scrollTrigger: {
-                    trigger: article,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 1.2,
-                  },
-                },
-              );
-            }
-
-            if (backEls.length) {
-              gsap.fromTo(
-                backEls,
-                { y: 14 },
-                {
-                  y: -16,
-                  ease: "none",
-                  scrollTrigger: {
-                    trigger: article,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 1.2,
-                  },
-                },
-              );
-            }
-
-            if (midEls.length) {
-              gsap.fromTo(
-                midEls,
-                { y: -6 },
-                {
-                  y: 8,
-                  ease: "none",
-                  scrollTrigger: {
-                    trigger: article,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 1.2,
-                  },
-                },
-              );
-            }
-
-            if (frontEls.length) {
-              gsap.fromTo(
-                frontEls,
-                { y: -12 },
-                {
-                  y: 16,
-                  ease: "none",
-                  scrollTrigger: {
-                    trigger: article,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 1.2,
-                  },
-                },
-              );
-            }
-
-            if (signEl) {
-              gsap.fromTo(
-                signEl,
-                { y: 8, scale: 0.98 },
-                {
-                  y: -6,
-                  scale: 1,
-                  ease: "none",
-                  scrollTrigger: {
-                    trigger: article,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 1.2,
-                  },
-                },
-              );
-            }
-          }
-
-          // Content arrival entrance
-          const content = article.querySelector<HTMLElement>(
-            "[data-room-content]",
-          );
-          if (content) {
-            gsap.fromTo(
-              content,
-              { y: 24, autoAlpha: 0.8 },
-              {
-                y: 0,
-                autoAlpha: 1,
-                duration: 0.8,
-                ease: "power2.out",
-                scrollTrigger: {
-                  trigger: article,
-                  start: "top 80%",
-                  toggleActions: "play none none reverse",
-                },
-              },
-            );
           }
         });
 

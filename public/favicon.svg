@@ -1,19 +1,43 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <style>
-    .bg { fill: #FFFDF8; }
-    .ring { stroke: #B8614B; }
-    .track { stroke: #B8614B; }
-    .signal { fill: #B8614B; }
+    .cat-body { fill: #FFFDF8; stroke: #B8614B; stroke-width: 1.6; }
+    .ear-right { fill: #B8614B; }
+    .ear-left { fill: #D49A48; }
+    .inner-ear { stroke: #FFFDF8; stroke-width: 0.9; }
+    .features { stroke: #2D332B; }
+    .nose { fill: #B8614B; }
+    .stalk { stroke: #6C895F; stroke-width: 1.2; }
+    .grain { fill: #D49A48; }
 
     @media (prefers-color-scheme: dark) {
-      .bg { fill: #262D25; }
-      .ring { stroke: #E9DDC9; }
-      .track { stroke: #D9775F; }
-      .signal { fill: #D9775F; }
+      .cat-body { fill: #262D25; stroke: #E9DDC9; }
+      .ear-right { fill: #D9775F; }
+      .ear-left { fill: #D49A48; }
+      .inner-ear { stroke: #262D25; }
+      .features { stroke: #F7F2E8; }
+      .nose { fill: #D9775F; }
+      .stalk { stroke: #8BAA7C; }
+      .grain { fill: #D49A48; }
     }
   </style>
-  <circle class="bg ring" cx="16" cy="16" r="14" fill="#FFFDF8" stroke="#B8614B" stroke-width="2" />
-  <line class="track" x1="7" y1="16" x2="25" y2="16" stroke="#B8614B" stroke-width="2" stroke-linecap="round" />
-  <line class="track" x1="16" y1="7" x2="16" y2="25" stroke="#B8614B" stroke-width="2" stroke-linecap="round" />
-  <circle class="signal" cx="16" cy="16" r="3.2" fill="#B8614B" />
+  <defs>
+    <clipPath id="catClip">
+      <path d="M16 9.5 C17 9.5 17.8 9.2 18.5 8.8 L21 3.8 C21.5 3 22.5 3 23 3.8 L25.2 10.2 C27.5 14 27.5 19.5 25 23 C22.8 26.5 18.8 27.5 16 27.5 C13.2 27.5 9.2 26.5 7 23 C4.5 19.5 4.5 14 6.8 10.2 L9 3.8 C9.5 3 10.5 3 11 3.8 L13.5 8.8 C14.2 9.2 15 9.5 16 9.5 Z" />
+    </clipPath>
+  </defs>
+  <path class="cat-body" d="M16 9.5 C17 9.5 17.8 9.2 18.5 8.8 L21 3.8 C21.5 3 22.5 3 23 3.8 L25.2 10.2 C27.5 14 27.5 19.5 25 23 C22.8 26.5 18.8 27.5 16 27.5 C13.2 27.5 9.2 26.5 7 23 C4.5 19.5 4.5 14 6.8 10.2 L9 3.8 C9.5 3 10.5 3 11 3.8 L13.5 8.8 C14.2 9.2 15 9.5 16 9.5 Z" stroke-linejoin="round" />
+  <g clip-path="url(#catClip)">
+    <path class="ear-right" d="M18.2 8.8 L21 3.8 C21.5 3 22.5 3 23 3.8 L25.5 10.5 C24.5 11.8 21.5 11.2 18.2 8.8 Z" />
+    <path class="ear-left" d="M13.8 8.8 L11 3.8 C10.5 3 9.5 3 9 3.8 L6.5 10.5 C7.5 11.8 10.5 11.2 13.8 8.8 Z" />
+  </g>
+  <path class="inner-ear" d="M9.8 7.5 L10.2 5.5 C10.4 5.2 10.8 5.2 11 5.5 L11.8 7.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  <path class="inner-ear" d="M22.2 7.5 L21.8 5.5 C21.6 5.2 21.2 5.2 21 5.5 L20.2 7.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  <path class="features" d="M9.8 15 Q11.8 17 13.8 15" fill="none" stroke-width="1.4" stroke-linecap="round" />
+  <path class="features" d="M18.2 15 Q20.2 17 22.2 15" fill="none" stroke-width="1.4" stroke-linecap="round" />
+  <polygon class="nose" points="15.2,17.4 16.8,17.4 16,18.4" />
+  <path class="features" d="M15 19.2 Q16 20.1 16 19.2 Q16 20.1 17 19.2" fill="none" stroke-width="1.1" stroke-linecap="round" />
+  <path class="stalk" d="M9.5 23.8 Q16 26.2 22.5 23.8" fill="none" stroke-linecap="round" />
+  <ellipse class="grain" cx="11.8" cy="24" rx="1.4" ry="0.85" transform="rotate(-18 11.8 24)" />
+  <ellipse class="grain" cx="16" cy="25.2" rx="1.6" ry="0.95" />
+  <ellipse class="grain" cx="20.2" cy="24" rx="1.4" ry="0.85" transform="rotate(18 20.2 24)" />
 </svg>
