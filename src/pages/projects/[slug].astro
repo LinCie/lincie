@@ -1,6 +1,7 @@
 ---
 import { siteContainer } from "../../components/layout/container";
 import MainLayout from "../../components/layout/MainLayout.astro";
+import StationStopSection from "../../components/station/StationStopSection.astro";
 import { projects, type Project } from "../../data/projects";
 import { site, canonicalUrl } from "../../data/site";
 
@@ -424,4 +425,7 @@ const projectJsonLd = {
       </div>
     </div>
   </section>
+
+  <!-- Station Stop Sign & Next Destinations -->
+  <StationStopSection currentRoute="/projects" />
 </MainLayout>

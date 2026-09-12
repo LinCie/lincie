@@ -1,6 +1,7 @@
 ---
 import { siteContainer } from "../components/layout/container";
 import MainLayout from "../components/layout/MainLayout.astro";
+import StationStopSection from "../components/station/StationStopSection.astro";
 ---
 
 <MainLayout
@@ -708,72 +709,8 @@ import MainLayout from "../components/layout/MainLayout.astro";
     </div>
   </section>
 
-  <!-- Exit Gate & Next Destinations -->
-  <section class="bg-[#f7f2e8] py-16 md:py-24" aria-labelledby="exit-title">
-    <div class={siteContainer}>
-      <div class="rounded-2xl border border-[#c4b49d] bg-[#fffdf8] p-8 md:p-12">
-        <div class="max-w-[65ch]">
-          <h2
-            id="exit-title"
-            class="font-serif text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.12] font-normal tracking-[-0.02em] text-[#2d332b]"
-          >
-            Where would you like to wander next?
-          </h2>
-          <p class="mt-3 text-base leading-[1.65] text-[#5f665c]">
-            There is no set path and no deadline. Step back out onto the open
-            platform, check on the rice fields, or leave a message at the
-            letterbox.
-          </p>
-        </div>
-
-        <div class="mt-8 flex flex-wrap items-center gap-4">
-          <a
-            href="/"
-            class="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[#2d332b] bg-[#2d332b] px-6 py-3 font-sans text-sm font-semibold text-[#fffdf8] transition-[background-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:bg-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] motion-reduce:transition-none"
-          >
-            <svg
-              class="size-4 fill-none [stroke:currentColor] [stroke-width:2] [stroke-linecap:round] [stroke-linejoin:round]"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path d="M19 12H5M12 19l-7-7 7-7"></path>
-            </svg>
-            <span>Return to Station Platform</span>
-          </a>
-
-          <a
-            href="/#projects"
-            class="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[#c4b49d] bg-[#fffdf8] px-6 py-3 font-sans text-sm font-semibold text-[#2d332b] transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:text-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] motion-reduce:transition-none"
-          >
-            <span>Wander to Rice Fields (Projects)</span>
-            <svg
-              class="size-4 fill-none [stroke:currentColor] [stroke-width:2] [stroke-linecap:round] [stroke-linejoin:round]"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </a>
-
-          <a
-            href="/connect"
-            class="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[#c4b49d] bg-[#fffdf8] px-6 py-3 font-sans text-sm font-semibold text-[#2d332b] transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:text-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] motion-reduce:transition-none"
-          >
-            <span>Drop a note at Letterbox</span>
-            <svg
-              class="size-4 fill-none [stroke:currentColor] [stroke-width:2] [stroke-linecap:round] [stroke-linejoin:round]"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6"
-              ></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Station Stop Sign & Next Destinations -->
+  <StationStopSection currentRoute="/about" />
 </MainLayout>
 
 <style>

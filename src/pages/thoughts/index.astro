@@ -1,6 +1,7 @@
 ---
 import { siteContainer } from "../../components/layout/container";
 import MainLayout from "../../components/layout/MainLayout.astro";
+import StationStopSection from "../../components/station/StationStopSection.astro";
 import { thoughts } from "../../data/thoughts";
 import { site, canonicalUrl } from "../../data/site";
 
@@ -232,53 +233,7 @@ const thoughtsJsonLd = {
       )
     }
 
-    <!-- Station Wayfinding Signpost -->
-    <section class="bg-[#fffdf8] py-14 md:py-16">
-      <div class={siteContainer}>
-        <div
-          class="rounded-2xl border border-[#c4b49d] bg-[#f7f2e8] p-8 md:p-10"
-        >
-          <div
-            class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
-          >
-            <div class="max-w-[42ch]">
-              <h2
-                class="font-serif text-2xl font-normal tracking-[-0.02em] text-[#2d332b]"
-              >
-                Wander further down the line
-              </h2>
-              <p class="mt-2 text-sm leading-relaxed text-[#5f665c]">
-                The station tracks lead to cultivated software plots, workshop
-                benches, and personal introductions.
-              </p>
-            </div>
-
-            <div class="flex flex-wrap items-center gap-3">
-              <a
-                href="/"
-                class="inline-flex min-h-11 items-center gap-2 rounded-lg border border-[#c4b49d] bg-[#fffdf8] px-4 py-2.5 font-sans text-xs font-bold text-[#2d332b] transition-colors hover:border-[#b8614b] hover:text-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-              >
-                <span>Station Platform</span>
-                <span aria-hidden="true">&rarr;</span>
-              </a>
-              <a
-                href="/projects"
-                class="inline-flex min-h-11 items-center gap-2 rounded-lg border border-[#c4b49d] bg-[#fffdf8] px-4 py-2.5 font-sans text-xs font-bold text-[#2d332b] transition-colors hover:border-[#b8614b] hover:text-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-              >
-                <span>Rice Fields (Projects)</span>
-                <span aria-hidden="true">&rarr;</span>
-              </a>
-              <a
-                href="/workshop"
-                class="inline-flex min-h-11 items-center gap-2 rounded-lg border border-[#c4b49d] bg-[#fffdf8] px-4 py-2.5 font-sans text-xs font-bold text-[#2d332b] transition-colors hover:border-[#b8614b] hover:text-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-              >
-                <span>The Workshop (Offers)</span>
-                <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Station Stop Sign & Next Destinations -->
+    <StationStopSection currentRoute="/thoughts" />
   </div>
 </MainLayout>
