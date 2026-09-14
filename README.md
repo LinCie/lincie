@@ -1,111 +1,67 @@
 # LinCie
 
-<p align="center">
-  <img src="./public/favicon.svg" alt="LinCie's cat and rice-sprout station logo" width="76" />
-</p>
+> Welcome. You made it here. Take your time.
 
-<p align="center">
-  <img src="./profile/lin-cie-station-banner.jpg" alt="A small rural station beside rice fields as a train arrives beneath distant mountains." width="100%" />
-</p>
+Hi, I’m **LinCie** — a software engineering trainee at **Sea Labs Indonesia (Shopee)** and a backend-focused engineer from Indonesia.
 
-<p align="center">
-  <strong>Software engineering trainee · Backend engineer · Creative developer</strong><br />
-  I build dependable systems and thoughtful digital experiences from Indonesia.
-</p>
+I mostly build services with **Go** and **TypeScript**. I care about the parts of software that make life easier after launch: clear APIs, sensible data, fast queries, and systems that another person can understand without needing a tour guide.
 
-<p align="center">
-  <a href="https://lincie.me">Website</a> ·
-  <a href="https://lincie.me/projects/">Projects</a> ·
-  <a href="https://lincie.me/thoughts/">Notes</a> ·
-  <a href="mailto:contact@lincie.me">Email</a> ·
-  <a href="https://github.com/lincie">GitHub</a>
-</p>
+I came to engineering through **Marketing Management and Business Administration**. It is a slightly unusual route, but it fits me. I naturally think about the people and messy real-world workflows behind a technical problem. Good software should not just be clever; it should quietly make someone’s day better.
 
-## Hello from the station
+## A little about me
 
-I’m **LinCie**, a software engineering trainee at **Sea Labs Indonesia (Shopee)**. I work mostly on backend services in **Go** and **TypeScript**, with a focus on PostgreSQL, API design, query performance, and systems that stay understandable after they ship.
+I like things that feel warm, calm, and thoughtfully made. I’m drawn to quiet rural places, fresh morning air, soft light, and small details that make a space feel lived in. Hot tea or pour-over coffee is usually within reach before the first line of code.
 
-My route into engineering began with a degree in **Marketing Management and Business Administration**. That background still shapes how I build: technical decisions should have a human and operational reason behind them. A faster query gives someone time back; a clear API gives another person a system they can safely maintain.
+I love the gentle worlds of **Yuru Camp** and **Non Non Biyori**. I listen to **Haruka Nakamura** and **Akira Kosemura**, and I keep coming back to **Stardew Valley** because it gives me room to build, style, and play at my own pace. I also enjoy the very different kinds of focus found in **osu!**, **Roblox**, and **Europa Universalis IV**. That mix probably explains a lot about me: I like both quiet details and complicated systems.
 
-Before Sea Labs, I was a Full Stack Engineer at **PT Haebot Teknologi Indonesia**, where I led the rewrite of a core ERP system and reduced production query latency from approximately **2.5 seconds to under 400 milliseconds**.
+There is a station-house cat named **Mikan** on my website. She mostly sleeps in the morning sun, which is honestly a respectable way to spend the day.
 
-> I believe in quiet craft: measure first, prefer predictable solutions, and build software that reliably serves the people depending on it.
+This is why my personal site is imagined as a small station beside rice fields. The fields hold projects, the forest holds questions, the mountain holds patient future growth, and the tracks are the journey between them. It is a portfolio, but it is also a place to stop for a moment.
 
-<p align="center">
-  <img src="./profile/lin-cie-workshop.jpg" alt="A warm wooden workshop with a laptop showing abstract code, a database illustration, tools, and rice fields outside the window." width="76%" />
-</p>
+## The station board
 
-## What I build
+| Stop | What you’ll find |
+| --- | --- |
+| [Station House · About me](https://lincie.me/about/) | The person behind the systems: interests, comforts, and the details a résumé usually leaves out. |
+| [Rice Fields · Projects](https://lincie.me/projects/) | Things I have built, what they were for, and the lessons they left behind. |
+| [Workshop · What I offer](https://lincie.me/workshop/) | Backend systems, thoughtful web experiences, and practical engineering help. |
+| [Waiting Room · Thoughts](https://lincie.me/thoughts/) | Notes, observations, and ideas I am still figuring out. |
+| [Letterbox · Say hello](https://lincie.me/connect/) | A low-pressure way to talk about a project, collaboration, or anything else. |
 
-- **Backend & systems** — Go and TypeScript services, REST/gRPC APIs, business logic, and integrations.
-- **Data foundations** — PostgreSQL schemas, transactions, indexes, query-plan analysis, and type-safe database access with Kysely.
-- **Production tooling** — Docker-based environments, resilient services, storage workflows, and practical automation.
-- **Crafted websites** — Fast, accessible, SEO-conscious experiences with Astro, Tailwind CSS, TypeScript, and carefully used motion.
+<details>
+<summary><strong>A small personal widget · what I’m tending</strong></summary>
 
-<p align="center">
-  <img src="./profile/lin-cie-systems-map.jpg" alt="A hand-drawn technical map connecting Indonesian islands with terracotta routes, database cylinders, and small service nodes." width="72%" />
-</p>
+| | |
+| --- | --- |
+| **Making** | Backend systems that stay quick, dependable, and understandable. |
+| **Returning to** | The idea that technical care is still care — fewer rough edges mean less work for someone else. |
+| **Enjoying** | Stardew Valley, quiet stations, warm light, and digital places that let people breathe. |
 
-## Selected work
+</details>
 
-- **[Bearuang](https://lincie.me/projects/bearuang/)** — A modular POS and ERP backend for retail workflows.  
-  `30+ REST endpoints` · `2,000+ req/min` · `1M+ seeded products`
-- **[Haebot ERP Rewrite](https://lincie.me/projects/haebot-erp/)** — A ground-up enterprise ERP rewrite for Sales, Inventory, and Finance.  
-  `>84% lower query latency` · `~1 hour → <5 minutes setup` · `25 employees served`
-- **[Lintas Nusa Logistics](https://lincie.me/projects/lintas-nusa/)** — An enterprise logistics platform with an interactive national network map.  
-  `5 core pages` · `9-node SVG map` · `Astro · GSAP · Tailwind CSS`
-- **[Mika Discord Music Bot](https://lincie.me/projects/mika/)** — A production music bot with normalized multi-source audio streaming.  
-  `2+ years running` · `6 servers` · `1,000+ community members`
+## Things I’ve made
 
-[Explore all projects →](https://lincie.me/projects/)
+- **[Bearuang](https://lincie.me/projects/bearuang/)** — A modular POS and ERP backend for retail workflows. I built it to stay fast and predictable as the data grows: `30+ REST endpoints`, `2,000+ req/min`, and `1M+ seeded products`.
+- **[Haebot ERP rewrite](https://lincie.me/projects/haebot-erp/)** — A ground-up rewrite for Sales, Inventory, and Finance. It brought query latency down from roughly `2.5s` to under `400ms`, and setup from about an hour to under five minutes.
+- **[Lintas Nusa](https://lincie.me/projects/lintas-nusa/)** — An enterprise logistics experience for a fictional nationwide operator. I used it to explore how careful interaction and restrained design can make complex operations feel trustworthy.
+- **[Mika](https://lincie.me/projects/mika/)** — A Discord music bot that has been running for more than two years across six servers. It started as a community tool and became a long-running lesson in graceful failure and maintenance.
 
-## Toolkit
+[See the rest of the project fields →](https://lincie.me/projects/)
 
-<div align="center">
-  <img src="https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white" alt="Go" />
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white" alt="Node.js" />
-  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-  <img src="https://img.shields.io/badge/Kysely-2d332b?style=flat-square" alt="Kysely" />
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker" />
-  <img src="https://img.shields.io/badge/Astro-FF5D01?style=flat-square&logo=astro&logoColor=white" alt="Astro" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/GSAP-88CE02?style=flat-square&logo=greensock&logoColor=111111" alt="GSAP" />
-  <img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white" alt="Redis" />
-</div>
+## What I reach for
 
-## GitHub in pictures
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile/github-stats-dark.svg" />
-    <img src="./profile/github-stats.svg" alt="GitHub statistics: public repositories, commits, pull requests, and collaborations." width="49%" />
-  </picture>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile/top-languages-dark.svg" />
-    <img src="./profile/top-languages.svg" alt="Top repository languages: TypeScript, Astro, Go, JavaScript, and Python." width="49%" />
-  </picture>
-</p>
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile/github-snake-dark.svg" />
-    <img src="./profile/github-snake.svg" alt="A contribution-grid snake representing LinCie's GitHub activity." width="100%" />
-  </picture>
-</p>
-
-These cards and the contribution illustration are stored in this repository and refreshed daily by [`.github/workflows/profile-visuals.yml`](./.github/workflows/profile-visuals.yml). They do not depend on a live public image endpoint, which keeps the profile visual without repeating the broken deployment problem.
+**Backend:** Go · TypeScript · Node.js · PostgreSQL · Kysely · REST · gRPC  
+**Infrastructure:** Docker · Redis · Cloudflare  
+**Web:** Astro · Tailwind CSS · GSAP · accessible, responsive interfaces
 
 ## This repository
 
-This repository, **[`lincie/lincie`](https://github.com/lincie/lincie)**, is the source for [LinCie Station](https://lincie.me): a personal portfolio, project archive, and small home for engineering notes.
-
-The site is a mostly static Astro experience with data-driven pages, accessible navigation, responsive layouts, SEO metadata, structured data, and small, purposeful animations.
+This is the source for **[LinCie Station](https://lincie.me)** — my personal website, project archive, and a small home for thoughts. It is built with Astro and kept mostly static because I like fast pages, clear routes, and technology that stays out of the way.
 
 <details>
 <summary><strong>Run it locally</strong></summary>
 
-**Requirements:** [Bun](https://bun.sh) and Node.js `>=22.12.0`.
+Requirements: [Bun](https://bun.sh) and Node.js `>=22.12.0`.
 
 ```bash
 git clone https://github.com/lincie/lincie.git
@@ -114,18 +70,12 @@ bun install
 bun run dev
 ```
 
-Useful commands:
-
-```bash
-bun run build    # Create a production build
-bun run preview  # Preview the production build
-bun run format   # Format source files
-bun run lint     # Lint source files
-bun run check    # Run Astro checks
-```
-
 </details>
 
----
+## Before you go
 
-<sub>Built with Astro, Tailwind CSS, TypeScript, and a little GSAP. No tracking, no hurry.</sub>
+I’m still learning, still building, and still changing my mind about some things. That feels healthier than pretending the work is finished.
+
+If you found something useful here, I’m glad. If you only stayed for a minute, that’s okay too.
+
+**No tracking, no hurry.**
