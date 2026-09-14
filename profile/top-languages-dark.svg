@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="220" viewBox="0 0 560 220" role="img" aria-labelledby="title desc">
+  <title id="title">LinCie's top repository languages</title>
+  <desc id="desc">A visual summary of the languages used across LinCie's public repositories.</desc>
+  <rect x="1" y="1" width="558" height="218" rx="16" fill="#262D25" stroke="#5F665C" stroke-width="2"/>
+  <text x="28" y="36" fill="#D9775F" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" letter-spacing="2">LANGUAGE ROUTE</text>
+  <text x="28" y="68" fill="#F7F2E8" font-family="Georgia, serif" font-size="25">What I reach for</text>
+  <text x="28" y="89" fill="#E9DDC9" font-family="Arial, Helvetica, sans-serif" font-size="11">Repository language snapshot · 13 September 2026</text>
+  <g transform="translate(118 145) rotate(-90)">
+    <circle r="61" fill="none" stroke="#3A4437" stroke-width="22"/>
+    <circle r="61" fill="none" stroke="#5B9BD5" stroke-width="22" stroke-dasharray="281 383" stroke-dashoffset="0"/>
+    <circle r="61" fill="none" stroke="#FF7B2E" stroke-width="22" stroke-dasharray="45 383" stroke-dashoffset="-281"/>
+    <circle r="61" fill="none" stroke="#38C8E8" stroke-width="22" stroke-dasharray="23 383" stroke-dashoffset="-326"/>
+    <circle r="61" fill="none" stroke="#E6D35A" stroke-width="22" stroke-dasharray="18 383" stroke-dashoffset="-349"/>
+    <circle r="61" fill="none" stroke="#6C9AC4" stroke-width="22" stroke-dasharray="16 383" stroke-dashoffset="-367"/>
+  </g>
+  <circle cx="118" cy="145" r="39" fill="#262D25"/>
+  <text x="118" y="151" text-anchor="middle" fill="#F7F2E8" font-family="Georgia, serif" font-size="20" font-weight="700">TS</text>
+  <g transform="translate(250 112)">
+    <rect width="12" height="12" rx="3" fill="#5B9BD5"/>
+    <text x="22" y="11" fill="#F7F2E8" font-family="Arial, Helvetica, sans-serif" font-size="12">TypeScript</text>
+    <text x="190" y="11" text-anchor="end" fill="#E9DDC9" font-family="Arial, Helvetica, sans-serif" font-size="11">74%</text>
+    <rect y="24" width="12" height="12" rx="3" fill="#FF7B2E"/>
+    <text x="22" y="35" fill="#F7F2E8" font-family="Arial, Helvetica, sans-serif" font-size="12">Astro</text>
+    <text x="190" y="35" text-anchor="end" fill="#E9DDC9" font-family="Arial, Helvetica, sans-serif" font-size="11">12%</text>
+    <rect y="48" width="12" height="12" rx="3" fill="#38C8E8"/>
+    <text x="22" y="59" fill="#F7F2E8" font-family="Arial, Helvetica, sans-serif" font-size="12">Go</text>
+    <text x="190" y="59" text-anchor="end" fill="#E9DDC9" font-family="Arial, Helvetica, sans-serif" font-size="11">6%</text>
+    <rect y="72" width="12" height="12" rx="3" fill="#E6D35A"/>
+    <text x="22" y="83" fill="#F7F2E8" font-family="Arial, Helvetica, sans-serif" font-size="12">JavaScript</text>
+    <text x="190" y="83" text-anchor="end" fill="#E9DDC9" font-family="Arial, Helvetica, sans-serif" font-size="11">5%</text>
+    <rect y="96" width="12" height="12" rx="3" fill="#6C9AC4"/>
+    <text x="22" y="107" fill="#F7F2E8" font-family="Arial, Helvetica, sans-serif" font-size="12">Python</text>
+    <text x="190" y="107" text-anchor="end" fill="#E9DDC9" font-family="Arial, Helvetica, sans-serif" font-size="11">3%</text>
+  </g>
+</svg>

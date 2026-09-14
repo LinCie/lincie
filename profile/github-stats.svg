@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="220" viewBox="0 0 560 220" role="img" aria-labelledby="title desc">
+  <title id="title">GitHub statistics for LinCie</title>
+  <desc id="desc">A snapshot of LinCie's public GitHub activity, refreshed by GitHub Actions.</desc>
+  <rect x="1" y="1" width="558" height="218" rx="16" fill="#FFFDF8" stroke="#C4B49D" stroke-width="2"/>
+  <circle cx="520" cy="34" r="7" fill="#B8614B"/>
+  <circle cx="500" cy="34" r="4" fill="#D49A48"/>
+  <text x="28" y="36" fill="#843D2F" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" letter-spacing="2">GITHUB AT A GLANCE</text>
+  <text x="28" y="68" fill="#2D332B" font-family="Georgia, serif" font-size="25">LinCie's profile</text>
+  <text x="28" y="89" fill="#5F665C" font-family="Arial, Helvetica, sans-serif" font-size="11">Public snapshot · 13 September 2026</text>
+  <g transform="translate(28 112)">
+    <rect width="120" height="76" rx="10" fill="#E9DDC9"/>
+    <text x="14" y="27" fill="#5F665C" font-family="Arial, Helvetica, sans-serif" font-size="10">PUBLIC REPOS</text>
+    <text x="14" y="57" fill="#2D332B" font-family="Georgia, serif" font-size="23" font-weight="700">36</text>
+  </g>
+  <g transform="translate(162 112)">
+    <rect width="120" height="76" rx="10" fill="#DCE7C9"/>
+    <text x="14" y="27" fill="#5F665C" font-family="Arial, Helvetica, sans-serif" font-size="10">COMMITS</text>
+    <text x="14" y="57" fill="#2D332B" font-family="Georgia, serif" font-size="23" font-weight="700">1.7k</text>
+  </g>
+  <g transform="translate(296 112)">
+    <rect width="120" height="76" rx="10" fill="#F3E1D9"/>
+    <text x="14" y="27" fill="#843D2F" font-family="Arial, Helvetica, sans-serif" font-size="10">PULL REQUESTS</text>
+    <text x="14" y="57" fill="#2D332B" font-family="Georgia, serif" font-size="23" font-weight="700">39</text>
+  </g>
+  <g transform="translate(430 112)">
+    <rect width="102" height="76" rx="10" fill="#F2E3C5"/>
+    <text x="14" y="27" fill="#5F665C" font-family="Arial, Helvetica, sans-serif" font-size="10">COLLABORATIONS</text>
+    <text x="14" y="57" fill="#2D332B" font-family="Georgia, serif" font-size="23" font-weight="700">25</text>
+  </g>
+  <text x="28" y="207" fill="#6C895F" font-family="Arial, Helvetica, sans-serif" font-size="10">Refreshed daily from GitHub · figures can change</text>
+</svg>
