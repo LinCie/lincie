@@ -4,9 +4,10 @@ import { siteContainer } from "../layout/container";
 
 const githubUsername =
   site.author.github.split("/").filter(Boolean).pop() ?? "LinCie";
+const encodedGithubUsername = encodeURIComponent(githubUsername);
 const githubProfile = site.author.github;
-const githubStats = `https://github-readme-stats.vercel.app/api?username=${githubUsername}&show_icons=true&hide_border=true&bg_color=fffdf8&title_color=2d332b&text_color=5f665c&icon_color=b8614b&cache_seconds=86400`;
-const githubActivity = `https://github-readme-activity-graph.vercel.app/graph?username=${githubUsername}&custom_title=The%20quiet%20work%20trail&bg_color=fffdf8&color=2d332b&line=b8614b&point=d49a48&area_color=e9ddc9&area=true&hide_border=true&radius=12`;
+const githubStats = `https://github-profile-summary-cards.vercel.app/api/cards/stats?username=${encodedGithubUsername}&theme=default`;
+const githubActivity = `https://ghchart.rshah.org/b8614b/${encodedGithubUsername}`;
 const skillIcons =
   "https://skillicons.dev/icons?i=go,ts,nodejs,postgres,docker,redis,astro,tailwind&theme=light&perline=4";
 ---
@@ -82,8 +83,8 @@ const skillIcons =
             <img
               src={githubStats}
               alt={`GitHub activity summary for ${githubUsername}`}
-              width="495"
-              height="195"
+              width="340"
+              height="200"
               loading="lazy"
               decoding="async"
               class="h-auto w-full"
@@ -227,8 +228,8 @@ const skillIcons =
           <img
             src={githubActivity}
             alt={`GitHub contribution graph for ${githubUsername}`}
-            width="900"
-            height="300"
+            width="663"
+            height="104"
             loading="lazy"
             decoding="async"
             class="h-auto w-full"
