@@ -15,19 +15,19 @@ export const offers: OfferBench[] = [
   {
     id: "backend",
     href: "/workshop#backend",
-    category: "Developer Service",
+    category: "Backend development",
     approach: "Go & TypeScript",
-    title: "Backend & Systems",
+    title: "Backend systems",
     summary:
-      "Reliable REST/gRPC APIs, schema design, and clean business logic. Built for performance and zero-headache maintenance.",
+      "I build REST and gRPC APIs with clear business logic and database schemas designed for performance. I keep the code straightforward to maintain.",
   },
   {
     id: "web-craft",
     href: "/workshop#web-craft",
-    category: "Web Craft",
-    approach: "AI-Augmented & Hand-Tuned",
-    title: "Crafted Websites",
+    category: "Web development",
+    approach: "AI-assisted, reviewed by hand",
+    title: "Custom websites",
     summary:
-      "Distinct, accessible, and fast websites. AI handles rapid iteration while human engineering ensures zero slop, high SEO, and deep craft.",
+      "I make fast, accessible websites with their own look. AI helps me iterate quickly; I review and refine the code and design by hand, including the SEO.",
   },
 ];

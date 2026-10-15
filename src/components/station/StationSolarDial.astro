@@ -33,7 +33,7 @@ const times: TimeOption[] = [
     label: "Sunset",
     kanji: "夕",
     time: "17:30",
-    desc: "Warm terracotta golden hour and amber tracks",
+    desc: "Warm evening light across the tracks",
   },
   {
     id: "night",
@@ -82,7 +82,7 @@ const times: TimeOption[] = [
       data-time-live
       aria-pressed="false"
       class="text-ink-secondary hover:border-border-soft/60 hover:bg-surface-sunlit hover:text-ink-primary focus-visible:outline-signal-terracotta inline-flex min-h-11 min-w-11 items-center justify-center gap-1 rounded-lg border border-transparent px-2 py-0.5 text-[.8125rem] font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-1 motion-reduce:transition-none sm:hidden"
-      title="Synchronize station atmosphere with your local time of day"
+      title="Match the station to your local time"
     >
       <svg
         class="text-signal-terracotta size-2.5"
@@ -118,7 +118,7 @@ const times: TimeOption[] = [
           data-time-btn={t.id}
           data-time-hour={t.time}
           data-time-name={t.label}
-          title={`${t.label} (${t.time}) — ${t.desc}`}
+          title={`${t.label} (${t.time}): ${t.desc}`}
           class:list={[
             "group text-ink-secondary focus-visible:outline-signal-terracotta inline-flex min-h-11 min-w-11 items-center justify-center gap-1 rounded-lg px-2 py-0.5 text-[.8125rem] font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-1 motion-reduce:transition-none",
             t.id === "morning"
@@ -150,7 +150,7 @@ const times: TimeOption[] = [
       data-time-live
       aria-pressed="false"
       class="text-ink-secondary hover:border-border-soft/60 hover:bg-surface-sunlit hover:text-ink-primary focus-visible:outline-signal-terracotta hidden min-h-11 min-w-11 items-center justify-center gap-1 rounded-lg border border-transparent px-2 py-0.5 text-[.8125rem] font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-1 motion-reduce:transition-none sm:inline-flex"
-      title="Synchronize station atmosphere with your local time of day"
+      title="Match the station to your local time"
     >
       <svg
         class="text-signal-terracotta size-2.5"

@@ -37,18 +37,18 @@ const contactEmail = site.contactEmail.trim();
 /** Homepage-only wording per place: the board's literal label, its invitation, room note, and tone. */
 const homeDetails: Record<string, HomeDetail> = {
   "about-me": {
-    label: "About Me",
-    invitation: "Meet the person behind the work.",
+    label: "About me",
+    invitation: "A bit about me and my background.",
     roomNote:
-      "I’m a software engineering trainee at Sea Labs Indonesia. Before code, I studied business—so I tend to care as much about the people using a system as the database running it.",
+      "I’m a software engineering trainee at Sea Labs Indonesia. I studied business before getting into code, and I care as much about the people using a system as I do about its database.",
     tone: "house",
   },
   projects: {
     label: "Projects",
-    invitation: "Active builds and completed systems.",
+    invitation: "What I’m building and what I’ve finished.",
     badge: `Field Gate · ${tendedCount} Tended, ${harvestedCount} Harvested`,
     roomNote:
-      "I like building software the way someone might tend a field: starting with clean database schemas and clear constraints, then tuning queries until everything runs quietly under real load.",
+      "I like to start with clean database schemas and clear constraints, then tune queries so the software holds up under real load.",
     tone: "field",
   },
   offers: {
@@ -56,7 +56,7 @@ const homeDetails: Record<string, HomeDetail> = {
     invitation: "Backend engineering and web craft.",
     badge: "Workshop · Backend & Web Craft",
     roomNote:
-      "A few things I know how to do well: reliable backend services in Go and TypeScript, sensible schema design, and lightweight websites built without framework bloat.",
+      "I can help build reliable backend services in Go and TypeScript and design the database schemas behind them. I also make lightweight websites without piling on frameworks.",
     tone: "workshop",
   },
   thoughts: {
@@ -64,7 +64,7 @@ const homeDetails: Record<string, HomeDetail> = {
     invitation: "Writing on engineering, databases, and learning.",
     badge: "Waiting Room · Published notes",
     roomNote:
-      "Notes from my desk: carrying a business background into backend systems, what large-scale architecture at Sea Labs teaches, and the value of unhurried engineering.",
+      "I write about how my business background shapes the way I build backend systems, and what I’m learning about large-scale architecture at Sea Labs. Some notes are about why I value taking my time with engineering problems.",
     tone: "thoughts",
   },
   connect: {
@@ -72,7 +72,7 @@ const homeDetails: Record<string, HomeDetail> = {
     invitation: "Send an email or say hello.",
     badge: "Letterbox · Email contact",
     roomNote:
-      "A direct line for project inquiries, questions about backend or web craft, or just a friendly hello. No sales funnels or autoresponders.",
+      "You can email me about a project or ask a question about backend systems and web work. Saying hello is fine, too.",
     tone: "letterbox",
   },
 };
@@ -474,8 +474,9 @@ const destinations = stationRoutes
           class="max-w-[10ch] font-serif text-[clamp(3.75rem,7.2vw,6rem)] leading-[.99] font-normal tracking-[-0.035em] max-[760px]:max-w-[9ch] max-[760px]:text-[clamp(3rem,14vw,4.5rem)]"
           data-arrival-title
         >
-          Welcome.<br />You made it <em
-            class="text-signal-terracotta-ink font-normal not-italic">here.</em
+          Hello.<br />I’m <em
+            class="text-signal-terracotta-ink font-normal not-italic"
+            >LinCie.</em
           >
         </h1>
 
@@ -483,9 +484,9 @@ const destinations = stationRoutes
           class="mt-7 max-w-[38rem] text-[clamp(1.05rem,1.5vw,1.25rem)] leading-[1.55]"
           data-arrival-copy
         >
-          I’m LinCie—a software engineering trainee building Go and TypeScript
-          backends, designing database schemas, and making websites by hand.
-          This station is my personal corner of the web.
+          I’m a software engineering trainee. I build backends in Go and
+          TypeScript and design the databases they use. I also make websites by
+          hand. This station is my personal corner of the web.
         </p>
 
         <p
@@ -495,10 +496,7 @@ const destinations = stationRoutes
           <span
             class="border-signal-terracotta mt-[.7rem] w-9 shrink-0 border-t"
             aria-hidden="true"></span>
-          <span
-            >Take your time. There’s no rush, and no set route you’re supposed
-            to take.</span
-          >
+          <span>Start wherever you like.</span>
         </p>
 
         <aside
@@ -524,8 +522,7 @@ const destinations = stationRoutes
             class="text-ink-primary col-start-2 text-[.9rem] leading-[1.5] transition-opacity duration-300 motion-reduce:transition-none max-[900px]:col-start-1"
             data-arrival-notice-note
           >
-            Crisp morning air across the platform. The rooms below are open
-            whenever you’d like to explore.
+            The morning air is crisp across the platform.
           </p>
         </aside>
 
@@ -623,7 +620,7 @@ const destinations = stationRoutes
         >
           <span class="border-signal-terracotta w-8 border-t" aria-hidden="true"
           ></span>
-          <span>Choose a door, or simply stay a while.</span>
+          <span>Each door leads to a section below.</span>
         </div>
       </nav>
 
@@ -728,8 +725,8 @@ const destinations = stationRoutes
         <p
           class="text-ink-secondary max-w-[31rem] text-base leading-[1.6] max-[760px]:mt-5"
         >
-          A look inside the station house, active projects, notes from my desk,
-          and how to get in touch. Explore at your own pace.
+          Read about my background in the Station House, or see what I’m working
+          on in the fields. You’ll also find my notes and contact details here.
         </p>
       </div>
 
@@ -1025,7 +1022,7 @@ const destinations = stationRoutes
                   {destination.id === "about-me" && (
                     <div class="mt-5 max-w-[34rem]">
                       <StepLink href="/about">
-                        Read the full story in the Station House
+                        More about me in the Station House
                       </StepLink>
                     </div>
                   )}
@@ -1040,7 +1037,7 @@ const destinations = stationRoutes
                               title={project.title}
                               href={`/projects/${project.slug}`}
                               body={project.metricsSummary}
-                              cta="Read project story"
+                              cta="Read about the project"
                             />
                           ))}
                         </div>
@@ -1068,7 +1065,7 @@ const destinations = stationRoutes
                               title={offer.title}
                               href={offer.href}
                               body={offer.summary}
-                              cta="See craft details"
+                              cta="See how I can help"
                             />
                           ))}
                         </div>
@@ -1131,10 +1128,8 @@ const destinations = stationRoutes
                           )}
                         </div>
                         <p class="text-ink-secondary mt-3 text-[.875rem] leading-relaxed">
-                          Send an email if you’d like to collaborate, have a
-                          question about backend systems or web craft, or just
-                          want to say hello. No automated replies—it goes
-                          straight to my inbox.
+                          Messages go straight to my inbox. I don’t use sales
+                          funnels or automated replies.
                         </p>
                       </div>
 
@@ -1143,23 +1138,6 @@ const destinations = stationRoutes
                       </StepLink>
                     </div>
                   )}
-                  <a
-                    class="text-ink-primary decoration-signal-terracotta hover:text-signal-terracotta-ink mt-7 inline-flex min-h-11 items-center gap-[.45rem] font-sans text-[.8125rem] font-bold underline decoration-1 underline-offset-[.3rem] transition-[color,gap] duration-200 ease-out hover:gap-[.7rem] motion-reduce:transition-none"
-                    href="#board"
-                  >
-                    <span>Return to the station board</span>
-                    <span
-                      class="text-signal-terracotta grid size-[1.3rem] shrink-0 place-items-center"
-                      aria-hidden="true"
-                    >
-                      <svg
-                        class="block size-4 fill-none [stroke:currentColor] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round]"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M3 10h13M10 4l6 6-6 6" />
-                      </svg>
-                    </span>
-                  </a>
                 </div>
               </article>
             ))
@@ -1513,19 +1491,13 @@ const destinations = stationRoutes
             id="pause-title"
             class="text-ink-primary mt-3 font-serif text-[clamp(2.2rem,4.5vw,3.6rem)] leading-[1.08] font-normal tracking-[-0.03em]"
           >
-            The tracks rest here.<br class="hidden sm:inline" />
-            You can, too.
+            Take a seat<br class="hidden sm:inline" />
+            by the tracks.
           </h2>
 
           <p class="text-ink-secondary mt-4 text-base leading-[1.65]">
-            The track ends here at the platform siding. You don’t have to finish
-            every section or click through everything—this site is meant to be
-            explored slowly, not completed like a checklist.
-          </p>
-
-          <p class="text-ink-secondary mt-2 text-base leading-[1.65]">
-            Rest on the bench for a bit, or head back to the board whenever
-            you’re ready.
+            The track ends at the platform siding. You’re welcome to linger
+            here, even if you haven’t read every section.
           </p>
 
           <!-- Commemorative Platform Stamp (駅スタンプ) -->
@@ -1576,8 +1548,7 @@ const destinations = stationRoutes
                 Platform Siding · Rest Seal
               </p>
               <p class="text-ink-secondary mt-0.5 text-xs leading-relaxed">
-                A quiet station stamp for anyone who reached the end of the
-                line.
+                A station stamp to remember your visit.
               </p>
             </div>
           </div>
@@ -1601,13 +1572,6 @@ const destinations = stationRoutes
                 <path d="M10 16V4M4 10l6-6 6 6"></path>
               </svg>
               <span>Back to top of platform</span>
-            </a>
-
-            <a
-              class="text-ink-primary decoration-signal-terracotta hover:text-signal-terracotta-ink inline-flex min-h-11 items-center gap-1.5 font-sans text-[.8125rem] font-bold underline decoration-1 underline-offset-[.3rem] transition-colors duration-200"
-              href="#board"
-            >
-              <span>Return to station board</span>
             </a>
           </div>
         </div>
@@ -1663,8 +1627,7 @@ const destinations = stationRoutes
       label: "Morning",
       announcement:
         "Station atmosphere set to Morning, 07:00. Dewy morning mist and soft golden sun.",
-      noticeNote:
-        "Crisp morning air across the platform. The rooms below are open whenever you’d like to explore.",
+      noticeNote: "The morning air is crisp across the platform.",
       bgColor: "var(--sky-morning)",
       imgFilter: "brightness(1.02) saturate(1.02)",
       sun: { x: 0, y: 0, alpha: 1 },
@@ -1678,8 +1641,7 @@ const destinations = stationRoutes
       label: "Midday",
       announcement:
         "Station atmosphere set to Midday, 12:00. Clear high sun over the countryside.",
-      noticeNote:
-        "High sun over the fields. Take your time wandering through the rooms below.",
+      noticeNote: "The sun is high over the fields.",
       bgColor: "var(--sky-midday)",
       imgFilter: "brightness(1.06) saturate(1.08) contrast(1.02)",
       sun: { x: -210, y: -50, alpha: 1 },
@@ -1692,9 +1654,8 @@ const destinations = stationRoutes
       time: "17:30",
       label: "Sunset",
       announcement:
-        "Station atmosphere set to Sunset, 17:30. Warm terracotta golden hour and amber tracks.",
-      noticeNote:
-        "Golden light settling across the tracks. Stay a while or look through the rooms below.",
+        "Station atmosphere set to Sunset, 17:30. Warm evening light falls across the tracks.",
+      noticeNote: "Golden light is settling across the tracks.",
       bgColor: "var(--sky-dusk)",
       imgFilter:
         "sepia(0.24) saturate(1.25) brightness(0.96) hue-rotate(-12deg)",
@@ -1709,8 +1670,7 @@ const destinations = stationRoutes
       label: "Night",
       announcement:
         "Station atmosphere set to Night, 21:00. Quiet indigo night, crescent moon, and platform lanterns.",
-      noticeNote:
-        "Platform lanterns are lit. There’s no rush—stay as long as you’d like.",
+      noticeNote: "The platform lanterns are lit.",
       bgColor: "var(--sky-night)",
       imgFilter:
         "brightness(0.68) contrast(1.15) saturate(0.85) hue-rotate(185deg)",

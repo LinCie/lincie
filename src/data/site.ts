@@ -26,7 +26,7 @@ export const site: SiteConfig = {
   name: "LinCie Station",
   title: "LinCie | Software Engineering Trainee & Backend Developer",
   description:
-    "LinCie is a software engineering trainee at Sea Labs Indonesia building Go and TypeScript backends, careful PostgreSQL schemas, and handcrafted websites.",
+    "I’m LinCie, a software engineering trainee at Sea Labs Indonesia. I build Go and TypeScript backends, design PostgreSQL schemas, and make websites by hand.",
   locale: "en_US",
   language: "en",
   author: {

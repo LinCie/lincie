@@ -27,15 +27,15 @@ export const thoughts: Thought[] = [
     status: "published",
     statusLabel: "Passenger Note #1",
     summary:
-      "Why studying business management and marketing didn't delay engineering: it gave database schemas, idempotency, and API contracts a human reason to exist.",
+      "How studying business management and marketing shaped the way I think about database schemas, idempotency, and API contracts.",
     excerpt:
-      "Code does not exist in an empty room. When you've watched an operations team wrestle with fragile spreadsheets and manual reconciliation, an index scan isn't an abstract metric; it's someone's afternoon given back.",
+      "I’ve watched operations teams lose afternoons to fragile spreadsheets and manual reconciliation. That experience shapes how I think about query performance and the time a faster system can give back.",
     paragraphs: [
-      "When people hear that I transitioned into software engineering after completing a degree in Marketing Management and Business Administration, they often assume it was an abrupt detour, a complete departure from one discipline into another. In practice, the opposite has been true.",
-      "In business school, we studied supply chains, consumer psychology, and operational friction. We mapped bottlenecks where human hours were squandered manually fixing mismatched invoice numbers or waiting for slow inventory tallies. When I began writing Go and TypeScript and architecting relational schemas in PostgreSQL, I didn't see lines of code as syntax exercises; I saw them as operational pipelines.",
-      "A database table is not just data storage; it is an organizational agreement about reality. A slow SQL query is not merely high latency on a dashboard; it is a warehouse worker waiting for a barcode scanner to beep before they can load the next truck. An idempotent API is not just a defensive distributed systems pattern; it is ensuring that a customer is never billed twice when a mobile connection flickers on a rural train.",
-      "Entering Sea Labs Indonesia as a Software Engineering Trainee reinforced this perspective. Surrounded by distributed infrastructure and massive transaction volumes, technical rigor is non-negotiable. But the questions that guide my engineering choices remain human: Does this system fail gracefully? Does it protect the people depending on it? Is it simple enough that another engineer can maintain it with clarity at 2:00 AM?",
-      "Engineering without empathy produces fragile complexity. Business empathy without engineering rigor produces good intentions that crash under load. Bridging the two is the work I care to do.",
+      "People often assume my move into software engineering was an abrupt detour after a degree in Marketing Management and Business Administration. I’ve found that much of what I studied still helps me build software.",
+      "In business school, we studied supply chains, consumer psychology, and the things that slow operations down. We mapped bottlenecks where people spent hours fixing mismatched invoice numbers by hand or waiting for inventory tallies. When I began writing Go and TypeScript and designing relational schemas in PostgreSQL, I thought about how the code could help those operations run.",
+      "A database table records what an organization agrees is true. If a SQL query is slow, a warehouse worker may have to wait for a barcode scanner to beep before loading the next truck. Idempotency matters because a customer whose mobile connection flickers on a rural train should never be billed twice.",
+      "Joining Sea Labs Indonesia as a Software Engineering Trainee reinforced this view. Working with distributed infrastructure and large transaction volumes requires technical rigor. I keep asking: Does this system fail gracefully? Does it protect the people depending on it? Could another engineer understand and maintain it at 2:00 AM?",
+      "I want to build systems that account for the people using them and hold up under load. Ignoring either side leaves people with software they can’t depend on.",
     ],
     stationNote:
       "Written at the station desk before the morning departure. Tended with care in Jakarta.",
@@ -52,15 +52,15 @@ export const thoughts: Thought[] = [
     status: "published",
     statusLabel: "Passenger Note #2",
     summary:
-      "Rejecting the frantic copy-paste velocity of modern software in favor of disciplined SQL schemas, measured concurrency, and quiet maintenance.",
+      "Why I take time over SQL schemas, concurrency, and maintenance, even when there’s pressure to ship quickly.",
     excerpt:
-      "Rushing code creates an illusion of velocity that is paid for later in late-night incident reviews. Tending a backend takes the patience of a farmer: preparing the soil before planting the seed.",
+      "Time saved by rushing code can turn into late-night incident reviews. I’d rather spend that time on the schema and failure cases before they become problems in production.",
     paragraphs: [
-      "Much of modern software development is organized around frantic urgency. Frameworks promise full-stack applications in thirty seconds, AI tools emit reams of unreviewed boilerplate, and feature velocity is celebrated while architectural maintenance is treated as an afterthought.",
-      "I prefer to think about software the way one tends land. You do not shout at rice seedlings to make them grow faster. You ensure the irrigation channels are unblocked, the soil has the right minerals, and the boundaries between plots are clearly trenched.",
-      "In backend systems, 'soil' is your database schema and data models. If your relations are muddy, your constraints lax, and your transactions careless, no amount of clever application code will save you from corrupted states and sluggish queries. But when the schema is clean, normalized where needed, and indexed for actual access patterns, the rest of the application breathes easily.",
-      "Writing clean Go or TypeScript backend services is an exercise in restraint. It means saying no to premature abstractions, avoiding three layers of indirection where a single function is crystal clear, and taking time to write deterministic tests that simulate real network failures.",
-      "Quiet systems run unnoticed. When a backend is well-tended, nobody talks about it because it simply does its job day after day, steady as the morning train.",
+      "Software development often feels hurried. Frameworks promise full-stack applications in thirty seconds. AI tools produce pages of boilerplate that nobody has reviewed. Shipping features gets more attention than maintaining the architecture behind them.",
+      "I like the comparison with tending a field. Rice seedlings need clear irrigation channels, the right minerals in the soil, and well-defined boundaries between plots. Rushing them won’t help.",
+      "The database schema and data models need that preparation too. Unclear relationships, weak constraints, and careless transactions can leave you with corrupted data and slow queries that application code alone can’t fix. I try to keep schemas clear, normalize where needed, and choose indexes for the queries the application actually runs.",
+      "When writing Go or TypeScript services, I avoid abstractions until I need them. I’d rather use one clear function than three layers of indirection. I also take time to write deterministic tests that simulate real network failures.",
+      "A backend that reliably does its job each day rarely gets much attention. I’m happy with that.",
     ],
     stationNote: "Left on the passenger bench beside the open field view.",
   },
@@ -75,13 +75,13 @@ export const thoughts: Thought[] = [
     status: "in-preparation",
     statusLabel: "Resting on the desk · In preparation",
     summary:
-      "Observations from navigating distributed systems, large engineering teams, and the discipline required when millions of transactions touch the database.",
+      "What I’m learning about distributed systems, working in a large engineering team, and handling millions of database transactions.",
     excerpt:
-      "Currently being drafted at the corner desk. Observations on testing discipline, reading unfamiliar codebases with humility, and learning to measure twice before changing a schema.",
+      "I’m drafting notes on testing, finding my way through unfamiliar codebases, and checking assumptions before changing a schema.",
     paragraphs: [
-      "Currently being penned at the station desk.",
-      "Notes on navigating high-concurrency systems, learning from senior mentors at Sea Labs, and cultivating calm focus inside large-scale distributed architectures.",
+      "I’m still drafting this at the station desk.",
+      "It covers working with high-concurrency systems, learning from senior mentors at Sea Labs, and staying focused when working on large distributed systems.",
     ],
-    stationNote: "Draft in progress. Will be shared when the thoughts settle.",
+    stationNote: "Draft in progress. I’ll share it when it’s ready.",
   },
 ];

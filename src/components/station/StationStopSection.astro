@@ -15,7 +15,7 @@ const {
   currentRoute,
   stationId,
   title = "Choose another station stop",
-  subtitle = "Six direct routes connect the station’s current rooms and working spaces. Choose a stop to keep wandering, or return to the main platform.",
+  subtitle = "Visit another room or return to the main platform.",
   class: className = "",
 } = Astro.props;
 
@@ -124,10 +124,10 @@ const nextStation = stationRoutes[nextIndex];
             id="destination-list-title"
             class="text-ink-primary font-serif text-xl font-normal md:text-2xl"
           >
-            Main Line Stops
+            Main line stops
           </h3>
           <p class="text-ink-secondary mt-1 text-xs">
-            Six current routes connect the station’s rooms and working spaces.
+            Six stops, from the platform to the letterbox.
           </p>
         </div>
         <span

@@ -70,7 +70,7 @@ const targetEmail = site.contactEmail;
 
 <MainLayout
   title="Contact LinCie | Letterbox, Email & GitHub"
-  description="Reach LinCie by email or GitHub. Three letter intents for saying hello, project inquiries, or open questions. No autoresponders, no sales funnels."
+  description="Email LinCie to say hello, discuss a project, or ask a question. You can also find my work on GitHub. No autoresponders or sales funnels."
   currentRoute="/connect"
   pageType="ContactPage"
   breadcrumbs={[
@@ -119,10 +119,9 @@ const targetEmail = site.contactEmail;
         <p
           class="mt-4 font-serif text-[clamp(1.15rem,2.2vw,1.4rem)] leading-[1.45] text-[#5f665c]"
         >
-          A quiet wooden desk by the station window where mail is gathered and
-          sent. Whether you're passing by to say hello, exploring collaboration
-          on backend systems or bespoke websites, or sharing an open reflection,
-          there is always room for a thoughtful note.
+          Leave a note at the desk by the station window. Say hello, ask about
+          working together on backend systems or custom websites, or share a
+          thought.
         </p>
       </div>
 
@@ -141,14 +140,14 @@ const targetEmail = site.contactEmail;
           <span
             class="font-sans text-xs font-bold tracking-[0.04em] text-[#2d332b] uppercase"
           >
-            Desk Open · Direct Mail &amp; GitHub
+            Desk open · Email &amp; GitHub
           </span>
         </div>
         <p
           class="font-sans text-xs leading-relaxed text-[#5f665c] sm:max-w-[48ch] sm:text-right"
         >
-          No automated autoresponders or marketing funnels. Direct, unhurried
-          correspondence between humans.
+          Email comes straight to me. I don't use autoresponders or marketing
+          funnels.
         </p>
       </div>
     </div>
@@ -165,12 +164,11 @@ const targetEmail = site.contactEmail;
           id="desk-heading"
           class="font-serif text-[clamp(1.85rem,3.6vw,2.8rem)] leading-[1.12] font-normal tracking-[-0.025em] text-[#2d332b]"
         >
-          Choose your letter intent
+          What would you like to write about?
         </h2>
         <p class="mt-3 text-base leading-[1.65] text-[#5f665c]">
-          Selecting an intent prepares a tailored letter blueprint with the
-          right subject line and gentle prompts. Choose whichever feels closest
-          to why you stopped by.
+          Pick a topic to fill in the email subject and get a few suggestions
+          for what to include.
         </p>
       </div>
 
@@ -252,10 +250,10 @@ const targetEmail = site.contactEmail;
               <span
                 class="font-sans text-xs font-bold tracking-[0.05em] text-[#5f665c] uppercase"
               >
-                Prepared Letter Blueprint
+                Your email draft
               </span>
               <p class="font-serif text-base font-normal text-[#2d332b]">
-                Station Dispatch Box
+                Station letterbox
               </p>
             </div>
           </div>
@@ -332,7 +330,7 @@ const targetEmail = site.contactEmail;
               class="rounded-xl border border-[#c4b49d]/60 bg-[#fffdf8] p-4 text-xs leading-relaxed text-[#5f665c]"
             >
               <p class="mb-2 font-semibold text-[#2d332b]">
-                Thought starters you might include:
+                A few things you could mention:
               </p>
               <ul
                 id="blueprint-prompts"
@@ -351,8 +349,8 @@ const targetEmail = site.contactEmail;
           aria-live="polite"
           class="mt-4 hidden rounded-lg border border-[#6c895f]/50 bg-[#dce7c9]/40 px-3.5 py-2 text-xs font-medium text-[#2d332b]"
         >
-          ✓ Address copied to clipboard (contact@lincie.me). Ready to paste into
-          your mail app!
+          Address copied to clipboard (contact@lincie.me). You can paste it into
+          your mail app.
         </div>
 
         <!-- Action Row -->
@@ -364,7 +362,7 @@ const targetEmail = site.contactEmail;
             href={`mailto:${targetEmail}?subject=${encodeURIComponent(defaultIntent.subject)}&body=${defaultIntent.bodyTemplate}`}
             class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[#b8614b] bg-[#b8614b] px-6 py-3 font-sans text-sm font-bold text-[#fffdf8] shadow-xs transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#843d2f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] active:scale-[0.98] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
           >
-            <span>Open in Mail Client</span>
+            <span>Open in your mail app</span>
             <svg
               class="size-4 fill-none [stroke:currentColor] [stroke-width:2] [stroke-linecap:round] [stroke-linejoin:round]"
               viewBox="0 0 24 24"
@@ -382,7 +380,7 @@ const targetEmail = site.contactEmail;
             rel="noopener noreferrer"
             class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[#c4b49d] bg-[#fffdf8] px-5 py-3 font-sans text-sm font-semibold text-[#2d332b] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[#b8614b] hover:text-[#b8614b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
           >
-            <span>Open via Webmail (Gmail)</span>
+            <span>Open in Gmail</span>
             <svg
               class="size-3.5 fill-none [stroke:currentColor] [stroke-width:2] [stroke-linecap:round] [stroke-linejoin:round]"
               viewBox="0 0 24 24"
@@ -412,12 +410,12 @@ const targetEmail = site.contactEmail;
             id="channels-heading"
             class="font-serif text-[clamp(1.85rem,3.6vw,2.8rem)] leading-[1.12] font-normal tracking-[-0.025em] text-[#2d332b]"
           >
-            Station Rhythm &amp; Correspondence
+            When to expect a reply
           </h2>
           <p class="mt-4 text-base leading-[1.65] text-[#5f665c]">
-            LinCie is currently a software engineering trainee at Sea Labs
-            Indonesia. Time is treasured for quiet systems craft, learning deep
-            backend primitives, and resting.
+            I'm a software engineering trainee at Sea Labs Indonesia. I spend
+            time building systems and learning backend fundamentals, and I make
+            time to rest.
           </p>
 
           <div class="mt-8 space-y-4">
@@ -426,16 +424,15 @@ const targetEmail = site.contactEmail;
                 class="flex items-center gap-2 text-xs font-bold tracking-[0.04em] text-[#6c895f] uppercase"
               >
                 <span class="size-2 rounded-full bg-[#6c895f]"></span>
-                <span>Response Pace</span>
+                <span>Reply time</span>
               </div>
               <h3 class="mt-2 font-serif text-lg font-normal text-[#2d332b]">
-                Thoughtful &amp; Unhurried
+                Usually within 2 to 4 days
               </h3>
               <p class="mt-1 text-xs leading-relaxed text-[#5f665c]">
-                I read every genuine note that arrives at the desk. You can
-                expect a human reply within 2 to 4 days. Because I prioritize
-                deep focus over constant inbox triage, there is no artificial
-                5-minute autoresponder.
+                I read every genuine note and usually reply within 2 to 4 days.
+                I check email around focused work, so you won't get an instant
+                reply.
               </p>
             </div>
 
@@ -444,16 +441,15 @@ const targetEmail = site.contactEmail;
                 class="flex items-center gap-2 text-xs font-bold tracking-[0.04em] text-[#b8614b] uppercase"
               >
                 <span class="size-2 rounded-full bg-[#b8614b]"></span>
-                <span>What Stays Outside the Station</span>
+                <span>Unwanted mail</span>
               </div>
               <h3 class="mt-2 font-serif text-lg font-normal text-[#2d332b]">
-                Zero Spam, Zero Scarcity
+                What I filter out
               </h3>
               <p class="mt-1 text-xs leading-relaxed text-[#5f665c]">
-                Automated mass sales outreach, unsolicited recruitment blasts,
-                and SEO backlink pitches are filtered out. Grounded questions,
-                collaborative craft inquiries, and warm hellos are always
-                welcomed.
+                I filter out automated sales emails, unsolicited recruitment
+                blasts, and SEO backlink pitches. Questions, project inquiries,
+                and hellos are welcome.
               </p>
             </div>
           </div>
@@ -464,11 +460,11 @@ const targetEmail = site.contactEmail;
           <h2
             class="font-serif text-[clamp(1.85rem,3.6vw,2.8rem)] leading-[1.12] font-normal tracking-[-0.025em] text-[#2d332b]"
           >
-            Direct Channels
+            Email and GitHub
           </h2>
           <p class="mt-4 text-base leading-[1.65] text-[#5f665c]">
-            If you prefer direct routes without the blueprint helper, here are
-            the official coordinates:
+            You can also email me without a template or browse my work on
+            GitHub.
           </p>
 
           <div class="mt-8 space-y-4">
@@ -480,9 +476,11 @@ const targetEmail = site.contactEmail;
                 class="flex items-center justify-between gap-2 text-xs text-[#5f665c]"
               >
                 <span class="font-bold tracking-wider text-[#2d332b] uppercase">
-                  Direct Email
+                  Email
                 </span>
-                <span class="font-semibold text-[#6c895f]">Primary Route</span>
+                <span class="font-semibold text-[#6c895f]"
+                  >Best way to reach me</span
+                >
               </div>
               <h3 class="mt-2 font-mono text-base text-[#2d332b]">
                 <a
@@ -493,8 +491,8 @@ const targetEmail = site.contactEmail;
                 </a>
               </h3>
               <p class="mt-2 text-xs leading-relaxed text-[#5f665c]">
-                For letters, questions, and project collaboration notes. Sent
-                straight to my personal inbox.
+                Letters, questions, and project inquiries go to my personal
+                inbox.
               </p>
               <div class="mt-4">
                 <a
@@ -515,9 +513,9 @@ const targetEmail = site.contactEmail;
                 class="flex items-center justify-between gap-2 text-xs text-[#5f665c]"
               >
                 <span class="font-bold tracking-wider text-[#2d332b] uppercase">
-                  Code &amp; Repositories
+                  Code &amp; repositories
                 </span>
-                <span class="font-semibold text-[#5f665c]">Open Platform</span>
+                <span class="font-semibold text-[#5f665c]">Public work</span>
               </div>
               <h3 class="mt-2 font-serif text-lg font-normal text-[#2d332b]">
                 <a
@@ -530,8 +528,8 @@ const targetEmail = site.contactEmail;
                 </a>
               </h3>
               <p class="mt-2 text-xs leading-relaxed text-[#5f665c]">
-                Follow ongoing open-source experiments, backend architectures,
-                schema designs, and public learning.
+                Browse my open-source experiments, backend architecture and
+                schema designs, and notes on what I'm learning.
               </p>
               <div class="mt-4">
                 <a
