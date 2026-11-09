@@ -34,7 +34,7 @@ export const thoughts: Thought[] = [
       "People often assume my move into software engineering was an abrupt detour after a degree in Marketing Management and Business Administration. I’ve found that much of what I studied still helps me build software.",
       "In business school, we studied supply chains, consumer psychology, and the things that slow operations down. We mapped bottlenecks where people spent hours fixing mismatched invoice numbers by hand or waiting for inventory tallies. When I began writing Go and TypeScript and designing relational schemas in PostgreSQL, I thought about how the code could help those operations run.",
       "A database table records what an organization agrees is true. If a SQL query is slow, a warehouse worker may have to wait for a barcode scanner to beep before loading the next truck. Idempotency matters because a customer whose mobile connection flickers on a rural train should never be billed twice.",
-      "Joining Sea Labs Indonesia as a Software Engineering Trainee reinforced this view. Working with distributed infrastructure and large transaction volumes requires technical rigor. I keep asking: Does this system fail gracefully? Does it protect the people depending on it? Could another engineer understand and maintain it at 2:00 AM?",
+      "Joining Shopee as a Software Engineering Trainee reinforced this view. Working with distributed infrastructure and large transaction volumes requires technical rigor. I keep asking: Does this system fail gracefully? Does it protect the people depending on it? Could another engineer understand and maintain it at 2:00 AM?",
       "I want to build systems that account for the people using them and hold up under load. Ignoring either side leaves people with software they can’t depend on.",
     ],
     stationNote:
@@ -66,10 +66,10 @@ export const thoughts: Thought[] = [
   },
   {
     slug: "what-sea-labs-teaches-about-scale",
-    title: "What Trainee Life at Sea Labs Teaches About Quiet Scale",
+    title: "What Trainee Life at Shopee Teaches About Quiet Scale",
     poeticContext: "Dusk light · Distant signal bell",
     sensoryWeather: "Amber light across the platform, evening quiet settles in",
-    topic: "Sea Labs Trainee",
+    topic: "Shopee Trainee",
     date: "April 2026 (Upcoming)",
     isoDate: "2026-04",
     status: "in-preparation",
@@ -80,7 +80,7 @@ export const thoughts: Thought[] = [
       "I’m drafting notes on testing, finding my way through unfamiliar codebases, and checking assumptions before changing a schema.",
     paragraphs: [
       "I’m still drafting this at the station desk.",
-      "It covers working with high-concurrency systems, learning from senior mentors at Sea Labs, and staying focused when working on large distributed systems.",
+      "It covers working with high-concurrency systems, learning from senior mentors at Shopee, and staying focused when working on large distributed systems.",
     ],
     stationNote: "Draft in progress. I’ll share it when it’s ready.",
   },

@@ -26,14 +26,14 @@ export const site: SiteConfig = {
   name: "LinCie Station",
   title: "LinCie | Software Engineering Trainee & Backend Developer",
   description:
-    "I’m LinCie, a software engineering trainee at Sea Labs Indonesia. I build Go and TypeScript backends, design PostgreSQL schemas, and make websites by hand.",
+    "I’m LinCie, a software engineering trainee at Shopee. I build Go and TypeScript backends, design PostgreSQL schemas, and make websites by hand.",
   locale: "en_US",
   language: "en",
   author: {
     name: "LinCie",
     alternateName: "Lincie",
     jobTitle: "Software Engineering Trainee",
-    organization: "Sea Labs Indonesia",
+    organization: "PT Shopee International Indonesia",
     github: "https://github.com/LinCie",
   },
   contactEmail: "contact@lincie.me",

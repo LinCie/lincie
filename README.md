@@ -2,7 +2,7 @@
 
 > Welcome. You made it here. Take your time.
 
-Hi, I’m **LinCie** — a software engineering trainee at **Sea Labs Indonesia (Shopee)** and a backend-focused engineer from Indonesia.
+Hi, I’m **LinCie** — a software engineering trainee at **Shopee** and a backend-focused engineer from Indonesia.
 
 I mostly build services with **Go** and **TypeScript**. I care about the parts of software that make life easier after launch: clear APIs, sensible data, fast queries, and systems that another person can understand without needing a tour guide.
 
