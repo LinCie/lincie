@@ -23,8 +23,8 @@ const projectsJsonLd = {
 ---
 
 <MainLayout
-  title="Projects | Backend & Web Systems Built by LinCie"
-  description="Four software projects: POS and ERP backends, an enterprise ERP rewrite, a logistics web platform, and a long-running Discord bot."
+  title="Projects | Backend & Full Stack Systems Built by LinCie"
+  description="Six software projects: a Jakarta newcomer survival map on Go and PostGIS, a multi-tenant POS/ERP on Bun, an enterprise ERP rewrite, a Discord music bot, a logistics web showcase, and LinCie Station."
   currentRoute="/projects"
   pageType="CollectionPage"
   breadcrumbs={[
@@ -147,23 +147,42 @@ const projectsJsonLd = {
                     <span aria-hidden="true">&rarr;</span>
                   </a>
 
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="inline-flex min-h-11 items-center gap-1.5 text-xs text-[#5f665c] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#2d332b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-                    >
-                      <span>Live Deployment</span>
-                      <svg
-                        class="size-3 fill-none [stroke:currentColor] [stroke-width:2]"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
+                  <div class="flex flex-wrap items-center gap-4">
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex min-h-11 items-center gap-1.5 text-xs text-[#5f665c] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#2d332b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
                       >
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
-                      </svg>
-                    </a>
-                  )}
+                        <span>Live Deployment</span>
+                        <svg
+                          class="size-3 fill-none [stroke:currentColor] [stroke-width:2]"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                        </svg>
+                      </a>
+                    )}
+                    {project.repoUrl && (
+                      <a
+                        href={project.repoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex min-h-11 items-center gap-1.5 text-xs text-[#5f665c] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#2d332b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+                      >
+                        <span>Source Code</span>
+                        <svg
+                          class="size-3 fill-none [stroke:currentColor] [stroke-width:2]"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
                 </div>
               </article>
             ))
@@ -186,8 +205,8 @@ const projectsJsonLd = {
             Harvested and in use
           </h2>
           <p class="mt-2.5 text-base leading-relaxed text-[#5f665c]">
-            Enterprise system rewrites and long-running production tools that
-            teams and communities use every day.
+            Completed backend systems, an enterprise ERP rewrite, and web
+            projects that are live in production.
           </p>
         </div>
 
@@ -251,23 +270,42 @@ const projectsJsonLd = {
                     <span aria-hidden="true">&rarr;</span>
                   </a>
 
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="inline-flex min-h-11 items-center gap-1.5 text-xs text-[#5f665c] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#2d332b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
-                    >
-                      <span>Live Deployment</span>
-                      <svg
-                        class="size-3 fill-none [stroke:currentColor] [stroke-width:2]"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
+                  <div class="flex flex-wrap items-center gap-4">
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex min-h-11 items-center gap-1.5 text-xs text-[#5f665c] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#2d332b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
                       >
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
-                      </svg>
-                    </a>
-                  )}
+                        <span>Live Deployment</span>
+                        <svg
+                          class="size-3 fill-none [stroke:currentColor] [stroke-width:2]"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                        </svg>
+                      </a>
+                    )}
+                    {project.repoUrl && (
+                      <a
+                        href={project.repoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex min-h-11 items-center gap-1.5 text-xs text-[#5f665c] underline decoration-[#c4b49d] decoration-1 underline-offset-4 transition-colors hover:text-[#2d332b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8614b]"
+                      >
+                        <span>Source Code</span>
+                        <svg
+                          class="size-3 fill-none [stroke:currentColor] [stroke-width:2]"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
                 </div>
               </article>
             ))
@@ -295,9 +333,10 @@ const projectsJsonLd = {
           <p
             class="mx-auto mt-4 max-w-[65ch] text-base leading-[1.7] text-[#5f665c]"
           >
-            The name comes from the patience backend work takes. I spend time on
-            database query plans and slow queries so people can rely on the
-            systems they use every day.
+            The name comes from the patience backend and full-stack work takes.
+            I spend time on relational schemas, row-level locking, pprof
+            profiles, and k6 soak tests so people can rely on the systems they
+            use every day.
           </p>
         </div>
       </div>
